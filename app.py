@@ -1,283 +1,132 @@
+"""
+Multilingual Social Media Toxicity Detector — Streamlit Application.
+
+Analyze text or fetch comments from YouTube, Reddit, or Twitter (X)
+to detect toxic content across 6 categories:
+  toxic, severe_toxic, obscene, threat, insult, identity_hate
+"""
+
+import logging
 import streamlit as st
-import joblib
-import re
-import requests
-import praw
-import numpy as np
-from googleapiclient.discovery import build
+
+from src.model import load_model, predict_comment, predict_batch
+from src.connectors.youtube import fetch_youtube_comments
+from src.connectors.reddit import fetch_reddit_comments
+from src.connectors.twitter import fetch_twitter_comments
+from src.config import config
+
+# ── Logging ────────────────────────────────────────────────
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
+)
+logger = logging.getLogger(__name__)
 
 
-# ================= API KEYS ================= #
-
-YOUTUBE_API_KEY = "AIzaSyCDhBg95V-UDoRuChcJwcMyYWnuEUn8-FU"
-TWITTER_BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAOPv4wEAAAAArNVHceIkQlrWkyNdtvhH08nZgRA%3DZ4iqV40sT8N0HD1jxFXdVNoBLmoAh5b7laHtlQuCl5YvP0hoKT"
-REDDIT_CLIENT_ID = "QQmegdOn_n5z_d3OBGqR5Q"
-REDDIT_CLIENT_SECRET = "qeh851_bN1MOE6TPs1uKYuq-16cg8w"
-REDDIT_USER_AGENT = "HateSpeechAnalyzerBot/0.1 by kv-05"
+# ── Cached Model Loading ──────────────────────────────────
+@st.cache_resource(show_spinner="Loading toxicity model...")
+def _load_model():
+    """Load and cache the model, vectorizer, and labels."""
+    return load_model()
 
 
-# ================= LOAD MODEL ================= #
-
-model = joblib.load("toxic_model.pkl")
-vectorizer = joblib.load("toxic_vectorizer.pkl")
-labels = joblib.load("toxic_columns.pkl")
-
-
-# ================= HINGLISH MAP ================= #
-
-hinglish_map = {
-    "chutiya":"idiot",
-    "chutya":"idiot",
-    "chodu":"idiot", 
-    "mc":"motherfucker",
-    "madarchod":"motherfucker",
-    "bc":"fuck",
-    "behenchod":"fuck",
-    "bhosdi":"prostitute",
-    "bhosdiwala":"prostitute",
-    "bhosdika":"prostitute",
-    "bhosdike":"prostitute",
-    "bhadwa":"pimp",
-    "bkl":"bastard",
-    "gandu":"asshole",
-    "gand":"asshole",   
-    "harami":"bastard",
-    "haramzada":"bastard",
-    "lauder":"dickhead",
-    "kamine":"bastard",
-    "kutta":"dog",
-    "nalla":"loser",
-    "bakwas":"nonsense",
-    "tatti":"shit",
-    "lodu":"idiot",
-    "lawde":"dick",
-    "lund":"dick"
-}
-
-
-# ================= TEXT CLEANING ================= #
-
-def preprocess_text(text):
-
-    text = str(text).lower()
-
-    text = re.sub(r"http\S+", " ", text)
-    text = re.sub(r"@\w+", " ", text)
-
-    # Hinglish normalization
-    for k,v in hinglish_map.items():
-        text = text.replace(k,v)
-
-    text = re.sub(r"[^\w\s]", " ", text)
-    text = re.sub(r"(.)\1{2,}", r"\1", text)
-
-    return text
-
-
-# ================= PREDICTION ================= #
-
-def predict_comment(text):
-
-    clean = preprocess_text(text)
-
-    vec = vectorizer.transform([clean])
-
-    try:
-        probs = model.predict_proba(vec)[0]
-    except:
-        probs = model.predict(vec)[0]
-
-    predictions = {}
-
-    for i,label in enumerate(labels):
-
-        if i < len(probs):
-            predictions[label] = float(round(probs[i],3))
-        else:
-            predictions[label] = 0.0
-
-    toxic_score = max(predictions.values())
-
-    if toxic_score > 0.7:
-        intensity = "High"
-    elif toxic_score > 0.4:
-        intensity = "Moderate"
-    else:
-        intensity = "Low"
-
-    return predictions,toxic_score,intensity
-
-
-# ================= YOUTUBE ================= #
-
-def fetch_youtube_comments(url):
-
-    video_id = url.split("v=")[-1].split("&")[0]
-
-    youtube = build("youtube","v3",developerKey=YOUTUBE_API_KEY)
-
-    request = youtube.commentThreads().list(
-        part="snippet",
-        videoId=video_id,
-        maxResults=10,
-        textFormat="plainText"
-    )
-
-    response = request.execute()
-
-    comments = []
-
-    for item in response.get("items",[]):
-        comments.append(
-            item["snippet"]["topLevelComment"]["snippet"]["textDisplay"]
-        )
-
-    return comments
-
-
-# ================= REDDIT ================= #
-
-def fetch_reddit_comments(url):
-
-    reddit = praw.Reddit(
-        client_id=REDDIT_CLIENT_ID,
-        client_secret=REDDIT_CLIENT_SECRET,
-        user_agent=REDDIT_USER_AGENT
-    )
-
-    submission = reddit.submission(url=url)
-
-    submission.comments.replace_more(limit=0)
-
-    return [c.body for c in submission.comments[:10]]
-
-
-# ================= TWITTER ================= #
-
-def fetch_twitter_comments(url):
-
-    match = re.search(r"status/(\d+)", url)
-
-    if not match:
-        return []
-
-    tweet_id = match.group(1)
-
-    headers = {"Authorization": f"Bearer {TWITTER_BEARER_TOKEN}"}
-
-    params = {
-        "query": f"conversation_id:{tweet_id}",
-        "max_results": 10,
-        "tweet.fields": "text"
-    }
-
-    response = requests.get(
-        "https://api.twitter.com/2/tweets/search/recent",
-        headers=headers,
-        params=params
-    )
-
-    if response.status_code != 200:
-        return []
-
-    data = response.json()
-
-    return [tweet["text"] for tweet in data.get("data",[])]
-
-
-# ================= STREAMLIT UI ================= #
-
+# ── Page Config ───────────────────────────────────────────
 st.set_page_config(
     page_title="Toxicity Detector",
     page_icon="🧠",
-    layout="wide"
+    layout="wide",
 )
 
 st.title("💬 Advanced Hate Speech & Toxicity Detector")
-
 st.markdown(
-"Analyze text or fetch comments from **YouTube**, **Reddit**, or **Twitter (X)**"
+    "Analyze text or fetch comments from **YouTube**, **Reddit**, or **Twitter (X)**"
 )
 
+# Load model once (cached across reruns)
+try:
+    model, vectorizer, labels = _load_model()
+except FileNotFoundError as e:
+    st.error(f"⚠️ Model files missing: {e}")
+    st.stop()
+except Exception as e:
+    st.error(f"⚠️ Failed to load model: {e}")
+    st.stop()
+
+# ── Sidebar ───────────────────────────────────────────────
 choice = st.sidebar.radio(
-"Choose Input Type",
-["📝 Custom Text","📺 YouTube","👽 Reddit","🐦 Twitter (X)"]
+    "Choose Input Type",
+    ["📝 Custom Text", "📺 YouTube", "👽 Reddit", "🐦 Twitter (X)"],
 )
 
 
-# ================= CUSTOM TEXT ================= #
+# ── Helper: display results for one comment ──────────────
+def _display_result(text_preview: str, preds, score, intensity, *, use_expander=False):
+    """Render toxicity results for a single comment."""
+    container = st.expander(text_preview, expanded=False) if use_expander else st
 
+    with container:
+        if score > config.TOXIC_THRESHOLD:
+            st.error("⚠️ Toxic Content Detected")
+        else:
+            st.success("✅ Safe Comment")
+
+        st.write("### Toxicity Breakdown")
+        for label, value in preds.items():
+            st.write(f"**{label}**: {value}")
+
+        st.progress(min(score, 1.0))
+        st.write(f"**Intensity**: {intensity}")
+
+
+# ── Custom Text Tab ──────────────────────────────────────
 if choice == "📝 Custom Text":
-
-    text = st.text_area("Type or paste text",height=150)
+    text = st.text_area("Type or paste text", height=150)
 
     if st.button("Analyze"):
-
         if text.strip():
-
-            preds,score,intensity = predict_comment(text)
-
-            if score > 0.5:
-                st.error("⚠️ Toxic Content Detected")
-            else:
-                st.success("✅ Safe Comment")
-
-            st.write("### Toxicity Breakdown")
-
-            for k,v in preds.items():
-                st.write(f"{k}: {v}")
-
-            st.progress(score)
-
-            st.write("Intensity:",intensity)
-
+            preds, score, intensity = predict_comment(text, model, vectorizer, labels)
+            _display_result(text[:100], preds, score, intensity)
         else:
             st.warning("Please enter text")
 
-
-# ================= SOCIAL MEDIA ================= #
-
+# ── Social Media Tabs ────────────────────────────────────
 else:
-
     url = st.text_input("Enter URL")
 
     if st.button("Fetch & Analyze"):
-
-        with st.spinner("Fetching comments..."):
-
-            if "YouTube" in choice:
-                comments = fetch_youtube_comments(url)
-
-            elif "Reddit" in choice:
-                comments = fetch_reddit_comments(url)
-
-            else:
-                comments = fetch_twitter_comments(url)
-
-        if not comments:
-            st.error("No comments found")
-
+        if not url.strip():
+            st.warning("Please enter a URL")
         else:
-
-            st.success(f"{len(comments)} comments fetched")
-
-            for c in comments:
-
-                preds,score,intensity = predict_comment(c)
-
-                with st.expander(c[:80]+"..."):
-
-                    if score > 0.5:
-                        st.error("⚠️ Toxic")
+            # Fetch comments with error handling
+            comments = []
+            try:
+                with st.spinner("Fetching comments..."):
+                    if "YouTube" in choice:
+                        comments = fetch_youtube_comments(url)
+                    elif "Reddit" in choice:
+                        comments = fetch_reddit_comments(url)
                     else:
-                        st.success("✅ Safe")
+                        comments = fetch_twitter_comments(url)
+            except (ValueError, RuntimeError) as e:
+                st.error(f"⚠️ {e}")
+            except Exception as e:
+                st.error(f"⚠️ Unexpected error: {e}")
+                logger.exception("Unexpected error fetching comments")
 
-                    for k,v in preds.items():
-                        st.write(f"{k}: {v}")
+            if not comments:
+                if not st.session_state.get("_error_shown"):
+                    st.info("No comments found.")
+            else:
+                st.success(f"✅ {len(comments)} comments fetched")
 
-                    st.progress(score)
+                # Batch prediction for efficiency
+                results = predict_batch(comments, model, vectorizer, labels)
 
-                    st.write("Intensity:",intensity)
-
+                for comment, (preds, score, intensity) in zip(comments, results):
+                    # Safe truncation that doesn't break mid-character
+                    preview = comment[:80]
+                    if len(comment) > 80:
+                        preview += "…"
+                    _display_result(preview, preds, score, intensity, use_expander=True)
 
 st.markdown("---")

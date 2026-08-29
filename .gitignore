@@ -1,0 +1,42 @@
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+.pytest_cache/
+
+# ===== Virtual Environment =====
+venv/
+.venv/
+env/
+.env
+
+# ===== Data & Models =====
+dataset/
+nltk_data/
+*.pkl
+*.pt
+muril_toxicity_model.pt
+submission.csv
+scratch/
+
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== Evaluation Outputs =====
+evaluation_results/
