@@ -29,6 +29,24 @@ class _Config:
     THRESHOLDS_PATH: Path = _PROJECT_ROOT / "toxic_thresholds.json"
     DATASET_DIR: Path = _PROJECT_ROOT / "dataset"
 
+    # ── MuRIL Multilingual Model Paths & Settings ───────────
+    MURIL_MODEL_NAME: str = "google/muril-base-cased"
+    MURIL_CHECKPOINT_PATH: Path = _PROJECT_ROOT / "muril_toxicity_model.pt"
+    MURIL_THRESHOLDS_PATH: Path = _PROJECT_ROOT / "evaluation_results" / "muril_optimized_thresholds.json"
+    
+    # Frozen Phase 4C validation-optimized per-label thresholds
+    FROZEN_MURIL_THRESHOLDS: dict = {
+        "toxic": 0.45,
+        "severe_toxic": 0.62,
+        "obscene": 0.65,
+        "threat": 0.59,
+        "insult": 0.61,
+        "identity_hate": 0.60,
+    }
+    DEFAULT_MODEL_TYPE: str = "muril"
+    MAX_SEQ_LENGTH: int = 64
+    BATCH_SIZE: int = 32
+
     # ── API Keys (loaded from .env) ────────────────────────
     @property
     def YOUTUBE_API_KEY(self) -> str:
