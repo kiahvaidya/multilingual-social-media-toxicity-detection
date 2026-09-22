@@ -192,14 +192,14 @@ def predict_comment_muril(
         raw_text,
         truncation=True,
         max_length=config.MAX_SEQ_LENGTH,
-        padding="max_length",
+        padding=True,
         return_tensors="pt",
     )
 
-    input_ids = encoding["input_ids"].to(device)
-    attention_mask = encoding["attention_mask"].to(device)
+    input_ids = encoding["input_ids"].to(device, non_blocking=True)
+    attention_mask = encoding["attention_mask"].to(device, non_blocking=True)
 
-    with torch.no_grad():
+    with torch.inference_mode():
         logits = model(input_ids, attention_mask)
         probs = torch.sigmoid(logits).squeeze(0).cpu().numpy()
 
@@ -230,6 +230,8 @@ def predict_batch_muril(
     progress_callback: Optional[Callable[[float], None]] = None,
 ) -> List[Tuple[Dict[str, float], float, str, Dict[str, bool]]]:
     """Predict toxicity for a batch of comments using MuRIL with batched tensors.
+
+    Optimized in Phase 5C with torch.inference_mode() and dynamic batch padding (padding=True).
 
     Parameters
     ----------
@@ -266,18 +268,19 @@ def predict_batch_muril(
         end_idx = min(start_idx + batch_size, total_samples)
         batch_texts = [str(t).strip() for t in texts[start_idx:end_idx]]
 
+        # Phase 5C: Dynamic padding (padding=True) avoids redundant padding compute for shorter batches
         encoding = tokenizer(
             batch_texts,
             truncation=True,
             max_length=config.MAX_SEQ_LENGTH,
-            padding="max_length",
+            padding=True,
             return_tensors="pt",
         )
 
-        input_ids = encoding["input_ids"].to(device)
-        attention_mask = encoding["attention_mask"].to(device)
+        input_ids = encoding["input_ids"].to(device, non_blocking=True)
+        attention_mask = encoding["attention_mask"].to(device, non_blocking=True)
 
-        with torch.no_grad():
+        with torch.inference_mode():
             logits = model(input_ids, attention_mask)
             batch_probs = torch.sigmoid(logits).cpu().numpy()
 
