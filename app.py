@@ -36,6 +36,7 @@ from src.moderation import (
     calculate_aggregate_statistics,
     get_review_status,
     set_review_status,
+    moderate_comment_with_context,
 )
 
 # ── Logging ────────────────────────────────────────────────
@@ -145,6 +146,13 @@ else:
         "**Threshold**: `0.50 Default`"
     )
 
+if config.JEV_ENABLED and config.JEV_ENDPOINT_URL:
+    st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Active (HTTP Provider)`")
+elif config.JEV_ENABLED:
+    st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Enabled (Unconfigured)`")
+else:
+    st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Disabled (Deterministic fallback)`")
+
 st.sidebar.markdown("---")
 
 # Session Review Stats
@@ -237,7 +245,10 @@ def _display_moderation_card(
     card_index: int = 0,
 ):
     """Render structured 3-tier moderation result card with human review actions."""
-    risk_level, badge_icon, explanation = classify_risk(preds, is_toxic_flags, thresholds)
+    ctx_res = moderate_comment_with_context(comment_text, preds, is_toxic_flags, thresholds)
+    risk_level = ctx_res.final_risk_level
+    badge_icon = ctx_res.final_badge_icon
+    explanation = ctx_res.final_explanation
     detected_categories = [lbl for lbl, flag in is_toxic_flags.items() if flag]
 
     # Generate persistent unique hash for session tracking
@@ -260,6 +271,21 @@ def _display_moderation_card(
             st.warning(f"🟡 **Moderator Review Recommended** — {explanation}")
         else:
             st.success(f"🟢 **Content Appears Safe** — {explanation}")
+
+        # Contextual Layer Info
+        if ctx_res.jev_invoked and ctx_res.jev_decision:
+            st.info(
+                f"⚖️ **JEV Contextual Assessment**: {ctx_res.jev_decision.reason}  \n"
+                f"• **Intent**: `{ctx_res.jev_decision.intent.value}` | "
+                f"**Provider**: `{ctx_res.jev_decision.provider_type.value}` | "
+                f"**Confidence**: `{ctx_res.jev_decision.confidence:.2f}`"
+            )
+        elif ctx_res.jev_status == "FAILED":
+            st.caption(f"⚠️ **JEV Fallback**: Service call failed ({ctx_res.jev_error}); fell back to deterministic moderation.")
+        elif ctx_res.is_ambiguous:
+            st.caption(f"ℹ️ **JEV Layer**: Ambiguous comment ({ctx_res.gate_reason}); JEV {ctx_res.jev_status.lower()}, using deterministic moderation.")
+        else:
+            st.caption("ℹ️ **JEV**: Bypassed (clear case)")
 
         # Metadata Row
         mcol1, mcol2, mcol3, mcol4 = st.columns(4)

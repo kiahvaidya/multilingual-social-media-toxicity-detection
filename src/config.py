@@ -80,6 +80,26 @@ class _Config:
     def REDDIT_USER_AGENT(self) -> str:
         return os.getenv("REDDIT_USER_AGENT", "ToxicityDetectorBot/1.0")
 
+    # ── JEV Contextual Moderation Settings (Phase 6A) ──────
+    @property
+    def JEV_ENABLED(self) -> bool:
+        return os.getenv("JEV_ENABLED", "false").lower() in ("true", "1", "yes")
+
+    @property
+    def JEV_ENDPOINT_URL(self) -> str:
+        return os.getenv("JEV_ENDPOINT_URL", "").strip()
+
+    @property
+    def JEV_API_KEY(self) -> str:
+        return os.getenv("JEV_API_KEY", "").strip()
+
+    @property
+    def JEV_TIMEOUT_SECONDS(self) -> float:
+        try:
+            return float(os.getenv("JEV_TIMEOUT_SECONDS", "3.0"))
+        except ValueError:
+            return 3.0
+
     # ── App Settings ───────────────────────────────────────
     TOXIC_THRESHOLD: float = 0.5
     MAX_COMMENTS: int = 10

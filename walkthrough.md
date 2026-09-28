@@ -160,3 +160,57 @@ Based **strictly on the empirical evidence gathered during Phase 5C**:
 3. **Optional Model Quantization (INT8 Dynamic Quantization)**:
    - *Evidence*: MuRIL CPU memory footprint is 3.93 GB and throughput is ~9.3 comments/sec on CPU.
    - *Recommendation*: Investigate PyTorch dynamic quantization (`torch.quantization.quantize_dynamic`) for the Linear layers in MuRIL to evaluate whether CPU throughput can reach 20–30 comments/sec without score degradation.
+
+---
+
+## 10. Phase 6A — JEV Contextual Decision Layer Implementation
+
+### 10.1 Motivation & Architectural Role
+Phase 5C qualitative analysis revealed that while MuRIL demonstrates high multilingual recall (90.0%), it exhibits a 63.3% false-positive rate on non-aggressive lexical profanity (*"Fuck yeah, we passed all tests!"*) and colloquial praise metaphors (*"Bro, you killed it!"*, *"Bhai bawaal banaya hai"*).
+
+**Phase 6A introduces the JEV (Judicial / Evaluative Verification) Contextual Decision Layer** to address these false positives without compromising the core model:
+- **MuRIL**: Remains the primary toxicity signal and feature detector. MuRIL weights are not retrained or modified.
+- **Frozen Thresholds**: Phase 4C validation-optimized thresholds (`toxic: 0.45`, `severe_toxic: 0.62`, `obscene: 0.65`, `threat: 0.59`, `insult: 0.61`, `identity_hate: 0.60`) remain strictly frozen.
+- **Deterministic Moderation**: Baseline 3-tier risk assessment (`classify_risk`) remains the deterministic foundation.
+- **Ambiguity Gate**: Filters traffic so JEV is **never invoked for clearly safe comments or unambiguous extreme threats**. JEV is called exclusively for borderline, conflicting, or slang-laden inputs where contextual intent is uncertain.
+
+### 10.2 Ambiguity Gate Rules (`should_invoke_jev`)
+1. **Unambiguous Severe Toxicity Bypass**: If a severe category (`threat`, `severe_toxic`, `identity_hate`) is flagged with probability $\ge 0.85$ and lacks praise metaphors, JEV is bypassed.
+2. **Review Tier Trigger**: Comments classified as `RiskLevel.REVIEW` by base moderation are routed to JEV.
+3. **Threshold Proximity**: Any category probability within `borderline_margin` ($\pm 0.08$) of its threshold triggers JEV.
+4. **Colloquial Slang & Profanity Markers**: Presence of common slang/profanity tokens with elevated score ($\ge 0.30$) triggers JEV.
+5. **Conflicting Signals**: Multiple categories flagged with moderate confidence ($< 0.75$) trigger JEV.
+6. **Clearly Safe Bypass**: Comments with no flags, low scores, and no slang markers bypass JEV.
+
+### 10.3 Provider Architecture & Strict Resolution
+- **`REAL_JEV` (`HTTPJEVDecisionProvider`)**: Invoked only when `JEV_ENABLED=true` and a valid `JEV_ENDPOINT_URL` is configured in environment variables.
+- **`JEV_UNAVAILABLE` / `DISABLED`**: When unconfigured, disabled, or if the network request times out or returns malformed data, the pipeline safely falls back to deterministic base moderation with zero service interruption.
+- **`MOCK_JEV` (`MockJEVDecisionProvider`)**: Exists strictly for offline regression testing and unit verification. `get_jev_provider()` **never** auto-selects MockJEV in production.
+
+### 10.4 Configuration
+Supported environment variables in `.env`:
+- `JEV_ENABLED` (default: `false`)
+- `JEV_ENDPOINT_URL` (default: `""`)
+- `JEV_API_KEY` (default: `""`)
+- `JEV_TIMEOUT_SECONDS` (default: `3.0`)
+
+### 10.5 Phase 6A Experimental Results (`scripts/run_phase6a_experiment.py`)
+Evaluated across the 60 curated Phase 5C multilingual probes (`evaluation_results/phase6a_experiment_results.json`):
+
+| Metric | Pipeline A (Deterministic Base) | Pipeline B (Real JEV Production) | Pipeline C (Mock Simulation)* |
+| :--- | :---: | :---: | :---: |
+| **Real JEV Configured** | N/A | **False (Not Configured)** | Simulation Only |
+| **Precision** | 0.5870 | **0.5870 (100% Parity)** | 0.8571 |
+| **Recall** | 0.9000 | **0.9000 (100% Parity)** | 1.0000 |
+| **F1 Score** | 0.7105 | **0.7105 (100% Parity)** | 0.9231 |
+| **False Positive Rate** | 0.6333 | **0.6333 (100% Parity)** | 0.1667 |
+| **False Negative Rate** | 0.1000 | **0.1000 (100% Parity)** | 0.0000 |
+| **JEV Invocation Rate** | 0.0000 | **0.0000** | 0.9333 |
+| **Fallback Rate** | 0.0000 | **0.9333 (100% of ambiguous)** | 0.0000 |
+
+*\* Pipeline C is a deterministic rule-based simulation exclusively used for unit regression tests. It is never presented as evidence of real external JEV service performance.*
+
+### 10.6 Limitations & Integrity Notes
+1. **No External JEV Vendor Claims**: Without a live, accredited external LLM endpoint configured, no claims regarding third-party model accuracy, latency, or vendor superiority are made.
+2. **Curated Probe Generalization**: The 60-probe evaluation set is a challenging qualitative probe set focused on edge cases, not a statistically balanced social media distribution.
+3. **Graceful Degradation Guarantee**: The system guarantees 100% uptime and identical Phase 5C output parity when JEV is unconfigured or unreachable.
