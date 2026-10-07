@@ -1,0 +1,1951 @@
+{
+  "benchmark": "Multi3Hate Held-Out Zero-Shot CLIP and Model B Late Fusion Evaluation",
+  "sample_counts": {
+    "total_instances": 600,
+    "positive_IN": 360,
+    "negative_IN": 240
+  },
+  "model_b_baseline": {
+    "tp": 57,
+    "tn": 224,
+    "fp": 16,
+    "fn": 303,
+    "precision": 0.7808,
+    "recall": 0.1583,
+    "f1": 0.2633,
+    "fpr": 0.0667,
+    "fnr": 0.8417,
+    "accuracy": 0.4683,
+    "pred_pos": 73,
+    "pred_neg": 527,
+    "total": 600
+  },
+  "clip_prompt_pairs": [
+    {
+      "pair_id": 1,
+      "pair_name": "Pair 1 (hateful vs benign)",
+      "positive_prompt": "a hateful meme",
+      "negative_prompt": "a benign meme",
+      "auroc": 0.5964,
+      "ap": 0.6976,
+      "precision_at_0.50": 0.6567,
+      "recall_at_0.50": 0.5472,
+      "f1_at_0.50": 0.597,
+      "fpr": 0.4292,
+      "fnr": 0.4528,
+      "tp": 197,
+      "fp": 103,
+      "tn": 137,
+      "fn": 163,
+      "score_mean_in_0": 0.4998,
+      "score_mean_in_1": 0.5005,
+      "mean_separation": 0.0007
+    },
+    {
+      "pair_id": 2,
+      "pair_name": "Pair 2 (hate speech vs without hate speech)",
+      "positive_prompt": "a meme containing hate speech",
+      "negative_prompt": "a meme without hate speech",
+      "auroc": 0.5644,
+      "ap": 0.6669,
+      "precision_at_0.50": 0.6054,
+      "recall_at_0.50": 0.9417,
+      "f1_at_0.50": 0.737,
+      "fpr": 0.9208,
+      "fnr": 0.0583,
+      "tp": 339,
+      "fp": 221,
+      "tn": 19,
+      "fn": 21,
+      "score_mean_in_0": 0.5016,
+      "score_mean_in_1": 0.5019,
+      "mean_separation": 0.0003
+    },
+    {
+      "pair_id": 3,
+      "pair_name": "Pair 3 (attacking protected group vs not)",
+      "positive_prompt": "a meme attacking a protected group",
+      "negative_prompt": "a meme that does not attack a protected group",
+      "auroc": 0.4624,
+      "ap": 0.5658,
+      "precision_at_0.50": 0.5353,
+      "recall_at_0.50": 0.2528,
+      "f1_at_0.50": 0.3434,
+      "fpr": 0.3292,
+      "fnr": 0.7472,
+      "tp": 91,
+      "fp": 79,
+      "tn": 161,
+      "fn": 269,
+      "score_mean_in_0": 0.4991,
+      "score_mean_in_1": 0.4989,
+      "mean_separation": -0.0002
+    },
+    {
+      "pair_id": 4,
+      "pair_name": "Pair 4 (discriminatory vs non-discriminatory)",
+      "positive_prompt": "a discriminatory meme",
+      "negative_prompt": "a non-discriminatory meme",
+      "auroc": 0.3985,
+      "ap": 0.5358,
+      "precision_at_0.50": 0.5083,
+      "recall_at_0.50": 0.1694,
+      "f1_at_0.50": 0.2542,
+      "fpr": 0.2458,
+      "fnr": 0.8306,
+      "tp": 61,
+      "fp": 59,
+      "tn": 181,
+      "fn": 299,
+      "score_mean_in_0": 0.4993,
+      "score_mean_in_1": 0.499,
+      "mean_separation": -0.0004
+    },
+    {
+      "pair_id": 5,
+      "pair_name": "Pair 5 (expressing prejudice vs neutral)",
+      "positive_prompt": "a meme expressing prejudice",
+      "negative_prompt": "a neutral meme",
+      "auroc": 0.5175,
+      "ap": 0.6197,
+      "precision_at_0.50": 0.6069,
+      "recall_at_0.50": 0.9778,
+      "f1_at_0.50": 0.7489,
+      "fpr": 0.95,
+      "fnr": 0.0222,
+      "tp": 352,
+      "fp": 228,
+      "tn": 12,
+      "fn": 8,
+      "score_mean_in_0": 0.5057,
+      "score_mean_in_1": 0.506,
+      "mean_separation": 0.0003
+    },
+    {
+      "pair_id": 6,
+      "pair_name": "Pair 6 (group targeting vs without group hostility)",
+      "positive_prompt": "a meme targeting a racial, religious, gender, or national group",
+      "negative_prompt": "a meme without group-targeted hostility",
+      "auroc": 0.6014,
+      "ap": 0.6907,
+      "precision_at_0.50": 0.6402,
+      "recall_at_0.50": 0.7167,
+      "f1_at_0.50": 0.6763,
+      "fpr": 0.6042,
+      "fnr": 0.2833,
+      "tp": 258,
+      "fp": 145,
+      "tn": 95,
+      "fn": 102,
+      "score_mean_in_0": 0.5008,
+      "score_mean_in_1": 0.5021,
+      "mean_separation": 0.0013
+    },
+    {
+      "pair_id": 7,
+      "pair_name": "Pair 7 (offensive hate vs harmless)",
+      "positive_prompt": "an offensive hate meme",
+      "negative_prompt": "a harmless meme",
+      "auroc": 0.633,
+      "ap": 0.7143,
+      "precision_at_0.50": 0.7017,
+      "recall_at_0.50": 0.4639,
+      "f1_at_0.50": 0.5585,
+      "fpr": 0.2958,
+      "fnr": 0.5361,
+      "tp": 167,
+      "fp": 71,
+      "tn": 169,
+      "fn": 193,
+      "score_mean_in_0": 0.4988,
+      "score_mean_in_1": 0.5002,
+      "mean_separation": 0.0014
+    },
+    {
+      "pair_id": 8,
+      "pair_name": "Pair 8 (hostility toward demographic vs no hostility)",
+      "positive_prompt": "a meme expressing hostility toward a demographic group",
+      "negative_prompt": "a meme expressing no hostility toward a demographic group",
+      "auroc": 0.5173,
+      "ap": 0.6165,
+      "precision_at_0.50": 0.6203,
+      "recall_at_0.50": 0.6444,
+      "f1_at_0.50": 0.6322,
+      "fpr": 0.5917,
+      "fnr": 0.3556,
+      "tp": 232,
+      "fp": 142,
+      "tn": 98,
+      "fn": 128,
+      "score_mean_in_0": 0.5002,
+      "score_mean_in_1": 0.5003,
+      "mean_separation": 0.0
+    }
+  ],
+  "prompt_robustness": {
+    "mean_score_across_all_prompts": 0.5009,
+    "median_score_across_all_prompts": 0.5004,
+    "std_across_prompts_per_sample_mean": 0.0027,
+    "pairwise_correlation": {
+      "P1": {
+        "P1": 1.0,
+        "P2": 0.4524,
+        "P3": -0.1188,
+        "P4": -0.3547,
+        "P5": 0.1841,
+        "P6": 0.4427,
+        "P7": 0.7427,
+        "P8": 0.1959
+      },
+      "P2": {
+        "P1": 0.4524,
+        "P2": 1.0,
+        "P3": 0.0152,
+        "P4": 0.0258,
+        "P5": 0.446,
+        "P6": 0.3965,
+        "P7": 0.5693,
+        "P8": 0.41
+      },
+      "P3": {
+        "P1": -0.1188,
+        "P2": 0.0152,
+        "P3": 1.0,
+        "P4": 0.0675,
+        "P5": 0.1154,
+        "P6": -0.1681,
+        "P7": -0.1263,
+        "P8": 0.2867
+      },
+      "P4": {
+        "P1": -0.3547,
+        "P2": 0.0258,
+        "P3": 0.0675,
+        "P4": 1.0,
+        "P5": 0.1514,
+        "P6": -0.2623,
+        "P7": -0.1982,
+        "P8": 0.3184
+      },
+      "P5": {
+        "P1": 0.1841,
+        "P2": 0.446,
+        "P3": 0.1154,
+        "P4": 0.1514,
+        "P5": 1.0,
+        "P6": 0.2697,
+        "P7": 0.4313,
+        "P8": 0.2734
+      },
+      "P6": {
+        "P1": 0.4427,
+        "P2": 0.3965,
+        "P3": -0.1681,
+        "P4": -0.2623,
+        "P5": 0.2697,
+        "P6": 1.0,
+        "P7": 0.4339,
+        "P8": -0.1724
+      },
+      "P7": {
+        "P1": 0.7427,
+        "P2": 0.5693,
+        "P3": -0.1263,
+        "P4": -0.1982,
+        "P5": 0.4313,
+        "P6": 0.4339,
+        "P7": 1.0,
+        "P8": 0.2895
+      },
+      "P8": {
+        "P1": 0.1959,
+        "P2": 0.41,
+        "P3": 0.2867,
+        "P4": 0.3184,
+        "P5": 0.2734,
+        "P6": -0.1724,
+        "P7": 0.2895,
+        "P8": 1.0
+      }
+    },
+    "mean_ensemble_eval_at_0.50": {
+      "auroc": 0.5905,
+      "ap": 0.6883,
+      "precision": 0.6307,
+      "recall": 0.8444,
+      "f1": 0.7221,
+      "fpr": 0.7417,
+      "fnr": 0.1556,
+      "tp": 304,
+      "fp": 178,
+      "tn": 62,
+      "fn": 56,
+      "pred_pos": 482,
+      "pred_neg": 118
+    }
+  },
+  "fusion_evaluations": [
+    {
+      "config_id": "1",
+      "config_name": "Pair 1 (hateful vs benign)",
+      "rule_b_clip_metrics": {
+        "tp": 197,
+        "tn": 137,
+        "fp": 103,
+        "fn": 163,
+        "precision": 0.6567,
+        "recall": 0.5472,
+        "f1": 0.597,
+        "fpr": 0.4292,
+        "fnr": 0.4528,
+        "accuracy": 0.5567,
+        "pred_pos": 300,
+        "pred_neg": 300,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 217,
+        "tn": 128,
+        "fp": 112,
+        "fn": 143,
+        "precision": 0.6596,
+        "recall": 0.6028,
+        "f1": 0.6299,
+        "fpr": 0.4667,
+        "fnr": 0.3972,
+        "accuracy": 0.575,
+        "pred_pos": 329,
+        "pred_neg": 271,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1212,
+        "delta_recall": 0.4445,
+        "delta_f1": 0.3666,
+        "delta_fpr": 0.4
+      }
+    },
+    {
+      "config_id": "2",
+      "config_name": "Pair 2 (hate speech vs without hate speech)",
+      "rule_b_clip_metrics": {
+        "tp": 339,
+        "tn": 19,
+        "fp": 221,
+        "fn": 21,
+        "precision": 0.6054,
+        "recall": 0.9417,
+        "f1": 0.737,
+        "fpr": 0.9208,
+        "fnr": 0.0583,
+        "accuracy": 0.5967,
+        "pred_pos": 560,
+        "pred_neg": 40,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 342,
+        "tn": 19,
+        "fp": 221,
+        "fn": 18,
+        "precision": 0.6075,
+        "recall": 0.95,
+        "f1": 0.7411,
+        "fpr": 0.9208,
+        "fnr": 0.05,
+        "accuracy": 0.6017,
+        "pred_pos": 563,
+        "pred_neg": 37,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1733,
+        "delta_recall": 0.7917,
+        "delta_f1": 0.4778,
+        "delta_fpr": 0.8541
+      }
+    },
+    {
+      "config_id": "3",
+      "config_name": "Pair 3 (attacking protected group vs not)",
+      "rule_b_clip_metrics": {
+        "tp": 91,
+        "tn": 161,
+        "fp": 79,
+        "fn": 269,
+        "precision": 0.5353,
+        "recall": 0.2528,
+        "f1": 0.3434,
+        "fpr": 0.3292,
+        "fnr": 0.7472,
+        "accuracy": 0.42,
+        "pred_pos": 170,
+        "pred_neg": 430,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 129,
+        "tn": 151,
+        "fp": 89,
+        "fn": 231,
+        "precision": 0.5917,
+        "recall": 0.3583,
+        "f1": 0.4464,
+        "fpr": 0.3708,
+        "fnr": 0.6417,
+        "accuracy": 0.4667,
+        "pred_pos": 218,
+        "pred_neg": 382,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1891,
+        "delta_recall": 0.2,
+        "delta_f1": 0.1831,
+        "delta_fpr": 0.3041
+      }
+    },
+    {
+      "config_id": "4",
+      "config_name": "Pair 4 (discriminatory vs non-discriminatory)",
+      "rule_b_clip_metrics": {
+        "tp": 61,
+        "tn": 181,
+        "fp": 59,
+        "fn": 299,
+        "precision": 0.5083,
+        "recall": 0.1694,
+        "f1": 0.2542,
+        "fpr": 0.2458,
+        "fnr": 0.8306,
+        "accuracy": 0.4033,
+        "pred_pos": 120,
+        "pred_neg": 480,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 112,
+        "tn": 169,
+        "fp": 71,
+        "fn": 248,
+        "precision": 0.612,
+        "recall": 0.3111,
+        "f1": 0.4125,
+        "fpr": 0.2958,
+        "fnr": 0.6889,
+        "accuracy": 0.4683,
+        "pred_pos": 183,
+        "pred_neg": 417,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1688,
+        "delta_recall": 0.1528,
+        "delta_f1": 0.1492,
+        "delta_fpr": 0.2291
+      }
+    },
+    {
+      "config_id": "5",
+      "config_name": "Pair 5 (expressing prejudice vs neutral)",
+      "rule_b_clip_metrics": {
+        "tp": 352,
+        "tn": 12,
+        "fp": 228,
+        "fn": 8,
+        "precision": 0.6069,
+        "recall": 0.9778,
+        "f1": 0.7489,
+        "fpr": 0.95,
+        "fnr": 0.0222,
+        "accuracy": 0.6067,
+        "pred_pos": 580,
+        "pred_neg": 20,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 353,
+        "tn": 11,
+        "fp": 229,
+        "fn": 7,
+        "precision": 0.6065,
+        "recall": 0.9806,
+        "f1": 0.7495,
+        "fpr": 0.9542,
+        "fnr": 0.0194,
+        "accuracy": 0.6067,
+        "pred_pos": 582,
+        "pred_neg": 18,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1743,
+        "delta_recall": 0.8223,
+        "delta_f1": 0.4862,
+        "delta_fpr": 0.8875
+      }
+    },
+    {
+      "config_id": "6",
+      "config_name": "Pair 6 (group targeting vs without group hostility)",
+      "rule_b_clip_metrics": {
+        "tp": 258,
+        "tn": 95,
+        "fp": 145,
+        "fn": 102,
+        "precision": 0.6402,
+        "recall": 0.7167,
+        "f1": 0.6763,
+        "fpr": 0.6042,
+        "fnr": 0.2833,
+        "accuracy": 0.5883,
+        "pred_pos": 403,
+        "pred_neg": 197,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 273,
+        "tn": 89,
+        "fp": 151,
+        "fn": 87,
+        "precision": 0.6439,
+        "recall": 0.7583,
+        "f1": 0.6964,
+        "fpr": 0.6292,
+        "fnr": 0.2417,
+        "accuracy": 0.6033,
+        "pred_pos": 424,
+        "pred_neg": 176,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1369,
+        "delta_recall": 0.6,
+        "delta_f1": 0.4331,
+        "delta_fpr": 0.5625
+      }
+    },
+    {
+      "config_id": "7",
+      "config_name": "Pair 7 (offensive hate vs harmless)",
+      "rule_b_clip_metrics": {
+        "tp": 167,
+        "tn": 169,
+        "fp": 71,
+        "fn": 193,
+        "precision": 0.7017,
+        "recall": 0.4639,
+        "f1": 0.5585,
+        "fpr": 0.2958,
+        "fnr": 0.5361,
+        "accuracy": 0.56,
+        "pred_pos": 238,
+        "pred_neg": 362,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 194,
+        "tn": 161,
+        "fp": 79,
+        "fn": 166,
+        "precision": 0.7106,
+        "recall": 0.5389,
+        "f1": 0.613,
+        "fpr": 0.3292,
+        "fnr": 0.4611,
+        "accuracy": 0.5917,
+        "pred_pos": 273,
+        "pred_neg": 327,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.0702,
+        "delta_recall": 0.3806,
+        "delta_f1": 0.3497,
+        "delta_fpr": 0.2625
+      }
+    },
+    {
+      "config_id": "8",
+      "config_name": "Pair 8 (hostility toward demographic vs no hostility)",
+      "rule_b_clip_metrics": {
+        "tp": 232,
+        "tn": 98,
+        "fp": 142,
+        "fn": 128,
+        "precision": 0.6203,
+        "recall": 0.6444,
+        "f1": 0.6322,
+        "fpr": 0.5917,
+        "fnr": 0.3556,
+        "accuracy": 0.55,
+        "pred_pos": 374,
+        "pred_neg": 226,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 248,
+        "tn": 94,
+        "fp": 146,
+        "fn": 112,
+        "precision": 0.6294,
+        "recall": 0.6889,
+        "f1": 0.6578,
+        "fpr": 0.6083,
+        "fnr": 0.3111,
+        "accuracy": 0.57,
+        "pred_pos": 394,
+        "pred_neg": 206,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1514,
+        "delta_recall": 0.5306,
+        "delta_f1": 0.3945,
+        "delta_fpr": 0.5416
+      }
+    },
+    {
+      "config_id": "Ensemble",
+      "config_name": "Mean Score Ensemble",
+      "rule_b_clip_metrics": {
+        "tp": 304,
+        "tn": 62,
+        "fp": 178,
+        "fn": 56,
+        "precision": 0.6307,
+        "recall": 0.8444,
+        "f1": 0.7221,
+        "fpr": 0.7417,
+        "fnr": 0.1556,
+        "accuracy": 0.61,
+        "pred_pos": 482,
+        "pred_neg": 118,
+        "total": 600
+      },
+      "rule_c_or_metrics": {
+        "tp": 313,
+        "tn": 59,
+        "fp": 181,
+        "fn": 47,
+        "precision": 0.6336,
+        "recall": 0.8694,
+        "f1": 0.733,
+        "fpr": 0.7542,
+        "fnr": 0.1306,
+        "accuracy": 0.62,
+        "pred_pos": 494,
+        "pred_neg": 106,
+        "total": 600
+      },
+      "deltas_vs_model_b": {
+        "delta_precision": -0.1472,
+        "delta_recall": 0.7111,
+        "delta_f1": 0.4697,
+        "delta_fpr": 0.6875
+      }
+    }
+  ],
+  "visual_complementarity": {
+    "using_mean_ensemble": {
+      "A_model_b_FN_clip_positive": {
+        "count": 256,
+        "percentage_of_total": 42.67,
+        "percentage_of_subset": 106.67,
+        "sample_examples": [
+          {
+            "meme_id": 2,
+            "language": "english",
+            "text": "So if i treat women like shit   i will do better with them? Cool!",
+            "image_filename": "2.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.387,
+            "clip_score": 0.5011
+          },
+          {
+            "meme_id": 2,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0905\u0917\u0930 \u092e\u0948\u0902 \u092e\u0939\u093f\u0932\u093e\u0913\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0917\u0928\u094d\u0926\u093e \u0935\u094d\u092f\u0935\u0939\u093e\u0930 \u0915\u0930\u0942\u0901\u0917\u093e    \u0924\u094b \u092e\u0948\u0902 \u0909\u0928\u0915\u0947 \u0938\u093e\u0925 \u092c\u0947\u0939\u0924\u0930 \u0915\u0930\u0942\u0901\u0917\u093e? \u092c\u0922\u093c\u093f\u092f\u093e!",
+            "image_filename": "2.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3347,
+            "clip_score": 0.5023
+          },
+          {
+            "meme_id": 3,
+            "language": "english",
+            "text": "So you're telling me   that Macbeth actually trusted three random witches.",
+            "image_filename": "3.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.297,
+            "clip_score": 0.5005
+          },
+          {
+            "meme_id": 4,
+            "language": "english",
+            "text": "so you felt depressed   because you were too fat?",
+            "image_filename": "4.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3973,
+            "clip_score": 0.5002
+          },
+          {
+            "meme_id": 4,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u0909\u0926\u093e\u0938 \u092e\u0939\u0938\u0942\u0938 \u0915\u0930\u0924\u0947 \u0925\u0947   \u0915\u094d\u092f\u094b\u0902\u0915\u093f \u0906\u092a \u092c\u0939\u0941\u0924 \u092e\u094b\u091f\u0947 \u0925\u0947?",
+            "image_filename": "4.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3032,
+            "clip_score": 0.5014
+          },
+          {
+            "meme_id": 12,
+            "language": "hindi",
+            "text": "\u0915\u0930\u094d\u091c \u092e\u0947\u0902 \u0921\u0942\u092c \u091c\u093e\u0924\u093e \u0939\u0948   \u0906\u091c\u093e\u0926\u0940 \u092b\u0948\u0932\u093e\u0928\u093e \u0936\u0941\u0930\u0942 \u0915\u0930\u0924\u093e \u0939\u0948",
+            "image_filename": "12.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3116,
+            "clip_score": 0.5012
+          },
+          {
+            "meme_id": 13,
+            "language": "english",
+            "text": "SEES COMMENTS ON YOUTUBE VIDEO OF NON-SPEAKING ENGLISH COUNTRY   ENGLISH PLEASE",
+            "image_filename": "13.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3966,
+            "clip_score": 0.5024
+          },
+          {
+            "meme_id": 13,
+            "language": "hindi",
+            "text": "\u0905\u0902\u0917\u094d\u0930\u0947\u091c\u0940 \u0928 \u092c\u094b\u0932\u0928\u0947 \u0935\u093e\u0932\u0947 \u0926\u0947\u0936 \u0915\u0947 \u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0935\u0940\u0921\u093f\u092f\u094b \u092a\u0930 \u091f\u093f\u092a\u094d\u092a\u0923\u093f\u092f\u093e\u0901 \u0926\u0947\u0916\u0940\u0902   \u0915\u0943\u092a\u092f\u093e \u0905\u0902\u0917\u094d\u0930\u0947\u091c\u0940 \u092c\u094b\u0932\u0947\u0902",
+            "image_filename": "13.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3009,
+            "clip_score": 0.5016
+          },
+          {
+            "meme_id": 15,
+            "language": "english",
+            "text": "IVY   30 YEARS LATER",
+            "image_filename": "15.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3285,
+            "clip_score": 0.5002
+          },
+          {
+            "meme_id": 15,
+            "language": "hindi",
+            "text": "\u0906\u0907\u0935\u0940   30 \u0938\u093e\u0932 \u092c\u093e\u0926",
+            "image_filename": "15.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3091,
+            "clip_score": 0.5006
+          }
+        ]
+      },
+      "B_both_true_positive": {
+        "count": 48,
+        "percentage_of_total": 8.0,
+        "percentage_of_subset": 20.0,
+        "sample_examples": [
+          {
+            "meme_id": 3,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u0948\u0915\u092c\u0947\u0925 \u0935\u093e\u0938\u094d\u0924\u0935 \u092e\u0947\u0902 \u0924\u0940\u0928 \u091a\u0941\u0921\u093c\u0948\u0932\u094b\u0902 \u092a\u0930 \u092d\u0930\u094b\u0938\u093e \u0915\u0930\u0924\u093e \u0925\u093e\u0964",
+            "image_filename": "3.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.5809,
+            "clip_score": 0.5016
+          },
+          {
+            "meme_id": 9,
+            "language": "english",
+            "text": "Support Our Troops, Motherfucker!   Or we'll lock your ass up for tax evasion!!!",
+            "image_filename": "9.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6501,
+            "clip_score": 0.5023
+          },
+          {
+            "meme_id": 9,
+            "language": "hindi",
+            "text": "\u0939\u092e\u093e\u0930\u0947 \u0938\u0948\u0928\u093f\u0915\u094b\u0902 \u0915\u093e \u0938\u092e\u0930\u094d\u0925\u0928 \u0915\u0930\u094b, \u092e\u093e\u0926\u0930\u091a\u094b\u0926!   \u092f\u093e \u0939\u092e \u0915\u0930 \u091a\u094b\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0924\u0941\u092e\u094d\u0939\u0947\u0902 \u091c\u0947\u0932 \u092e\u0947\u0902 \u092c\u0902\u0926 \u0915\u0930 \u0926\u0947\u0902\u0917\u0947!!!",
+            "image_filename": "9.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6696,
+            "clip_score": 0.5014
+          },
+          {
+            "meme_id": 20,
+            "language": "english",
+            "text": "MINORITY   NOT AT METRO TECH!!",
+            "image_filename": "20.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.5179,
+            "clip_score": 0.5015
+          },
+          {
+            "meme_id": 24,
+            "language": "hindi",
+            "text": "\u092e\u093f\u091f \u0930\u094b\u092e\u0928\u0940   \u0938\u092e\u0932\u0948\u0902\u0917\u093f\u0915 \u0939\u0948",
+            "image_filename": "24.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6287,
+            "clip_score": 0.5004
+          },
+          {
+            "meme_id": 33,
+            "language": "english",
+            "text": "SHUT UP OSAMA!   HE IS MY SON!",
+            "image_filename": "33.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6005,
+            "clip_score": 0.5018
+          },
+          {
+            "meme_id": 43,
+            "language": "english",
+            "text": "have a shitty name   like a jew",
+            "image_filename": "43.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6762,
+            "clip_score": 0.5029
+          },
+          {
+            "meme_id": 52,
+            "language": "english",
+            "text": "Love one another*   (Except faggots, they are gross)",
+            "image_filename": "52.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6426,
+            "clip_score": 0.5017
+          },
+          {
+            "meme_id": 55,
+            "language": "hindi",
+            "text": "\u092e\u0948\u0902 \u0924\u0941\u092e\u0938\u0947 \u091c\u093c\u094d\u092f\u093e\u0926\u093e \u0914\u0930\u0924 \u0939\u0942\u0901   \u092e\u0941\u091d\u0947 \u0914\u0930\u0924 \u0939\u094b\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0938\u0902\u0918\u0930\u094d\u0937 \u0915\u0930\u0928\u093e \u092a\u0921\u093c\u093e",
+            "image_filename": "55.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.5045,
+            "clip_score": 0.5013
+          },
+          {
+            "meme_id": 56,
+            "language": "hindi",
+            "text": "\u092e\u0948\u0902 \u0905\u092a\u0928\u0947 \u0938\u094d\u0924\u0928\u094b\u0902 \u0938\u0947 \u0926\u0942\u0927 \u0924\u094b \u0928\u0939\u0940\u0902 \u0928\u093f\u0915\u093e\u0932 \u092a\u093e\u090a\u0901\u0917\u0940   \u0932\u0947\u0915\u093f\u0928 \u092e\u0948\u0902 \u0905\u092a\u0928\u0947 \u0932\u093f\u0902\u0917 \u0915\u093e \u092b\u093e\u092f\u0926\u093e \u091c\u0930\u0942\u0930 \u0909\u0920\u093e \u0938\u0915\u0924\u0940 \u0939\u0942\u0901",
+            "image_filename": "56.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6739,
+            "clip_score": 0.5019
+          }
+        ]
+      },
+      "C_both_true_negative": {
+        "count": 59,
+        "percentage_of_total": 9.83,
+        "percentage_of_subset": 24.58,
+        "sample_examples": [
+          {
+            "meme_id": 6,
+            "language": "english",
+            "text": "so you're telling me   i can play xbox 6 of the 7 days of the week?",
+            "image_filename": "6.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3006,
+            "clip_score": 0.4995
+          },
+          {
+            "meme_id": 7,
+            "language": "english",
+            "text": "so you're telling me   you already adjusted our grades",
+            "image_filename": "7.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2967,
+            "clip_score": 0.4998
+          },
+          {
+            "meme_id": 11,
+            "language": "english",
+            "text": "a promise to me   was broken",
+            "image_filename": "11.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2995,
+            "clip_score": 0.5
+          },
+          {
+            "meme_id": 26,
+            "language": "english",
+            "text": "HOW I FEEL   WHEN THE KIDS ARE ASLEEP",
+            "image_filename": "26.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.4308,
+            "clip_score": 0.4984
+          },
+          {
+            "meme_id": 29,
+            "language": "english",
+            "text": "you picked a good day to work from home...   no one's here except me Kevin and Yaji !!!",
+            "image_filename": "29.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2977,
+            "clip_score": 0.4997
+          },
+          {
+            "meme_id": 34,
+            "language": "english",
+            "text": "1 pound fish   very very cheap",
+            "image_filename": "34.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3017,
+            "clip_score": 0.4996
+          },
+          {
+            "meme_id": 34,
+            "language": "hindi",
+            "text": "1 \u092a\u093e\u0909\u0902\u0921 \u092e\u091b\u0932\u0940   \u092c\u0939\u0941\u0924 \u092c\u0939\u0941\u0924 \u0938\u0938\u094d\u0924\u0940",
+            "image_filename": "34.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.326,
+            "clip_score": 0.4994
+          },
+          {
+            "meme_id": 36,
+            "language": "english",
+            "text": "when i try to duplicate your issue   i get 'out of memory' error.",
+            "image_filename": "36.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.297,
+            "clip_score": 0.4984
+          },
+          {
+            "meme_id": 57,
+            "language": "english",
+            "text": "call help desk   can't understand them",
+            "image_filename": "57.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3019,
+            "clip_score": 0.4986
+          },
+          {
+            "meme_id": 63,
+            "language": "english",
+            "text": "oh no i need to pay my hospital bills   joke, canada has free universal health care!",
+            "image_filename": "63.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2978,
+            "clip_score": 0.4998
+          }
+        ]
+      },
+      "D_model_b_TN_clip_false_positive": {
+        "count": 165,
+        "percentage_of_total": 27.5,
+        "percentage_of_subset": 68.75,
+        "sample_examples": [
+          {
+            "meme_id": 0,
+            "language": "english",
+            "text": "So You're telling me   You eat too much and you want to lose weight?",
+            "image_filename": "0.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3311,
+            "clip_score": 0.5004
+          },
+          {
+            "meme_id": 0,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0938\u0947 \u0915\u0939 \u0930\u0939\u0947 \u0939\u0948\u0902   \u0906\u092a \u092c\u0939\u0941\u0924 \u091c\u094d\u092f\u093e\u0926\u093e \u0916\u093e\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0906\u092a \u0905\u092a\u0928\u093e \u0935\u091c\u0928 \u0915\u092e \u0915\u0930\u0928\u093e \u091a\u093e\u0939\u0924\u0947 \u0939\u0948\u0902?",
+            "image_filename": "0.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3007,
+            "clip_score": 0.5017
+          },
+          {
+            "meme_id": 1,
+            "language": "english",
+            "text": "Hmmm...   Fried chicken you say",
+            "image_filename": "1.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3174,
+            "clip_score": 0.5019
+          },
+          {
+            "meme_id": 1,
+            "language": "hindi",
+            "text": "\u0939\u092e\u094d\u092e\u094d\u092e...   \u092b\u094d\u0930\u093e\u0907\u0921 \u091a\u093f\u0915\u0928 \u0906\u092a \u0915\u0939\u0924\u0947 \u0939\u0948\u0902",
+            "image_filename": "1.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3308,
+            "clip_score": 0.5012
+          },
+          {
+            "meme_id": 5,
+            "language": "english",
+            "text": "so your telling me   the egyptians just left",
+            "image_filename": "5.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2978,
+            "clip_score": 0.5014
+          },
+          {
+            "meme_id": 5,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u093f\u0938\u094d\u0930\u0935\u093e\u0938\u0940 \u0905\u092d\u0940-\u0905\u092d\u0940 \u091a\u0932\u0947 \u0917\u090f",
+            "image_filename": "5.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2975,
+            "clip_score": 0.5016
+          },
+          {
+            "meme_id": 6,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u0948\u0902 \u0938\u092a\u094d\u0924\u093e\u0939 \u0915\u0947 7 \u0926\u093f\u0928\u094b\u0902 \u092e\u0947\u0902 \u0938\u0947 6 \u0926\u093f\u0928 Xbox \u0916\u0947\u0932 \u0938\u0915\u0924\u093e \u0939\u0942\u0901?",
+            "image_filename": "6.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2982,
+            "clip_score": 0.5007
+          },
+          {
+            "meme_id": 7,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u0906\u092a\u0928\u0947 \u092a\u0939\u0932\u0947 \u0939\u0940 \u0939\u092e\u093e\u0930\u0947 \u0917\u094d\u0930\u0947\u0921 \u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0915\u0930 \u0926\u093f\u090f \u0939\u0948\u0902",
+            "image_filename": "7.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2979,
+            "clip_score": 0.5016
+          },
+          {
+            "meme_id": 8,
+            "language": "english",
+            "text": "I find lack of energy in this mail group   very disturbing",
+            "image_filename": "8.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3006,
+            "clip_score": 0.5005
+          },
+          {
+            "meme_id": 8,
+            "language": "hindi",
+            "text": "\u092e\u0941\u091d\u0947 \u0907\u0938 \u092e\u0947\u0932 \u0938\u092e\u0942\u0939 \u092e\u0947\u0902 \u090a\u0930\u094d\u091c\u093e \u0915\u0940 \u0915\u092e\u0940  \u092c\u0939\u0941\u0924 \u092a\u0930\u0947\u0936\u093e\u0928 \u0915\u0930\u0928\u0947 \u0935\u093e\u0932\u0940 \u0932\u0917\u0924\u0940 \u0939\u0948",
+            "image_filename": "8.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3003,
+            "clip_score": 0.5012
+          }
+        ]
+      }
+    },
+    "using_pair_1": {
+      "A_model_b_FN_clip_positive": {
+        "count": 160,
+        "percentage_of_total": 26.67,
+        "percentage_of_subset": 66.67,
+        "sample_examples": [
+          {
+            "meme_id": 2,
+            "language": "english",
+            "text": "So if i treat women like shit   i will do better with them? Cool!",
+            "image_filename": "2.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.387,
+            "clip_score": 0.5008
+          },
+          {
+            "meme_id": 2,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0905\u0917\u0930 \u092e\u0948\u0902 \u092e\u0939\u093f\u0932\u093e\u0913\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0917\u0928\u094d\u0926\u093e \u0935\u094d\u092f\u0935\u0939\u093e\u0930 \u0915\u0930\u0942\u0901\u0917\u093e    \u0924\u094b \u092e\u0948\u0902 \u0909\u0928\u0915\u0947 \u0938\u093e\u0925 \u092c\u0947\u0939\u0924\u0930 \u0915\u0930\u0942\u0901\u0917\u093e? \u092c\u0922\u093c\u093f\u092f\u093e!",
+            "image_filename": "2.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3347,
+            "clip_score": 0.5
+          },
+          {
+            "meme_id": 4,
+            "language": "english",
+            "text": "so you felt depressed   because you were too fat?",
+            "image_filename": "4.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3973,
+            "clip_score": 0.5024
+          },
+          {
+            "meme_id": 12,
+            "language": "english",
+            "text": "Gets into Debt   Starts spreading freedom",
+            "image_filename": "12.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3001,
+            "clip_score": 0.5003
+          },
+          {
+            "meme_id": 12,
+            "language": "hindi",
+            "text": "\u0915\u0930\u094d\u091c \u092e\u0947\u0902 \u0921\u0942\u092c \u091c\u093e\u0924\u093e \u0939\u0948   \u0906\u091c\u093e\u0926\u0940 \u092b\u0948\u0932\u093e\u0928\u093e \u0936\u0941\u0930\u0942 \u0915\u0930\u0924\u093e \u0939\u0948",
+            "image_filename": "12.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3116,
+            "clip_score": 0.5015
+          },
+          {
+            "meme_id": 13,
+            "language": "english",
+            "text": "SEES COMMENTS ON YOUTUBE VIDEO OF NON-SPEAKING ENGLISH COUNTRY   ENGLISH PLEASE",
+            "image_filename": "13.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3966,
+            "clip_score": 0.5008
+          },
+          {
+            "meme_id": 13,
+            "language": "hindi",
+            "text": "\u0905\u0902\u0917\u094d\u0930\u0947\u091c\u0940 \u0928 \u092c\u094b\u0932\u0928\u0947 \u0935\u093e\u0932\u0947 \u0926\u0947\u0936 \u0915\u0947 \u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0935\u0940\u0921\u093f\u092f\u094b \u092a\u0930 \u091f\u093f\u092a\u094d\u092a\u0923\u093f\u092f\u093e\u0901 \u0926\u0947\u0916\u0940\u0902   \u0915\u0943\u092a\u092f\u093e \u0905\u0902\u0917\u094d\u0930\u0947\u091c\u0940 \u092c\u094b\u0932\u0947\u0902",
+            "image_filename": "13.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3009,
+            "clip_score": 0.5016
+          },
+          {
+            "meme_id": 18,
+            "language": "hindi",
+            "text": "\u092e\u0948 \u0906\u0924\u093e \u0939\u0942\u0901    \u0905\u092a\u0928\u0947 \u092c\u0917\u0940\u091a\u0947 \u0915\u0940 \u0926\u0947\u0916\u092d\u093e\u0932 \u0915\u0930\u0947\u0902",
+            "image_filename": "18.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3061,
+            "clip_score": 0.5
+          },
+          {
+            "meme_id": 24,
+            "language": "english",
+            "text": "MITT ROMNEY   IS GAY",
+            "image_filename": "24.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3967,
+            "clip_score": 0.5021
+          },
+          {
+            "meme_id": 28,
+            "language": "english",
+            "text": "OLD PIC OF JAY-Z   <emp>",
+            "image_filename": "28.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.3103,
+            "clip_score": 0.5009
+          }
+        ]
+      },
+      "B_both_true_positive": {
+        "count": 37,
+        "percentage_of_total": 6.17,
+        "percentage_of_subset": 15.42,
+        "sample_examples": [
+          {
+            "meme_id": 9,
+            "language": "english",
+            "text": "Support Our Troops, Motherfucker!   Or we'll lock your ass up for tax evasion!!!",
+            "image_filename": "9.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6501,
+            "clip_score": 0.5033
+          },
+          {
+            "meme_id": 9,
+            "language": "hindi",
+            "text": "\u0939\u092e\u093e\u0930\u0947 \u0938\u0948\u0928\u093f\u0915\u094b\u0902 \u0915\u093e \u0938\u092e\u0930\u094d\u0925\u0928 \u0915\u0930\u094b, \u092e\u093e\u0926\u0930\u091a\u094b\u0926!   \u092f\u093e \u0939\u092e \u0915\u0930 \u091a\u094b\u0930\u0940 \u0915\u0947 \u0932\u093f\u090f \u0924\u0941\u092e\u094d\u0939\u0947\u0902 \u091c\u0947\u0932 \u092e\u0947\u0902 \u092c\u0902\u0926 \u0915\u0930 \u0926\u0947\u0902\u0917\u0947!!!",
+            "image_filename": "9.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6696,
+            "clip_score": 0.5005
+          },
+          {
+            "meme_id": 33,
+            "language": "english",
+            "text": "SHUT UP OSAMA!   HE IS MY SON!",
+            "image_filename": "33.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6005,
+            "clip_score": 0.5012
+          },
+          {
+            "meme_id": 43,
+            "language": "english",
+            "text": "have a shitty name   like a jew",
+            "image_filename": "43.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6762,
+            "clip_score": 0.5028
+          },
+          {
+            "meme_id": 52,
+            "language": "english",
+            "text": "Love one another*   (Except faggots, they are gross)",
+            "image_filename": "52.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6426,
+            "clip_score": 0.5025
+          },
+          {
+            "meme_id": 55,
+            "language": "hindi",
+            "text": "\u092e\u0948\u0902 \u0924\u0941\u092e\u0938\u0947 \u091c\u093c\u094d\u092f\u093e\u0926\u093e \u0914\u0930\u0924 \u0939\u0942\u0901   \u092e\u0941\u091d\u0947 \u0914\u0930\u0924 \u0939\u094b\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0938\u0902\u0918\u0930\u094d\u0937 \u0915\u0930\u0928\u093e \u092a\u0921\u093c\u093e",
+            "image_filename": "55.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.5045,
+            "clip_score": 0.5006
+          },
+          {
+            "meme_id": 56,
+            "language": "hindi",
+            "text": "\u092e\u0948\u0902 \u0905\u092a\u0928\u0947 \u0938\u094d\u0924\u0928\u094b\u0902 \u0938\u0947 \u0926\u0942\u0927 \u0924\u094b \u0928\u0939\u0940\u0902 \u0928\u093f\u0915\u093e\u0932 \u092a\u093e\u090a\u0901\u0917\u0940   \u0932\u0947\u0915\u093f\u0928 \u092e\u0948\u0902 \u0905\u092a\u0928\u0947 \u0932\u093f\u0902\u0917 \u0915\u093e \u092b\u093e\u092f\u0926\u093e \u091c\u0930\u0942\u0930 \u0909\u0920\u093e \u0938\u0915\u0924\u0940 \u0939\u0942\u0901",
+            "image_filename": "56.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6739,
+            "clip_score": 0.5013
+          },
+          {
+            "meme_id": 58,
+            "language": "english",
+            "text": "yeah yeah merry chrismas   now bring me my free shit",
+            "image_filename": "58.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6748,
+            "clip_score": 0.5025
+          },
+          {
+            "meme_id": 80,
+            "language": "english",
+            "text": "MAO OUR GREAT HERO   KILLED 40-70 MILLION OF HIS OWN PEOPLE",
+            "image_filename": "80.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.5866,
+            "clip_score": 0.5024
+          },
+          {
+            "meme_id": 91,
+            "language": "hindi",
+            "text": "\u0926\u0941\u0928\u093f\u092f\u093e \u0915\u094b \u0926\u094b \u092c\u093e\u0930 \u091a\u094b\u0926\u093e   \u0906\u092a\u094d\u0930\u0935\u093e\u0938\u093f\u092f\u094b\u0902 \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u0936\u093f\u0915\u093e\u092f\u0924 \u0915\u0930\u0924\u093e",
+            "image_filename": "91.jpg",
+            "ground_truth_IN": 1,
+            "p_text": 0.6437,
+            "clip_score": 0.5006
+          }
+        ]
+      },
+      "C_both_true_negative": {
+        "count": 128,
+        "percentage_of_total": 21.33,
+        "percentage_of_subset": 53.33,
+        "sample_examples": [
+          {
+            "meme_id": 0,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0938\u0947 \u0915\u0939 \u0930\u0939\u0947 \u0939\u0948\u0902   \u0906\u092a \u092c\u0939\u0941\u0924 \u091c\u094d\u092f\u093e\u0926\u093e \u0916\u093e\u0924\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0906\u092a \u0905\u092a\u0928\u093e \u0935\u091c\u0928 \u0915\u092e \u0915\u0930\u0928\u093e \u091a\u093e\u0939\u0924\u0947 \u0939\u0948\u0902?",
+            "image_filename": "0.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3007,
+            "clip_score": 0.4991
+          },
+          {
+            "meme_id": 1,
+            "language": "hindi",
+            "text": "\u0939\u092e\u094d\u092e\u094d\u092e...   \u092b\u094d\u0930\u093e\u0907\u0921 \u091a\u093f\u0915\u0928 \u0906\u092a \u0915\u0939\u0924\u0947 \u0939\u0948\u0902",
+            "image_filename": "1.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3308,
+            "clip_score": 0.4982
+          },
+          {
+            "meme_id": 5,
+            "language": "english",
+            "text": "so your telling me   the egyptians just left",
+            "image_filename": "5.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2978,
+            "clip_score": 0.4997
+          },
+          {
+            "meme_id": 5,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u093f\u0938\u094d\u0930\u0935\u093e\u0938\u0940 \u0905\u092d\u0940-\u0905\u092d\u0940 \u091a\u0932\u0947 \u0917\u090f",
+            "image_filename": "5.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2975,
+            "clip_score": 0.4998
+          },
+          {
+            "meme_id": 6,
+            "language": "english",
+            "text": "so you're telling me   i can play xbox 6 of the 7 days of the week?",
+            "image_filename": "6.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3006,
+            "clip_score": 0.4997
+          },
+          {
+            "meme_id": 6,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u0948\u0902 \u0938\u092a\u094d\u0924\u093e\u0939 \u0915\u0947 7 \u0926\u093f\u0928\u094b\u0902 \u092e\u0947\u0902 \u0938\u0947 6 \u0926\u093f\u0928 Xbox \u0916\u0947\u0932 \u0938\u0915\u0924\u093e \u0939\u0942\u0901?",
+            "image_filename": "6.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2982,
+            "clip_score": 0.4994
+          },
+          {
+            "meme_id": 7,
+            "language": "hindi",
+            "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u0906\u092a\u0928\u0947 \u092a\u0939\u0932\u0947 \u0939\u0940 \u0939\u092e\u093e\u0930\u0947 \u0917\u094d\u0930\u0947\u0921 \u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0915\u0930 \u0926\u093f\u090f \u0939\u0948\u0902",
+            "image_filename": "7.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2979,
+            "clip_score": 0.499
+          },
+          {
+            "meme_id": 11,
+            "language": "english",
+            "text": "a promise to me   was broken",
+            "image_filename": "11.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2995,
+            "clip_score": 0.4995
+          },
+          {
+            "meme_id": 14,
+            "language": "hindi",
+            "text": "\u091c\u092c \u0932\u094b\u0917 \u0926\u0930\u0935\u093e\u091c\u093c\u093e \u0916\u0941\u0932\u093e \u091b\u094b\u0921\u093c \u0926\u0947\u0924\u0947 \u0939\u0948\u0902   \u0913\u0939 \u0928\u0939\u0940\u0902 \u0906\u092a\u0928\u0947 \u0910\u0938\u093e \u0928\u0939\u0940\u0902 \u0915\u093f\u092f\u093e!",
+            "image_filename": "14.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.307,
+            "clip_score": 0.4993
+          },
+          {
+            "meme_id": 21,
+            "language": "english",
+            "text": "My name is emmanuel   i mow your lawn $.50",
+            "image_filename": "21.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3039,
+            "clip_score": 0.499
+          }
+        ]
+      },
+      "D_model_b_TN_clip_false_positive": {
+        "count": 96,
+        "percentage_of_total": 16.0,
+        "percentage_of_subset": 40.0,
+        "sample_examples": [
+          {
+            "meme_id": 0,
+            "language": "english",
+            "text": "So You're telling me   You eat too much and you want to lose weight?",
+            "image_filename": "0.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3311,
+            "clip_score": 0.5004
+          },
+          {
+            "meme_id": 1,
+            "language": "english",
+            "text": "Hmmm...   Fried chicken you say",
+            "image_filename": "1.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3174,
+            "clip_score": 0.5002
+          },
+          {
+            "meme_id": 7,
+            "language": "english",
+            "text": "so you're telling me   you already adjusted our grades",
+            "image_filename": "7.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2967,
+            "clip_score": 0.5001
+          },
+          {
+            "meme_id": 8,
+            "language": "english",
+            "text": "I find lack of energy in this mail group   very disturbing",
+            "image_filename": "8.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3006,
+            "clip_score": 0.5031
+          },
+          {
+            "meme_id": 8,
+            "language": "hindi",
+            "text": "\u092e\u0941\u091d\u0947 \u0907\u0938 \u092e\u0947\u0932 \u0938\u092e\u0942\u0939 \u092e\u0947\u0902 \u090a\u0930\u094d\u091c\u093e \u0915\u0940 \u0915\u092e\u0940  \u092c\u0939\u0941\u0924 \u092a\u0930\u0947\u0936\u093e\u0928 \u0915\u0930\u0928\u0947 \u0935\u093e\u0932\u0940 \u0932\u0917\u0924\u0940 \u0939\u0948",
+            "image_filename": "8.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3003,
+            "clip_score": 0.5015
+          },
+          {
+            "meme_id": 10,
+            "language": "english",
+            "text": "took your LANGUAGE and improved it   you are welcome",
+            "image_filename": "10.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3008,
+            "clip_score": 0.501
+          },
+          {
+            "meme_id": 10,
+            "language": "hindi",
+            "text": "\u0906\u092a\u0915\u0940 \u092d\u093e\u0937\u093e \u0932\u0940 \u0914\u0930 \u0909\u0938\u092e\u0947\u0902 \u0938\u0941\u0927\u093e\u0930 \u0915\u093f\u092f\u093e   \u0906\u092a\u0915\u093e \u0938\u094d\u0935\u093e\u0917\u0924 \u0939\u0948",
+            "image_filename": "10.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.2987,
+            "clip_score": 0.5008
+          },
+          {
+            "meme_id": 11,
+            "language": "hindi",
+            "text": "\u092e\u0941\u091d\u0938\u0947 \u0915\u093f\u092f\u093e \u0917\u092f\u093e \u0935\u093e\u0926\u093e  \u0924\u094b\u0921\u093c\u093e \u0917\u092f\u093e",
+            "image_filename": "11.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3047,
+            "clip_score": 0.5008
+          },
+          {
+            "meme_id": 17,
+            "language": "hindi",
+            "text": "\u0906\u092a\u0915\u094b \u0924\u0932\u093e \u0939\u0941\u0906 \u091a\u093f\u0915\u0928 \u0928\u0939\u0940\u0902 \u092e\u093f\u0932\u0947\u0917\u093e   \u091c\u092c \u0924\u0915 \u0906\u092a \u0905\u092a\u0928\u093e \u0938\u093e\u0930\u093e \u0915\u0942\u0932-\u090f\u0921 \u0916\u093c\u0924\u094d\u092e \u0928\u0939\u0940\u0902 \u0915\u0930 \u0932\u0947\u0924\u0947",
+            "image_filename": "17.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3755,
+            "clip_score": 0.5002
+          },
+          {
+            "meme_id": 21,
+            "language": "hindi",
+            "text": "\u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0907\u092e\u0948\u0928\u0941\u090f\u0932 \u0939\u0948   \u092e\u0948\u0902 \u0906\u092a\u0915\u0947 \u0932\u0949\u0928 \u0915\u0940 \u0918\u093e\u0938 \u0915\u093e\u091f\u0924\u093e \u0939\u0942\u0901 $.50",
+            "image_filename": "21.jpg",
+            "ground_truth_IN": 0,
+            "p_text": 0.3165,
+            "clip_score": 0.5005
+          }
+        ]
+      }
+    }
+  },
+  "known_trope_cases": [
+    {
+      "meme_id": 113,
+      "description": "You are good at the olympics   but terrible at money management.",
+      "ground_truth_IN": 1,
+      "model_b_toxic_prob": 0.2955,
+      "model_b_flagged": 0,
+      "clip_scores_by_prompt_pair": {
+        "P1": 0.4979,
+        "P2": 0.5002,
+        "P3": 0.4987,
+        "P4": 0.4992,
+        "P5": 0.5045,
+        "P6": 0.4926,
+        "P7": 0.4967,
+        "P8": 0.5009
+      },
+      "clip_mean_score": 0.4988,
+      "clip_flagged_at_0.50": 0,
+      "or_fusion_flagged": 0
+    },
+    {
+      "meme_id": 205,
+      "description": "Cops...   Only laugh at their own jokes",
+      "ground_truth_IN": 1,
+      "model_b_toxic_prob": 0.2962,
+      "model_b_flagged": 0,
+      "clip_scores_by_prompt_pair": {
+        "P1": 0.5018,
+        "P2": 0.5012,
+        "P3": 0.5018,
+        "P4": 0.4993,
+        "P5": 0.5019,
+        "P6": 0.4986,
+        "P7": 0.4969,
+        "P8": 0.5004
+      },
+      "clip_mean_score": 0.5002,
+      "clip_flagged_at_0.50": 1,
+      "or_fusion_flagged": 1
+    },
+    {
+      "meme_id": 166,
+      "description": "Avoids meat as a sacrifice during Holy week   Eats seafood that taste better tha",
+      "ground_truth_IN": 1,
+      "model_b_toxic_prob": 0.2968,
+      "model_b_flagged": 0,
+      "clip_scores_by_prompt_pair": {
+        "P1": 0.4999,
+        "P2": 0.501,
+        "P3": 0.4978,
+        "P4": 0.498,
+        "P5": 0.5004,
+        "P6": 0.4957,
+        "P7": 0.4995,
+        "P8": 0.5009
+      },
+      "clip_mean_score": 0.4992,
+      "clip_flagged_at_0.50": 0,
+      "or_fusion_flagged": 0
+    },
+    {
+      "meme_id": 50,
+      "description": "Equality for women!!!   laughs at other feminists who think that men deserve the",
+      "ground_truth_IN": 1,
+      "model_b_toxic_prob": 0.2968,
+      "model_b_flagged": 0,
+      "clip_scores_by_prompt_pair": {
+        "P1": 0.5024,
+        "P2": 0.5021,
+        "P3": 0.4975,
+        "P4": 0.4968,
+        "P5": 0.5095,
+        "P6": 0.5056,
+        "P7": 0.5034,
+        "P8": 0.4993
+      },
+      "clip_mean_score": 0.5021,
+      "clip_flagged_at_0.50": 1,
+      "or_fusion_flagged": 1
+    },
+    {
+      "meme_id": 81,
+      "description": "technical support,   this is karan speaking",
+      "ground_truth_IN": 1,
+      "model_b_toxic_prob": 0.3003,
+      "model_b_flagged": 0,
+      "clip_scores_by_prompt_pair": {
+        "P1": 0.4973,
+        "P2": 0.5005,
+        "P3": 0.4989,
+        "P4": 0.4997,
+        "P5": 0.5093,
+        "P6": 0.498,
+        "P7": 0.4953,
+        "P8": 0.4998
+      },
+      "clip_mean_score": 0.4999,
+      "clip_flagged_at_0.50": 0,
+      "or_fusion_flagged": 0
+    },
+    {
+      "meme_id": 220,
+      "description": "When Crosby gets shot and you're not even invited",
+      "ground_truth_IN": 1,
+      "model_b_toxic_prob": 0.2989,
+      "model_b_flagged": 0,
+      "clip_scores_by_prompt_pair": {
+        "P1": 0.5024,
+        "P2": 0.501,
+        "P3": 0.4996,
+        "P4": 0.4997,
+        "P5": 0.5063,
+        "P6": 0.4931,
+        "P7": 0.5037,
+        "P8": 0.5012
+      },
+      "clip_mean_score": 0.5009,
+      "clip_flagged_at_0.50": 1,
+      "or_fusion_flagged": 1
+    }
+  ],
+  "language_slices": {
+    "english": {
+      "model_b": {
+        "tp": 32,
+        "tn": 112,
+        "fp": 8,
+        "fn": 148,
+        "precision": 0.8,
+        "recall": 0.1778,
+        "f1": 0.2909,
+        "fpr": 0.0667,
+        "fnr": 0.8222,
+        "accuracy": 0.48,
+        "pred_pos": 40,
+        "pred_neg": 260,
+        "total": 300
+      },
+      "clip_ensemble": {
+        "tp": 135,
+        "tn": 53,
+        "fp": 67,
+        "fn": 45,
+        "precision": 0.6683,
+        "recall": 0.75,
+        "f1": 0.7068,
+        "fpr": 0.5583,
+        "fnr": 0.25,
+        "accuracy": 0.6267,
+        "pred_pos": 202,
+        "pred_neg": 98,
+        "total": 300
+      },
+      "or_fusion": {
+        "tp": 143,
+        "tn": 52,
+        "fp": 68,
+        "fn": 37,
+        "precision": 0.6777,
+        "recall": 0.7944,
+        "f1": 0.7315,
+        "fpr": 0.5667,
+        "fnr": 0.2056,
+        "accuracy": 0.65,
+        "pred_pos": 211,
+        "pred_neg": 89,
+        "total": 300
+      }
+    },
+    "hindi": {
+      "model_b": {
+        "tp": 25,
+        "tn": 112,
+        "fp": 8,
+        "fn": 155,
+        "precision": 0.7576,
+        "recall": 0.1389,
+        "f1": 0.2347,
+        "fpr": 0.0667,
+        "fnr": 0.8611,
+        "accuracy": 0.4567,
+        "pred_pos": 33,
+        "pred_neg": 267,
+        "total": 300
+      },
+      "clip_ensemble": {
+        "tp": 169,
+        "tn": 9,
+        "fp": 111,
+        "fn": 11,
+        "precision": 0.6036,
+        "recall": 0.9389,
+        "f1": 0.7348,
+        "fpr": 0.925,
+        "fnr": 0.0611,
+        "accuracy": 0.5933,
+        "pred_pos": 280,
+        "pred_neg": 20,
+        "total": 300
+      },
+      "or_fusion": {
+        "tp": 170,
+        "tn": 7,
+        "fp": 113,
+        "fn": 10,
+        "precision": 0.6007,
+        "recall": 0.9444,
+        "f1": 0.7343,
+        "fpr": 0.9417,
+        "fnr": 0.0556,
+        "accuracy": 0.59,
+        "pred_pos": 283,
+        "pred_neg": 17,
+        "total": 300
+      }
+    }
+  },
+  "cultural_slices": {
+    "IN": {
+      "model_b_toxic": {
+        "auroc": 0.6147,
+        "ap": 0.7047
+      },
+      "clip_ensemble": {
+        "auroc": 0.5905,
+        "ap": 0.6883
+      },
+      "late_fusion_or_max_score": {
+        "auroc": 0.6094,
+        "ap": 0.7036
+      }
+    },
+    "US": {
+      "model_b_toxic": {
+        "auroc": 0.5739,
+        "ap": 0.5984
+      },
+      "clip_ensemble": {
+        "auroc": 0.6464,
+        "ap": 0.644
+      },
+      "late_fusion_or_max_score": {
+        "auroc": 0.653,
+        "ap": 0.6544
+      }
+    },
+    "DE": {
+      "model_b_toxic": {
+        "auroc": 0.5791,
+        "ap": 0.68
+      },
+      "clip_ensemble": {
+        "auroc": 0.6507,
+        "ap": 0.7211
+      },
+      "late_fusion_or_max_score": {
+        "auroc": 0.6518,
+        "ap": 0.7255
+      }
+    },
+    "MX": {
+      "model_b_toxic": {
+        "auroc": 0.5976,
+        "ap": 0.6501
+      },
+      "clip_ensemble": {
+        "auroc": 0.6716,
+        "ap": 0.728
+      },
+      "late_fusion_or_max_score": {
+        "auroc": 0.6542,
+        "ap": 0.6882
+      }
+    },
+    "CN": {
+      "model_b_toxic": {
+        "auroc": 0.5506,
+        "ap": 0.6717
+      },
+      "clip_ensemble": {
+        "auroc": 0.5642,
+        "ap": 0.6843
+      },
+      "late_fusion_or_max_score": {
+        "auroc": 0.5642,
+        "ap": 0.6804
+      }
+    }
+  },
+  "descriptive_threshold_sweep": {
+    "label": "HELD-OUT DESCRIPTIVE THRESHOLD SWEEP \u2014 NOT USED FOR MODEL SELECTION",
+    "sweep": [
+      {
+        "threshold": 0.3,
+        "clip_standalone": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      {
+        "threshold": 0.35,
+        "clip_standalone": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      {
+        "threshold": 0.4,
+        "clip_standalone": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      {
+        "threshold": 0.45,
+        "clip_standalone": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "fpr": 1.0,
+          "fnr": 0.0,
+          "tp": 360,
+          "fp": 240,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      {
+        "threshold": 0.5,
+        "clip_standalone": {
+          "precision": 0.6307,
+          "recall": 0.8444,
+          "f1": 0.7221,
+          "fpr": 0.7417,
+          "fnr": 0.1556,
+          "tp": 304,
+          "fp": 178,
+          "tn": 62,
+          "fn": 56
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.6336,
+          "recall": 0.8694,
+          "f1": 0.733,
+          "fpr": 0.7542,
+          "fnr": 0.1306,
+          "tp": 313,
+          "fp": 181,
+          "tn": 59,
+          "fn": 47
+        }
+      },
+      {
+        "threshold": 0.55,
+        "clip_standalone": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 240,
+          "fn": 360
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.7808,
+          "recall": 0.1583,
+          "f1": 0.2633,
+          "fpr": 0.0667,
+          "fnr": 0.8417,
+          "tp": 57,
+          "fp": 16,
+          "tn": 224,
+          "fn": 303
+        }
+      },
+      {
+        "threshold": 0.6,
+        "clip_standalone": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 240,
+          "fn": 360
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.7808,
+          "recall": 0.1583,
+          "f1": 0.2633,
+          "fpr": 0.0667,
+          "fnr": 0.8417,
+          "tp": 57,
+          "fp": 16,
+          "tn": 224,
+          "fn": 303
+        }
+      },
+      {
+        "threshold": 0.65,
+        "clip_standalone": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 240,
+          "fn": 360
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.7808,
+          "recall": 0.1583,
+          "f1": 0.2633,
+          "fpr": 0.0667,
+          "fnr": 0.8417,
+          "tp": 57,
+          "fp": 16,
+          "tn": 224,
+          "fn": 303
+        }
+      },
+      {
+        "threshold": 0.7,
+        "clip_standalone": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "fnr": 1.0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 240,
+          "fn": 360
+        },
+        "or_fusion_with_model_b_at_0.45": {
+          "precision": 0.7808,
+          "recall": 0.1583,
+          "f1": 0.2633,
+          "fpr": 0.0667,
+          "fnr": 0.8417,
+          "tp": 57,
+          "fp": 16,
+          "tn": 224,
+          "fn": 303
+        }
+      }
+    ]
+  }
+}

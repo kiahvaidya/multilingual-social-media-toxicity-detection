@@ -29,7 +29,9 @@ nltk_data/
 *.pt
 muril_toxicity_model.pt
 submission.csv
-scratch/
+scratch/meme_data/
+scratch/**/*.pt
+scratch/**/__pycache__/
 
 # ===== IDE =====
 .vscode/

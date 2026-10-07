@@ -1,0 +1,375 @@
+{
+  "semantic_contrast_pairs": [
+    {
+      "pair_id": 1,
+      "category": "English Profanity: Benign Exclamation vs Personal Attack",
+      "benign_text": "Fuck yeah! We finally passed all the unit tests!",
+      "harmful_text": "You're a fucking idiot and I hope you get hurt.",
+      "model_a": {
+        "benign_score": 0.6466,
+        "harmful_score": 0.6622,
+        "separation": 0.0156
+      },
+      "model_b": {
+        "benign_score": 0.6576,
+        "harmful_score": 0.6658,
+        "separation": 0.0082
+      },
+      "model_c": {
+        "benign_score": 0.5089,
+        "harmful_score": 0.5088,
+        "separation": -0.0001
+      },
+      "gain_b_vs_a": -0.0075,
+      "gain_c_vs_a": -0.0158
+    },
+    {
+      "pair_id": 2,
+      "category": "English Metaphor: Praise vs Literal Threat",
+      "benign_text": "Bro, you totally killed it on stage tonight!",
+      "harmful_text": "I am going to kill you tonight.",
+      "model_a": {
+        "benign_score": 0.6193,
+        "harmful_score": 0.5546,
+        "separation": -0.0647
+      },
+      "model_b": {
+        "benign_score": 0.3233,
+        "harmful_score": 0.3973,
+        "separation": 0.0741
+      },
+      "model_c": {
+        "benign_score": 0.4982,
+        "harmful_score": 0.5132,
+        "separation": 0.015
+      },
+      "gain_b_vs_a": 0.1388,
+      "gain_c_vs_a": 0.0797
+    },
+    {
+      "pair_id": 3,
+      "category": "English Slang: Admiration vs Degradation",
+      "benign_text": "This movie was sick!",
+      "harmful_text": "You're sick and disgusting.",
+      "model_a": {
+        "benign_score": 0.4265,
+        "harmful_score": 0.5794,
+        "separation": 0.1529
+      },
+      "model_b": {
+        "benign_score": 0.3003,
+        "harmful_score": 0.3341,
+        "separation": 0.0338
+      },
+      "model_c": {
+        "benign_score": 0.4913,
+        "harmful_score": 0.5127,
+        "separation": 0.0215
+      },
+      "gain_b_vs_a": -0.1191,
+      "gain_c_vs_a": -0.1315
+    },
+    {
+      "pair_id": 4,
+      "category": "Hinglish Slang: Informal Praise vs Explicit Abuse",
+      "benign_text": "Bhai kya bawaal cheez banayi hai yaar maza aa gaya",
+      "harmful_text": "Bhai tu ek number ka chutiya hai chup baith",
+      "model_a": {
+        "benign_score": 0.6818,
+        "harmful_score": 0.6707,
+        "separation": -0.0111
+      },
+      "model_b": {
+        "benign_score": 0.468,
+        "harmful_score": 0.6748,
+        "separation": 0.2067
+      },
+      "model_c": {
+        "benign_score": 0.5223,
+        "harmful_score": 0.5123,
+        "separation": -0.01
+      },
+      "gain_b_vs_a": 0.2178,
+      "gain_c_vs_a": 0.0011
+    },
+    {
+      "pair_id": 5,
+      "category": "Hindi Vernacular: Praise vs Demeaning Abuse",
+      "benign_text": "\u092f\u0939 \u0915\u093e\u092e \u0935\u093e\u0938\u094d\u0924\u0935 \u092e\u0947\u0902 \u092c\u0939\u0941\u0924 \u0927\u093e\u0902\u0938\u0942 \u0914\u0930 \u092a\u094d\u0930\u0947\u0930\u0923\u093e\u0926\u093e\u092f\u0915 \u0939\u0948",
+      "harmful_text": "\u0924\u0942 \u092c\u093f\u0932\u094d\u0915\u0941\u0932 \u0928\u0940\u091a \u0914\u0930 \u0918\u091f\u093f\u092f\u093e \u0907\u0902\u0938\u093e\u0928 \u0939\u0948",
+      "model_a": {
+        "benign_score": 0.6264,
+        "harmful_score": 0.6721,
+        "separation": 0.0457
+      },
+      "model_b": {
+        "benign_score": 0.3053,
+        "harmful_score": 0.5297,
+        "separation": 0.2244
+      },
+      "model_c": {
+        "benign_score": 0.5383,
+        "harmful_score": 0.5314,
+        "separation": -0.0069
+      },
+      "gain_b_vs_a": 0.1787,
+      "gain_c_vs_a": -0.0525
+    },
+    {
+      "pair_id": 6,
+      "category": "Obfuscation: Benign Leetspeak vs Camouflaged Toxicity",
+      "benign_text": "Nice sh!rt bro, looks super c00l and fresh",
+      "harmful_text": "You are an absolute f.u.c.k.i.n.g b!tch",
+      "model_a": {
+        "benign_score": 0.6662,
+        "harmful_score": 0.6616,
+        "separation": -0.0046
+      },
+      "model_b": {
+        "benign_score": 0.3269,
+        "harmful_score": 0.6781,
+        "separation": 0.3512
+      },
+      "model_c": {
+        "benign_score": 0.5084,
+        "harmful_score": 0.5051,
+        "separation": -0.0033
+      },
+      "gain_b_vs_a": 0.3558,
+      "gain_c_vs_a": 0.0013
+    },
+    {
+      "pair_id": 7,
+      "category": "Social Dynamics: Peer Banter vs Directed Threat",
+      "benign_text": "Abe chup kar saale, tera dimag kharab ho gaya hai kya",
+      "harmful_text": "Ghar se bahar nikal, aaj teri jaan le lunga",
+      "model_a": {
+        "benign_score": 0.6809,
+        "harmful_score": 0.6719,
+        "separation": -0.009
+      },
+      "model_b": {
+        "benign_score": 0.5309,
+        "harmful_score": 0.3509,
+        "separation": -0.18
+      },
+      "model_c": {
+        "benign_score": 0.5061,
+        "harmful_score": 0.4982,
+        "separation": -0.0079
+      },
+      "gain_b_vs_a": -0.171,
+      "gain_c_vs_a": 0.0011
+    }
+  ],
+  "cross_modal_context_set": [
+    {
+      "sample_id": "cross_modal_A1_mid115",
+      "category": "Category A: Text looks toxic, Image is benign (Contextual Inversion)",
+      "meme_id": 115,
+      "text": "I'm pretty damn happy about football",
+      "template_name": "troll asian (smiling meme face)",
+      "ground_truth_hate": 0,
+      "text_prima_facie": "TOXIC_OR_VULGAR (contains 'damn')",
+      "visual_context": "BENIGN (smiling comic face)",
+      "expected_behavior": "Visual context should invert/suppress false positive toxicity.",
+      "scores": {
+        "model_a": 0.3194,
+        "model_b_text_only": 0.2989,
+        "model_c_image_only": 0.3354,
+        "model_c_multimodal": 0.6873
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": true,
+        "model_c_correct": false
+      },
+      "conflict_resolved_by_c": false
+    },
+    {
+      "sample_id": "cross_modal_A2_mid282",
+      "category": "Category A: Text looks toxic, Image is benign (Contextual Inversion)",
+      "meme_id": 282,
+      "text": "Freeze! You're under arrest For producing non accessible material",
+      "template_name": "policeman",
+      "ground_truth_hate": 0,
+      "text_prima_facie": "TOXIC_OR_THREAT ('under arrest', 'freeze')",
+      "visual_context": "BENIGN (humorous office accessibility meme)",
+      "expected_behavior": "Visual context should prevent false alarm on authoritative arrest text.",
+      "scores": {
+        "model_a": 0.3624,
+        "model_b_text_only": 0.2988,
+        "model_c_image_only": 0.1008,
+        "model_c_multimodal": 0.6139
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": true,
+        "model_c_correct": false
+      },
+      "conflict_resolved_by_c": false
+    },
+    {
+      "sample_id": "cross_modal_B1_mid37",
+      "category": "Category B: Text looks benign, Image is harmful (Emergent Toxicity)",
+      "meme_id": 37,
+      "text": "SEE THIS HAT THRIFT STORE",
+      "template_name": "advicejew (antisemitic caricature)",
+      "ground_truth_hate": 1,
+      "text_prima_facie": "BENIGN ('See this hat thrift store')",
+      "visual_context": "HARMFUL (antisemitic caricature trope)",
+      "expected_behavior": "Visual information MUST elevate toxicity that text-only models miss.",
+      "scores": {
+        "model_a": 0.6395,
+        "model_b_text_only": 0.361,
+        "model_c_image_only": 0.3196,
+        "model_c_multimodal": 0.6845
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": false,
+        "model_c_correct": true
+      },
+      "conflict_resolved_by_c": true
+    },
+    {
+      "sample_id": "cross_modal_B2_mid141",
+      "category": "Category B: Text looks benign, Image is harmful (Emergent Toxicity)",
+      "meme_id": 141,
+      "text": "wants to defend 'white tradition' lives in NY and eats at mcdonalds",
+      "template_name": "white power problems",
+      "ground_truth_hate": 1,
+      "text_prima_facie": "BENIGN ('eats at mcdonalds')",
+      "visual_context": "HARMFUL (white supremacist trope template)",
+      "expected_behavior": "Visual grounding identifies hate template that text-only model underpredicts.",
+      "scores": {
+        "model_a": 0.3179,
+        "model_b_text_only": 0.3008,
+        "model_c_image_only": 0.1783,
+        "model_c_multimodal": 0.7342
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": false,
+        "model_c_correct": true
+      },
+      "conflict_resolved_by_c": true
+    },
+    {
+      "sample_id": "cross_modal_C1_mid89",
+      "category": "Category C: Text and Image agree on harm (Explicit Harm)",
+      "meme_id": 89,
+      "text": "i hate black people thats why i got a job with a gun",
+      "template_name": "strict policeman",
+      "ground_truth_hate": 1,
+      "text_prima_facie": "HARMFUL (explicit racial hate)",
+      "visual_context": "HARMFUL (hostile firearm imagery)",
+      "expected_behavior": "Both modalities reinforce high toxic score.",
+      "scores": {
+        "model_a": 0.5749,
+        "model_b_text_only": 0.3013,
+        "model_c_image_only": 0.2475,
+        "model_c_multimodal": 0.7152
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": false,
+        "model_c_correct": true
+      },
+      "conflict_resolved_by_c": true
+    },
+    {
+      "sample_id": "cross_modal_C2_mid96",
+      "category": "Category C: Text and Image agree on harm (Explicit Harm)",
+      "meme_id": 96,
+      "text": "i hate men! GOD, i NEED A GUY'S COCK RIGHT NOW...",
+      "template_name": "feminist cunt",
+      "ground_truth_hate": 1,
+      "text_prima_facie": "HARMFUL (misandry + crude obscenity)",
+      "visual_context": "HARMFUL (hostile caricature)",
+      "expected_behavior": "Both modalities detect explicit abuse.",
+      "scores": {
+        "model_a": 0.6702,
+        "model_b_text_only": 0.5749,
+        "model_c_image_only": 0.2613,
+        "model_c_multimodal": 0.732
+      },
+      "predictions": {
+        "model_b": 1,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": true,
+        "model_c_correct": true
+      },
+      "conflict_resolved_by_c": false
+    },
+    {
+      "sample_id": "cross_modal_D1_mid174",
+      "category": "Category D: Text and Image agree on benign (Harmless Meme)",
+      "meme_id": 174,
+      "text": "showed this blog to my non-german friends they don't get it",
+      "template_name": "germany pls",
+      "ground_truth_hate": 0,
+      "text_prima_facie": "BENIGN (ordinary blogging meme)",
+      "visual_context": "BENIGN (harmless cartoon)",
+      "expected_behavior": "Both modalities predict low toxicity.",
+      "scores": {
+        "model_a": 0.3013,
+        "model_b_text_only": 0.2996,
+        "model_c_image_only": 0.1391,
+        "model_c_multimodal": 0.7104
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": true,
+        "model_c_correct": false
+      },
+      "conflict_resolved_by_c": false
+    },
+    {
+      "sample_id": "cross_modal_D2_mid265",
+      "category": "Category D: Text and Image agree on benign (Harmless Meme)",
+      "meme_id": 265,
+      "text": "Quality men believe in equality of women",
+      "template_name": "privilege abusing white couple",
+      "ground_truth_hate": 0,
+      "text_prima_facie": "BENIGN (pro-equality quote)",
+      "visual_context": "BENIGN (conversational meme)",
+      "expected_behavior": "Both modalities predict low toxicity.",
+      "scores": {
+        "model_a": 0.4726,
+        "model_b_text_only": 0.2985,
+        "model_c_image_only": 0.1529,
+        "model_c_multimodal": 0.8689
+      },
+      "predictions": {
+        "model_b": 0,
+        "model_c": 1
+      },
+      "correctness": {
+        "model_b_correct": true,
+        "model_c_correct": false
+      },
+      "conflict_resolved_by_c": false
+    }
+  ]
+}

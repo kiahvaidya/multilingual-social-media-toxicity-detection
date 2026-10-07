@@ -1,0 +1,14 @@
+{
+  "architecture": "CrossModal_Interaction_Fusion",
+  "text_encoder": "MuRIL (Frozen 768-dim CLS)",
+  "image_encoder": "CLIP ViT-B/32 (Frozen 512-dim)",
+  "projection_dim": 256,
+  "interaction_features": "[proj_text, proj_img, proj_text*proj_img, abs(proj_text-proj_img)]",
+  "modality_dropout": 0.15,
+  "classifier_dropout": 0.2,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.01,
+  "batch_size": 32,
+  "random_seed": 42,
+  "optimal_threshold": 0.44
+}

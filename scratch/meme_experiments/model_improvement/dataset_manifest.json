@@ -1,0 +1,32 @@
+{
+  "dataset_title": "Production Candidate Unified Multimodal & Indic Toxicity Training Corpus",
+  "total_train_samples": 6091,
+  "total_val_samples": 598,
+  "held_out_evaluation_dataset": {
+    "name": "Multi3Hate",
+    "samples": 600,
+    "slices": {
+      "english": 300,
+      "hindi": 300
+    },
+    "status": "STRICTLY_HELD_OUT",
+    "leakage_guarantee": "ZERO samples used in training or validation"
+  },
+  "train_partition_breakdown": {
+    "pridemm_english_paired_memes": 4328,
+    "hasoc_2025_hindi_meme_ocr": 963,
+    "trac_hinglish_social_media": 800
+  },
+  "val_partition_breakdown": {
+    "pridemm_english_paired_memes": 228,
+    "hasoc_2025_hindi_meme_ocr": 170,
+    "trac_hinglish_social_media": 200
+  },
+  "context_categories_represented": [
+    "multimodal_meme_hate",
+    "benign_profanity",
+    "sarcasm_banter",
+    "indic_targeted_abuse",
+    "clean_conversational"
+  ]
+}

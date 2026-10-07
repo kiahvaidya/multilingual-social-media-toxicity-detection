@@ -1,0 +1,114 @@
+{
+  "pridemm_test": {
+    "both_modalities": {
+      "accuracy": 0.6982,
+      "precision": 0.6679,
+      "recall": 0.7571,
+      "f1": 0.7097,
+      "auroc": 0.779,
+      "fpr": 0.3577,
+      "fnr": 0.2429,
+      "pred_pos": 280,
+      "pred_neg": 227,
+      "positive_prediction_rate": 0.5523,
+      "confusion_matrix": {
+        "tp": 187,
+        "fp": 93,
+        "tn": 167,
+        "fn": 60
+      }
+    },
+    "text_only_zero_img": {
+      "accuracy": 0.4911,
+      "precision": 0.4889,
+      "recall": 0.9798,
+      "f1": 0.6523,
+      "auroc": 0.605,
+      "fpr": 0.9731,
+      "fnr": 0.0202,
+      "pred_pos": 495,
+      "pred_neg": 12,
+      "positive_prediction_rate": 0.9763,
+      "confusion_matrix": {
+        "tp": 242,
+        "fp": 253,
+        "tn": 7,
+        "fn": 5
+      }
+    },
+    "image_only_zero_txt": {
+      "accuracy": 0.7022,
+      "precision": 0.6678,
+      "recall": 0.7733,
+      "f1": 0.7167,
+      "auroc": 0.7737,
+      "fpr": 0.3654,
+      "fnr": 0.2267,
+      "pred_pos": 286,
+      "pred_neg": 221,
+      "positive_prediction_rate": 0.5641,
+      "confusion_matrix": {
+        "tp": 191,
+        "fp": 95,
+        "tn": 165,
+        "fn": 56
+      }
+    }
+  },
+  "multi3hate": {
+    "both_modalities": {
+      "accuracy": 0.5283,
+      "precision": 0.6742,
+      "recall": 0.4139,
+      "f1": 0.5129,
+      "auroc": 0.5835,
+      "fpr": 0.3,
+      "fnr": 0.5861,
+      "pred_pos": 221,
+      "pred_neg": 379,
+      "positive_prediction_rate": 0.3683,
+      "confusion_matrix": {
+        "tp": 149,
+        "fp": 72,
+        "tn": 168,
+        "fn": 211
+      }
+    },
+    "text_only_zero_img": {
+      "accuracy": 0.5783,
+      "precision": 0.5921,
+      "recall": 0.9556,
+      "f1": 0.7311,
+      "auroc": 0.5166,
+      "fpr": 0.9875,
+      "fnr": 0.0444,
+      "pred_pos": 581,
+      "pred_neg": 19,
+      "positive_prediction_rate": 0.9683,
+      "confusion_matrix": {
+        "tp": 344,
+        "fp": 237,
+        "tn": 3,
+        "fn": 16
+      }
+    },
+    "image_only_zero_txt": {
+      "accuracy": 0.5217,
+      "precision": 0.6652,
+      "recall": 0.4083,
+      "f1": 0.506,
+      "auroc": 0.5679,
+      "fpr": 0.3083,
+      "fnr": 0.5917,
+      "pred_pos": 221,
+      "pred_neg": 379,
+      "positive_prediction_rate": 0.3683,
+      "confusion_matrix": {
+        "tp": 147,
+        "fp": 74,
+        "tn": 166,
+        "fn": 213
+      }
+    }
+  }
+}

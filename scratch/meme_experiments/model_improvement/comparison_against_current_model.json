@@ -1,0 +1,50 @@
+{
+  "metric_comparison": {
+    "overall_f1": {
+      "previous_model": 0.5129,
+      "new_model": 0.6466,
+      "delta": 0.1337
+    },
+    "overall_auroc": {
+      "previous_model": 0.5835,
+      "new_model": 0.569,
+      "delta": -0.0145
+    },
+    "overall_fpr": {
+      "previous_model": 0.3,
+      "new_model": 0.5583,
+      "delta": 0.2583
+    },
+    "hindi_f1": {
+      "previous_model": 0.2906,
+      "new_model": 0.6085,
+      "delta": 0.3179
+    },
+    "hindi_recall": {
+      "previous_model": 0.1889,
+      "new_model": 0.6,
+      "delta": 0.4111
+    },
+    "hindi_auroc": {
+      "previous_model": 0.504,
+      "new_model": 0.5089,
+      "delta": 0.0049
+    },
+    "english_f1": {
+      "previous_model": 0.6628,
+      "new_model": 0.6827,
+      "delta": 0.0199
+    },
+    "english_auroc": {
+      "previous_model": 0.6411,
+      "new_model": 0.6177,
+      "delta": -0.0234
+    }
+  },
+  "winner_verdict": {
+    "current_candidate": "final_multimodal/best_model.pt",
+    "new_candidate": "model_improvement/best_model.pt",
+    "winner": "CURRENT_FINAL_MODEL",
+    "rationale": "New model did not strictly satisfy all multi-criteria improvement hurdles over current candidate."
+  }
+}

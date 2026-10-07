@@ -1,0 +1,215 @@
+{
+  "overall": {
+    "accuracy": 0.57,
+    "precision": 0.6378,
+    "recall": 0.6556,
+    "f1": 0.6466,
+    "auroc": 0.569,
+    "fpr": 0.5583,
+    "fnr": 0.3444,
+    "pred_pos": 370,
+    "pred_neg": 230,
+    "positive_prediction_rate": 0.6167,
+    "confusion_matrix": {
+      "tp": 236,
+      "fp": 134,
+      "tn": 106,
+      "fn": 124
+    }
+  },
+  "by_language": {
+    "english": {
+      "accuracy": 0.6033,
+      "precision": 0.6564,
+      "recall": 0.7111,
+      "f1": 0.6827,
+      "auroc": 0.6177,
+      "fpr": 0.5583,
+      "fnr": 0.2889,
+      "pred_pos": 195,
+      "pred_neg": 105,
+      "positive_prediction_rate": 0.65,
+      "confusion_matrix": {
+        "tp": 128,
+        "fp": 67,
+        "tn": 53,
+        "fn": 52
+      }
+    },
+    "hindi": {
+      "accuracy": 0.5367,
+      "precision": 0.6171,
+      "recall": 0.6,
+      "f1": 0.6085,
+      "auroc": 0.5089,
+      "fpr": 0.5583,
+      "fnr": 0.4,
+      "pred_pos": 175,
+      "pred_neg": 125,
+      "positive_prediction_rate": 0.5833,
+      "confusion_matrix": {
+        "tp": 108,
+        "fp": 67,
+        "tn": 53,
+        "fn": 72
+      }
+    }
+  },
+  "modality_ablation": {
+    "paired_both_modalities": {
+      "accuracy": 0.57,
+      "precision": 0.6378,
+      "recall": 0.6556,
+      "f1": 0.6466,
+      "auroc": 0.569,
+      "fpr": 0.5583,
+      "fnr": 0.3444,
+      "pred_pos": 370,
+      "pred_neg": 230,
+      "positive_prediction_rate": 0.6167,
+      "confusion_matrix": {
+        "tp": 236,
+        "fp": 134,
+        "tn": 106,
+        "fn": 124
+      }
+    },
+    "text_only": {
+      "accuracy": 0.55,
+      "precision": 0.5918,
+      "recall": 0.8056,
+      "f1": 0.6824,
+      "auroc": 0.5486,
+      "fpr": 0.8333,
+      "fnr": 0.1944,
+      "pred_pos": 490,
+      "pred_neg": 110,
+      "positive_prediction_rate": 0.8167,
+      "confusion_matrix": {
+        "tp": 290,
+        "fp": 200,
+        "tn": 40,
+        "fn": 70
+      }
+    },
+    "image_only": {
+      "accuracy": 0.5567,
+      "precision": 0.6328,
+      "recall": 0.6222,
+      "f1": 0.6275,
+      "auroc": 0.5628,
+      "fpr": 0.5417,
+      "fnr": 0.3778,
+      "pred_pos": 354,
+      "pred_neg": 246,
+      "positive_prediction_rate": 0.59,
+      "confusion_matrix": {
+        "tp": 224,
+        "fp": 130,
+        "tn": 110,
+        "fn": 136
+      }
+    }
+  },
+  "shuffled_image_sanity_check": {
+    "paired_auroc": 0.569,
+    "shuffled_auroc": 0.4898,
+    "auroc_drop_when_shuffled": 0.0792
+  },
+  "contextual_inversion_sample_count": 99,
+  "emergent_toxicity_sample_count": 19,
+  "sample_inversion_cases": [
+    {
+      "meme_id": 0,
+      "language": "english",
+      "text": "So You're telling me   You eat too much and you want to lose weight?",
+      "text_only_prob": 0.5761,
+      "multimodal_prob": 0.0764,
+      "ground_truth": 0,
+      "verdict": "SUCCESSFUL_INVERSION"
+    },
+    {
+      "meme_id": 10,
+      "language": "hindi",
+      "text": "\u0906\u092a\u0915\u0940 \u092d\u093e\u0937\u093e \u0932\u0940 \u0914\u0930 \u0909\u0938\u092e\u0947\u0902 \u0938\u0941\u0927\u093e\u0930 \u0915\u093f\u092f\u093e   \u0906\u092a\u0915\u093e \u0938\u094d\u0935\u093e\u0917\u0924 \u0939\u0948",
+      "text_only_prob": 0.4503,
+      "multimodal_prob": 0.0148,
+      "ground_truth": 0,
+      "verdict": "SUCCESSFUL_INVERSION"
+    },
+    {
+      "meme_id": 17,
+      "language": "english",
+      "text": "YOU AIN'T GETTIN' NO FRIED CHICKEN   TILL' YOU FINISH ALL  YOUR COOL-AID",
+      "text_only_prob": 0.5227,
+      "multimodal_prob": 0.0416,
+      "ground_truth": 0,
+      "verdict": "SUCCESSFUL_INVERSION"
+    },
+    {
+      "meme_id": 29,
+      "language": "english",
+      "text": "you picked a good day to work from home...   no one's here except me Kevin and Yaji !!!",
+      "text_only_prob": 0.4602,
+      "multimodal_prob": 0.0003,
+      "ground_truth": 0,
+      "verdict": "SUCCESSFUL_INVERSION"
+    },
+    {
+      "meme_id": 34,
+      "language": "english",
+      "text": "1 pound fish   very very cheap",
+      "text_only_prob": 0.4383,
+      "multimodal_prob": 0.0061,
+      "ground_truth": 0,
+      "verdict": "SUCCESSFUL_INVERSION"
+    }
+  ],
+  "sample_emergent_cases": [
+    {
+      "meme_id": 13,
+      "language": "english",
+      "text": "SEES COMMENTS ON YOUTUBE VIDEO OF NON-SPEAKING ENGLISH COUNTRY   ENGLISH PLEASE",
+      "text_only_prob": 0.3124,
+      "multimodal_prob": 0.7669,
+      "ground_truth": 1,
+      "verdict": "SUCCESSFUL_EMERGENCE"
+    },
+    {
+      "meme_id": 19,
+      "language": "english",
+      "text": "I PASSED THE BORDER   THATS WHY IM HAPPY",
+      "text_only_prob": 0.3972,
+      "multimodal_prob": 0.998,
+      "ground_truth": 1,
+      "verdict": "SUCCESSFUL_EMERGENCE"
+    },
+    {
+      "meme_id": 24,
+      "language": "hindi",
+      "text": "\u092e\u093f\u091f \u0930\u094b\u092e\u0928\u0940   \u0938\u092e\u0932\u0948\u0902\u0917\u093f\u0915 \u0939\u0948",
+      "text_only_prob": 0.3948,
+      "multimodal_prob": 0.9705,
+      "ground_truth": 1,
+      "verdict": "SUCCESSFUL_EMERGENCE"
+    },
+    {
+      "meme_id": 33,
+      "language": "english",
+      "text": "SHUT UP OSAMA!   HE IS MY SON!",
+      "text_only_prob": 0.3437,
+      "multimodal_prob": 0.9994,
+      "ground_truth": 1,
+      "verdict": "SUCCESSFUL_EMERGENCE"
+    },
+    {
+      "meme_id": 37,
+      "language": "english",
+      "text": "SEE THIS HAT   THRIFT STORE",
+      "text_only_prob": 0.3698,
+      "multimodal_prob": 0.9997,
+      "ground_truth": 1,
+      "verdict": "SUCCESSFUL_EMERGENCE"
+    }
+  ]
+}

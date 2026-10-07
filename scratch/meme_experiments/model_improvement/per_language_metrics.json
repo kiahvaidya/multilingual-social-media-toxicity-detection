@@ -1,0 +1,38 @@
+{
+  "english": {
+    "accuracy": 0.6033,
+    "precision": 0.6564,
+    "recall": 0.7111,
+    "f1": 0.6827,
+    "auroc": 0.6177,
+    "fpr": 0.5583,
+    "fnr": 0.2889,
+    "pred_pos": 195,
+    "pred_neg": 105,
+    "positive_prediction_rate": 0.65,
+    "confusion_matrix": {
+      "tp": 128,
+      "fp": 67,
+      "tn": 53,
+      "fn": 52
+    }
+  },
+  "hindi": {
+    "accuracy": 0.5367,
+    "precision": 0.6171,
+    "recall": 0.6,
+    "f1": 0.6085,
+    "auroc": 0.5089,
+    "fpr": 0.5583,
+    "fnr": 0.4,
+    "pred_pos": 175,
+    "pred_neg": 125,
+    "positive_prediction_rate": 0.5833,
+    "confusion_matrix": {
+      "tp": 108,
+      "fp": 67,
+      "tn": 53,
+      "fn": 72
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "overall_in": {
+    "accuracy": 0.5283,
+    "precision": 0.6742,
+    "recall": 0.4139,
+    "f1": 0.5129,
+    "auroc": 0.5835,
+    "fpr": 0.3,
+    "fnr": 0.5861,
+    "pred_pos": 221,
+    "pred_neg": 379,
+    "positive_prediction_rate": 0.3683,
+    "confusion_matrix": {
+      "tp": 149,
+      "fp": 72,
+      "tn": 168,
+      "fn": 211
+    }
+  },
+  "english": {
+    "accuracy": 0.61,
+    "precision": 0.6886,
+    "recall": 0.6389,
+    "f1": 0.6628,
+    "auroc": 0.6411,
+    "fpr": 0.4333,
+    "fnr": 0.3611,
+    "pred_pos": 167,
+    "pred_neg": 133,
+    "positive_prediction_rate": 0.5567,
+    "confusion_matrix": {
+      "tp": 115,
+      "fp": 52,
+      "tn": 68,
+      "fn": 65
+    }
+  },
+  "hindi": {
+    "accuracy": 0.4467,
+    "precision": 0.6296,
+    "recall": 0.1889,
+    "f1": 0.2906,
+    "auroc": 0.504,
+    "fpr": 0.1667,
+    "fnr": 0.8111,
+    "pred_pos": 54,
+    "pred_neg": 246,
+    "positive_prediction_rate": 0.18,
+    "confusion_matrix": {
+      "tp": 34,
+      "fp": 20,
+      "tn": 100,
+      "fn": 146
+    }
+  },
+  "us_consensus": {
+    "accuracy": 0.5617,
+    "precision": 0.6018,
+    "recall": 0.4318,
+    "f1": 0.5028,
+    "auroc": 0.5818,
+    "fpr": 0.3014,
+    "fnr": 0.5682,
+    "pred_pos": 221,
+    "pred_neg": 379,
+    "positive_prediction_rate": 0.3683,
+    "confusion_matrix": {
+      "tp": 133,
+      "fp": 88,
+      "tn": 204,
+      "fn": 175
+    }
+  },
+  "de_consensus": {
+    "accuracy": 0.5417,
+    "precision": 0.6878,
+    "recall": 0.4246,
+    "f1": 0.525,
+    "auroc": 0.5822,
+    "fpr": 0.2851,
+    "fnr": 0.5754,
+    "pred_pos": 221,
+    "pred_neg": 379,
+    "positive_prediction_rate": 0.3683,
+    "confusion_matrix": {
+      "tp": 152,
+      "fp": 69,
+      "tn": 173,
+      "fn": 206
+    }
+  },
+  "mx_consensus": {
+    "accuracy": 0.5583,
+    "precision": 0.6561,
+    "recall": 0.4341,
+    "f1": 0.5225,
+    "auroc": 0.5993,
+    "fpr": 0.2857,
+    "fnr": 0.5659,
+    "pred_pos": 221,
+    "pred_neg": 379,
+    "positive_prediction_rate": 0.3683,
+    "confusion_matrix": {
+      "tp": 145,
+      "fp": 76,
+      "tn": 190,
+      "fn": 189
+    }
+  },
+  "cn_consensus": {
+    "accuracy": 0.495,
+    "precision": 0.6742,
+    "recall": 0.3921,
+    "f1": 0.4958,
+    "auroc": 0.5381,
+    "fpr": 0.3273,
+    "fnr": 0.6079,
+    "pred_pos": 221,
+    "pred_neg": 379,
+    "positive_prediction_rate": 0.3683,
+    "confusion_matrix": {
+      "tp": 149,
+      "fp": 72,
+      "tn": 148,
+      "fn": 231
+    }
+  }
+}

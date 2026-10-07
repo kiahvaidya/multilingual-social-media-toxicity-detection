@@ -1,0 +1,6 @@
+{
+  "paired_auroc": 0.577,
+  "shuffled_auroc": 0.5379,
+  "delta_auroc": 0.0391,
+  "interpretation": "True cross-modal interaction"
+}

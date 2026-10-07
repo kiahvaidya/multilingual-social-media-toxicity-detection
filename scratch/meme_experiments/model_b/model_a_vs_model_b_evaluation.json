@@ -1,0 +1,248 @@
+{
+  "model_a_checkpoint": "C:\\Users\\Sanjana\\OneDrive\\Desktop\\coding\\multilingual-social-media-toxicity-detection\\muril_toxicity_model.pt",
+  "model_b_checkpoint": "C:\\Users\\Sanjana\\OneDrive\\Desktop\\coding\\multilingual-social-media-toxicity-detection\\scratch\\meme_experiments\\model_b\\muril_model_b.pt",
+  "frozen_thresholds_used": {
+    "toxic": 0.45,
+    "severe_toxic": 0.62,
+    "obscene": 0.65,
+    "threat": 0.59,
+    "insult": 0.61,
+    "identity_hate": 0.6
+  },
+  "hasoc_meme_2025_val_eval": {
+    "total_val_samples": 227,
+    "model_a": {
+      "samples": 227,
+      "tp": 61,
+      "fp": 153,
+      "tn": 13,
+      "fn": 0,
+      "precision": 0.285,
+      "recall": 1.0,
+      "f1": 0.4436,
+      "fpr": 0.9217,
+      "fnr": 0.0
+    },
+    "model_b": {
+      "samples": 227,
+      "tp": 46,
+      "fp": 60,
+      "tn": 106,
+      "fn": 15,
+      "precision": 0.434,
+      "recall": 0.7541,
+      "f1": 0.5509,
+      "fpr": 0.3614,
+      "fnr": 0.2459
+    }
+  },
+  "difficult_60_probe_eval": {
+    "overall": {
+      "model_a": {
+        "samples": 60,
+        "tp": 27,
+        "fp": 19,
+        "tn": 11,
+        "fn": 3,
+        "precision": 0.587,
+        "recall": 0.9,
+        "f1": 0.7105,
+        "fpr": 0.6333,
+        "fnr": 0.1
+      },
+      "model_b": {
+        "samples": 60,
+        "tp": 10,
+        "fp": 3,
+        "tn": 27,
+        "fn": 20,
+        "precision": 0.7692,
+        "recall": 0.3333,
+        "f1": 0.4651,
+        "fpr": 0.1,
+        "fnr": 0.6667
+      }
+    },
+    "slices": {
+      "model_a": {
+        "english": {
+          "samples": 12,
+          "tp": 4,
+          "fp": 3,
+          "tn": 3,
+          "fn": 2,
+          "precision": 0.5714,
+          "recall": 0.6667,
+          "f1": 0.6154,
+          "fpr": 0.5,
+          "fnr": 0.3333
+        },
+        "hindi": {
+          "samples": 12,
+          "tp": 6,
+          "fp": 3,
+          "tn": 3,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "fpr": 0.5,
+          "fnr": 0.0
+        },
+        "hinglish": {
+          "samples": 12,
+          "tp": 6,
+          "fp": 6,
+          "tn": 0,
+          "fn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "fpr": 1.0,
+          "fnr": 0.0
+        },
+        "slang": {
+          "samples": 12,
+          "tp": 6,
+          "fp": 3,
+          "tn": 3,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "fpr": 0.5,
+          "fnr": 0.0
+        },
+        "obfuscation": {
+          "samples": 12,
+          "tp": 5,
+          "fp": 4,
+          "tn": 2,
+          "fn": 1,
+          "precision": 0.5556,
+          "recall": 0.8333,
+          "f1": 0.6667,
+          "fpr": 0.6667,
+          "fnr": 0.1667
+        }
+      },
+      "model_b": {
+        "english": {
+          "samples": 12,
+          "tp": 0,
+          "fp": 1,
+          "tn": 5,
+          "fn": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.1667,
+          "fnr": 1.0
+        },
+        "hindi": {
+          "samples": 12,
+          "tp": 2,
+          "fp": 0,
+          "tn": 6,
+          "fn": 4,
+          "precision": 1.0,
+          "recall": 0.3333,
+          "f1": 0.5,
+          "fpr": 0.0,
+          "fnr": 0.6667
+        },
+        "hinglish": {
+          "samples": 12,
+          "tp": 4,
+          "fp": 0,
+          "tn": 6,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "fpr": 0.0,
+          "fnr": 0.3333
+        },
+        "slang": {
+          "samples": 12,
+          "tp": 1,
+          "fp": 0,
+          "tn": 6,
+          "fn": 5,
+          "precision": 1.0,
+          "recall": 0.1667,
+          "f1": 0.2857,
+          "fpr": 0.0,
+          "fnr": 0.8333
+        },
+        "obfuscation": {
+          "samples": 12,
+          "tp": 3,
+          "fp": 2,
+          "tn": 4,
+          "fn": 3,
+          "precision": 0.6,
+          "recall": 0.5,
+          "f1": 0.5455,
+          "fpr": 0.3333,
+          "fnr": 0.5
+        }
+      }
+    }
+  },
+  "multi3hate_held_out_cultural_eval": {
+    "total_samples": 600,
+    "evaluated_against_indian_consensus": {
+      "model_a": {
+        "samples": 600,
+        "tp": 241,
+        "fp": 122,
+        "tn": 118,
+        "fn": 119,
+        "precision": 0.6639,
+        "recall": 0.6694,
+        "f1": 0.6667,
+        "fpr": 0.5083,
+        "fnr": 0.3306
+      },
+      "model_b": {
+        "samples": 600,
+        "tp": 57,
+        "fp": 16,
+        "tn": 224,
+        "fn": 303,
+        "precision": 0.7808,
+        "recall": 0.1583,
+        "f1": 0.2633,
+        "fpr": 0.0667,
+        "fnr": 0.8417
+      }
+    },
+    "evaluated_against_us_consensus": {
+      "model_a": {
+        "samples": 600,
+        "tp": 197,
+        "fp": 166,
+        "tn": 126,
+        "fn": 111,
+        "precision": 0.5427,
+        "recall": 0.6396,
+        "f1": 0.5872,
+        "fpr": 0.5685,
+        "fnr": 0.3604
+      },
+      "model_b": {
+        "samples": 600,
+        "tp": 47,
+        "fp": 26,
+        "tn": 266,
+        "fn": 261,
+        "precision": 0.6438,
+        "recall": 0.1526,
+        "f1": 0.2467,
+        "fpr": 0.089,
+        "fnr": 0.8474
+      }
+    }
+  }
+}

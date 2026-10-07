@@ -1,0 +1,21 @@
+{
+  "raw": {
+    "brier_score": 0.2234,
+    "log_loss": 0.9084,
+    "ece": 0.1558
+  },
+  "platt": {
+    "parameters": {
+      "scale_a": 0.2461,
+      "bias_b": -0.2765
+    },
+    "brier_score": 0.2021,
+    "log_loss": 0.5916,
+    "ece": 0.076
+  },
+  "isotonic": {
+    "brier_score": 0.1879,
+    "log_loss": 0.5545,
+    "ece": 0.004
+  }
+}

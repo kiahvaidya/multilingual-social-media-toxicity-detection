@@ -1,0 +1,28 @@
+{
+  "architecture": "ProductionCandidateMultimodalClassifier",
+  "backbones": {
+    "text": "MuRIL (google/muril-base-cased, 768-dim normalized CLS)",
+    "vision": "CLIP ViT-B/32 (openai/clip-vit-base-patch32, 512-dim normalized)"
+  },
+  "projection_dim": 256,
+  "interaction_features": "[t_proj, v_proj, t_proj * v_proj, abs(t_proj - v_proj)] -> 1024-dim",
+  "modality_dropout": 0.2,
+  "classifier_dropout": 0.25,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.01,
+  "batch_size": 32,
+  "max_epochs": 35,
+  "patience": 10,
+  "training_data": {
+    "total_samples": 6091,
+    "pridemm_english_memes": 4328,
+    "hasoc_hindi_meme_ocr": 963,
+    "trac_hinglish_social_media": 800
+  },
+  "validation_data": {
+    "total_samples": 598,
+    "pridemm_english_val": 228,
+    "hasoc_hindi_val": 170,
+    "trac_hinglish_val": 200
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "contextual_inversion": {
+    "description": "Text looks toxic/hostile but meme context is benign (GT=0)",
+    "count": 16,
+    "samples": [
+      {
+        "image_id": 14,
+        "language": "english",
+        "text": "WHEN PEOPLE LEAVE THE DOOR OPEN   OH NO YOU DIDNT !",
+        "ground_truth": 0,
+        "text_only_score": 0.5754,
+        "multimodal_score": 0.6268,
+        "prediction": 1
+      },
+      {
+        "image_id": 17,
+        "language": "english",
+        "text": "YOU AIN'T GETTIN' NO FRIED CHICKEN   TILL' YOU FINISH ALL  YOUR COOL-AID",
+        "ground_truth": 0,
+        "text_only_score": 0.6451,
+        "multimodal_score": 0.3802,
+        "prediction": 0
+      },
+      {
+        "image_id": 25,
+        "language": "english",
+        "text": "IT DONT MATTER   IF YOUR BLACK OR WHITE!",
+        "ground_truth": 0,
+        "text_only_score": 0.5615,
+        "multimodal_score": 0.8302,
+        "prediction": 1
+      }
+    ]
+  },
+  "emergent_hate": {
+    "description": "Text looks benign/innocuous (low text toxicity score) but meme is hateful (GT=1)",
+    "count": 360,
+    "samples": [
+      {
+        "image_id": 113,
+        "language": "english",
+        "text": "You are good at the olympics   but terrible at money management.",
+        "ground_truth": 1,
+        "text_only_score": 0.2955,
+        "multimodal_score": 0.8737,
+        "prediction": 1
+      },
+      {
+        "image_id": 205,
+        "language": "english",
+        "text": "Cops...   Only laugh at their own jokes",
+        "ground_truth": 1,
+        "text_only_score": 0.2962,
+        "multimodal_score": 0.8326,
+        "prediction": 1
+      },
+      {
+        "image_id": 166,
+        "language": "english",
+        "text": "Avoids meat as a sacrifice during Holy week   Eats seafood that taste better than meat",
+        "ground_truth": 1,
+        "text_only_score": 0.2968,
+        "multimodal_score": 0.7451,
+        "prediction": 1
+      }
+    ]
+  },
+  "explicit_hate": {
+    "description": "Both modalities indicate hate (high text toxicity and GT=1)",
+    "count": 57,
+    "samples": [
+      {
+        "image_id": 3,
+        "language": "hindi",
+        "text": "\\u0924\\u094b \\u0906\\u092a \\u092e\\u0941\\u091d\\u0947 \\u092c\\u0924\\u093e \\u0930\\u0939\\u0947 \\u0939\\u0948\\u0902   \\u092e\\u09",
+        "ground_truth": 1,
+        "text_only_score": 0.5809,
+        "multimodal_score": 0.5262,
+        "prediction": 1
+      },
+      {
+        "image_id": 9,
+        "language": "english",
+        "text": "Support Our Troops, Motherfucker!   Or we'll lock your ass up for tax evasion!!!",
+        "ground_truth": 1,
+        "text_only_score": 0.6501,
+        "multimodal_score": 0.8499,
+        "prediction": 1
+      },
+      {
+        "image_id": 9,
+        "language": "hindi",
+        "text": "\\u0939\\u092e\\u093e\\u0930\\u0947 \\u0938\\u0948\\u0928\\u093f\\u0915\\u094b\\u0902 \\u0915\\u093e \\u0938\\u092e\\u0930\\u094d\\u0925\\u0",
+        "ground_truth": 1,
+        "text_only_score": 0.6696,
+        "multimodal_score": 0.5573,
+        "prediction": 1
+      }
+    ]
+  },
+  "benign": {
+    "description": "Both modalities are benign (low text toxicity and GT=0)",
+    "count": 240,
+    "samples": [
+      {
+        "image_id": 99,
+        "language": "hindi",
+        "text": "\\u092e\\u0948\\u0902 \\u0906\\u092a\\u0915\\u0947 \\u0935\\u093f\\u091a\\u093e\\u0930\\u094b\\u0902 \\u0915\\u093e \\u0938\\u092e\\u094d\\u",
+        "ground_truth": 0,
+        "text_only_score": 0.2965,
+        "multimodal_score": 0.4679,
+        "prediction": 0
+      },
+      {
+        "image_id": 7,
+        "language": "english",
+        "text": "so you're telling me   you already adjusted our grades",
+        "ground_truth": 0,
+        "text_only_score": 0.2967,
+        "multimodal_score": 0.2665,
+        "prediction": 0
+      },
+      {
+        "image_id": 148,
+        "language": "hindi",
+        "text": "\\u0915\\u094d\\u092f\\u093e \\u0906\\u092a \\u0915\\u092d\\u0940 \\u0925\\u0947   \\u090f\\u0915 \\u092f\\u0939\\u0942\\u0926\\u0940 \\u09",
+        "ground_truth": 0,
+        "text_only_score": 0.2968,
+        "multimodal_score": 0.5213,
+        "prediction": 1
+      }
+    ]
+  }
+}

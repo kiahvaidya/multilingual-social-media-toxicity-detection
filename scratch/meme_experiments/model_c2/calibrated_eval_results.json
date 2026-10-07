@@ -1,0 +1,411 @@
+{
+  "benchmark": "Multi3Hate Held-Out Cultural Evaluation",
+  "total_instances": 600,
+  "frozen_threshold": 0.45,
+  "validation_selected_threshold": 0.29,
+  "indian_consensus_frozen": {
+    "C-2a_Text_Only_Model_B": {
+      "threshold": 0.45,
+      "precision": 0.7808,
+      "recall": 0.1583,
+      "f1": 0.2633,
+      "fpr": 0.0667,
+      "fnr": 0.8417,
+      "raw_brier": 0.2998,
+      "calibrated_brier": 0.2998,
+      "raw_ece": 0.255,
+      "calibrated_ece": 0.255,
+      "confusion_matrix": {
+        "tp": 57,
+        "fp": 16,
+        "tn": 224,
+        "fn": 303
+      },
+      "total": 600
+    },
+    "C-2b_Image_Only": {
+      "threshold": 0.45,
+      "precision": 0.6682,
+      "recall": 0.3917,
+      "f1": 0.4939,
+      "fpr": 0.2917,
+      "fnr": 0.6083,
+      "raw_brier": 0.2646,
+      "calibrated_brier": 0.2646,
+      "raw_ece": 0.1699,
+      "calibrated_ece": 0.1699,
+      "confusion_matrix": {
+        "tp": 141,
+        "fp": 70,
+        "tn": 170,
+        "fn": 219
+      },
+      "total": 600
+    },
+    "C-2c_Multimodal_Concat": {
+      "threshold": 0.45,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "raw_brier": 0.2709,
+      "calibrated_brier": 0.4921,
+      "raw_ece": 0.1893,
+      "calibrated_ece": 0.5053,
+      "confusion_matrix": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 240,
+        "fn": 360
+      },
+      "total": 600
+    },
+    "C-2d_Multimodal_Gated": {
+      "threshold": 0.45,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "raw_brier": 0.3216,
+      "calibrated_brier": 0.5494,
+      "raw_ece": 0.2865,
+      "calibrated_ece": 0.5574,
+      "confusion_matrix": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 240,
+        "fn": 360
+      },
+      "total": 600
+    }
+  },
+  "indian_consensus_val_threshold": {
+    "C-2a_Text_Only_Model_B": {
+      "threshold": 0.29,
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "raw_brier": 0.2998,
+      "calibrated_brier": 0.2998,
+      "raw_ece": 0.255,
+      "calibrated_ece": 0.255,
+      "confusion_matrix": {
+        "tp": 360,
+        "fp": 240,
+        "tn": 0,
+        "fn": 0
+      },
+      "total": 600
+    },
+    "C-2b_Image_Only": {
+      "threshold": 0.29,
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "raw_brier": 0.2646,
+      "calibrated_brier": 0.2646,
+      "raw_ece": 0.1699,
+      "calibrated_ece": 0.1699,
+      "confusion_matrix": {
+        "tp": 360,
+        "fp": 240,
+        "tn": 0,
+        "fn": 0
+      },
+      "total": 600
+    },
+    "C-2c_Multimodal_Concat": {
+      "threshold": 0.29,
+      "precision": 0.6667,
+      "recall": 0.0056,
+      "f1": 0.011,
+      "fpr": 0.0042,
+      "fnr": 0.9944,
+      "raw_brier": 0.2709,
+      "calibrated_brier": 0.4921,
+      "raw_ece": 0.1893,
+      "calibrated_ece": 0.5053,
+      "confusion_matrix": {
+        "tp": 2,
+        "fp": 1,
+        "tn": 239,
+        "fn": 358
+      },
+      "total": 600
+    },
+    "C-2d_Multimodal_Gated": {
+      "threshold": 0.29,
+      "precision": 0.5,
+      "recall": 0.0028,
+      "f1": 0.0055,
+      "fpr": 0.0042,
+      "fnr": 0.9972,
+      "raw_brier": 0.3216,
+      "calibrated_brier": 0.5494,
+      "raw_ece": 0.2865,
+      "calibrated_ece": 0.5574,
+      "confusion_matrix": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 239,
+        "fn": 359
+      },
+      "total": 600
+    }
+  },
+  "gate_distribution": {
+    "overall": {
+      "mean": 0.5173,
+      "std": 0.0016
+    },
+    "benign_memes": {
+      "mean": 0.5172,
+      "std": 0.0015
+    },
+    "hateful_memes": {
+      "mean": 0.5173,
+      "std": 0.0016
+    }
+  },
+  "tradeoff_curve": [
+    {
+      "threshold": 0.1,
+      "precision": 0.7353,
+      "recall": 0.0694,
+      "f1": 0.1269,
+      "fpr": 0.0375
+    },
+    {
+      "threshold": 0.15,
+      "precision": 0.75,
+      "recall": 0.0333,
+      "f1": 0.0638,
+      "fpr": 0.0167
+    },
+    {
+      "threshold": 0.2,
+      "precision": 0.8,
+      "recall": 0.0222,
+      "f1": 0.0432,
+      "fpr": 0.0083
+    },
+    {
+      "threshold": 0.25,
+      "precision": 0.8333,
+      "recall": 0.0139,
+      "f1": 0.0273,
+      "fpr": 0.0042
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.5,
+      "recall": 0.0028,
+      "f1": 0.0055,
+      "fpr": 0.0042
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.45,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.55,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.65,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.75,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.85,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0
+    }
+  ],
+  "cross_modal_context_cases": [
+    {
+      "sample_id": "A1_mid115",
+      "category": "Category A (Contextual Inversion)",
+      "description": "damn happy about football (smiling meme)",
+      "ground_truth": 0,
+      "model_b_score": 0.2989,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.3754,
+      "model_c2_calibrated_score": 0.0623,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5184,
+      "resolved_at_val_thresh": true
+    },
+    {
+      "sample_id": "A2_mid282",
+      "category": "Category A (Contextual Inversion)",
+      "description": "under arrest for accessibility (office meme)",
+      "ground_truth": 0,
+      "model_b_score": 0.2988,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.2882,
+      "model_c2_calibrated_score": 0.0264,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5162,
+      "resolved_at_val_thresh": true
+    },
+    {
+      "sample_id": "B1_mid37",
+      "category": "Category B (Emergent Toxicity)",
+      "description": "see this hat thrift store (advicejew trope)",
+      "ground_truth": 1,
+      "model_b_score": 0.361,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.3515,
+      "model_c2_calibrated_score": 0.05,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.516,
+      "resolved_at_val_thresh": false
+    },
+    {
+      "sample_id": "B2_mid141",
+      "category": "Category B (Emergent Toxicity)",
+      "description": "wants white tradition eats mcdonalds (white power)",
+      "ground_truth": 1,
+      "model_b_score": 0.3008,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.4214,
+      "model_c2_calibrated_score": 0.0933,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5164,
+      "resolved_at_val_thresh": false
+    },
+    {
+      "sample_id": "C1_mid89",
+      "category": "Category C (Explicit Harm)",
+      "description": "hate black people got gun (strict policeman)",
+      "ground_truth": 1,
+      "model_b_score": 0.3013,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.231,
+      "model_c2_calibrated_score": 0.0136,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5184,
+      "resolved_at_val_thresh": false
+    },
+    {
+      "sample_id": "C2_mid96",
+      "category": "Category C (Explicit Harm)",
+      "description": "hate men need cock (feminist caricature)",
+      "ground_truth": 1,
+      "model_b_score": 0.5749,
+      "model_b_decision": 1,
+      "model_c2_raw_score": 0.3952,
+      "model_c2_calibrated_score": 0.0744,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5167,
+      "resolved_at_val_thresh": false
+    },
+    {
+      "sample_id": "D1_mid174",
+      "category": "Category D (Benign Meme)",
+      "description": "blog non-german friends (harmless cartoon)",
+      "ground_truth": 0,
+      "model_b_score": 0.2996,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.4145,
+      "model_c2_calibrated_score": 0.0879,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5155,
+      "resolved_at_val_thresh": true
+    },
+    {
+      "sample_id": "D2_mid265",
+      "category": "Category D (Benign Meme)",
+      "description": "quality men believe equality (couple meme)",
+      "ground_truth": 0,
+      "model_b_score": 0.2985,
+      "model_b_decision": 0,
+      "model_c2_raw_score": 0.3192,
+      "model_c2_calibrated_score": 0.0365,
+      "model_c2_decision_frozen": 0,
+      "model_c2_decision_val_thresh": 0,
+      "gate_value": 0.5174,
+      "resolved_at_val_thresh": true
+    }
+  ]
+}

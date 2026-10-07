@@ -1,0 +1,118 @@
+{
+  "pridemm_test": {
+    "unshuffled_paired": {
+      "accuracy": 0.6982,
+      "precision": 0.6679,
+      "recall": 0.7571,
+      "f1": 0.7097,
+      "auroc": 0.779,
+      "fpr": 0.3577,
+      "fnr": 0.2429,
+      "pred_pos": 280,
+      "pred_neg": 227,
+      "positive_prediction_rate": 0.5523,
+      "confusion_matrix": {
+        "tp": 187,
+        "fp": 93,
+        "tn": 167,
+        "fn": 60
+      }
+    },
+    "shuffled_image": {
+      "accuracy": 0.4793,
+      "precision": 0.4704,
+      "recall": 0.5466,
+      "f1": 0.5056,
+      "auroc": 0.504,
+      "fpr": 0.5846,
+      "fnr": 0.4534,
+      "pred_pos": 287,
+      "pred_neg": 220,
+      "positive_prediction_rate": 0.5661,
+      "confusion_matrix": {
+        "tp": 135,
+        "fp": 152,
+        "tn": 108,
+        "fn": 112
+      }
+    },
+    "shuffled_text": {
+      "accuracy": 0.7041,
+      "precision": 0.6726,
+      "recall": 0.7652,
+      "f1": 0.7159,
+      "auroc": 0.7685,
+      "fpr": 0.3538,
+      "fnr": 0.2348,
+      "pred_pos": 281,
+      "pred_neg": 226,
+      "positive_prediction_rate": 0.5542,
+      "confusion_matrix": {
+        "tp": 189,
+        "fp": 92,
+        "tn": 168,
+        "fn": 58
+      }
+    },
+    "image_shuffle_f1_delta": -0.2041,
+    "image_shuffle_auroc_delta": -0.275
+  },
+  "multi3hate": {
+    "unshuffled_paired": {
+      "accuracy": 0.5283,
+      "precision": 0.6742,
+      "recall": 0.4139,
+      "f1": 0.5129,
+      "auroc": 0.5835,
+      "fpr": 0.3,
+      "fnr": 0.5861,
+      "pred_pos": 221,
+      "pred_neg": 379,
+      "positive_prediction_rate": 0.3683,
+      "confusion_matrix": {
+        "tp": 149,
+        "fp": 72,
+        "tn": 168,
+        "fn": 211
+      }
+    },
+    "shuffled_image": {
+      "accuracy": 0.5033,
+      "precision": 0.6396,
+      "recall": 0.3944,
+      "f1": 0.488,
+      "auroc": 0.5527,
+      "fpr": 0.3333,
+      "fnr": 0.6056,
+      "pred_pos": 222,
+      "pred_neg": 378,
+      "positive_prediction_rate": 0.37,
+      "confusion_matrix": {
+        "tp": 142,
+        "fp": 80,
+        "tn": 160,
+        "fn": 218
+      }
+    },
+    "shuffled_text": {
+      "accuracy": 0.5117,
+      "precision": 0.6502,
+      "recall": 0.4028,
+      "f1": 0.4974,
+      "auroc": 0.5676,
+      "fpr": 0.325,
+      "fnr": 0.5972,
+      "pred_pos": 223,
+      "pred_neg": 377,
+      "positive_prediction_rate": 0.3717,
+      "confusion_matrix": {
+        "tp": 145,
+        "fp": 78,
+        "tn": 162,
+        "fn": 215
+      }
+    },
+    "image_shuffle_f1_delta": -0.0249,
+    "image_shuffle_auroc_delta": -0.0308
+  }
+}

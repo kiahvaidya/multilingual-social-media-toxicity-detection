@@ -1,0 +1,126 @@
+{
+  "contextual_inversion_count": 2,
+  "contextual_inversion_samples": [
+    {
+      "sample_idx": 34,
+      "language": "english",
+      "text": "YOU AIN'T GETTIN' NO FRIED CHICKEN   TILL' YOU FINISH ALL  YOUR COOL-AID",
+      "ground_truth": 0,
+      "text_only_prob": 0.457,
+      "multimodal_prob": 0.0155,
+      "category": "contextual_inversion_neutralized"
+    },
+    {
+      "sample_idx": 144,
+      "language": "english",
+      "text": "studies criminal justice   police academy teaches him everything",
+      "ground_truth": 0,
+      "text_only_prob": 0.405,
+      "multimodal_prob": 0.0863,
+      "category": "contextual_inversion_neutralized"
+    }
+  ],
+  "emergent_toxicity_count": 157,
+  "emergent_toxicity_samples": [
+    {
+      "sample_idx": 4,
+      "language": "english",
+      "text": "So if i treat women like shit   i will do better with them? Cool!",
+      "ground_truth": 1,
+      "text_only_prob": 0.2224,
+      "multimodal_prob": 0.9981,
+      "category": "emergent_toxicity_caught"
+    },
+    {
+      "sample_idx": 5,
+      "language": "hindi",
+      "text": "\u0924\u094b \u0905\u0917\u0930 \u092e\u0948\u0902 \u092e\u0939\u093f\u0932\u093e\u0913\u0902 \u0915\u0947 \u0938\u093e\u0925 \u0917\u0928\u094d\u0926\u093e \u0935\u094d\u092f\u0935\u0939\u093e\u0930 \u0915\u0930\u0942\u0901\u0917\u093e    \u0924\u094b \u092e\u0948\u0902 \u0909\u0928\u0915\u0947 \u0938\u093e\u0925 \u092c\u0947\u0939\u0924\u0930 \u0915\u0930\u0942\u0901\u0917\u093e? \u092c\u0922\u093c\u093f\u092f\u093e!",
+      "ground_truth": 1,
+      "text_only_prob": 0.1536,
+      "multimodal_prob": 0.95,
+      "category": "emergent_toxicity_caught"
+    },
+    {
+      "sample_idx": 6,
+      "language": "english",
+      "text": "So you're telling me   that Macbeth actually trusted three random witches.",
+      "ground_truth": 1,
+      "text_only_prob": 0.1791,
+      "multimodal_prob": 0.9925,
+      "category": "emergent_toxicity_caught"
+    },
+    {
+      "sample_idx": 7,
+      "language": "hindi",
+      "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u0948\u0915\u092c\u0947\u0925 \u0935\u093e\u0938\u094d\u0924\u0935 \u092e\u0947\u0902 \u0924\u0940\u0928 \u091a\u0941\u0921\u093c\u0948\u0932\u094b\u0902 \u092a\u0930 \u092d\u0930\u094b\u0938\u093e \u0915\u0930\u0924\u093e \u0925\u093e\u0964",
+      "ground_truth": 1,
+      "text_only_prob": 0.1641,
+      "multimodal_prob": 0.7977,
+      "category": "emergent_toxicity_caught"
+    },
+    {
+      "sample_idx": 18,
+      "language": "english",
+      "text": "Support Our Troops, Motherfucker!   Or we'll lock your ass up for tax evasion!!!",
+      "ground_truth": 1,
+      "text_only_prob": 0.2076,
+      "multimodal_prob": 0.956,
+      "category": "emergent_toxicity_caught"
+    }
+  ],
+  "hindi_false_positives_count": 39,
+  "hindi_false_positives_samples": [
+    {
+      "sample_idx": 11,
+      "language": "hindi",
+      "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u093f\u0938\u094d\u0930\u0935\u093e\u0938\u0940 \u0905\u092d\u0940-\u0905\u092d\u0940 \u091a\u0932\u0947 \u0917\u090f",
+      "prob": 0.6342,
+      "category": "hindi_false_positive"
+    },
+    {
+      "sample_idx": 13,
+      "language": "hindi",
+      "text": "\u0924\u094b \u0906\u092a \u092e\u0941\u091d\u0947 \u092c\u0924\u093e \u0930\u0939\u0947 \u0939\u0948\u0902   \u092e\u0948\u0902 \u0938\u092a\u094d\u0924\u093e\u0939 \u0915\u0947 7 \u0926\u093f\u0928\u094b\u0902 \u092e\u0947\u0902 \u0938\u0947 6 \u0926\u093f\u0928 Xbox \u0916\u0947\u0932 \u0938\u0915\u0924\u093e \u0939\u0942\u0901?",
+      "prob": 0.8266,
+      "category": "hindi_false_positive"
+    },
+    {
+      "sample_idx": 17,
+      "language": "hindi",
+      "text": "\u092e\u0941\u091d\u0947 \u0907\u0938 \u092e\u0947\u0932 \u0938\u092e\u0942\u0939 \u092e\u0947\u0902 \u090a\u0930\u094d\u091c\u093e \u0915\u0940 \u0915\u092e\u0940  \u092c\u0939\u0941\u0924 \u092a\u0930\u0947\u0936\u093e\u0928 \u0915\u0930\u0928\u0947 \u0935\u093e\u0932\u0940 \u0932\u0917\u0924\u0940 \u0939\u0948",
+      "prob": 0.8781,
+      "category": "hindi_false_positive"
+    },
+    {
+      "sample_idx": 29,
+      "language": "hindi",
+      "text": "\u091c\u092c \u0932\u094b\u0917 \u0926\u0930\u0935\u093e\u091c\u093c\u093e \u0916\u0941\u0932\u093e \u091b\u094b\u0921\u093c \u0926\u0947\u0924\u0947 \u0939\u0948\u0902   \u0913\u0939 \u0928\u0939\u0940\u0902 \u0906\u092a\u0928\u0947 \u0910\u0938\u093e \u0928\u0939\u0940\u0902 \u0915\u093f\u092f\u093e!",
+      "prob": 0.425,
+      "category": "hindi_false_positive"
+    },
+    {
+      "sample_idx": 35,
+      "language": "hindi",
+      "text": "\u0906\u092a\u0915\u094b \u0924\u0932\u093e \u0939\u0941\u0906 \u091a\u093f\u0915\u0928 \u0928\u0939\u0940\u0902 \u092e\u093f\u0932\u0947\u0917\u093e   \u091c\u092c \u0924\u0915 \u0906\u092a \u0905\u092a\u0928\u093e \u0938\u093e\u0930\u093e \u0915\u0942\u0932-\u090f\u0921 \u0916\u093c\u0924\u094d\u092e \u0928\u0939\u0940\u0902 \u0915\u0930 \u0932\u0947\u0924\u0947",
+      "prob": 0.9213,
+      "category": "hindi_false_positive"
+    }
+  ],
+  "benign_profanity_cleared_count": 2,
+  "benign_profanity_cleared_samples": [
+    {
+      "sample_idx": 222,
+      "language": "english",
+      "text": "bring your dog   we have chicken?",
+      "prob": 0.0509,
+      "category": "benign_profanity_correctly_cleared"
+    },
+    {
+      "sample_idx": 330,
+      "language": "english",
+      "text": "i eat bacon   when no one's looking",
+      "prob": 0.0092,
+      "category": "benign_profanity_correctly_cleared"
+    }
+  ]
+}

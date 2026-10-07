@@ -1,0 +1,99 @@
+{
+  "pridemm_test": {
+    "unshuffled_paired": {
+      "accuracy": 0.7239,
+      "precision": 0.7019,
+      "recall": 0.753,
+      "f1": 0.7266,
+      "auroc": 0.7794,
+      "fpr": 0.3038,
+      "fnr": 0.247,
+      "pred_pos": 265,
+      "pred_neg": 242,
+      "positive_prediction_rate": 0.5227,
+      "confusion_matrix": {
+        "tp": 186,
+        "fp": 79,
+        "tn": 181,
+        "fn": 61
+      }
+    },
+    "shuffled_image": {
+      "accuracy": 0.5148,
+      "precision": 0.5018,
+      "recall": 0.5587,
+      "f1": 0.5287,
+      "auroc": 0.5039,
+      "fpr": 0.5269,
+      "fnr": 0.4413,
+      "pred_pos": 275,
+      "pred_neg": 232,
+      "positive_prediction_rate": 0.5424,
+      "confusion_matrix": {
+        "tp": 138,
+        "fp": 137,
+        "tn": 123,
+        "fn": 109
+      }
+    },
+    "shuffled_text": {
+      "accuracy": 0.7061,
+      "precision": 0.6801,
+      "recall": 0.749,
+      "f1": 0.7129,
+      "auroc": 0.7687,
+      "fpr": 0.3346,
+      "fnr": 0.251,
+      "pred_pos": 272,
+      "pred_neg": 235,
+      "positive_prediction_rate": 0.5365,
+      "confusion_matrix": {
+        "tp": 185,
+        "fp": 87,
+        "tn": 173,
+        "fn": 62
+      }
+    },
+    "image_shuffle_f1_delta": -0.1979,
+    "text_shuffle_f1_delta": -0.0137
+  },
+  "multi3hate": {
+    "unshuffled_paired": {
+      "accuracy": 0.5917,
+      "precision": 0.6486,
+      "recall": 0.6972,
+      "f1": 0.672,
+      "auroc": 0.6018,
+      "fpr": 0.5667,
+      "fnr": 0.3028,
+      "pred_pos": 387,
+      "pred_neg": 213,
+      "positive_prediction_rate": 0.645,
+      "confusion_matrix": {
+        "tp": 251,
+        "fp": 136,
+        "tn": 104,
+        "fn": 109
+      }
+    },
+    "shuffled_image": {
+      "accuracy": 0.5617,
+      "precision": 0.6209,
+      "recall": 0.6917,
+      "f1": 0.6544,
+      "auroc": 0.5292,
+      "fpr": 0.6333,
+      "fnr": 0.3083,
+      "pred_pos": 401,
+      "pred_neg": 199,
+      "positive_prediction_rate": 0.6683,
+      "confusion_matrix": {
+        "tp": 249,
+        "fp": 152,
+        "tn": 88,
+        "fn": 111
+      }
+    },
+    "image_shuffle_f1_delta": -0.0176
+  }
+}

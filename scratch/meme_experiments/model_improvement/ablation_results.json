@@ -1,0 +1,63 @@
+{
+  "modality_ablation": {
+    "paired_both_modalities": {
+      "accuracy": 0.57,
+      "precision": 0.6378,
+      "recall": 0.6556,
+      "f1": 0.6466,
+      "auroc": 0.569,
+      "fpr": 0.5583,
+      "fnr": 0.3444,
+      "pred_pos": 370,
+      "pred_neg": 230,
+      "positive_prediction_rate": 0.6167,
+      "confusion_matrix": {
+        "tp": 236,
+        "fp": 134,
+        "tn": 106,
+        "fn": 124
+      }
+    },
+    "text_only": {
+      "accuracy": 0.55,
+      "precision": 0.5918,
+      "recall": 0.8056,
+      "f1": 0.6824,
+      "auroc": 0.5486,
+      "fpr": 0.8333,
+      "fnr": 0.1944,
+      "pred_pos": 490,
+      "pred_neg": 110,
+      "positive_prediction_rate": 0.8167,
+      "confusion_matrix": {
+        "tp": 290,
+        "fp": 200,
+        "tn": 40,
+        "fn": 70
+      }
+    },
+    "image_only": {
+      "accuracy": 0.5567,
+      "precision": 0.6328,
+      "recall": 0.6222,
+      "f1": 0.6275,
+      "auroc": 0.5628,
+      "fpr": 0.5417,
+      "fnr": 0.3778,
+      "pred_pos": 354,
+      "pred_neg": 246,
+      "positive_prediction_rate": 0.59,
+      "confusion_matrix": {
+        "tp": 224,
+        "fp": 130,
+        "tn": 110,
+        "fn": 136
+      }
+    }
+  },
+  "shuffled_image_sanity_check": {
+    "paired_auroc": 0.569,
+    "shuffled_auroc": 0.4898,
+    "auroc_drop_when_shuffled": 0.0792
+  }
+}

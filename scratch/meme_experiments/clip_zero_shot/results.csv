@@ -1,0 +1,9 @@
+pair_id,pair_name,positive_prompt,negative_prompt,auroc,ap,precision_at_0.50,recall_at_0.50,f1_at_0.50,fpr,fnr,tp,fp,tn,fn,score_mean_in_0,score_mean_in_1,mean_separation
+1,Pair 1 (hateful vs benign),a hateful meme,a benign meme,0.5964,0.6976,0.6567,0.5472,0.597,0.4292,0.4528,197,103,137,163,0.4998,0.5005,0.0007
+2,Pair 2 (hate speech vs without hate speech),a meme containing hate speech,a meme without hate speech,0.5644,0.6669,0.6054,0.9417,0.737,0.9208,0.0583,339,221,19,21,0.5016,0.5019,0.0003
+3,Pair 3 (attacking protected group vs not),a meme attacking a protected group,a meme that does not attack a protected group,0.4624,0.5658,0.5353,0.2528,0.3434,0.3292,0.7472,91,79,161,269,0.4991,0.4989,-0.0002
+4,Pair 4 (discriminatory vs non-discriminatory),a discriminatory meme,a non-discriminatory meme,0.3985,0.5358,0.5083,0.1694,0.2542,0.2458,0.8306,61,59,181,299,0.4993,0.499,-0.0004
+5,Pair 5 (expressing prejudice vs neutral),a meme expressing prejudice,a neutral meme,0.5175,0.6197,0.6069,0.9778,0.7489,0.95,0.0222,352,228,12,8,0.5057,0.506,0.0003
+6,Pair 6 (group targeting vs without group hostility),"a meme targeting a racial, religious, gender, or national group",a meme without group-targeted hostility,0.6014,0.6907,0.6402,0.7167,0.6763,0.6042,0.2833,258,145,95,102,0.5008,0.5021,0.0013
+7,Pair 7 (offensive hate vs harmless),an offensive hate meme,a harmless meme,0.633,0.7143,0.7017,0.4639,0.5585,0.2958,0.5361,167,71,169,193,0.4988,0.5002,0.0014
+8,Pair 8 (hostility toward demographic vs no hostility),a meme expressing hostility toward a demographic group,a meme expressing no hostility toward a demographic group,0.5173,0.6165,0.6203,0.6444,0.6322,0.5917,0.3556,232,142,98,128,0.5002,0.5003,0.0

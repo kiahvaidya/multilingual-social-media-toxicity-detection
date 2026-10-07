@@ -1,0 +1,381 @@
+{
+  "total_pairs_evaluated": 7,
+  "model_a_correct_order_count": 1,
+  "model_b_correct_order_count": 5,
+  "pairs_with_improved_separation": 6,
+  "pairs_with_improved_separation_pct": 85.71,
+  "mean_separation_gain": 0.0829,
+  "detailed_pair_evaluations": [
+    {
+      "pair_id": 1,
+      "category": "Benign Profanity vs Hostile Profanity",
+      "shared_lexical_token": "fuck",
+      "benign_text": "Fuck yeah! We finally passed all the unit tests!",
+      "hostile_text": "You're a fucking idiot and I hope you get hurt.",
+      "model_a": {
+        "benign_peak_score": 0.6805,
+        "hostile_peak_score": 0.6851,
+        "separation_delta": 0.0046,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.6466,
+          "severe_toxic": 0.6805,
+          "obscene": 0.6776,
+          "threat": 0.5054,
+          "insult": 0.6727,
+          "identity_hate": 0.5863
+        },
+        "hostile_preds": {
+          "toxic": 0.6622,
+          "severe_toxic": 0.6819,
+          "obscene": 0.6842,
+          "threat": 0.5667,
+          "insult": 0.6851,
+          "identity_hate": 0.6054
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.6854,
+        "hostile_peak_score": 0.6905,
+        "separation_delta": 0.0051,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.6576,
+          "severe_toxic": 0.6697,
+          "obscene": 0.6743,
+          "threat": 0.5155,
+          "insult": 0.6854,
+          "identity_hate": 0.5468
+        },
+        "hostile_preds": {
+          "toxic": 0.6658,
+          "severe_toxic": 0.6545,
+          "obscene": 0.6717,
+          "threat": 0.5975,
+          "insult": 0.6905,
+          "identity_hate": 0.5726
+        }
+      },
+      "separation_improvement_delta_b_minus_a": 0.0005,
+      "is_separation_improved": true
+    },
+    {
+      "pair_id": 2,
+      "category": "Praise Metaphor vs Literal Threat",
+      "shared_lexical_token": "kill / killed",
+      "benign_text": "Bro, you totally killed it on stage tonight!",
+      "hostile_text": "I am going to kill you tonight.",
+      "model_a": {
+        "benign_peak_score": 0.6545,
+        "hostile_peak_score": 0.6563,
+        "separation_delta": 0.0018,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.6193,
+          "severe_toxic": 0.5811,
+          "obscene": 0.6039,
+          "threat": 0.6545,
+          "insult": 0.6244,
+          "identity_hate": 0.6035
+        },
+        "hostile_preds": {
+          "toxic": 0.5546,
+          "severe_toxic": 0.5196,
+          "obscene": 0.5342,
+          "threat": 0.6563,
+          "insult": 0.5566,
+          "identity_hate": 0.5492
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.4761,
+        "hostile_peak_score": 0.5721,
+        "separation_delta": 0.096,
+        "ordering_correct": true,
+        "benign_preds": {
+          "toxic": 0.3233,
+          "severe_toxic": 0.3123,
+          "obscene": 0.3331,
+          "threat": 0.4761,
+          "insult": 0.3322,
+          "identity_hate": 0.3252
+        },
+        "hostile_preds": {
+          "toxic": 0.3973,
+          "severe_toxic": 0.3764,
+          "obscene": 0.3941,
+          "threat": 0.5721,
+          "insult": 0.4047,
+          "identity_hate": 0.3826
+        }
+      },
+      "separation_improvement_delta_b_minus_a": 0.0942,
+      "is_separation_improved": true
+    },
+    {
+      "pair_id": 3,
+      "category": "Slang Praise vs Targeted Insult",
+      "shared_lexical_token": "sick",
+      "benign_text": "This movie was sick!",
+      "hostile_text": "You're sick and disgusting.",
+      "model_a": {
+        "benign_peak_score": 0.5376,
+        "hostile_peak_score": 0.65,
+        "separation_delta": 0.1124,
+        "ordering_correct": true,
+        "benign_preds": {
+          "toxic": 0.4265,
+          "severe_toxic": 0.3455,
+          "obscene": 0.3879,
+          "threat": 0.5376,
+          "insult": 0.4205,
+          "identity_hate": 0.5025
+        },
+        "hostile_preds": {
+          "toxic": 0.5794,
+          "severe_toxic": 0.5216,
+          "obscene": 0.5519,
+          "threat": 0.65,
+          "insult": 0.5808,
+          "identity_hate": 0.5932
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.3804,
+        "hostile_peak_score": 0.4996,
+        "separation_delta": 0.1192,
+        "ordering_correct": true,
+        "benign_preds": {
+          "toxic": 0.3003,
+          "severe_toxic": 0.3042,
+          "obscene": 0.3216,
+          "threat": 0.3804,
+          "insult": 0.3115,
+          "identity_hate": 0.3104
+        },
+        "hostile_preds": {
+          "toxic": 0.3341,
+          "severe_toxic": 0.3111,
+          "obscene": 0.3382,
+          "threat": 0.4996,
+          "insult": 0.3437,
+          "identity_hate": 0.3445
+        }
+      },
+      "separation_improvement_delta_b_minus_a": 0.0068,
+      "is_separation_improved": true
+    },
+    {
+      "pair_id": 4,
+      "category": "Hinglish Friendly Banter vs Hinglish Abuse",
+      "shared_lexical_token": "bhai / bawaal",
+      "benign_text": "Bhai kya bawaal cheez banayi hai tune, maza aa gaya!",
+      "hostile_text": "Bhai tu ek number ka chutiya aur ghatiya aadmi hai.",
+      "model_a": {
+        "benign_peak_score": 0.6839,
+        "hostile_peak_score": 0.6696,
+        "separation_delta": -0.0143,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.6839,
+          "severe_toxic": 0.6533,
+          "obscene": 0.6664,
+          "threat": 0.5813,
+          "insult": 0.6746,
+          "identity_hate": 0.6276
+        },
+        "hostile_preds": {
+          "toxic": 0.6624,
+          "severe_toxic": 0.6664,
+          "obscene": 0.6696,
+          "threat": 0.4987,
+          "insult": 0.6679,
+          "identity_hate": 0.6017
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.4773,
+        "hostile_peak_score": 0.6686,
+        "separation_delta": 0.1913,
+        "ordering_correct": true,
+        "benign_preds": {
+          "toxic": 0.4032,
+          "severe_toxic": 0.3542,
+          "obscene": 0.3769,
+          "threat": 0.4773,
+          "insult": 0.3833,
+          "identity_hate": 0.324
+        },
+        "hostile_preds": {
+          "toxic": 0.6686,
+          "severe_toxic": 0.6258,
+          "obscene": 0.6497,
+          "threat": 0.5176,
+          "insult": 0.6652,
+          "identity_hate": 0.5266
+        }
+      },
+      "separation_improvement_delta_b_minus_a": 0.2056,
+      "is_separation_improved": true
+    },
+    {
+      "pair_id": 5,
+      "category": "Hindi Praise vs Hindi Abuse",
+      "shared_lexical_token": "colloquial tone",
+      "benign_text": "भाई क्या धांसू काम किया है आपने, सच में दिल जीत लिया!",
+      "hostile_text": "तू बिल्कुल घटिया और नीच इंसान है, तेरी औकात नहीं है।",
+      "model_a": {
+        "benign_peak_score": 0.6793,
+        "hostile_peak_score": 0.6822,
+        "separation_delta": 0.0029,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.672,
+          "severe_toxic": 0.6674,
+          "obscene": 0.6747,
+          "threat": 0.5616,
+          "insult": 0.6793,
+          "identity_hate": 0.6201
+        },
+        "hostile_preds": {
+          "toxic": 0.6732,
+          "severe_toxic": 0.6738,
+          "obscene": 0.6794,
+          "threat": 0.5634,
+          "insult": 0.6822,
+          "identity_hate": 0.6167
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.4061,
+        "hostile_peak_score": 0.5675,
+        "separation_delta": 0.1614,
+        "ordering_correct": true,
+        "benign_preds": {
+          "toxic": 0.3026,
+          "severe_toxic": 0.3042,
+          "obscene": 0.3202,
+          "threat": 0.4061,
+          "insult": 0.3131,
+          "identity_hate": 0.3111
+        },
+        "hostile_preds": {
+          "toxic": 0.4251,
+          "severe_toxic": 0.3694,
+          "obscene": 0.4095,
+          "threat": 0.5675,
+          "insult": 0.4272,
+          "identity_hate": 0.4032
+        }
+      },
+      "separation_improvement_delta_b_minus_a": 0.1585,
+      "is_separation_improved": true
+    },
+    {
+      "pair_id": 6,
+      "category": "Obfuscated Innocent vs Obfuscated Abuse",
+      "shared_lexical_token": "leetspeak symbols",
+      "benign_text": "Nice sh!rt, looks super c00l on you bro!",
+      "hostile_text": "You are a f**king 1diot and a total l0ser.",
+      "model_a": {
+        "benign_peak_score": 0.6855,
+        "hostile_peak_score": 0.5305,
+        "separation_delta": -0.155,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.6671,
+          "severe_toxic": 0.6785,
+          "obscene": 0.6843,
+          "threat": 0.5641,
+          "insult": 0.6855,
+          "identity_hate": 0.6112
+        },
+        "hostile_preds": {
+          "toxic": 0.411,
+          "severe_toxic": 0.333,
+          "obscene": 0.3761,
+          "threat": 0.5305,
+          "insult": 0.4054,
+          "identity_hate": 0.4996
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.6196,
+        "hostile_peak_score": 0.3909,
+        "separation_delta": -0.2287,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.5752,
+          "severe_toxic": 0.5344,
+          "obscene": 0.57,
+          "threat": 0.6196,
+          "insult": 0.5943,
+          "identity_hate": 0.4726
+        },
+        "hostile_preds": {
+          "toxic": 0.3027,
+          "severe_toxic": 0.3042,
+          "obscene": 0.3234,
+          "threat": 0.3909,
+          "insult": 0.3145,
+          "identity_hate": 0.3092
+        }
+      },
+      "separation_improvement_delta_b_minus_a": -0.0737,
+      "is_separation_improved": false
+    },
+    {
+      "pair_id": 7,
+      "category": "Culturally Contextual Peer Banter vs Hostile Abuse",
+      "shared_lexical_token": "bc / saale",
+      "benign_text": "Bhai teri to job lag gayi bc, treat kab de raha hai party chalegi!",
+      "hostile_text": "Abe saale kutte nikal yahan se varna maar maar ke bhoot bana dunga.",
+      "model_a": {
+        "benign_peak_score": 0.6803,
+        "hostile_peak_score": 0.6826,
+        "separation_delta": 0.0023,
+        "ordering_correct": false,
+        "benign_preds": {
+          "toxic": 0.6745,
+          "severe_toxic": 0.6701,
+          "obscene": 0.6803,
+          "threat": 0.5365,
+          "insult": 0.6803,
+          "identity_hate": 0.6203
+        },
+        "hostile_preds": {
+          "toxic": 0.6826,
+          "severe_toxic": 0.6571,
+          "obscene": 0.6717,
+          "threat": 0.578,
+          "insult": 0.6768,
+          "identity_hate": 0.6312
+        }
+      },
+      "model_b": {
+        "benign_peak_score": 0.4054,
+        "hostile_peak_score": 0.596,
+        "separation_delta": 0.1906,
+        "ordering_correct": true,
+        "benign_preds": {
+          "toxic": 0.3245,
+          "severe_toxic": 0.3064,
+          "obscene": 0.33,
+          "threat": 0.4054,
+          "insult": 0.3232,
+          "identity_hate": 0.3059
+        },
+        "hostile_preds": {
+          "toxic": 0.5907,
+          "severe_toxic": 0.5074,
+          "obscene": 0.544,
+          "threat": 0.596,
+          "insult": 0.5609,
+          "identity_hate": 0.4592
+        }
+      },
+      "separation_improvement_delta_b_minus_a": 0.1883,
+      "is_separation_improved": true
+    }
+  ]
+}

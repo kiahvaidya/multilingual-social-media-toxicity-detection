@@ -1,0 +1,82 @@
+{
+  "comparison_table": {
+    "overall_f1": {
+      "current_production_model": 0.5129,
+      "new_model_raw": 0.6466,
+      "new_model_calibrated": 0.6484,
+      "calibrated_vs_current_delta": 0.1355
+    },
+    "overall_auroc": {
+      "current_production_model": 0.5835,
+      "new_model_raw": 0.569,
+      "new_model_calibrated": 0.569,
+      "calibrated_vs_current_delta": -0.0145
+    },
+    "overall_fpr": {
+      "current_production_model": 0.3,
+      "new_model_raw": 0.5583,
+      "new_model_calibrated": 0.5583,
+      "calibrated_vs_current_delta": 0.2583
+    },
+    "overall_precision": {
+      "current_production_model": 0.6742,
+      "new_model_raw": 0.6378,
+      "new_model_calibrated": 0.6388
+    },
+    "overall_recall": {
+      "current_production_model": 0.4139,
+      "new_model_raw": 0.6556,
+      "new_model_calibrated": 0.6583
+    },
+    "positive_prediction_rate": {
+      "current_production_model": 0.3683,
+      "new_model_raw": 0.6167,
+      "new_model_calibrated": 0.6183
+    },
+    "hindi_f1": {
+      "current_production_model": 0.2906,
+      "new_model_raw": 0.6085,
+      "new_model_calibrated": 0.6124,
+      "calibrated_vs_current_delta": 0.3218
+    },
+    "hindi_recall": {
+      "current_production_model": 0.1889,
+      "new_model_raw": 0.6,
+      "new_model_calibrated": 0.6056
+    },
+    "hindi_fpr": {
+      "current_production_model": 0.1667,
+      "new_model_raw": 0.5583,
+      "new_model_calibrated": 0.5583
+    },
+    "english_f1": {
+      "current_production_model": 0.6628,
+      "new_model_raw": 0.6827,
+      "new_model_calibrated": 0.6827
+    },
+    "english_fpr": {
+      "current_production_model": 0.4333,
+      "new_model_raw": 0.5583,
+      "new_model_calibrated": 0.5583
+    }
+  },
+  "success_criteria_check": {
+    "target_overall_f1_ge_0_60": {
+      "target": 0.6,
+      "achieved": 0.6484,
+      "pass": true
+    },
+    "target_overall_fpr_le_0_35": {
+      "target": 0.35,
+      "achieved": 0.5583,
+      "pass": false
+    },
+    "hindi_f1_improved": {
+      "baseline": 0.2906,
+      "achieved": 0.6124,
+      "pass": true
+    }
+  },
+  "official_winner": "CURRENT_PRODUCTION_MODEL",
+  "winner_model_path": "scratch/meme_experiments/final_multimodal/best_model.pt"
+}

@@ -1,0 +1,32 @@
+{
+  "architecture": "Top-4 MuRIL + Frozen CLIP ViT-B/32 4-Way Fusion",
+  "muril_layers_unfrozen": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "muril_layers_frozen": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "image_encoder": "openai/clip-vit-base-patch32 (completely frozen)",
+  "projection_dim": 256,
+  "fusion_dim": 1024,
+  "modality_dropout": 0.2,
+  "classifier_dropout": 0.25,
+  "learning_rate_muril_top4": 1e-05,
+  "learning_rate_fusion_head": 0.0003,
+  "weight_decay": 0.01,
+  "batch_size": 64,
+  "epochs": 4,
+  "sample_weighting": "normal=1.0, hard_negatives=2.0",
+  "optimizer": "AdamW with Cosine Annealing + Linear Warmup",
+  "initialization_source": "scratch/meme_experiments/model_improvement/best_model.pt"
+}

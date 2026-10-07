@@ -1,0 +1,35 @@
+{
+  "experiment_name": "Model B - Text-Only Meme Domain Adaptation",
+  "base_checkpoint": "C:\\Users\\Sanjana\\OneDrive\\Desktop\\coding\\multilingual-social-media-toxicity-detection\\muril_toxicity_model.pt",
+  "output_checkpoint": "C:\\Users\\Sanjana\\OneDrive\\Desktop\\coding\\multilingual-social-media-toxicity-detection\\scratch\\meme_experiments\\model_b\\muril_model_b.pt",
+  "dataset_used": "HASOC-Meme 2025 Hindi Train (1,141 samples)",
+  "train_samples": 906,
+  "val_samples": 227,
+  "unfrozen_layers": "top 4 (layer 8, 9, 10, 11)",
+  "hyperparameters": {
+    "epochs": 3,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "max_seq_length": 64,
+    "seed": 42
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9239,
+      "val_loss": 0.909
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8653,
+      "val_loss": 0.8896
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8337,
+      "val_loss": 0.8776
+    }
+  ],
+  "best_val_loss": 0.8776,
+  "training_time_seconds": 1383.36
+}

@@ -1,0 +1,150 @@
+{
+  "overall": {
+    "accuracy": 0.5717,
+    "precision": 0.6388,
+    "recall": 0.6583,
+    "f1": 0.6484,
+    "auroc": 0.569,
+    "fpr": 0.5583,
+    "fnr": 0.3417,
+    "pred_pos": 371,
+    "pred_neg": 229,
+    "positive_prediction_rate": 0.6183,
+    "confusion_matrix": {
+      "tp": 237,
+      "fp": 134,
+      "tn": 106,
+      "fn": 123
+    }
+  },
+  "by_language": {
+    "english": {
+      "accuracy": 0.6033,
+      "precision": 0.6564,
+      "recall": 0.7111,
+      "f1": 0.6827,
+      "auroc": 0.6177,
+      "fpr": 0.5583,
+      "fnr": 0.2889,
+      "pred_pos": 195,
+      "pred_neg": 105,
+      "positive_prediction_rate": 0.65,
+      "confusion_matrix": {
+        "tp": 128,
+        "fp": 67,
+        "tn": 53,
+        "fn": 52
+      }
+    },
+    "hindi": {
+      "accuracy": 0.54,
+      "precision": 0.6193,
+      "recall": 0.6056,
+      "f1": 0.6124,
+      "auroc": 0.5089,
+      "fpr": 0.5583,
+      "fnr": 0.3944,
+      "pred_pos": 176,
+      "pred_neg": 124,
+      "positive_prediction_rate": 0.5867,
+      "confusion_matrix": {
+        "tp": 109,
+        "fp": 67,
+        "tn": 53,
+        "fn": 71
+      }
+    }
+  },
+  "shuffled_image_sanity_check": {
+    "paired_auroc": 0.569,
+    "shuffled_auroc": 0.4893,
+    "auroc_drop_when_shuffled": 0.0797
+  },
+  "contextual_inversion_count": 4,
+  "emergent_toxicity_count": 13,
+  "sample_inversion_cases": [
+    {
+      "meme_id": 111,
+      "language": "english",
+      "text": "bring your dog   we have chicken?",
+      "text_only_prob": 0.4548,
+      "multimodal_calibrated_prob": 0.3093,
+      "ground_truth": 0,
+      "effect": "Benign visual context defused text toxicity"
+    },
+    {
+      "meme_id": 111,
+      "language": "hindi",
+      "text": "\u0905\u092a\u0928\u093e \u0915\u0941\u0924\u094d\u0924\u093e \u0932\u093e\u0913   \u0939\u092e\u093e\u0930\u0947 \u092a\u093e\u0938 \u092e\u0941\u0930\u094d\u0917\u093e \u0939\u0948?",
+      "text_only_prob": 0.4664,
+      "multimodal_calibrated_prob": 0.356,
+      "ground_truth": 0,
+      "effect": "Benign visual context defused text toxicity"
+    },
+    {
+      "meme_id": 165,
+      "language": "english",
+      "text": "i eat bacon   when no one's looking",
+      "text_only_prob": 0.4562,
+      "multimodal_calibrated_prob": 0.2072,
+      "ground_truth": 0,
+      "effect": "Benign visual context defused text toxicity"
+    },
+    {
+      "meme_id": 202,
+      "language": "hindi",
+      "text": "\u092f\u0947 \u0915\u092e\u092c\u0916\u094d\u0924 \u091a\u0942\u0924\u0947\u0902   \u092c\u0939\u0941\u0924 \u0909\u0928\u094d\u092e\u093e\u0926\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0902",
+      "text_only_prob": 0.4535,
+      "multimodal_calibrated_prob": 0.242,
+      "ground_truth": 0,
+      "effect": "Benign visual context defused text toxicity"
+    }
+  ],
+  "sample_emergent_cases": [
+    {
+      "meme_id": 13,
+      "language": "english",
+      "text": "SEES COMMENTS ON YOUTUBE VIDEO OF NON-SPEAKING ENGLISH COUNTRY   ENGLISH PLEASE",
+      "text_only_prob": 0.3845,
+      "multimodal_calibrated_prob": 0.5041,
+      "ground_truth": 1,
+      "effect": "Visual hate template introduced hate unseen in text"
+    },
+    {
+      "meme_id": 33,
+      "language": "english",
+      "text": "SHUT UP OSAMA!   HE IS MY SON!",
+      "text_only_prob": 0.3928,
+      "multimodal_calibrated_prob": 0.8266,
+      "ground_truth": 1,
+      "effect": "Visual hate template introduced hate unseen in text"
+    },
+    {
+      "meme_id": 37,
+      "language": "english",
+      "text": "SEE THIS HAT   THRIFT STORE",
+      "text_only_prob": 0.3995,
+      "multimodal_calibrated_prob": 0.8457,
+      "ground_truth": 1,
+      "effect": "Visual hate template introduced hate unseen in text"
+    },
+    {
+      "meme_id": 80,
+      "language": "english",
+      "text": "MAO OUR GREAT HERO   KILLED 40-70 MILLION OF HIS OWN PEOPLE",
+      "text_only_prob": 0.395,
+      "multimodal_calibrated_prob": 0.8193,
+      "ground_truth": 1,
+      "effect": "Visual hate template introduced hate unseen in text"
+    },
+    {
+      "meme_id": 96,
+      "language": "english",
+      "text": "i hate men!   GOD, i NEED A GUY'S COCK RIGHT NOW...",
+      "text_only_prob": 0.3797,
+      "multimodal_calibrated_prob": 0.6475,
+      "ground_truth": 1,
+      "effect": "Visual hate template introduced hate unseen in text"
+    }
+  ]
+}

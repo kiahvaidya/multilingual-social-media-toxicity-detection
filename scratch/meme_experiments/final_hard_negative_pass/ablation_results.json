@@ -1,0 +1,75 @@
+{
+  "paired_full_multimodal": {
+    "accuracy": 0.5283,
+    "precision": 0.6453,
+    "recall": 0.475,
+    "f1": 0.5472,
+    "auroc": 0.577,
+    "fpr": 0.3917,
+    "fnr": 0.525,
+    "pred_pos": 265,
+    "pred_neg": 335,
+    "positive_prediction_rate": 0.4417,
+    "confusion_matrix": {
+      "tp": 171,
+      "fp": 94,
+      "tn": 146,
+      "fn": 189
+    }
+  },
+  "shuffled_image_control": {
+    "accuracy": 0.52,
+    "precision": 0.6268,
+    "recall": 0.4944,
+    "f1": 0.5528,
+    "auroc": 0.5379,
+    "fpr": 0.4417,
+    "fnr": 0.5056,
+    "pred_pos": 284,
+    "pred_neg": 316,
+    "positive_prediction_rate": 0.4733,
+    "confusion_matrix": {
+      "tp": 178,
+      "fp": 106,
+      "tn": 134,
+      "fn": 182
+    }
+  },
+  "text_only_ablation": {
+    "accuracy": 0.43,
+    "precision": 0.875,
+    "recall": 0.0583,
+    "f1": 0.1094,
+    "auroc": 0.6356,
+    "fpr": 0.0125,
+    "fnr": 0.9417,
+    "pred_pos": 24,
+    "pred_neg": 576,
+    "positive_prediction_rate": 0.04,
+    "confusion_matrix": {
+      "tp": 21,
+      "fp": 3,
+      "tn": 237,
+      "fn": 339
+    }
+  },
+  "image_only_ablation": {
+    "accuracy": 0.5467,
+    "precision": 0.6196,
+    "recall": 0.6333,
+    "f1": 0.6264,
+    "auroc": 0.5516,
+    "fpr": 0.5833,
+    "fnr": 0.3667,
+    "pred_pos": 368,
+    "pred_neg": 232,
+    "positive_prediction_rate": 0.6133,
+    "confusion_matrix": {
+      "tp": 228,
+      "fp": 140,
+      "tn": 100,
+      "fn": 132
+    }
+  },
+  "paired_vs_shuffled_auroc_difference": 0.0391
+}

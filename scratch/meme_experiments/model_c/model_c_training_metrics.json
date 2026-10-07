@@ -1,0 +1,24 @@
+{
+  "model_name": "Model C (Multimodal Baseline)",
+  "text_branch": "google/muril-base-cased (initialized from Model B)",
+  "vision_branch": "openai/clip-vit-base-patch32 (frozen)",
+  "fusion": "concatenation + 2-layer MLP projection",
+  "parameters": {
+    "total_parameters": 326598930,
+    "trainable_parameters": 1193490,
+    "frozen_parameters": 325405440,
+    "text_encoder_parameters": 237556224,
+    "vision_encoder_parameters": 87849216,
+    "fusion_head_parameters": 1193490
+  },
+  "data_audit": {
+    "hasoc_meme_2025_csv_exists": true,
+    "hasoc_train_records": 1141,
+    "hasoc_test_records": 769,
+    "hasoc_image_files_found": 0,
+    "multi3hate_quarantined": true,
+    "is_sufficient_for_training": false,
+    "reason": "HASOC-Meme 2025 contains 1,141 training text/annotation records with image IDs, but the physical JPEG image files are not available locally (requires FIRE registered participant archive). Multi3Hate contains 600 paired images but is strictly held out for evaluation. Per research integrity guidelines, synthetic images cannot be fabricated."
+  },
+  "timestamp": "2026-10-05 21:41:24"
+}

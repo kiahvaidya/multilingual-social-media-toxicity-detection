@@ -1,0 +1,211 @@
+{
+  "benchmark": "Multi3Hate Held-Out Cultural Evaluation",
+  "total_evaluated_instances": 600,
+  "frozen_threshold_used": 0.45,
+  "indian_consensus": {
+    "model_a_production": {
+      "precision": 0.6639,
+      "recall": 0.6694,
+      "f1": 0.6667,
+      "fpr": 0.5083,
+      "fnr": 0.3306,
+      "confusion_matrix": {
+        "tp": 241,
+        "fp": 122,
+        "tn": 118,
+        "fn": 119
+      },
+      "total": 600
+    },
+    "model_b_text_only": {
+      "precision": 0.7808,
+      "recall": 0.1583,
+      "f1": 0.2633,
+      "fpr": 0.0667,
+      "fnr": 0.8417,
+      "confusion_matrix": {
+        "tp": 57,
+        "fp": 16,
+        "tn": 224,
+        "fn": 303
+      },
+      "total": 600
+    },
+    "model_c_image_only": {
+      "precision": 0.6923,
+      "recall": 0.05,
+      "f1": 0.0933,
+      "fpr": 0.0333,
+      "fnr": 0.95,
+      "confusion_matrix": {
+        "tp": 18,
+        "fp": 8,
+        "tn": 232,
+        "fn": 342
+      },
+      "total": 600
+    },
+    "model_c_multimodal": {
+      "precision": 0.5987,
+      "recall": 0.9944,
+      "f1": 0.7474,
+      "fpr": 1.0,
+      "fnr": 0.0056,
+      "confusion_matrix": {
+        "tp": 358,
+        "fp": 240,
+        "tn": 0,
+        "fn": 2
+      },
+      "total": 600
+    }
+  },
+  "us_consensus": {
+    "model_a_production": {
+      "precision": 0.5427,
+      "recall": 0.6396,
+      "f1": 0.5872,
+      "fpr": 0.5685,
+      "fnr": 0.3604,
+      "confusion_matrix": {
+        "tp": 197,
+        "fp": 166,
+        "tn": 126,
+        "fn": 111
+      },
+      "total": 600
+    },
+    "model_b_text_only": {
+      "precision": 0.6438,
+      "recall": 0.1526,
+      "f1": 0.2467,
+      "fpr": 0.089,
+      "fnr": 0.8474,
+      "confusion_matrix": {
+        "tp": 47,
+        "fp": 26,
+        "tn": 266,
+        "fn": 261
+      },
+      "total": 600
+    },
+    "model_c_image_only": {
+      "precision": 0.5385,
+      "recall": 0.0455,
+      "f1": 0.0838,
+      "fpr": 0.0411,
+      "fnr": 0.9545,
+      "confusion_matrix": {
+        "tp": 14,
+        "fp": 12,
+        "tn": 280,
+        "fn": 294
+      },
+      "total": 600
+    },
+    "model_c_multimodal": {
+      "precision": 0.5117,
+      "recall": 0.9935,
+      "f1": 0.6755,
+      "fpr": 1.0,
+      "fnr": 0.0065,
+      "confusion_matrix": {
+        "tp": 306,
+        "fp": 292,
+        "tn": 0,
+        "fn": 2
+      },
+      "total": 600
+    }
+  },
+  "language_breakdown_in": {
+    "hindi": {
+      "model_a": {
+        "precision": 0.6221,
+        "recall": 0.75,
+        "f1": 0.6801,
+        "fpr": 0.6833,
+        "fnr": 0.25,
+        "confusion_matrix": {
+          "tp": 135,
+          "fp": 82,
+          "tn": 38,
+          "fn": 45
+        },
+        "total": 300
+      },
+      "model_b": {
+        "precision": 0.7576,
+        "recall": 0.1389,
+        "f1": 0.2347,
+        "fpr": 0.0667,
+        "fnr": 0.8611,
+        "confusion_matrix": {
+          "tp": 25,
+          "fp": 8,
+          "tn": 112,
+          "fn": 155
+        },
+        "total": 300
+      },
+      "model_c": {
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1": 0.75,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "tp": 180,
+          "fp": 120,
+          "tn": 0,
+          "fn": 0
+        },
+        "total": 300
+      }
+    },
+    "english": {
+      "model_a": {
+        "precision": 0.726,
+        "recall": 0.5889,
+        "f1": 0.6503,
+        "fpr": 0.3333,
+        "fnr": 0.4111,
+        "confusion_matrix": {
+          "tp": 106,
+          "fp": 40,
+          "tn": 80,
+          "fn": 74
+        },
+        "total": 300
+      },
+      "model_b": {
+        "precision": 0.8,
+        "recall": 0.1778,
+        "f1": 0.2909,
+        "fpr": 0.0667,
+        "fnr": 0.8222,
+        "confusion_matrix": {
+          "tp": 32,
+          "fp": 8,
+          "tn": 112,
+          "fn": 148
+        },
+        "total": 300
+      },
+      "model_c": {
+        "precision": 0.5973,
+        "recall": 0.9889,
+        "f1": 0.7448,
+        "fpr": 1.0,
+        "fnr": 0.0111,
+        "confusion_matrix": {
+          "tp": 178,
+          "fp": 120,
+          "tn": 0,
+          "fn": 2
+        },
+        "total": 300
+      }
+    }
+  }
+}
