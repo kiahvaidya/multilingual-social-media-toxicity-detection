@@ -86,6 +86,14 @@ class _Config:
         return os.getenv("JEV_ENABLED", "false").lower() in ("true", "1", "yes")
 
     @property
+    def GEMINI_API_KEY(self) -> str:
+        return os.getenv("GEMINI_API_KEY", "").strip()
+
+    @property
+    def JEV_GEMINI_MODEL(self) -> str:
+        return os.getenv("JEV_GEMINI_MODEL", "gemini-3.6-flash").strip() or "gemini-3.6-flash"
+
+    @property
     def JEV_ENDPOINT_URL(self) -> str:
         return os.getenv("JEV_ENDPOINT_URL", "").strip()
 

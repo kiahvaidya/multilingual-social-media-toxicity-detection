@@ -140,6 +140,12 @@ class ContextualModerationResult:
     final_explanation: str
     jev_decision: Optional[Any] = None
     jev_error: Optional[str] = None
+    human_review_required: bool = False
+
+    @property
+    def human_review(self) -> bool:
+        """Alias for human_review_required."""
+        return self.human_review_required
 
 
 def moderate_comment_with_context(
@@ -196,10 +202,16 @@ def moderate_comment_with_context(
             final_risk_level=base_risk,
             final_badge_icon=base_icon,
             final_explanation=base_expl,
+            human_review_required=(base_risk != RiskLevel.SAFE),
         )
 
     # 3. Ambiguous Case -> JEV Provider Resolution
-    from src.jev import get_jev_provider, JEVProviderType
+    from src.jev import (
+        get_jev_provider,
+        get_jev_cache,
+        sanitize_jev_error,
+        JEVProviderType,
+    )
 
     provider = jev_provider if jev_provider is not None else get_jev_provider()
 
@@ -222,11 +234,26 @@ def moderate_comment_with_context(
             final_badge_icon=base_icon,
             final_explanation=f"{base_expl} (JEV {jev_status.lower()}; relying on base moderation)",
             jev_error=f"JEV {jev_status.lower()}",
+            human_review_required=(base_risk != RiskLevel.SAFE),
         )
 
-    # 4. Invoke JEV with Failure Safety
+    # 4. Invoke JEV with Failure Safety & LRU Caching
+    cache = get_jev_cache()
+    provider_id = getattr(provider, "model_name", provider.__class__.__name__)
+    cache_key = cache.make_key(text, predictions, provider_id)
+
+    # Check cache for previous successful adjudication
+    cached_decision = cache.get(cache_key)
+
     try:
-        decision = provider.assess_context(text, predictions, is_toxic_flags, base_risk)
+        if cached_decision is not None:
+            logger.debug("JEV Cache HIT in moderate_comment_with_context (key %s)", cache_key[:8])
+            decision = cached_decision
+        else:
+            decision = provider.assess_context(text, predictions, is_toxic_flags, base_risk)
+            # ONLY cache successful decisions (failed calls raise exception and are not cached)
+            cache.put(cache_key, decision)
+
         jev_status = "INVOKED_REAL" if provider.provider_type == JEVProviderType.REAL_JEV else "INVOKED_MOCK"
 
         # Badge icon mapping
@@ -255,11 +282,16 @@ def moderate_comment_with_context(
             final_badge_icon=final_icon,
             final_explanation=final_expl,
             jev_decision=decision,
+            human_review_required=decision.human_review_required,
         )
 
     except Exception as exc:
-        logger.warning("JEV execution failed: %s. Gracefully falling back to base moderation.", exc)
-        # Safe fallback: NEVER silently classify failed JEV as SAFE
+        clean_reason = sanitize_jev_error(exc)
+        logger.warning("JEV execution failed: %s. Routing ambiguous comment to REVIEW.", clean_reason)
+        # CRITICAL SAFE FAILURE HANDLING:
+        # When JEV was invoked specifically because the comment was ambiguous/context-dependent,
+        # failure of remote adjudication routes to REVIEW with human oversight.
+        # This prevents transient API outages from converting ambiguous praise/slang into HIGH_RISK.
         return ContextualModerationResult(
             comment_text=text,
             muril_predictions=predictions,
@@ -272,10 +304,12 @@ def moderate_comment_with_context(
             gate_reason=gate_reason,
             jev_invoked=True,
             jev_status="FAILED",
-            final_risk_level=base_risk,
-            final_badge_icon=base_icon,
-            final_explanation=f"{base_expl} (JEV call failed: {exc}; fallback to base moderation)",
-            jev_error=str(exc),
+            final_risk_level=RiskLevel.REVIEW,
+            final_badge_icon="🟡",
+            final_explanation=f"Contextual adjudication unavailable; routed to human review. (Reason: {clean_reason})",
+            jev_decision=None,
+            jev_error=clean_reason,
+            human_review_required=True,
         )
 
 

@@ -25,6 +25,7 @@ import urllib.error
 
 from src.config import config
 from src.jev import (
+    GeminiJEVDecisionProvider,
     HTTPJEVDecisionProvider,
     JEVDecision,
     JEVIntent,
@@ -200,7 +201,8 @@ class TestPhase6AJEV(unittest.TestCase):
         self.assertTrue(ctx_res.jev_invoked)
         self.assertEqual(ctx_res.jev_status, "FAILED")
         self.assertIsNotNone(ctx_res.jev_error)
-        self.assertEqual(ctx_res.final_risk_level, ctx_res.base_risk_level)
+        self.assertEqual(ctx_res.final_risk_level, RiskLevel.REVIEW)
+        self.assertTrue(ctx_res.human_review_required)
 
     # ── 9. JEV Timeout Handled Safely ─────────────────────────────────────────
     @patch("urllib.request.urlopen")
@@ -221,11 +223,12 @@ class TestPhase6AJEV(unittest.TestCase):
         self.assertTrue(ctx_res.jev_invoked)
         self.assertEqual(ctx_res.jev_status, "FAILED")
         self.assertIn("timed out", ctx_res.jev_error.lower())
-        self.assertEqual(ctx_res.final_risk_level, ctx_res.base_risk_level)
+        self.assertEqual(ctx_res.final_risk_level, RiskLevel.REVIEW)
+        self.assertTrue(ctx_res.human_review_required)
 
     # ── 10. Missing Configuration Fallback ────────────────────────────────────
     def test_missing_jev_config_falls_back_to_deterministic_moderation(self):
-        with patch.dict("os.environ", {"JEV_ENABLED": "true", "JEV_ENDPOINT_URL": ""}):
+        with patch.dict("os.environ", {"JEV_ENABLED": "true", "JEV_ENDPOINT_URL": "", "GEMINI_API_KEY": ""}):
             provider = get_jev_provider()
             self.assertIsNone(provider)
 
@@ -247,14 +250,15 @@ class TestPhase6AJEV(unittest.TestCase):
             self.assertIsNone(get_jev_provider())
 
         # Case B: JEV enabled but unconfigured -> returns None (NOT Mock)
-        with patch.dict("os.environ", {"JEV_ENABLED": "true", "JEV_ENDPOINT_URL": ""}):
+        with patch.dict("os.environ", {"JEV_ENABLED": "true", "JEV_ENDPOINT_URL": "", "GEMINI_API_KEY": ""}):
             self.assertIsNone(get_jev_provider())
 
-        # Case C: JEV enabled and configured -> returns HTTPJEVDecisionProvider
+        # Case C: JEV enabled and configured -> returns HTTPJEVDecisionProvider (when Gemini is unconfigured)
         with patch.dict(
             "os.environ",
             {
                 "JEV_ENABLED": "true",
+                "GEMINI_API_KEY": "",
                 "JEV_ENDPOINT_URL": "https://api.moderation.service/v1/assess",
                 "JEV_API_KEY": "secret_test_key",
             },
@@ -296,6 +300,229 @@ class TestPhase6AJEV(unittest.TestCase):
         self.assertFalse(d["human_review"])
         self.assertEqual(d["confidence"], 0.9523)
         self.assertEqual(d["provider_type"], "REAL_JEV")
+
+
+class TestGeminiJEVDecisionProvider(unittest.TestCase):
+    """Test suite for Gemini-backed JEV contextual decision provider."""
+
+    def setUp(self):
+        self.thresholds = dict(config.FROZEN_MURIL_THRESHOLDS)
+        self.sample_scores = {cat: 0.10 for cat in self.thresholds}
+        self.sample_scores["toxic"] = 0.55
+        self.sample_scores["obscene"] = 0.68
+        self.sample_flags = {cat: (self.sample_scores[cat] >= self.thresholds[cat]) for cat in self.thresholds}
+
+    def _create_mock_response(self, text_payload: str):
+        mock_resp = MagicMock()
+        mock_resp.text = text_payload
+        return mock_resp
+
+    # ── 1. Successful SAFE decision (praise / slang) ──────────────────────────
+    def test_gemini_successful_safe_decision(self):
+        payload = json.dumps({
+            "intent": "non_toxic_praise_or_excitement",
+            "contextual_toxicity": False,
+            "moderation": "SAFE",
+            "human_review_required": False,
+            "confidence": 0.96,
+            "reason": "Exclamatory celebration without interpersonal hostility."
+        })
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key", model_name="gemini-2.5-flash")
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_client.models.generate_content.return_value = self._create_mock_response(payload)
+            mock_get_client.return_value = mock_client
+
+            decision = provider.assess_context(
+                "Fuck yeah! We passed all tests!",
+                self.sample_scores,
+                self.sample_flags,
+                RiskLevel.REVIEW,
+            )
+
+            self.assertEqual(decision.intent, JEVIntent.NON_TOXIC_PRAISE_OR_EXCITEMENT)
+            self.assertFalse(decision.contextual_toxicity)
+            self.assertEqual(decision.moderation, RiskLevel.SAFE)
+            self.assertFalse(decision.human_review_required)
+            self.assertEqual(decision.confidence, 0.96)
+            self.assertEqual(decision.provider_type, JEVProviderType.REAL_JEV)
+
+    # ── 2. Successful HIGH_RISK decision (genuine abuse) ──────────────────────
+    def test_gemini_successful_high_risk_decision(self):
+        payload = json.dumps({
+            "intent": "genuine_abuse",
+            "contextual_toxicity": True,
+            "moderation": "HIGH_RISK",
+            "human_review_required": True,
+            "confidence": 0.95,
+            "reason": "Direct insult and malicious hostility directed at an individual."
+        })
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key", model_name="gemini-2.5-flash")
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_client.models.generate_content.return_value = self._create_mock_response(payload)
+            mock_get_client.return_value = mock_client
+
+            decision = provider.assess_context(
+                "You're a fucking idiot and I hope you get hurt.",
+                self.sample_scores,
+                self.sample_flags,
+                RiskLevel.REVIEW,
+            )
+
+            self.assertEqual(decision.intent, JEVIntent.GENUINE_ABUSE)
+            self.assertTrue(decision.contextual_toxicity)
+            self.assertEqual(decision.moderation, RiskLevel.HIGH_RISK)
+            self.assertTrue(decision.human_review_required)
+
+    # ── 3. Successful AMBIGUOUS decision ──────────────────────────────────────
+    def test_gemini_ambiguous_decision(self):
+        payload = json.dumps({
+            "intent": "ambiguous",
+            "contextual_toxicity": False,
+            "moderation": "REVIEW",
+            "human_review_required": True,
+            "confidence": 0.62,
+            "reason": "Sarcastic phrasing where interpersonal intent is unclear."
+        })
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key")
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_client.models.generate_content.return_value = self._create_mock_response(payload)
+            mock_get_client.return_value = mock_client
+
+            decision = provider.assess_context(
+                "I don't know what you were thinking here.",
+                self.sample_scores,
+                self.sample_flags,
+                RiskLevel.REVIEW,
+            )
+
+            self.assertEqual(decision.intent, JEVIntent.AMBIGUOUS)
+            self.assertEqual(decision.moderation, RiskLevel.REVIEW)
+            self.assertTrue(decision.human_review_required)
+
+    # ── 4. Malformed JSON Response Fallback ───────────────────────────────────
+    def test_gemini_malformed_json_fallback(self):
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key")
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_client.models.generate_content.return_value = self._create_mock_response("Not valid JSON at all")
+            mock_get_client.return_value = mock_client
+
+            ctx_res = moderate_comment_with_context(
+                "Borderline phrase",
+                self.sample_scores,
+                self.sample_flags,
+                self.thresholds,
+                jev_provider=provider,
+            )
+
+            self.assertTrue(ctx_res.jev_invoked)
+            self.assertEqual(ctx_res.jev_status, "FAILED")
+            self.assertIsNone(ctx_res.jev_decision)
+            self.assertEqual(ctx_res.final_risk_level, RiskLevel.REVIEW)
+            self.assertTrue(ctx_res.human_review_required)
+            self.assertIn("routed to human review", ctx_res.final_explanation)
+
+    # ── 5. Invalid field/value in response ────────────────────────────────────
+    def test_gemini_invalid_moderation_value_fallback(self):
+        payload = json.dumps({
+            "intent": "genuine_abuse",
+            "contextual_toxicity": True,
+            "moderation": "INVALID_TIER",
+            "human_review_required": True,
+            "confidence": 0.9,
+            "reason": "Test reason"
+        })
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key")
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_client.models.generate_content.return_value = self._create_mock_response(payload)
+            mock_get_client.return_value = mock_client
+
+            ctx_res = moderate_comment_with_context(
+                "Borderline phrase",
+                self.sample_scores,
+                self.sample_flags,
+                self.thresholds,
+                jev_provider=provider,
+            )
+
+            self.assertEqual(ctx_res.jev_status, "FAILED")
+            self.assertEqual(ctx_res.final_risk_level, RiskLevel.REVIEW)
+            self.assertTrue(ctx_res.human_review_required)
+            self.assertIn("routed to human review", ctx_res.final_explanation)
+
+    # ── 6. Timeout and API Error Fallback ─────────────────────────────────────
+    def test_gemini_timeout_and_api_error_fallback(self):
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key")
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_client.models.generate_content.side_effect = TimeoutError("Gemini request timed out")
+            mock_get_client.return_value = mock_client
+
+            ctx_res = moderate_comment_with_context(
+                "Borderline phrase",
+                self.sample_scores,
+                self.sample_flags,
+                self.thresholds,
+                jev_provider=provider,
+            )
+
+            self.assertEqual(ctx_res.jev_status, "FAILED")
+            self.assertIn("timed out", ctx_res.jev_error)
+            self.assertEqual(ctx_res.final_risk_level, RiskLevel.REVIEW)
+            self.assertTrue(ctx_res.human_review_required)
+            self.assertIn("routed to human review", ctx_res.final_explanation)
+
+    # ── 7. Missing API Key Raises ValueError ──────────────────────────────────
+    def test_gemini_missing_api_key_raises(self):
+        with patch.dict("os.environ", {"GEMINI_API_KEY": ""}):
+            with self.assertRaises(ValueError):
+                GeminiJEVDecisionProvider(api_key="")
+
+    # ── 8. Provider Resolution: Prefers Gemini when Key Configured ────────────
+    def test_get_jev_provider_resolution(self):
+        # Case A: JEV disabled -> None
+        with patch.dict("os.environ", {"JEV_ENABLED": "false", "GEMINI_API_KEY": "test_key"}):
+            self.assertIsNone(get_jev_provider())
+
+        # Case B: JEV enabled and GEMINI_API_KEY set -> GeminiJEVDecisionProvider
+        with patch.dict("os.environ", {"JEV_ENABLED": "true", "GEMINI_API_KEY": "test_key", "JEV_GEMINI_MODEL": "gemini-2.5-flash"}):
+            prov = get_jev_provider()
+            self.assertIsNotNone(prov)
+            self.assertIsInstance(prov, GeminiJEVDecisionProvider)
+            self.assertEqual(prov.provider_type, JEVProviderType.REAL_JEV)
+            self.assertEqual(prov.model_name, "gemini-2.5-flash")
+
+        # Case C: JEV enabled but no keys -> None (unconfigured)
+        with patch.dict("os.environ", {"JEV_ENABLED": "true", "GEMINI_API_KEY": "", "JEV_ENDPOINT_URL": ""}):
+            self.assertIsNone(get_jev_provider())
+
+    # ── 9. Ambiguity Gate Bypasses Clear Cases ────────────────────────────────
+    def test_gemini_gate_bypasses_clearly_safe_comment(self):
+        safe_scores = {cat: 0.05 for cat in self.thresholds}
+        safe_flags = {cat: False for cat in self.thresholds}
+        provider = GeminiJEVDecisionProvider(api_key="dummy_test_key")
+
+        with patch.object(provider, "_get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_get_client.return_value = mock_client
+
+            ctx_res = moderate_comment_with_context(
+                "Have a wonderfully blessed morning!",
+                safe_scores,
+                safe_flags,
+                self.thresholds,
+                jev_provider=provider,
+            )
+
+            # Gemini client should NOT have been invoked at all
+            mock_client.models.generate_content.assert_not_called()
+            self.assertFalse(ctx_res.jev_invoked)
+            self.assertEqual(ctx_res.jev_status, "BYPASSED_CLEAR_CASE")
+            self.assertEqual(ctx_res.final_risk_level, RiskLevel.SAFE)
 
 
 if __name__ == "__main__":

@@ -146,10 +146,13 @@ else:
         "**Threshold**: `0.50 Default`"
     )
 
-if config.JEV_ENABLED and config.JEV_ENDPOINT_URL:
-    st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Active (HTTP Provider)`")
-elif config.JEV_ENABLED:
-    st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Enabled (Unconfigured)`")
+if config.JEV_ENABLED:
+    if config.GEMINI_API_KEY:
+        st.sidebar.caption(f"⚖️ **JEV Contextual Layer**: `Active (Gemini: {config.JEV_GEMINI_MODEL})`")
+    elif config.JEV_ENDPOINT_URL:
+        st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Active (HTTP Provider)`")
+    else:
+        st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Enabled (Unconfigured)`")
 else:
     st.sidebar.caption("⚖️ **JEV Contextual Layer**: `Disabled (Deterministic fallback)`")
 
@@ -274,10 +277,14 @@ def _display_moderation_card(
 
         # Contextual Layer Info
         if ctx_res.jev_invoked and ctx_res.jev_decision:
+            p_desc = ctx_res.jev_decision.provider_type.value
+            if ctx_res.jev_decision.raw_response and isinstance(ctx_res.jev_decision.raw_response, dict):
+                if "model" in ctx_res.jev_decision.raw_response:
+                    p_desc = f"Gemini ({ctx_res.jev_decision.raw_response['model']})"
             st.info(
                 f"⚖️ **JEV Contextual Assessment**: {ctx_res.jev_decision.reason}  \n"
                 f"• **Intent**: `{ctx_res.jev_decision.intent.value}` | "
-                f"**Provider**: `{ctx_res.jev_decision.provider_type.value}` | "
+                f"**Provider**: `{p_desc}` | "
                 f"**Confidence**: `{ctx_res.jev_decision.confidence:.2f}`"
             )
         elif ctx_res.jev_status == "FAILED":

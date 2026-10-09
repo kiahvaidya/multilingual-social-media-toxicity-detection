@@ -10,6 +10,7 @@ nltk>=3.8.0
 
 # API Integrations
 google-api-python-client>=2.100.0
+google-genai>=0.1.0
 praw>=7.7.0
 requests>=2.31.0
 

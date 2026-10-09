@@ -10,18 +10,49 @@ Provides:
 """
 
 from abc import ABC, abstractmethod
+from collections import OrderedDict
 from dataclasses import dataclass
 from enum import Enum
+import hashlib
 import json
 import logging
+import re
+import threading
 from typing import Any, Dict, List, Optional
 import urllib.request
 import urllib.error
 
 from src.config import config
 from src.moderation import RiskLevel
+from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
+
+
+def sanitize_jev_error(exc: Exception) -> str:
+    """Sanitize error messages to eliminate API keys, credentials, or internal URLs."""
+    raw = str(exc)
+    # Redact sensitive credentials and patterns
+    redacted = re.sub(r'(?i)(key|token|auth)=([a-zA-Z0-9_\-]+)', r'\1=[REDACTED]', raw)
+    redacted = re.sub(r'AIza[0-9A-Za-z\-_]{35}', '[REDACTED_API_KEY]', redacted)
+    redacted = re.sub(r'https?://[^\s\'"]+', '[URL]', redacted)
+
+    raw_lower = raw.lower()
+    if "429" in raw or "resource_exhausted" in raw_lower or "quota" in raw_lower:
+        return "provider quota exceeded or rate limit (429)"
+    elif "timed out" in raw_lower or "timeout" in raw_lower or "deadline" in raw_lower:
+        return "provider request timed out"
+    elif "getaddrinfo failed" in raw_lower or "connection" in raw_lower or "dns" in raw_lower:
+        return "network or connection failure"
+    elif any(code in raw for code in ("500", "502", "503", "504")) or "unavailable" in raw_lower:
+        return "provider service temporarily unavailable (5xx)"
+    elif "json" in raw_lower or "parse" in raw_lower:
+        return "malformed provider response"
+    else:
+        first_line = redacted.splitlines()[0].strip()
+        if len(first_line) > 80:
+            first_line = first_line[:77] + "..."
+        return first_line or "provider request failed"
 
 
 class JEVIntent(str, Enum):
@@ -85,6 +116,101 @@ class JEVDecision:
             "reason": self.reason,
             "provider_type": self.provider_type.value,
         }
+
+
+class JEVCache:
+    """Thread-safe bounded in-memory LRU cache for successful JEV decisions."""
+
+    def __init__(self, capacity: int = 1000):
+        self._capacity = max(1, capacity)
+        self._cache: OrderedDict[str, JEVDecision] = OrderedDict()
+        self._lock = threading.Lock()
+        self._hits = 0
+        self._misses = 0
+
+    def make_key(
+        self,
+        text: str,
+        muril_scores: Dict[str, float],
+        model_name: Optional[str] = None,
+    ) -> str:
+        """Create a deterministic cache key from normalized text and rounded scores."""
+        norm_text = " ".join(str(text or "").strip().lower().split())
+        rounded_scores = {k: round(float(v), 4) for k, v in sorted(muril_scores.items())}
+        raw_key = json.dumps({
+            "text": norm_text,
+            "scores": rounded_scores,
+            "model": str(model_name or "default"),
+        }, sort_keys=True)
+        return hashlib.sha256(raw_key.encode("utf-8")).hexdigest()
+
+    def get(self, key: str) -> Optional[JEVDecision]:
+        """Retrieve a cached decision. Updates LRU order on hit."""
+        with self._lock:
+            if key in self._cache:
+                self._cache.move_to_end(key)
+                self._hits += 1
+                return self._cache[key]
+            self._misses += 1
+            return None
+
+    def put(self, key: str, decision: JEVDecision) -> None:
+        """Cache a successful JEV decision. Only non-None decisions are cached."""
+        if decision is None:
+            return
+        with self._lock:
+            if key in self._cache:
+                self._cache.move_to_end(key)
+            else:
+                if len(self._cache) >= self._capacity:
+                    self._cache.popitem(last=False)
+            self._cache[key] = decision
+
+    def clear(self) -> None:
+        """Clear all cached decisions and reset hit/miss telemetry."""
+        with self._lock:
+            self._cache.clear()
+            self._hits = 0
+            self._misses = 0
+
+    @property
+    def size(self) -> int:
+        with self._lock:
+            return len(self._cache)
+
+    @property
+    def hits(self) -> int:
+        with self._lock:
+            return self._hits
+
+    @property
+    def misses(self) -> int:
+        with self._lock:
+            return self._misses
+
+    @property
+    def stats(self) -> Dict[str, int]:
+        """Return cache telemetry."""
+        with self._lock:
+            return {
+                "size": len(self._cache),
+                "capacity": self._capacity,
+                "hits": self._hits,
+                "misses": self._misses,
+            }
+
+
+_GLOBAL_JEV_CACHE = JEVCache(capacity=1000)
+
+
+def get_jev_cache() -> JEVCache:
+    """Retrieve the global in-memory LRU decision cache."""
+    return _GLOBAL_JEV_CACHE
+
+
+def reset_jev_cache() -> None:
+    """Reset the global in-memory decision cache (primarily for tests)."""
+    _GLOBAL_JEV_CACHE.clear()
 
 
 class JEVDecisionProvider(ABC):
@@ -155,6 +281,12 @@ class HTTPJEVDecisionProvider(JEVDecisionProvider):
         muril_flags: Dict[str, bool],
         muril_risk: RiskLevel,
     ) -> JEVDecision:
+        cache = get_jev_cache()
+        cache_key = cache.make_key(text, muril_scores, "http_provider")
+        cached_decision = cache.get(cache_key)
+        if cached_decision is not None:
+            return cached_decision
+
         payload = {
             "comment": text,
             "muril_scores": muril_scores,
@@ -216,7 +348,7 @@ class HTTPJEVDecisionProvider(JEVDecisionProvider):
             if not reason:
                 reason = "Decision by external JEV provider."
 
-            return JEVDecision(
+            decision = JEVDecision(
                 intent=intent,
                 contextual_toxicity=contextual_tox,
                 moderation=moderation,
@@ -226,6 +358,8 @@ class HTTPJEVDecisionProvider(JEVDecisionProvider):
                 provider_type=JEVProviderType.REAL_JEV,
                 raw_response=data,
             )
+            cache.put(cache_key, decision)
+            return decision
 
         except urllib.error.HTTPError as e:
             logger.warning("HTTPJEVDecisionProvider HTTP error: %s (code %s)", e.reason, e.code)
@@ -242,6 +376,253 @@ class HTTPJEVDecisionProvider(JEVDecisionProvider):
         except Exception as e:
             logger.warning("HTTPJEVDecisionProvider call failed: %s", e)
             raise RuntimeError(f"JEV service request failed: {e}") from e
+
+
+class GeminiJEVResponseSchema(BaseModel):
+    """Strict structured JSON response schema for Gemini JEV contextual adjudication."""
+    intent: str = Field(description="genuine_abuse, threat, hate, non_toxic_praise_or_excitement, or ambiguous")
+    contextual_toxicity: bool = Field(description="Whether the comment is contextually toxic")
+    moderation: str = Field(description="SAFE, REVIEW, or HIGH_RISK")
+    human_review_required: bool = Field(description="Whether human review is required")
+    confidence: float = Field(description="Confidence between 0.0 and 1.0")
+    reason: str = Field(description="Clear concise justification")
+
+
+class GeminiJEVDecisionProvider(JEVDecisionProvider):
+    """Official Google Gemini AI integration for contextual JEV decision adjudication.
+
+    Connects via the official google-genai SDK using GEMINI_API_KEY and JEV_GEMINI_MODEL.
+    Configured for maximum determinism (temperature=0.0, seed=42, strict response schema).
+    """
+
+    def __init__(
+        self,
+        api_key: Optional[str] = None,
+        model_name: Optional[str] = None,
+        timeout: Optional[float] = None,
+        temperature: float = 0.0,
+        seed: int = 42,
+    ):
+        self._api_key = (api_key or config.GEMINI_API_KEY).strip()
+        self._model_name = (model_name or config.JEV_GEMINI_MODEL).strip() or "gemini-2.5-flash"
+        self._timeout = float(timeout if timeout is not None else config.JEV_TIMEOUT_SECONDS)
+        self._temperature = float(temperature)
+        self._seed = int(seed)
+
+        if not self._api_key:
+            raise ValueError("GEMINI_API_KEY is not configured.")
+
+        self._client = None
+
+    @property
+    def provider_type(self) -> JEVProviderType:
+        return JEVProviderType.REAL_JEV
+
+    @property
+    def model_name(self) -> str:
+        return self._model_name
+
+    @property
+    def temperature(self) -> float:
+        return self._temperature
+
+    @property
+    def seed(self) -> int:
+        return self._seed
+
+    def _get_client(self):
+        if self._client is None:
+            from google import genai
+            from google.genai import types
+
+            timeout_ms = max(15000, int(self._timeout * 1000))
+            http_options = types.HttpOptions(timeout=timeout_ms)
+            self._client = genai.Client(api_key=self._api_key, http_options=http_options)
+        return self._client
+
+    def _build_prompt(
+        self,
+        text: str,
+        muril_scores: Dict[str, float],
+        muril_flags: Dict[str, bool],
+        muril_risk: RiskLevel,
+    ) -> str:
+        flagged_cats = [c for c, f in muril_flags.items() if f]
+        return f"""You are an expert multilingual content moderation and contextual intent adjudicator for social media text (English, Hindi in Devanagari script, and Hinglish / Romanized Hindi).
+
+An initial baseline neural toxicity classifier (MuRIL) analyzed the following comment and flagged potential toxicity:
+
+[INPUT DATA]
+- Comment: "{text}"
+- Classifier Probability Scores: {json.dumps(muril_scores)}
+- Active Flagged Categories: {json.dumps(flagged_cats)}
+- Baseline Risk Tier: {muril_risk.value}
+
+[YOUR TASK]
+Perform nuanced contextual adjudication to determine whether the comment represents genuine toxicity/abuse or an innocuous false positive.
+Specifically distinguish genuine abuse from:
+1. Non-toxic profanity & excitement (e.g., "Fuck yeah, we passed!", "holy shit that's awesome")
+2. Colloquial praise metaphors & slang (e.g., "you killed it", "this is sick", "bhai bawaal banaya hai", "aag laga di", "katai zeher")
+3. Friendly peer banter & informal teasing (e.g., "abe saale kitne din baad mila", "job lag gayi bc treat de")
+4. Harmless obfuscation or leetspeak (e.g., "c00l sh!rt", "gr8 work")
+5. Genuine abuse, hostility, targeted insults, threats, or hate speech (e.g., "you're a fucking idiot and I hope you get hurt", "tu ek number ka kutta hai")
+
+[DECISION RULES]
+- If the comment is benign praise, excitement, friendly banter, or non-aggressive slang:
+  intent: "non_toxic_praise_or_excitement"
+  contextual_toxicity: false
+  moderation: "SAFE"
+  human_review_required: false
+
+- If the comment contains explicit threats, targeted abuse, harassment, or hate speech:
+  intent: "genuine_abuse" (or "threat" or "hate" as applicable)
+  contextual_toxicity: true
+  moderation: "HIGH_RISK"
+  human_review_required: true
+
+- If context is genuinely ambiguous, veiled, or uncertain:
+  intent: "ambiguous"
+  contextual_toxicity: true if any severe category probability >= 0.5 else false
+  moderation: "REVIEW"
+  human_review_required: true
+
+[OUTPUT REQUIREMENTS]
+Respond strictly with a valid JSON object matching this schema:
+{{
+  "intent": "genuine_abuse" | "threat" | "hate" | "non_toxic_praise_or_excitement" | "ambiguous",
+  "contextual_toxicity": true | false,
+  "moderation": "SAFE" | "REVIEW" | "HIGH_RISK",
+  "human_review_required": true | false,
+  "confidence": <float between 0.0 and 1.0>,
+  "reason": "<clear concise explanation of the contextual justification>"
+}}"""
+
+    def _parse_and_validate_response(
+        self,
+        raw_text: str,
+        muril_risk: RiskLevel,
+    ) -> JEVDecision:
+        if not raw_text or not raw_text.strip():
+            raise ValueError("Gemini returned empty response.")
+
+        cleaned = raw_text.strip()
+        if cleaned.startswith("```"):
+            lines = cleaned.splitlines()
+            if lines[0].startswith("```"):
+                lines = lines[1:]
+            if lines and lines[-1].strip() == "```":
+                lines = lines[:-1]
+            cleaned = "\n".join(lines).strip()
+
+        try:
+            data = json.loads(cleaned)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Gemini response is not valid JSON: {e}") from e
+
+        if not isinstance(data, dict):
+            raise ValueError(f"Gemini response is not a JSON object: {type(data)}")
+
+        # 1. intent
+        raw_intent = data.get("intent")
+        if not raw_intent:
+            raise ValueError("Missing 'intent' field in Gemini response.")
+        intent = JEVIntent.from_raw(raw_intent)
+
+        # 2. contextual_toxicity
+        if "contextual_toxicity" not in data:
+            raise ValueError("Missing 'contextual_toxicity' field in Gemini response.")
+        contextual_tox = bool(data["contextual_toxicity"])
+
+        # 3. moderation
+        mod_raw = str(data.get("moderation", "")).strip().lower()
+        if mod_raw in ("safe", "low"):
+            moderation = RiskLevel.SAFE
+        elif mod_raw in ("review", "moderate"):
+            moderation = RiskLevel.REVIEW
+        elif mod_raw in ("high_risk", "high risk", "high"):
+            moderation = RiskLevel.HIGH_RISK
+        else:
+            raise ValueError(f"Invalid 'moderation' value in Gemini response: {data.get('moderation')}")
+
+        # 4. human_review_required
+        if "human_review_required" in data:
+            human_review = bool(data["human_review_required"])
+        elif "human_review" in data:
+            human_review = bool(data["human_review"])
+        else:
+            human_review = (moderation != RiskLevel.SAFE)
+
+        # 5. confidence
+        try:
+            confidence = float(data.get("confidence", 0.5))
+            if confidence < 0.0 or confidence > 1.0:
+                confidence = max(0.0, min(1.0, confidence))
+        except (ValueError, TypeError):
+            confidence = 0.5
+
+        # 6. reason
+        reason = str(data.get("reason", "")).strip()
+        if not reason:
+            raise ValueError("Missing or empty 'reason' field in Gemini response.")
+
+        return JEVDecision(
+            intent=intent,
+            contextual_toxicity=contextual_tox,
+            moderation=moderation,
+            human_review_required=human_review,
+            confidence=confidence,
+            reason=reason,
+            provider_type=JEVProviderType.REAL_JEV,
+            raw_response={"model": self._model_name, "data": data},
+        )
+
+    def assess_context(
+        self,
+        text: str,
+        muril_scores: Dict[str, float],
+        muril_flags: Dict[str, bool],
+        muril_risk: RiskLevel,
+    ) -> JEVDecision:
+        cache = get_jev_cache()
+        cache_key = cache.make_key(text, muril_scores, self._model_name)
+        cached_decision = cache.get(cache_key)
+        if cached_decision is not None:
+            logger.debug("Gemini JEV cache hit for model %s (hash: %s)", self._model_name, cache_key[:8])
+            return cached_decision
+
+        import time as _time
+        client = self._get_client()
+        prompt = self._build_prompt(text, muril_scores, muril_flags, muril_risk)
+
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                from google.genai import types
+
+                config_params = types.GenerateContentConfig(
+                    temperature=self._temperature,
+                    seed=self._seed,
+                    response_mime_type="application/json",
+                    response_schema=GeminiJEVResponseSchema,
+                )
+                response = client.models.generate_content(
+                    model=self._model_name,
+                    contents=prompt,
+                    config=config_params,
+                )
+                raw_text = getattr(response, "text", "") or ""
+                decision = self._parse_and_validate_response(raw_text, muril_risk)
+                # Successful decision stored in LRU cache
+                cache.put(cache_key, decision)
+                return decision
+            except Exception as e:
+                err_str = str(e)
+                if any(k in err_str for k in ("503", "504", "UNAVAILABLE", "DEADLINE_EXCEEDED")) and attempt < max_attempts - 1:
+                    logger.warning("GeminiJEV transient failure (attempt %d/%d): %s; retrying...", attempt + 1, max_attempts, sanitize_jev_error(e))
+                    _time.sleep(1.0 * (attempt + 1))
+                    continue
+                logger.warning("GeminiJEVDecisionProvider call failed: %s", sanitize_jev_error(e))
+                raise
 
 
 class MockJEVDecisionProvider(JEVDecisionProvider):
@@ -403,24 +784,32 @@ def get_jev_provider() -> Optional[JEVDecisionProvider]:
     STRICT PROVIDER RESOLUTION RULES:
       1. If JEV_ENABLED=false:
          JEV is disabled. Returns None.
-      2. If JEV_ENABLED=true AND JEV_ENDPOINT_URL is configured:
+      2. If JEV_ENABLED=true AND GEMINI_API_KEY is configured:
+         Returns GeminiJEVDecisionProvider with JEV_GEMINI_MODEL.
+      3. If JEV_ENABLED=true AND JEV_ENDPOINT_URL is configured:
          Returns HTTPJEVDecisionProvider.
-      3. If JEV_ENABLED=true but JEV_ENDPOINT_URL is missing:
+      4. If JEV_ENABLED=true but neither GEMINI_API_KEY nor JEV_ENDPOINT_URL is configured:
          JEV is treated as unavailable/unconfigured. Returns None.
          (Does NOT silently substitute MockJEVDecisionProvider).
-      4. MockJEVDecisionProvider is NEVER returned by this function;
+      5. MockJEVDecisionProvider is NEVER returned by this function;
          it exists strictly for unit tests and deterministic offline evaluation.
     """
     if not config.JEV_ENABLED:
         logger.info("JEV contextual moderation layer is disabled (JEV_ENABLED=false).")
         return None
 
+    # Priority 1: Gemini Provider (official LLM integration)
+    gemini_key = config.GEMINI_API_KEY
+    if gemini_key:
+        logger.info("Initializing GeminiJEVDecisionProvider with model %s", config.JEV_GEMINI_MODEL)
+        return GeminiJEVDecisionProvider(api_key=gemini_key, model_name=config.JEV_GEMINI_MODEL)
+
+    # Priority 2: Generic HTTP REST Microservice
     endpoint = config.JEV_ENDPOINT_URL
     api_key = config.JEV_API_KEY
-
     if endpoint:
         logger.info("Initializing HTTPJEVDecisionProvider at endpoint %s", endpoint)
         return HTTPJEVDecisionProvider(endpoint=endpoint, api_key=api_key)
 
-    logger.info("JEV is enabled but unconfigured (missing JEV_ENDPOINT_URL). JEV is unavailable.")
+    logger.info("JEV is enabled but unconfigured (missing GEMINI_API_KEY and JEV_ENDPOINT_URL). JEV is unavailable.")
     return None
