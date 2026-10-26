@@ -184,15 +184,21 @@ class ProfileWatchService:
             from src.moderation import RiskLevel, classify_risk, moderate_comment_with_context
 
             texts = [item.text for item in new_items]
-            predictions_list = predict_batch_muril(
-                texts=texts,
-                model=server.muril_model,
-                tokenizer=server.muril_tokenizer,
-                labels=server.labels,
-                device=server.device,
-                batch_size=32,
-                thresholds=server.thresholds,
-            )
+            if getattr(server, "muril_model", None) is not None or not hasattr(server, "predict_batch"):
+                predictions_list = predict_batch_muril(
+                    texts=texts,
+                    model=server.muril_model,
+                    tokenizer=server.muril_tokenizer,
+                    labels=server.labels,
+                    device=server.device,
+                    batch_size=32,
+                    thresholds=server.thresholds,
+                )
+            else:
+                predictions_list = server.predict_batch(
+                    texts=texts,
+                    batch_size=32,
+                )
 
             for idx, item in enumerate(new_items):
                 scores, max_toxic_score, intensity, is_toxic_flags = predictions_list[idx]
