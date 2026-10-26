@@ -305,7 +305,7 @@ def get_health():
 
 
 def detect_language_simple(text: str) -> str:
-    # Heuristic language detector for Indic scripts vs Latin
+    # Heuristic language detector for Indic scripts, Hinglish, and English
     for char in text:
         code = ord(char)
         if 0x0900 <= code <= 0x097F:
@@ -326,6 +326,14 @@ def detect_language_simple(text: str) -> str:
             return "Kannada"
         elif 0x0D00 <= code <= 0x0D7F:
             return "Malayalam"
+
+    from src.profile_watch.service import HINGLISH_KEYWORDS
+    import re
+    words = re.findall(r"[a-zA-Z]+", text.lower())
+    hinglish_matches = [w for w in words if w in HINGLISH_KEYWORDS]
+    if len(hinglish_matches) >= 2 or (len(words) <= 5 and len(hinglish_matches) >= 1):
+        return "Hinglish (Code-Mixed)"
+
     return "English / Latin"
 
 
