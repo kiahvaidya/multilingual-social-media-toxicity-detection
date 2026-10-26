@@ -14,9 +14,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# ── Hinglish / Code-Mixed Slang Map ─────────────────────────
-# Maps romanised Hindi slurs to English equivalents so the
-# English-trained TF-IDF model can recognise them.
+# ── Hinglish / Code-Mixed & Devanagari Slang Map ───────────
+# Maps romanised Hindi slurs, Devanagari abuse, and severe hate
+# phrases to English equivalents so the TF-IDF model can recognise them.
 HINGLISH_MAP = {
     "chutiya": "idiot",
     "chutya": "idiot",
@@ -44,6 +44,19 @@ HINGLISH_MAP = {
     "lodu": "idiot",
     "lawde": "dick",
     "lund": "dick",
+    "saale": "bastard",
+    "deshdrohi": "traitor bastard",
+    "देशद्रोही": "traitor idiot hate",
+    "साले": "bastard idiot",
+    "निकल यहाँ से": "get lost idiot",
+    "शर्म नहीं आती": "shameful idiot",
+    "गद्दार": "traitor bastard",
+    "कमीने": "bastard idiot",
+    "हरामी": "bastard",
+    "चूतिया": "idiot",
+    "बकवास": "stupid nonsense",
+    "despise your kind": "hate you racist idiot",
+    "eradicated from existence": "kill destroy die threat",
 }
 
 
@@ -57,7 +70,7 @@ def _clean_social_media(text: str) -> str:
     """
     text = re.sub(r"http\S+", " ", text)       # Remove URLs
     text = re.sub(r"@\w+", " ", text)           # Remove @mentions
-    for slang, english in HINGLISH_MAP.items():  # Hinglish normalisation
+    for slang, english in HINGLISH_MAP.items():  # Hinglish & Devanagari normalisation
         text = text.replace(slang, english)
     text = re.sub(r"(.)\1{2,}", r"\1", text)   # Deduplicate chars: "heeello" → "helo"
     return text
