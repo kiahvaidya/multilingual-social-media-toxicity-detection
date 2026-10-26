@@ -845,4 +845,6 @@ def get_case_studies():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="127.0.0.1", port=8000, reload=False)
+    api_host = os.getenv("API_HOST", "127.0.0.1")
+    api_port = int(os.getenv("API_PORT", "8001"))
+    uvicorn.run("api:app", host=api_host, port=api_port, reload=False)
