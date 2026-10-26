@@ -196,12 +196,24 @@ export const TextAnalysisOverlay: React.FC<TextAnalysisOverlayProps> = ({
                 {/* Large Editorial Verdict */}
                 <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-white/10 pb-4 mb-4">
                   <div>
-                    <span className="font-mono text-[10px] text-white/40 tracking-widest uppercase block">
-                      FINAL ADJUDICATION
-                    </span>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-mono text-[10px] text-white/40 tracking-widest uppercase">
+                        FINAL ADJUDICATION
+                      </span>
+                      {result.language && (
+                        <span className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-[#38bdf8]">
+                          {result.language}
+                        </span>
+                      )}
+                    </div>
                     <h3 className={`font-display font-extrabold text-4xl sm:text-5xl ${getVerdictStyle(result.risk_level).text}`}>
                       {result.risk_level.toUpperCase()}
                     </h3>
+                    {result.explanation && (
+                      <p className="mt-1.5 text-xs text-white/60 font-sans">
+                        {result.explanation}
+                      </p>
+                    )}
                   </div>
 
                   <div className="text-right font-mono text-xs">
@@ -219,7 +231,8 @@ export const TextAnalysisOverlay: React.FC<TextAnalysisOverlayProps> = ({
                   </span>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs">
                     {Object.entries(result.scores).map(([key, val]) => {
-                      const isHigh = val >= 0.5;
+                      const thresh = result.thresholds?.[key] ?? 0.5;
+                      const isHigh = result.is_toxic_flags?.[key] ?? val >= thresh;
                       return (
                         <div
                           key={key}
@@ -234,6 +247,20 @@ export const TextAnalysisOverlay: React.FC<TextAnalysisOverlayProps> = ({
                     })}
                   </div>
                 </div>
+
+                {/* Pipeline Latency Trace */}
+                {result.pipeline_trace && result.pipeline_trace.length > 0 && (
+                  <div className="mb-3 flex flex-wrap gap-2">
+                    {result.pipeline_trace.map((step, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 rounded bg-white/[0.03] border border-white/[0.06] font-mono text-[10px] text-white/50"
+                      >
+                        {step.stage}: <strong className="text-white/80">{step.duration_ms}ms</strong>
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* JEV Contextual Layer Readout */}
                 {result.jev?.invoked && result.jev.decision && (
