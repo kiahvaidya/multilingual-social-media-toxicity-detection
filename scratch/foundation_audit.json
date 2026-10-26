@@ -1,0 +1,601 @@
+{
+  "multi3hate": {
+    "final_annotations.csv": {
+      "num_rows": 300,
+      "columns": [
+        "Meme ID",
+        "US",
+        "DE",
+        "MX",
+        "CN",
+        "IN"
+      ],
+      "column_info": {
+        "Meme ID": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "299": 1,
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "_truncated_num_unique": 300
+          }
+        },
+        "US": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "1": 154,
+            "0": 146
+          }
+        },
+        "DE": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "1": 179,
+            "0": 121
+          }
+        },
+        "MX": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "1": 167,
+            "0": 133
+          }
+        },
+        "CN": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "1": 190,
+            "0": 110
+          }
+        },
+        "IN": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "1": 180,
+            "0": 120
+          }
+        }
+      }
+    },
+    "raw_annotations.csv": {
+      "num_rows": 7083,
+      "columns": [
+        "dataset_language",
+        "User ID",
+        "Meme ID",
+        "Education",
+        "Politcal Party",
+        "Nationality",
+        "Age",
+        "Sex",
+        "Ethnicity simplified",
+        "Country of birth",
+        "hatespeech"
+      ],
+      "column_info": {
+        "dataset_language": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 5,
+          "value_distribution": {
+            "zh": 1438,
+            "hi": 1429,
+            "es": 1423,
+            "de": 1405,
+            "en": 1388
+          }
+        },
+        "User ID": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 445,
+          "value_distribution": {
+            "293": 54,
+            "194": 49,
+            "305": 48,
+            "405": 47,
+            "236": 47,
+            "159": 47,
+            "238": 44,
+            "231": 44,
+            "332": 44,
+            "248": 44,
+            "_truncated_num_unique": 445
+          }
+        },
+        "Meme ID": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "35": 25,
+            "10": 25,
+            "73": 25,
+            "19": 25,
+            "44": 25,
+            "139": 25,
+            "97": 25,
+            "23": 25,
+            "244": 25,
+            "188": 25,
+            "_truncated_num_unique": 300
+          }
+        },
+        "Education": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 5,
+          "value_distribution": {
+            "Bachelor": 2982,
+            "Master\u2019s Degree": 1984,
+            "College": 1185,
+            "High School": 682,
+            "Doctorate": 250
+          }
+        },
+        "Politcal Party": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 6,
+          "value_distribution": {
+            "Liberal/Progressive": 2596,
+            "Independent": 2124,
+            "Moderate Liberal": 1180,
+            "Conservative": 485,
+            "Moderate Conservative": 469,
+            "Other": 229
+          }
+        },
+        "Nationality": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 5,
+          "value_distribution": {
+            "zh": 1438,
+            "hi": 1429,
+            "es": 1423,
+            "de": 1405,
+            "en": 1388
+          }
+        },
+        "Age": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 44,
+          "value_distribution": {
+            "25": 614,
+            "24": 551,
+            "26": 479,
+            "23": 450,
+            "27": 421,
+            "30": 377,
+            "28": 355,
+            "22": 355,
+            "29": 336,
+            "21": 293,
+            "_truncated_num_unique": 44
+          }
+        },
+        "Sex": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "Male": 3754,
+            "Female": 3329
+          }
+        },
+        "Ethnicity simplified": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 5,
+          "value_distribution": {
+            "White": 2976,
+            "Asian": 2747,
+            "Mixed": 593,
+            "Other": 533,
+            "Black": 234
+          }
+        },
+        "Country of birth": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 9,
+          "value_distribution": {
+            "China": 1438,
+            "India": 1429,
+            "Mexico": 1423,
+            "Germany": 1379,
+            "United States": 1356,
+            "France": 16,
+            "Japan": 16,
+            "Croatia": 16,
+            "Kazakhstan": 10
+          }
+        },
+        "hatespeech": {
+          "dtype": "float64",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "1.0": 3936,
+            "0.0": 3147
+          }
+        }
+      }
+    },
+    "en_captions.csv": {
+      "num_rows": 300,
+      "columns": [
+        "Meme ID",
+        "Template Name",
+        "Original (English)",
+        "Translation"
+      ],
+      "column_info": {
+        "Meme ID": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "130": 1,
+            "225": 1,
+            "199": 1,
+            "115": 1,
+            "60": 1,
+            "36": 1,
+            "47": 1,
+            "186": 1,
+            "53": 1,
+            "26": 1,
+            "_truncated_num_unique": 300
+          }
+        },
+        "Template Name": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 45,
+          "value_distribution": {
+            "scumbag police officer": 9,
+            "mexicans on a truck": 9,
+            "jesus christ": 9,
+            "typical germany lover": 9,
+            "feministfrequently": 8,
+            "sassy black woman": 8,
+            "skeptical black kid": 8,
+            "stern but honest chinese guy": 8,
+            "nia china": 8,
+            "obese american": 8,
+            "_truncated_num_unique": 45
+          }
+        },
+        "Original (English)": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "global warming is really bad <sep> for property values on cape cod": 1,
+            "When Mr. Greene talks... <sep> What does that even mean?!": 1,
+            "Alalalalalalallaah <sep> Thats the sound after masoud nuts in sultans sweet ass": 1,
+            "I'm pretty damn happy <sep> about football": 1,
+            "oh shit, ribs on special <sep> diet starts tomorrow guys": 1,
+            "when i try to duplicate your issue <sep> i get 'out of memory' error.": 1,
+            "quit leaving the toilet seat up <sep> women use it down so you must put it down": 1,
+            "I had a friend that got almost raped <sep> your argument is invalid": 1,
+            "abortion? a womans issue? <sep> transmen need abortions too!": 1,
+            "HOW I FEEL <sep> WHEN THE KIDS ARE ASLEEP": 1,
+            "_truncated_num_unique": 300
+          }
+        },
+        "Translation": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "global warming is really bad <sep> for property values on cape cod": 1,
+            "When Mr. Greene talks... <sep> What does that even mean?!": 1,
+            "Alalalalalalallaah <sep> Thats the sound after masoud nuts in sultans sweet ass": 1,
+            "I'm pretty damn happy <sep> about football": 1,
+            "oh shit, ribs on special <sep> diet starts tomorrow guys": 1,
+            "when i try to duplicate your issue <sep> i get 'out of memory' error.": 1,
+            "quit leaving the toilet seat up <sep> women use it down so you must put it down": 1,
+            "I had a friend that got almost raped <sep> your argument is invalid": 1,
+            "abortion? a womans issue? <sep> transmen need abortions too!": 1,
+            "HOW I FEEL <sep> WHEN THE KIDS ARE ASLEEP": 1,
+            "_truncated_num_unique": 300
+          }
+        }
+      }
+    },
+    "hi_captions.csv": {
+      "num_rows": 300,
+      "columns": [
+        "Meme ID",
+        "Template Name",
+        "Original (English)",
+        "Translation"
+      ],
+      "column_info": {
+        "Meme ID": {
+          "dtype": "int64",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "222": 1,
+            "125": 1,
+            "174": 1,
+            "37": 1,
+            "105": 1,
+            "141": 1,
+            "32": 1,
+            "89": 1,
+            "96": 1,
+            "282": 1,
+            "_truncated_num_unique": 300
+          }
+        },
+        "Template Name": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 45,
+          "value_distribution": {
+            "jesus christ": 9,
+            "typical germany lover": 9,
+            "mexicans on a truck": 9,
+            "scumbag police officer": 9,
+            "sassy black woman": 8,
+            "privilege abusing white couple": 8,
+            "skeptical black kid": 8,
+            "stern but honest chinese guy": 8,
+            "angry muslim guy": 8,
+            "feministfrequently": 8,
+            "_truncated_num_unique": 45
+          }
+        },
+        "Original (English)": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "you pay taxes <sep> because of us": 1,
+            "DO NOT, <sep> STOP THIS TRUCK!": 1,
+            "showed this blog to my non-german friends <sep> they don't get it": 1,
+            "SEE THIS HAT <sep> THRIFT STORE": 1,
+            "no im not going in the kitchen <sep> can you help open this jar for me?": 1,
+            "wants to defend \"white tradition\" <sep> lives in NY and eats at mcdonalds": 1,
+            "STANLEY I COULD EAT YOU FOR BREAKFAST <sep> LUNCH AND DINNER": 1,
+            "i hate black people <sep> thats why i got a job with a gun": 1,
+            "i hate men! <sep> GOD, i NEED A GUY'S COCK RIGHT NOW...": 1,
+            "Freeze! You're under arrest <sep> For producing non accessible material": 1,
+            "_truncated_num_unique": 300
+          }
+        },
+        "Translation": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 300,
+          "value_distribution": {
+            "\u0906\u092a \u0915\u0930\u094b\u0902 \u0915\u093e \u092d\u0941\u0917\u0924\u093e\u0928 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902 <sep> \u0939\u092e\u093e\u0930\u0947 \u0915\u093e\u0930\u0923": 1,
+            "\u092c\u093f\u0932\u0915\u0941\u0932 \u0928\u0939\u0940\u0902  <sep> \u0930\u094b\u0915\u0928\u093e \u0907\u0938 \u091f\u094d\u0930\u0915 \u0915\u094b !": 1,
+            "\u092e\u0948\u0902\u0928\u0947 \u092f\u0939 \u092c\u094d\u0932\u0949\u0917 \u0905\u092a\u0928\u0947 \u0917\u0948\u0930-\u091c\u0930\u094d\u092e\u0928 \u092e\u093f\u0924\u094d\u0930\u094b\u0902 \u0915\u094b \u0926\u093f\u0916\u093e\u092f\u093e <sep> \u0909\u0928\u094d\u0939\u0947\u0902 \u092f\u0939 \u0938\u092e\u091d \u092e\u0947\u0902 \u0928\u0939\u0940\u0902 \u0906\u092f\u093e": 1,
+            "\u092f\u0939 \u091f\u094b\u092a\u0940 \u0926\u0947\u0916\u0947\u0902 <sep> \u092c\u091a\u0924 \u0915\u0940 \u0926\u0941\u0915\u093e\u0928": 1,
+            "\u0928\u0939\u0940\u0902, \u092e\u0948\u0902 \u0930\u0938\u094b\u0908 \u092e\u0947\u0902 \u0928\u0939\u0940\u0902 \u091c\u093e \u0930\u0939\u0940 \u0939\u0942\u0901 <sep> \u0915\u094d\u092f\u093e \u0906\u092a \u092e\u0947\u0930\u0947 \u0932\u093f\u090f \u092f\u0939 \u091c\u093e\u0930 \u0916\u094b\u0932\u0928\u0947 \u092e\u0947\u0902 \u092e\u0926\u0926 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902?": 1,
+            "\"\u0936\u094d\u0935\u0947\u0924 \u092a\u0930\u0902\u092a\u0930\u093e\" \u0915\u093e \u092c\u091a\u093e\u0935 \u0915\u0930\u0928\u093e \u091a\u093e\u0939\u0924\u093e \u0939\u0948 <sep> \u0928\u094d\u092f\u0942\u092f\u0949\u0930\u094d\u0915 \u092e\u0947\u0902 \u0930\u0939\u0924\u093e \u0939\u0948 \u0914\u0930 \u092e\u0948\u0915\u0921\u0949\u0928\u0932\u094d\u0921\u094d\u0938 \u092e\u0947\u0902 \u0916\u093e\u0924\u093e \u0939\u0948": 1,
+            "\u0938\u094d\u091f\u0947\u0928\u0932\u0940 \u092e\u0948\u0902 \u0924\u0941\u092e\u094d\u0939\u0947\u0902 \u0928\u093e\u0936\u094d\u0924\u0947 <sep> \u0926\u094b\u092a\u0939\u0930 \u0915\u0947 \u092d\u094b\u091c\u0928 \u0914\u0930 \u0930\u093e\u0924 \u0915\u0947 \u0916\u093e\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0916\u093e \u0938\u0915\u0924\u093e \u0939\u0942\u0901": 1,
+            "\u092e\u0941\u091d\u0947 \u0915\u093e\u0932\u0947 \u0932\u094b\u0917\u094b\u0902 \u0938\u0947 \u0928\u092b\u0930\u0924 \u0939\u0948 <sep> \u0907\u0938\u0940\u0932\u093f\u090f \u092e\u0941\u091d\u0947 \u092c\u0902\u0926\u0942\u0915 \u0935\u093e\u0932\u0940 \u0928\u094c\u0915\u0930\u0940 \u092e\u093f\u0932\u0940": 1,
+            "\u092e\u0941\u091d\u0947 \u092e\u0930\u094d\u0926\u094b\u0902 \u0938\u0947 \u0928\u092b\u0930\u0924 \u0939\u0948! <sep> \u092d\u0917\u0935\u093e\u0928, \u092e\u0941\u091d\u0947 \u0905\u092d\u0940 \u090f\u0915 \u0906\u0926\u092e\u0940 \u0915\u093e \u0932\u0902\u0921 \u091a\u093e\u0939\u093f\u090f...": 1,
+            "\u0930\u0941\u0915\u094b! \u0906\u092a \u0917\u093f\u0930\u092b\u093c\u094d\u0924\u093e\u0930 \u0939\u0948\u0902 <sep> \u0905\u092a\u094d\u0930\u0935\u0947\u0936\u0928\u0940\u092f \u0938\u093e\u092e\u0917\u094d\u0930\u0940 \u092a\u094d\u0930\u0938\u094d\u0924\u0941\u0924 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f": 1,
+            "_truncated_num_unique": 300
+          }
+        }
+      }
+    },
+    "image_files": {
+      "hi_images_count": 300,
+      "en_images_count": 300,
+      "sample_hi_verified_openable": 10
+    },
+    "paired_stats": {
+      "paired_hi": 300,
+      "paired_en": 300,
+      "paired_total": 600,
+      "missing_img": 0,
+      "missing_txt": 0,
+      "missing_lbl": 0
+    }
+  },
+  "hasoc_meme_2025": {
+    "Hindi Train HASOC 2025 - Updated.csv": {
+      "num_rows": 1141,
+      "columns": [
+        "Ids",
+        "Sentiment",
+        "Sarcasm",
+        "Vulgar",
+        "Abuse",
+        "Target",
+        "OCR"
+      ],
+      "column_info": {
+        "Ids": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 1140,
+          "value_distribution": {
+            "Hindi_image_194.jpg": 2,
+            "Hindi_image_1.jpg": 1,
+            "Hindi_image_100.jpg": 1,
+            "Hindi_image_1000.jpg": 1,
+            "Hindi_image_1001.jpg": 1,
+            "Hindi_image_1003.jpg": 1,
+            "Hindi_image_964.jpg": 1,
+            "Hindi_image_965.jpg": 1,
+            "Hindi_image_967.jpg": 1,
+            "Hindi_image_968.jpg": 1,
+            "_truncated_num_unique": 1140
+          }
+        },
+        "Sentiment": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 3,
+          "value_distribution": {
+            "Negative": 525,
+            "Positive": 340,
+            "Neutral": 276
+          }
+        },
+        "Sarcasm": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "Sarcastic": 770,
+            "Non-Sarcastic": 371
+          }
+        },
+        "Vulgar": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "Non Vulgar": 764,
+            "Vulgar": 377
+          }
+        },
+        "Abuse": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 2,
+          "value_distribution": {
+            "Non-abusive": 834,
+            "Abusive": 307
+          }
+        },
+        "Target": {
+          "dtype": "object",
+          "num_null": 252,
+          "num_unique": 8,
+          "value_distribution": {
+            "Individual": 454,
+            "nan": 252,
+            "Others": 144,
+            "Gender": 129,
+            "Social Sub-groups": 107,
+            "Political": 32,
+            "National Origin": 17,
+            "Religion": 6
+          }
+        },
+        "OCR": {
+          "dtype": "object",
+          "num_null": 8,
+          "num_unique": 1124,
+          "value_distribution": {
+            "nan": 8,
+            "Tani has 13 stickers. Jen gives him 10 more.\nHow many stickers does Jack hove?\nstickers teacher : kyu hila dala na ": 2,
+            "sir pehle mera beta raat me padhta tha pr ab wo raat me madlhc d behnc d aur pel do bolta ha ye PUBG wala hal kya": 2,
+            "Get this man a Condom": 2,
+            "*Evertime after watching chota\nbheem*\n\nAb mai gyaan chodunga": 2,
+            "\u0932\u093f\u0916 \u0915\u0947 \u0932\u0947\u0932\u0947 \u0924\u0942 \u091a\u0942\u0924\u093f\u092f\u093e \u0939\u0948l Mahatma gandhi": 2,
+            "\u0935\u094b \u0915\u0939\u0924\u0947 \u0939\u0948\u0928 College walo ki maaka boSda toi \u0938\u0939\u0940 \u0915\u0939\u0924\u0947 \u0939\u0948": 2,
+            "Moment hai bhai, Moment hai.": 2,
+            "RAMLAL\n\nISKO GOLI MAAR DO": 2,
+            "Dear, Haha Reactors I Love You\nMilo Kabhi, Chai Paani Peete Hai!": 2,
+            "_truncated_num_unique": 1124
+          }
+        }
+      }
+    },
+    "Hindi Test HASOC 2025 - Updated.csv": {
+      "num_rows": 769,
+      "columns": [
+        "Ids",
+        "OCR"
+      ],
+      "column_info": {
+        "Ids": {
+          "dtype": "object",
+          "num_null": 0,
+          "num_unique": 769,
+          "value_distribution": {
+            "Hindi_image_999.jpg": 1,
+            "Hindi_image_950.jpg": 1,
+            "Hindi_image_949.jpg": 1,
+            "Hindi_image_944.jpg": 1,
+            "Hindi_image_933.jpg": 1,
+            "Hindi_image_924.jpg": 1,
+            "Hindi_image_92.jpg": 1,
+            "Hindi_image_917.jpg": 1,
+            "Hindi_image_91.jpg": 1,
+            "Hindi_image_908.jpg": 1,
+            "_truncated_num_unique": 769
+          }
+        },
+        "OCR": {
+          "dtype": "object",
+          "num_null": 2,
+          "num_unique": 767,
+          "value_distribution": {
+            "ek baat bolu?\r\nBolo\r\ntum ese gaaliyo wale video mt bnao isse bachhe bigdte h\r\n": 2,
+            "nan": 2,
+            "GA*ND KA ILAJ KIYA JAA SAKTA HAI GAANDU KA NAHI TITU": 1,
+            "Kya Soch Rahe Ho?\r\nYahi ki, Main Kuch Bhi Sochu... Tujhe Batana zaruri Hai Kya..?\r\n": 1,
+            "\u090f\u0915 \u091f\u0940\u091a\u0930 \u0928\u0947 \u090f\u0915 \u0932\u0921\u093c\u0915\u0947 \u0915\u094b \u092a\u0947\u092a\u0930 \u092e\u0947\u0902,\n\n\u0928\u0915\u093c\u0932 \u0915\u0930\u0924\u0947 \u092a\u0915\u0921\u093c \u0932\u093f\u092f\u093e\u0964\n\n\u091f\u0940\u091a\u0930 - \u0905\u092a\u0928\u093e \u092a\u0947\u092a\u0930 \u091b\u094b\u0921\u093c\u094b,\n\n\u0914\u0930 \u0915\u094d\u0932\u093e\u0938 \u0938\u0947 \u0926\u092b\u093e \u0939\u094b \u091c\u093e\u0913\u0964\n\n\u0905\u092c \u0924\u0941\u092e \u0915\u0941\u091b \u092d\u0940 \u0915\u0939\u094b \u092e\u0941\u091d\u0947 \u0915\u094b\u0908 \u092b\u0930\u094d\u0915 \u0928\u0939\u0940\u0902 \u092a\u0921\u093c\u0947\u0917\u093e\u0964\n\n\u0932\u0921\u093c\u0915\u093e - \u092e\u0948\u0921\u092e \u0906\u092a\u0915\u0947 \u092c\u0942\u092c\u094d\u0938 \u092c\u0939\u0941\u0924 \u0938\u0948 .... \u0915\u094d\u0938\u0940 \u0939\u0948\u0902\u0964": 1,
+            "AUNTY POLICE BULA LEGI ": 1,
+            "aak\r\nah e\r\nair'.\r\ngay.\r\nAngry\r\nPart 10": 1,
+            "Mbal\nDear Customer Your\nRequest could not be\nprocessed, please try\nagain later. Thank You\nReliance\nMbal madarchod\nYour 2G Net Bal is 866.63\nMB is valid till 13-08-\n2013.,": 1,
+            "\u092c\u0902\u0924\u093e \u0905\u092a\u0928\u0947 \u0926\u094b\u0938\u094d\u0924 \u0938\u0902\u0924\u093e \u0938\u0947 \u0938\u0947 ... \u0915\u094d .... \u0938 \u0915\u0947\n\u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u092c\u093e\u0924 \u0915\u0930\u0924\u0947 \u0939\u0941\u090f \u092c\u094b\u0932\u093e.\n\n\u092c\u0902\u0924\u093e: \"\u091c\u0917\u0939 \u0928 \u092e\u093f\u0932\u0928\u0947 \u0915\u0940 \u0935\u091c\u0939 \u0938\u0947 \u0932\u094b\u0917 \u0938\u0947.\n.. \u0915\u094d .... \u0938 \u0928\u0939\u0940\u0902 \u0915\u0930 \u092a\u093e\u0924\u0947\"\n\n\u0938\u0902\u0924\u093e: \"\u0939\u093e\u0901 \u090f\u0915 \u092c\u093e\u0930 \u092e\u0947\u0930\u0947 \u0938\u093e\u0925 \u092d\u0940 \u0910\u0938\u093e \u0939\u0940\n\u0939\u0941\u0906 \u0925\u093e\"\n\n\u092c\u0902\u0924\u093e\u0903 \"\u092b\u093f\u0930?\"\n\n\u0938\u0902\u0924\u093e: \"\u092b\u093f\u0930 \u0915\u094d\u092f\u093e \u0932\u0921\u093c\u0915\u0940 \u0928\u0947 \u092c\u0924\u093e\u092f\u093e \u0915\u0940\n\u091c\u0917\u0939 \u091f\u093e\u0902\u0917\u094b \u0915\u0947 \u092c\u0940\u091a \u092e\u0947\u0902 \u0939\u0948\"": 1,
+            "Why Was Your Team\r\nPerformance So Bad\r\nToday? Any Reasons?\r\n\r\nActually Mene Unko Bola Ki\r\n15 Overs Tum Sab Milke Ache\r\nSe Khelna, Baaki Sab Main\r\nSambhal Lunga. Unn Ch#tiyon\r\nNe Shayad 15 Balls Suna.\r\n": 1,
+            "_truncated_num_unique": 767
+          }
+        }
+      }
+    },
+    "image_files": {
+      "total_image_files_found": 0,
+      "jpg_count": 0,
+      "png_count": 0
+    }
+  },
+  "jigsaw": {
+    "exists": true,
+    "columns": [
+      "id",
+      "comment_text",
+      "toxic",
+      "severe_toxic",
+      "obscene",
+      "threat",
+      "insult",
+      "identity_hate"
+    ],
+    "target_cols": [
+      "toxic",
+      "severe_toxic",
+      "obscene",
+      "threat",
+      "insult",
+      "identity_hate"
+    ]
+  }
+}

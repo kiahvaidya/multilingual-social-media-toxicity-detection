@@ -1,0 +1,22 @@
+{
+  "cached_feature_inference": {
+    "baseline": {
+      "latency_ms": 0.9252,
+      "throughput_sps": 1080.8
+    },
+    "fhn_candidate": {
+      "latency_ms": 53.1418,
+      "throughput_sps": 18.8
+    }
+  },
+  "full_end_to_end_inference": {
+    "baseline": {
+      "latency_ms": 314.2,
+      "throughput_sps": 3.18
+    },
+    "fhn_candidate": {
+      "latency_ms": 321.73,
+      "throughput_sps": 3.11
+    }
+  }
+}

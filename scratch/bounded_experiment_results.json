@@ -1,0 +1,296 @@
+{
+  "baseline": {
+    "overall": {
+      "accuracy": 0.5283,
+      "precision": 0.6742,
+      "recall": 0.4139,
+      "f1": 0.5129,
+      "auroc": 0.5835,
+      "fpr": 0.3,
+      "fnr": 0.5861,
+      "pred_pos": 221,
+      "pred_neg": 379,
+      "positive_prediction_rate": 0.3683,
+      "confusion_matrix": {
+        "tp": 149,
+        "fp": 72,
+        "tn": 168,
+        "fn": 211
+      }
+    },
+    "hindi": {
+      "accuracy": 0.4467,
+      "precision": 0.6296,
+      "recall": 0.1889,
+      "f1": 0.2906,
+      "auroc": 0.504,
+      "fpr": 0.1667,
+      "fnr": 0.8111,
+      "pred_pos": 54,
+      "pred_neg": 246,
+      "positive_prediction_rate": 0.18,
+      "confusion_matrix": {
+        "tp": 34,
+        "fp": 20,
+        "tn": 100,
+        "fn": 146
+      }
+    },
+    "english": {
+      "accuracy": 0.61,
+      "precision": 0.6886,
+      "recall": 0.6389,
+      "f1": 0.6628,
+      "auroc": 0.6411,
+      "fpr": 0.4333,
+      "fnr": 0.3611,
+      "pred_pos": 167,
+      "pred_neg": 133,
+      "positive_prediction_rate": 0.5567,
+      "confusion_matrix": {
+        "tp": 115,
+        "fp": 52,
+        "tn": 68,
+        "fn": 65
+      }
+    },
+    "latency_ms": 0.02,
+    "throughput_sps": 65229.2
+  },
+  "fhn_existing_candidate": {
+    "overall": {
+      "accuracy": 0.5283,
+      "precision": 0.6453,
+      "recall": 0.475,
+      "f1": 0.5472,
+      "auroc": 0.577,
+      "fpr": 0.3917,
+      "fnr": 0.525,
+      "pred_pos": 265,
+      "pred_neg": 335,
+      "positive_prediction_rate": 0.4417,
+      "confusion_matrix": {
+        "tp": 171,
+        "fp": 94,
+        "tn": 146,
+        "fn": 189
+      }
+    },
+    "hindi": {
+      "accuracy": 0.4667,
+      "precision": 0.602,
+      "recall": 0.3278,
+      "f1": 0.4245,
+      "auroc": 0.5271,
+      "fpr": 0.325,
+      "fnr": 0.6722,
+      "pred_pos": 98,
+      "pred_neg": 202,
+      "positive_prediction_rate": 0.3267,
+      "confusion_matrix": {
+        "tp": 59,
+        "fp": 39,
+        "tn": 81,
+        "fn": 121
+      }
+    },
+    "english": {
+      "accuracy": 0.59,
+      "precision": 0.6707,
+      "recall": 0.6222,
+      "f1": 0.6455,
+      "auroc": 0.622,
+      "fpr": 0.4583,
+      "fnr": 0.3778,
+      "pred_pos": 167,
+      "pred_neg": 133,
+      "positive_prediction_rate": 0.5567,
+      "confusion_matrix": {
+        "tp": 112,
+        "fp": 55,
+        "tn": 65,
+        "fn": 68
+      }
+    },
+    "latency_ms": 18.63,
+    "throughput_sps": 53.7
+  },
+  "intervention_conservative_threshold_50": {
+    "threshold": 0.49,
+    "overall": {
+      "accuracy": 0.5283,
+      "precision": 0.651,
+      "recall": 0.4611,
+      "f1": 0.5398,
+      "auroc": 0.577,
+      "fpr": 0.3708,
+      "fnr": 0.5389,
+      "pred_pos": 255,
+      "pred_neg": 345,
+      "positive_prediction_rate": 0.425,
+      "confusion_matrix": {
+        "tp": 166,
+        "fp": 89,
+        "tn": 151,
+        "fn": 194
+      }
+    },
+    "hindi": {
+      "accuracy": 0.4633,
+      "precision": 0.6044,
+      "recall": 0.3056,
+      "f1": 0.4059,
+      "auroc": 0.5271,
+      "fpr": 0.3,
+      "fnr": 0.6944,
+      "pred_pos": 91,
+      "pred_neg": 209,
+      "positive_prediction_rate": 0.3033,
+      "confusion_matrix": {
+        "tp": 55,
+        "fp": 36,
+        "tn": 84,
+        "fn": 125
+      }
+    },
+    "english": {
+      "accuracy": 0.5933,
+      "precision": 0.6768,
+      "recall": 0.6167,
+      "f1": 0.6453,
+      "auroc": 0.622,
+      "fpr": 0.4417,
+      "fnr": 0.3833,
+      "pred_pos": 164,
+      "pred_neg": 136,
+      "positive_prediction_rate": 0.5467,
+      "confusion_matrix": {
+        "tp": 111,
+        "fp": 53,
+        "tn": 67,
+        "fn": 69
+      }
+    },
+    "latency_ms": 18.63,
+    "throughput_sps": 53.7
+  },
+  "intervention_language_routed_expert": {
+    "overall": {
+      "accuracy": 0.5383,
+      "precision": 0.6566,
+      "recall": 0.4833,
+      "f1": 0.5568,
+      "auroc": 0.589,
+      "fpr": 0.3792,
+      "fnr": 0.5167,
+      "pred_pos": 265,
+      "pred_neg": 335,
+      "positive_prediction_rate": 0.4417,
+      "confusion_matrix": {
+        "tp": 174,
+        "fp": 91,
+        "tn": 149,
+        "fn": 186
+      }
+    },
+    "hindi": {
+      "accuracy": 0.4667,
+      "precision": 0.602,
+      "recall": 0.3278,
+      "f1": 0.4245,
+      "auroc": 0.5271,
+      "fpr": 0.325,
+      "fnr": 0.6722,
+      "pred_pos": 98,
+      "pred_neg": 202,
+      "positive_prediction_rate": 0.3267,
+      "confusion_matrix": {
+        "tp": 59,
+        "fp": 39,
+        "tn": 81,
+        "fn": 121
+      }
+    },
+    "english": {
+      "accuracy": 0.61,
+      "precision": 0.6886,
+      "recall": 0.6389,
+      "f1": 0.6628,
+      "auroc": 0.6411,
+      "fpr": 0.4333,
+      "fnr": 0.3611,
+      "pred_pos": 167,
+      "pred_neg": 133,
+      "positive_prediction_rate": 0.5567,
+      "confusion_matrix": {
+        "tp": 115,
+        "fp": 52,
+        "tn": 68,
+        "fn": 65
+      }
+    },
+    "latency_ms": 18.63,
+    "throughput_sps": 53.7
+  },
+  "intervention_soft_ensemble": {
+    "overall": {
+      "accuracy": 0.535,
+      "precision": 0.6614,
+      "recall": 0.4611,
+      "f1": 0.5434,
+      "auroc": 0.5805,
+      "fpr": 0.3542,
+      "fnr": 0.5389,
+      "pred_pos": 251,
+      "pred_neg": 349,
+      "positive_prediction_rate": 0.4183,
+      "confusion_matrix": {
+        "tp": 166,
+        "fp": 85,
+        "tn": 155,
+        "fn": 194
+      }
+    },
+    "hindi": {
+      "accuracy": 0.4667,
+      "precision": 0.625,
+      "recall": 0.2778,
+      "f1": 0.3846,
+      "auroc": 0.5151,
+      "fpr": 0.25,
+      "fnr": 0.7222,
+      "pred_pos": 80,
+      "pred_neg": 220,
+      "positive_prediction_rate": 0.2667,
+      "confusion_matrix": {
+        "tp": 50,
+        "fp": 30,
+        "tn": 90,
+        "fn": 130
+      }
+    },
+    "english": {
+      "accuracy": 0.6033,
+      "precision": 0.6784,
+      "recall": 0.6444,
+      "f1": 0.661,
+      "auroc": 0.6345,
+      "fpr": 0.4583,
+      "fnr": 0.3556,
+      "pred_pos": 171,
+      "pred_neg": 129,
+      "positive_prediction_rate": 0.57,
+      "confusion_matrix": {
+        "tp": 116,
+        "fp": 55,
+        "tn": 65,
+        "fn": 64
+      }
+    },
+    "latency_ms": 18.65,
+    "throughput_sps": 53.6
+  },
+  "resource_benchmarks": {
+    "peak_memory_mb": 2658.0
+  }
+}

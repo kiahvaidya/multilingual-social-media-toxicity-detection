@@ -1,0 +1,910 @@
+{
+  "overall_probe_metrics": {
+    "total_samples": 60,
+    "tp": 27,
+    "fp": 19,
+    "fn": 3,
+    "tn": 11,
+    "precision": 0.587,
+    "recall": 0.9,
+    "fpr": 0.6333,
+    "fnr": 0.1
+  },
+  "by_language_metrics": {
+    "english": {
+      "tp": 4,
+      "fp": 3,
+      "fn": 2,
+      "tn": 3,
+      "total": 12,
+      "fpr": 0.5,
+      "fnr": 0.3333,
+      "precision": 0.5714,
+      "recall": 0.6667
+    },
+    "hindi": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 0,
+      "tn": 3,
+      "total": 12,
+      "fpr": 0.5,
+      "fnr": 0.0,
+      "precision": 0.6667,
+      "recall": 1.0
+    },
+    "hinglish": {
+      "tp": 6,
+      "fp": 6,
+      "fn": 0,
+      "tn": 0,
+      "total": 12,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "precision": 0.5,
+      "recall": 1.0
+    },
+    "slang": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 0,
+      "tn": 3,
+      "total": 12,
+      "fpr": 0.5,
+      "fnr": 0.0,
+      "precision": 0.6667,
+      "recall": 1.0
+    },
+    "obfuscation": {
+      "tp": 5,
+      "fp": 4,
+      "fn": 1,
+      "tn": 2,
+      "total": 12,
+      "fpr": 0.6667,
+      "fnr": 0.1667,
+      "precision": 0.5556,
+      "recall": 0.8333
+    }
+  },
+  "pairwise_contrast_results": [
+    {
+      "category": "Benign Profanity vs Targeted Profanity",
+      "praise_benign": {
+        "text": "Fuck yeah! We finally passed all the unit tests!",
+        "peak_score": 0.6805,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult"
+        ],
+        "preds": {
+          "toxic": 0.6466,
+          "severe_toxic": 0.6805,
+          "obscene": 0.6776,
+          "threat": 0.5054,
+          "insult": 0.6727,
+          "identity_hate": 0.5863
+        }
+      },
+      "hostile_abuse": {
+        "text": "You're a fucking idiot and I hope you get hurt.",
+        "peak_score": 0.6851,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6622,
+          "severe_toxic": 0.6819,
+          "obscene": 0.6842,
+          "threat": 0.5667,
+          "insult": 0.6851,
+          "identity_hate": 0.6054
+        }
+      },
+      "separation_delta_abuse_minus_praise": {
+        "toxic": 0.0156,
+        "severe_toxic": 0.0014,
+        "obscene": 0.0066,
+        "threat": 0.0613,
+        "insult": 0.0124,
+        "identity_hate": 0.0191
+      },
+      "peak_delta": 0.0046
+    },
+    {
+      "category": "Praise Metaphor vs Literal Threat",
+      "praise_benign": {
+        "text": "Bro, you totally killed it on stage tonight!",
+        "peak_score": 0.6545,
+        "flags": [
+          "toxic",
+          "threat",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6193,
+          "severe_toxic": 0.5811,
+          "obscene": 0.6039,
+          "threat": 0.6545,
+          "insult": 0.6244,
+          "identity_hate": 0.6035
+        }
+      },
+      "hostile_abuse": {
+        "text": "I am going to kill you tonight.",
+        "peak_score": 0.6563,
+        "flags": [
+          "toxic",
+          "threat"
+        ],
+        "preds": {
+          "toxic": 0.5546,
+          "severe_toxic": 0.5196,
+          "obscene": 0.5342,
+          "threat": 0.6563,
+          "insult": 0.5566,
+          "identity_hate": 0.5492
+        }
+      },
+      "separation_delta_abuse_minus_praise": {
+        "toxic": -0.0647,
+        "severe_toxic": -0.0615,
+        "obscene": -0.0697,
+        "threat": 0.0018,
+        "insult": -0.0678,
+        "identity_hate": -0.0543
+      },
+      "peak_delta": 0.0018
+    },
+    {
+      "category": "Slang Praise vs Targeted Insult",
+      "praise_benign": {
+        "text": "This movie was sick!",
+        "peak_score": 0.5376,
+        "flags": [],
+        "preds": {
+          "toxic": 0.4265,
+          "severe_toxic": 0.3455,
+          "obscene": 0.3879,
+          "threat": 0.5376,
+          "insult": 0.4205,
+          "identity_hate": 0.5025
+        }
+      },
+      "hostile_abuse": {
+        "text": "You're sick and disgusting.",
+        "peak_score": 0.65,
+        "flags": [
+          "toxic",
+          "threat"
+        ],
+        "preds": {
+          "toxic": 0.5794,
+          "severe_toxic": 0.5216,
+          "obscene": 0.5519,
+          "threat": 0.65,
+          "insult": 0.5808,
+          "identity_hate": 0.5932
+        }
+      },
+      "separation_delta_abuse_minus_praise": {
+        "toxic": 0.1529,
+        "severe_toxic": 0.1761,
+        "obscene": 0.164,
+        "threat": 0.1124,
+        "insult": 0.1603,
+        "identity_hate": 0.0907
+      },
+      "peak_delta": 0.1124
+    },
+    {
+      "category": "Untargeted Profanity vs Person-Targeted Profanity",
+      "praise_benign": {
+        "text": "Damn, this traffic is so fucking annoying.",
+        "peak_score": 0.6801,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6674,
+          "severe_toxic": 0.6427,
+          "obscene": 0.6709,
+          "threat": 0.5685,
+          "insult": 0.6801,
+          "identity_hate": 0.6458
+        }
+      },
+      "hostile_abuse": {
+        "text": "You are so fucking annoying, get out of here.",
+        "peak_score": 0.685,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6639,
+          "severe_toxic": 0.682,
+          "obscene": 0.6844,
+          "threat": 0.5528,
+          "insult": 0.685,
+          "identity_hate": 0.6076
+        }
+      },
+      "separation_delta_abuse_minus_praise": {
+        "toxic": -0.0035,
+        "severe_toxic": 0.0393,
+        "obscene": 0.0135,
+        "threat": -0.0157,
+        "insult": 0.0049,
+        "identity_hate": -0.0382
+      },
+      "peak_delta": 0.0049
+    },
+    {
+      "category": "Hinglish Friendly Banter vs Hinglish Abuse",
+      "praise_benign": {
+        "text": "Bhai kya bawaal cheez banayi hai tune, maza aa gaya!",
+        "peak_score": 0.6839,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6839,
+          "severe_toxic": 0.6533,
+          "obscene": 0.6664,
+          "threat": 0.5813,
+          "insult": 0.6746,
+          "identity_hate": 0.6276
+        }
+      },
+      "hostile_abuse": {
+        "text": "Bhai tu ek number ka chutiya aur ghatiya aadmi hai.",
+        "peak_score": 0.6696,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6624,
+          "severe_toxic": 0.6664,
+          "obscene": 0.6696,
+          "threat": 0.4987,
+          "insult": 0.6679,
+          "identity_hate": 0.6017
+        }
+      },
+      "separation_delta_abuse_minus_praise": {
+        "toxic": -0.0215,
+        "severe_toxic": 0.0131,
+        "obscene": 0.0032,
+        "threat": -0.0826,
+        "insult": -0.0067,
+        "identity_hate": -0.0259
+      },
+      "peak_delta": -0.0143
+    },
+    {
+      "category": "Hindi Praise vs Hindi Hostile Abuse",
+      "praise_benign": {
+        "text": "भाई क्या धांसू काम किया है आपने, सच में दिल जीत लिया!",
+        "peak_score": 0.6793,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.672,
+          "severe_toxic": 0.6674,
+          "obscene": 0.6747,
+          "threat": 0.5616,
+          "insult": 0.6793,
+          "identity_hate": 0.6201
+        }
+      },
+      "hostile_abuse": {
+        "text": "तू बिल्कुल घटिया और नीच इंसान है, तेरी औकात नहीं है।",
+        "peak_score": 0.6822,
+        "flags": [
+          "toxic",
+          "severe_toxic",
+          "obscene",
+          "insult",
+          "identity_hate"
+        ],
+        "preds": {
+          "toxic": 0.6732,
+          "severe_toxic": 0.6738,
+          "obscene": 0.6794,
+          "threat": 0.5634,
+          "insult": 0.6822,
+          "identity_hate": 0.6167
+        }
+      },
+      "separation_delta_abuse_minus_praise": {
+        "toxic": 0.0012,
+        "severe_toxic": 0.0064,
+        "obscene": 0.0047,
+        "threat": 0.0018,
+        "insult": 0.0029,
+        "identity_hate": -0.0034
+      },
+      "peak_delta": 0.0029
+    }
+  ],
+  "sample_error_details": [
+    {
+      "id": "en_safe_03",
+      "text": "Bro, this guitar solo is totally sick! You killed it!",
+      "language": "english",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6559,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.5999,
+        "severe_toxic": 0.5511,
+        "obscene": 0.58,
+        "threat": 0.6559,
+        "insult": 0.6049,
+        "identity_hate": 0.598
+      }
+    },
+    {
+      "id": "en_safe_04",
+      "text": "Holy shit, that was the most unbelievable comeback in playoff history!",
+      "language": "english",
+      "sample_type": "profanity_non_aggressive",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6791,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6629,
+        "severe_toxic": 0.6412,
+        "obscene": 0.6714,
+        "threat": 0.5859,
+        "insult": 0.6791,
+        "identity_hate": 0.6409
+      }
+    },
+    {
+      "id": "en_safe_05",
+      "text": "Fuck yeah! We finally passed all unit tests after three days of debugging!",
+      "language": "english",
+      "sample_type": "profanity_non_aggressive",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.678,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.6468,
+        "severe_toxic": 0.678,
+        "obscene": 0.6772,
+        "threat": 0.5011,
+        "insult": 0.6725,
+        "identity_hate": 0.5899
+      }
+    },
+    {
+      "id": "en_toxic_01",
+      "text": "You are a pathetic failure who should be fired immediately.",
+      "language": "english",
+      "sample_type": "explicit_insult",
+      "expected_toxic": true,
+      "predicted_toxic": false,
+      "peak_score": 0.5701,
+      "flags": {
+        "toxic": false,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": false,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.39,
+        "severe_toxic": 0.3489,
+        "obscene": 0.369,
+        "threat": 0.5701,
+        "insult": 0.3909,
+        "identity_hate": 0.4446
+      }
+    },
+    {
+      "id": "en_toxic_03",
+      "text": "I know where your office is and I am going to murder you tonight.",
+      "language": "english",
+      "sample_type": "explicit_threat",
+      "expected_toxic": true,
+      "predicted_toxic": false,
+      "peak_score": 0.4686,
+      "flags": {
+        "toxic": false,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": false,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.3153,
+        "severe_toxic": 0.3066,
+        "obscene": 0.3145,
+        "threat": 0.4686,
+        "insult": 0.3237,
+        "identity_hate": 0.3638
+      }
+    },
+    {
+      "id": "hi_safe_04",
+      "text": "भाई क्या धांसू काम किया है आपने, सच में दिल जीत लिया!",
+      "language": "hindi",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6793,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.672,
+        "severe_toxic": 0.6674,
+        "obscene": 0.6747,
+        "threat": 0.5616,
+        "insult": 0.6793,
+        "identity_hate": 0.6201
+      }
+    },
+    {
+      "id": "hi_safe_05",
+      "text": "यह नया गाना तो गदर मचा रहा है, ज़बरदस्त आवाज़ और धुन है।",
+      "language": "hindi",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6753,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6721,
+        "severe_toxic": 0.662,
+        "obscene": 0.6718,
+        "threat": 0.5433,
+        "insult": 0.6753,
+        "identity_hate": 0.6211
+      }
+    },
+    {
+      "id": "hi_safe_06",
+      "text": "अरे दोस्त तेरी तो किस्मत ही चमक गई, बधाई हो इस उपलब्धि पर।",
+      "language": "hindi",
+      "sample_type": "friendly_banter",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6484,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6471,
+        "severe_toxic": 0.616,
+        "obscene": 0.6329,
+        "threat": 0.6341,
+        "insult": 0.6484,
+        "identity_hate": 0.6149
+      }
+    },
+    {
+      "id": "hing_safe_01",
+      "text": "Bhai content bahut badhiya banaya hai, concept ekdum clear ho gaya.",
+      "language": "hinglish",
+      "sample_type": "safe_casual",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6762,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6762,
+        "severe_toxic": 0.6598,
+        "obscene": 0.673,
+        "threat": 0.5247,
+        "insult": 0.6749,
+        "identity_hate": 0.6221
+      }
+    },
+    {
+      "id": "hing_safe_02",
+      "text": "Aapka lecture dekh kar exam ki tension khatam ho gayi, thanks a lot.",
+      "language": "hinglish",
+      "sample_type": "safe_casual",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6107,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.5942,
+        "severe_toxic": 0.477,
+        "obscene": 0.5202,
+        "threat": 0.6107,
+        "insult": 0.547,
+        "identity_hate": 0.5884
+      }
+    },
+    {
+      "id": "hing_safe_03",
+      "text": "Bhai kya bawaal cheez banayi hai tune, maza hi aa gaya dekh kar!",
+      "language": "hinglish",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6836,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6836,
+        "severe_toxic": 0.6549,
+        "obscene": 0.6671,
+        "threat": 0.5825,
+        "insult": 0.675,
+        "identity_hate": 0.6266
+      }
+    },
+    {
+      "id": "hing_safe_04",
+      "text": "Bro tune to stage pe sach me aag laga di, deadly performance tha!",
+      "language": "hinglish",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6732,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6732,
+        "severe_toxic": 0.618,
+        "obscene": 0.6476,
+        "threat": 0.6061,
+        "insult": 0.6625,
+        "identity_hate": 0.642
+      }
+    },
+    {
+      "id": "hing_safe_05",
+      "text": "Abe saale kitne saal baad mila hai tu, gale mil pehle!",
+      "language": "hinglish",
+      "sample_type": "friendly_banter",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6394,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": false,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6276,
+        "severe_toxic": 0.5485,
+        "obscene": 0.5759,
+        "threat": 0.6394,
+        "insult": 0.6008,
+        "identity_hate": 0.6038
+      }
+    },
+    {
+      "id": "hing_safe_06",
+      "text": "Bhai teri to job lag gayi bc, treat kab de raha hai party chalegi!",
+      "language": "hinglish",
+      "sample_type": "profanity_non_aggressive",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6803,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6745,
+        "severe_toxic": 0.6701,
+        "obscene": 0.6803,
+        "threat": 0.5365,
+        "insult": 0.6803,
+        "identity_hate": 0.6203
+      }
+    },
+    {
+      "id": "slang_safe_04",
+      "text": "Bhai tune to sabka band baja diya, full todu coding skills hain teri!",
+      "language": "slang",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6829,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6829,
+        "severe_toxic": 0.6595,
+        "obscene": 0.674,
+        "threat": 0.5589,
+        "insult": 0.6786,
+        "identity_hate": 0.6285
+      }
+    },
+    {
+      "id": "slang_safe_05",
+      "text": "Stop capping bro, you know that was an awesome play.",
+      "language": "slang",
+      "sample_type": "youth_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6078,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.4649,
+        "severe_toxic": 0.3898,
+        "obscene": 0.4322,
+        "threat": 0.6078,
+        "insult": 0.4616,
+        "identity_hate": 0.5186
+      }
+    },
+    {
+      "id": "slang_safe_06",
+      "text": "Katai zeher look lag raha hai bhai, bilkul hero lag rahe ho.",
+      "language": "slang",
+      "sample_type": "enthusiastic_slang",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.671,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.671,
+        "severe_toxic": 0.6007,
+        "obscene": 0.6346,
+        "threat": 0.6023,
+        "insult": 0.6504,
+        "identity_hate": 0.6445
+      }
+    },
+    {
+      "id": "obf_safe_01",
+      "text": "Nice sh!rt, looks super c00l on you bro!",
+      "language": "obfuscation",
+      "sample_type": "leetspeak_innocuous",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6855,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6671,
+        "severe_toxic": 0.6785,
+        "obscene": 0.6843,
+        "threat": 0.5641,
+        "insult": 0.6855,
+        "identity_hate": 0.6112
+      }
+    },
+    {
+      "id": "obf_safe_02",
+      "text": "I luv th!s s0ng so much, best track of 2024 hands down!",
+      "language": "obfuscation",
+      "sample_type": "leetspeak_innocuous",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6159,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.4865,
+        "severe_toxic": 0.4053,
+        "obscene": 0.4459,
+        "threat": 0.6159,
+        "insult": 0.4758,
+        "identity_hate": 0.5324
+      }
+    },
+    {
+      "id": "obf_safe_03",
+      "text": "Gooood joooob guysssss, that was a f-a-n-t-a-s-t-i-c round!",
+      "language": "obfuscation",
+      "sample_type": "character_elongation_safe",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6801,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": true,
+        "obscene": true,
+        "threat": false,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6611,
+        "severe_toxic": 0.6761,
+        "obscene": 0.6801,
+        "threat": 0.5184,
+        "insult": 0.6787,
+        "identity_hate": 0.6074
+      }
+    },
+    {
+      "id": "obf_safe_04",
+      "text": "W0W that w@s pure magic, h0w did u do that?!",
+      "language": "obfuscation",
+      "sample_type": "leetspeak_innocuous",
+      "expected_toxic": false,
+      "predicted_toxic": true,
+      "peak_score": 0.6456,
+      "flags": {
+        "toxic": true,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": true,
+        "insult": true,
+        "identity_hate": true
+      },
+      "preds": {
+        "toxic": 0.6435,
+        "severe_toxic": 0.5988,
+        "obscene": 0.626,
+        "threat": 0.6355,
+        "insult": 0.6456,
+        "identity_hate": 0.6301
+      }
+    },
+    {
+      "id": "obf_toxic_01",
+      "text": "You are a f**king 1diot and a total l0ser.",
+      "language": "obfuscation",
+      "sample_type": "leetspeak_profanity",
+      "expected_toxic": true,
+      "predicted_toxic": false,
+      "peak_score": 0.5305,
+      "flags": {
+        "toxic": false,
+        "severe_toxic": false,
+        "obscene": false,
+        "threat": false,
+        "insult": false,
+        "identity_hate": false
+      },
+      "preds": {
+        "toxic": 0.411,
+        "severe_toxic": 0.333,
+        "obscene": 0.3761,
+        "threat": 0.5305,
+        "insult": 0.4054,
+        "identity_hate": 0.4996
+      }
+    }
+  ]
+}

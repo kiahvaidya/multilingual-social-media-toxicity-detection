@@ -375,7 +375,7 @@ def run_pass():
 
     pridemm_mask = (val_sources == "pridemm")
     hasoc_mask = (val_sources == "hasoc_2025")
-    trac_mask = (val_sources == "trac")
+    trac_mask = (val_sources == "trac_hinglish") | (val_sources == "trac")
 
     val_preds_best = (val_probs >= best_thresh).astype(int)
     val_pridemm_m = compute_metrics(val_y[pridemm_mask], val_preds_best[pridemm_mask], val_probs[pridemm_mask])

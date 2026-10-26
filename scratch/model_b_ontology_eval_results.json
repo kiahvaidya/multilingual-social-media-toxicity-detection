@@ -1,0 +1,1640 @@
+{
+  "model_check": {
+    "checkpoint_path": "C:\\Users\\Sanjana\\OneDrive\\Desktop\\coding\\multilingual-social-media-toxicity-detection\\scratch\\meme_experiments\\model_b\\muril_model_b.pt",
+    "classifier_weight_shape": [
+      6,
+      768
+    ],
+    "classifier_bias_shape": [
+      6
+    ],
+    "num_output_neurons": 6,
+    "labels": [
+      "toxic",
+      "severe_toxic",
+      "obscene",
+      "threat",
+      "insult",
+      "identity_hate"
+    ],
+    "frozen_thresholds_used": {
+      "toxic": 0.45,
+      "identity_hate": 0.6
+    }
+  },
+  "results_in_consensus": {
+    "A_toxic_only": {
+      "tp": 57,
+      "tn": 224,
+      "fp": 16,
+      "fn": 303,
+      "precision": 0.7808,
+      "recall": 0.1583,
+      "f1": 0.2633,
+      "fpr": 0.0667,
+      "fnr": 0.8417,
+      "accuracy": 0.4683,
+      "pred_pos": 73,
+      "pred_neg": 527,
+      "total": 600,
+      "confusion_matrix": {
+        "tp": 57,
+        "fp": 16,
+        "tn": 224,
+        "fn": 303
+      }
+    },
+    "B_identity_hate_only": {
+      "tp": 0,
+      "tn": 240,
+      "fp": 0,
+      "fn": 360,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "accuracy": 0.4,
+      "pred_pos": 0,
+      "pred_neg": 600,
+      "total": 600,
+      "confusion_matrix": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 240,
+        "fn": 360
+      }
+    },
+    "C_toxic_or_identity_hate": {
+      "tp": 57,
+      "tn": 224,
+      "fp": 16,
+      "fn": 303,
+      "precision": 0.7808,
+      "recall": 0.1583,
+      "f1": 0.2633,
+      "fpr": 0.0667,
+      "fnr": 0.8417,
+      "accuracy": 0.4683,
+      "pred_pos": 73,
+      "pred_neg": 527,
+      "total": 600,
+      "confusion_matrix": {
+        "tp": 57,
+        "fp": 16,
+        "tn": 224,
+        "fn": 303
+      }
+    }
+  },
+  "results_language": {
+    "english": {
+      "A_toxic_only": {
+        "tp": 32,
+        "tn": 112,
+        "fp": 8,
+        "fn": 148,
+        "precision": 0.8,
+        "recall": 0.1778,
+        "f1": 0.2909,
+        "fpr": 0.0667,
+        "fnr": 0.8222,
+        "accuracy": 0.48,
+        "pred_pos": 40,
+        "pred_neg": 260,
+        "total": 300,
+        "confusion_matrix": {
+          "tp": 32,
+          "fp": 8,
+          "tn": 112,
+          "fn": 148
+        }
+      },
+      "B_identity_hate_only": {
+        "tp": 0,
+        "tn": 120,
+        "fp": 0,
+        "fn": 180,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.4,
+        "pred_pos": 0,
+        "pred_neg": 300,
+        "total": 300,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 120,
+          "fn": 180
+        }
+      },
+      "C_toxic_or_identity_hate": {
+        "tp": 32,
+        "tn": 112,
+        "fp": 8,
+        "fn": 148,
+        "precision": 0.8,
+        "recall": 0.1778,
+        "f1": 0.2909,
+        "fpr": 0.0667,
+        "fnr": 0.8222,
+        "accuracy": 0.48,
+        "pred_pos": 40,
+        "pred_neg": 260,
+        "total": 300,
+        "confusion_matrix": {
+          "tp": 32,
+          "fp": 8,
+          "tn": 112,
+          "fn": 148
+        }
+      }
+    },
+    "hindi": {
+      "A_toxic_only": {
+        "tp": 25,
+        "tn": 112,
+        "fp": 8,
+        "fn": 155,
+        "precision": 0.7576,
+        "recall": 0.1389,
+        "f1": 0.2347,
+        "fpr": 0.0667,
+        "fnr": 0.8611,
+        "accuracy": 0.4567,
+        "pred_pos": 33,
+        "pred_neg": 267,
+        "total": 300,
+        "confusion_matrix": {
+          "tp": 25,
+          "fp": 8,
+          "tn": 112,
+          "fn": 155
+        }
+      },
+      "B_identity_hate_only": {
+        "tp": 0,
+        "tn": 120,
+        "fp": 0,
+        "fn": 180,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.4,
+        "pred_pos": 0,
+        "pred_neg": 300,
+        "total": 300,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 120,
+          "fn": 180
+        }
+      },
+      "C_toxic_or_identity_hate": {
+        "tp": 25,
+        "tn": 112,
+        "fp": 8,
+        "fn": 155,
+        "precision": 0.7576,
+        "recall": 0.1389,
+        "f1": 0.2347,
+        "fpr": 0.0667,
+        "fnr": 0.8611,
+        "accuracy": 0.4567,
+        "pred_pos": 33,
+        "pred_neg": 267,
+        "total": 300,
+        "confusion_matrix": {
+          "tp": 25,
+          "fp": 8,
+          "tn": 112,
+          "fn": 155
+        }
+      }
+    }
+  },
+  "results_cultural": {
+    "IN": {
+      "toxic_only": {
+        "tp": 57,
+        "tn": 224,
+        "fp": 16,
+        "fn": 303,
+        "precision": 0.7808,
+        "recall": 0.1583,
+        "f1": 0.2633,
+        "fpr": 0.0667,
+        "fnr": 0.8417,
+        "accuracy": 0.4683,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 57,
+          "fp": 16,
+          "tn": 224,
+          "fn": 303
+        }
+      },
+      "identity_hate_only": {
+        "tp": 0,
+        "tn": 240,
+        "fp": 0,
+        "fn": 360,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.4,
+        "pred_pos": 0,
+        "pred_neg": 600,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 240,
+          "fn": 360
+        }
+      },
+      "combined": {
+        "tp": 57,
+        "tn": 224,
+        "fp": 16,
+        "fn": 303,
+        "precision": 0.7808,
+        "recall": 0.1583,
+        "f1": 0.2633,
+        "fpr": 0.0667,
+        "fnr": 0.8417,
+        "accuracy": 0.4683,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 57,
+          "fp": 16,
+          "tn": 224,
+          "fn": 303
+        }
+      }
+    },
+    "US": {
+      "toxic_only": {
+        "tp": 47,
+        "tn": 266,
+        "fp": 26,
+        "fn": 261,
+        "precision": 0.6438,
+        "recall": 0.1526,
+        "f1": 0.2467,
+        "fpr": 0.089,
+        "fnr": 0.8474,
+        "accuracy": 0.5217,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 47,
+          "fp": 26,
+          "tn": 266,
+          "fn": 261
+        }
+      },
+      "identity_hate_only": {
+        "tp": 0,
+        "tn": 292,
+        "fp": 0,
+        "fn": 308,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.4867,
+        "pred_pos": 0,
+        "pred_neg": 600,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 292,
+          "fn": 308
+        }
+      },
+      "combined": {
+        "tp": 47,
+        "tn": 266,
+        "fp": 26,
+        "fn": 261,
+        "precision": 0.6438,
+        "recall": 0.1526,
+        "f1": 0.2467,
+        "fpr": 0.089,
+        "fnr": 0.8474,
+        "accuracy": 0.5217,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 47,
+          "fp": 26,
+          "tn": 266,
+          "fn": 261
+        }
+      }
+    },
+    "DE": {
+      "toxic_only": {
+        "tp": 52,
+        "tn": 221,
+        "fp": 21,
+        "fn": 306,
+        "precision": 0.7123,
+        "recall": 0.1453,
+        "f1": 0.2413,
+        "fpr": 0.0868,
+        "fnr": 0.8547,
+        "accuracy": 0.455,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 52,
+          "fp": 21,
+          "tn": 221,
+          "fn": 306
+        }
+      },
+      "identity_hate_only": {
+        "tp": 0,
+        "tn": 242,
+        "fp": 0,
+        "fn": 358,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.4033,
+        "pred_pos": 0,
+        "pred_neg": 600,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 242,
+          "fn": 358
+        }
+      },
+      "combined": {
+        "tp": 52,
+        "tn": 221,
+        "fp": 21,
+        "fn": 306,
+        "precision": 0.7123,
+        "recall": 0.1453,
+        "f1": 0.2413,
+        "fpr": 0.0868,
+        "fnr": 0.8547,
+        "accuracy": 0.455,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 52,
+          "fp": 21,
+          "tn": 221,
+          "fn": 306
+        }
+      }
+    },
+    "MX": {
+      "toxic_only": {
+        "tp": 48,
+        "tn": 241,
+        "fp": 25,
+        "fn": 286,
+        "precision": 0.6575,
+        "recall": 0.1437,
+        "f1": 0.2359,
+        "fpr": 0.094,
+        "fnr": 0.8563,
+        "accuracy": 0.4817,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 48,
+          "fp": 25,
+          "tn": 241,
+          "fn": 286
+        }
+      },
+      "identity_hate_only": {
+        "tp": 0,
+        "tn": 266,
+        "fp": 0,
+        "fn": 334,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.4433,
+        "pred_pos": 0,
+        "pred_neg": 600,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 266,
+          "fn": 334
+        }
+      },
+      "combined": {
+        "tp": 48,
+        "tn": 241,
+        "fp": 25,
+        "fn": 286,
+        "precision": 0.6575,
+        "recall": 0.1437,
+        "f1": 0.2359,
+        "fpr": 0.094,
+        "fnr": 0.8563,
+        "accuracy": 0.4817,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 48,
+          "fp": 25,
+          "tn": 241,
+          "fn": 286
+        }
+      }
+    },
+    "CN": {
+      "toxic_only": {
+        "tp": 47,
+        "tn": 194,
+        "fp": 26,
+        "fn": 333,
+        "precision": 0.6438,
+        "recall": 0.1237,
+        "f1": 0.2075,
+        "fpr": 0.1182,
+        "fnr": 0.8763,
+        "accuracy": 0.4017,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 47,
+          "fp": 26,
+          "tn": 194,
+          "fn": 333
+        }
+      },
+      "identity_hate_only": {
+        "tp": 0,
+        "tn": 220,
+        "fp": 0,
+        "fn": 380,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "accuracy": 0.3667,
+        "pred_pos": 0,
+        "pred_neg": 600,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 220,
+          "fn": 380
+        }
+      },
+      "combined": {
+        "tp": 47,
+        "tn": 194,
+        "fp": 26,
+        "fn": 333,
+        "precision": 0.6438,
+        "recall": 0.1237,
+        "f1": 0.2075,
+        "fpr": 0.1182,
+        "fnr": 0.8763,
+        "accuracy": 0.4017,
+        "pred_pos": 73,
+        "pred_neg": 527,
+        "total": 600,
+        "confusion_matrix": {
+          "tp": 47,
+          "fp": 26,
+          "tn": 194,
+          "fn": 333
+        }
+      }
+    }
+  },
+  "score_distributions": {
+    "toxic": {
+      "head_index": 0,
+      "IN_0_negative": {
+        "count": 240,
+        "mean": 0.3257,
+        "std": 0.0763,
+        "min": 0.2965,
+        "max": 0.6731
+      },
+      "IN_1_positive": {
+        "count": 360,
+        "mean": 0.3578,
+        "std": 0.1124,
+        "min": 0.2955,
+        "max": 0.6787
+      },
+      "mean_separation": 0.0322
+    },
+    "severe_toxic": {
+      "head_index": 1,
+      "IN_0_negative": {
+        "count": 240,
+        "mean": 0.3271,
+        "std": 0.0722,
+        "min": 0.2919,
+        "max": 0.6688
+      },
+      "IN_1_positive": {
+        "count": 360,
+        "mean": 0.3551,
+        "std": 0.106,
+        "min": 0.284,
+        "max": 0.6719
+      },
+      "mean_separation": 0.028
+    },
+    "obscene": {
+      "head_index": 2,
+      "IN_0_negative": {
+        "count": 240,
+        "mean": 0.3446,
+        "std": 0.0709,
+        "min": 0.3158,
+        "max": 0.678
+      },
+      "IN_1_positive": {
+        "count": 360,
+        "mean": 0.375,
+        "std": 0.1065,
+        "min": 0.315,
+        "max": 0.6822
+      },
+      "mean_separation": 0.0304
+    },
+    "threat": {
+      "head_index": 3,
+      "IN_0_negative": {
+        "count": 240,
+        "mean": 0.4067,
+        "std": 0.0505,
+        "min": 0.3649,
+        "max": 0.6287
+      },
+      "IN_1_positive": {
+        "count": 360,
+        "mean": 0.42,
+        "std": 0.0643,
+        "min": 0.3457,
+        "max": 0.626
+      },
+      "mean_separation": 0.0133
+    },
+    "insult": {
+      "head_index": 4,
+      "IN_0_negative": {
+        "count": 240,
+        "mean": 0.337,
+        "std": 0.0773,
+        "min": 0.3067,
+        "max": 0.6882
+      },
+      "IN_1_positive": {
+        "count": 360,
+        "mean": 0.3697,
+        "std": 0.1148,
+        "min": 0.3066,
+        "max": 0.6965
+      },
+      "mean_separation": 0.0327
+    },
+    "identity_hate": {
+      "head_index": 5,
+      "IN_0_negative": {
+        "count": 240,
+        "mean": 0.3262,
+        "std": 0.0461,
+        "min": 0.2972,
+        "max": 0.5719
+      },
+      "IN_1_positive": {
+        "count": 360,
+        "mean": 0.3459,
+        "std": 0.0721,
+        "min": 0.2964,
+        "max": 0.595
+      },
+      "mean_separation": 0.0197
+    }
+  },
+  "head5_training_audit": {
+    "dataset_file": "Hindi Train HASOC 2025 - Updated.csv",
+    "total_valid_samples": 1133,
+    "exact_source_fields": [
+      "Abuse",
+      "Target"
+    ],
+    "exact_group_values_checked": [
+      "gender",
+      "community",
+      "religion",
+      "caste"
+    ],
+    "target_condition": "Abuse == 'abusive' AND any(g in Target.lower() for g in ['gender', 'community', 'religion', 'caste'])",
+    "target_distribution_when_abusive": {
+      "Individual": 141,
+      "nan": 50,
+      "Gender": 38,
+      "Others": 37,
+      "Social Sub-groups": 27,
+      "National Origin": 6,
+      "Political": 5,
+      "Religion": 1
+    },
+    "positive_count_total": 39,
+    "negative_count_total": 1094,
+    "positive_count_train_split": 30,
+    "negative_count_train_split": 876,
+    "positive_count_val_split": 9,
+    "negative_count_val_split": 218,
+    "was_supervised_in_mask": true,
+    "mask_value": 1.0,
+    "pos_weight_in_loss": 29.2
+  },
+  "error_analysis_summary": {
+    "toxic_fp_count": 16,
+    "toxic_fn_count": 20,
+    "idhate_fp_count": 0,
+    "idhate_fn_count": 20,
+    "combined_fp_count": 16,
+    "combined_fn_count": 20
+  },
+  "top_errors": {
+    "A_toxic_only": {
+      "top_20_false_positives": [
+        {
+          "meme_id": 191,
+          "language": "hindi",
+          "text": "\u0924\u0941\u092e \u0915\u094d\u092f\u094b\u0902   \u092e\u0947\u0930\u093e \u0917\u094d\u0935\u093e\u0915\u093e\u092e\u094b\u0932\u0947 \u0916\u093e\u0913\u0917\u0947?",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6731,
+          "identity_hate_probability": 0.5638,
+          "predicted_result": 1,
+          "image_filename": "191.jpg"
+        },
+        {
+          "meme_id": 42,
+          "language": "hindi",
+          "text": "\u0930\u0941\u0915\u094b!   \u092e\u0947\u0930\u0940 \u0926\u093e\u0922\u093c\u0940 \u0917\u0941\u0926\u0917\u0941\u0926\u0940 \u0915\u0930\u0924\u0940 \u0939\u0948!",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6723,
+          "identity_hate_probability": 0.5719,
+          "predicted_result": 1,
+          "image_filename": "42.jpg"
+        },
+        {
+          "meme_id": 202,
+          "language": "hindi",
+          "text": "\u092f\u0947 \u0915\u092e\u092c\u0916\u094d\u0924 \u091a\u0942\u0924\u0947\u0902   \u092c\u0939\u0941\u0924 \u0909\u0928\u094d\u092e\u093e\u0926\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0902",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6672,
+          "identity_hate_probability": 0.5576,
+          "predicted_result": 1,
+          "image_filename": "202.jpg"
+        },
+        {
+          "meme_id": 202,
+          "language": "english",
+          "text": "these fucking cunts   are so hysterical",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6627,
+          "identity_hate_probability": 0.5604,
+          "predicted_result": 1,
+          "image_filename": "202.jpg"
+        },
+        {
+          "meme_id": 226,
+          "language": "hindi",
+          "text": "\u0915\u0930\u0940 \u0915\u0940 \u092c\u0926\u092c\u0942 \u0906 \u0930\u0939\u0940 \u0939\u0948",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6583,
+          "identity_hate_probability": 0.5444,
+          "predicted_result": 1,
+          "image_filename": "226.jpg"
+        },
+        {
+          "meme_id": 100,
+          "language": "hindi",
+          "text": "\u092e\u0947\u0930\u0947 \u092a\u093e\u0938 \u0915\u094d\u092f\u094b\u0902 \u0939\u0948 ..   \u092c\u0947\u092c\u0940 \u0921\u093f\u0915",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6475,
+          "identity_hate_probability": 0.5234,
+          "predicted_result": 1,
+          "image_filename": "100.jpg"
+        },
+        {
+          "meme_id": 17,
+          "language": "english",
+          "text": "YOU AIN'T GETTIN' NO FRIED CHICKEN   TILL' YOU FINISH ALL  YOUR COOL-AID",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6451,
+          "identity_hate_probability": 0.5157,
+          "predicted_result": 1,
+          "image_filename": "17.jpg"
+        },
+        {
+          "meme_id": 165,
+          "language": "hindi",
+          "text": "\u092e\u0948\u0902 \u092c\u0947\u0915\u0928 \u0916\u093e\u0924\u093e \u0939\u0942\u0901   \u091c\u092c \u0915\u094b\u0908 \u0928\u0939\u0940\u0902 \u0926\u0947\u0916 \u0930\u0939\u093e \u0939\u094b\u0924\u093e",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5926,
+          "identity_hate_probability": 0.4598,
+          "predicted_result": 1,
+          "image_filename": "165.jpg"
+        },
+        {
+          "meme_id": 14,
+          "language": "english",
+          "text": "WHEN PEOPLE LEAVE THE DOOR OPEN   OH NO YOU DIDNT !",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5754,
+          "identity_hate_probability": 0.4562,
+          "predicted_result": 1,
+          "image_filename": "14.jpg"
+        },
+        {
+          "meme_id": 111,
+          "language": "hindi",
+          "text": "\u0905\u092a\u0928\u093e \u0915\u0941\u0924\u094d\u0924\u093e \u0932\u093e\u0913   \u0939\u092e\u093e\u0930\u0947 \u092a\u093e\u0938 \u092e\u0941\u0930\u094d\u0917\u093e \u0939\u0948?",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5748,
+          "identity_hate_probability": 0.4378,
+          "predicted_result": 1,
+          "image_filename": "111.jpg"
+        },
+        {
+          "meme_id": 27,
+          "language": "english",
+          "text": "THIS IS ME   WHEN I HEARD YOUR BROTHER IS SINGLE",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5657,
+          "identity_hate_probability": 0.47,
+          "predicted_result": 1,
+          "image_filename": "27.jpg"
+        },
+        {
+          "meme_id": 25,
+          "language": "english",
+          "text": "IT DONT MATTER   IF YOUR BLACK OR WHITE!",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5615,
+          "identity_hate_probability": 0.4533,
+          "predicted_result": 1,
+          "image_filename": "25.jpg"
+        },
+        {
+          "meme_id": 290,
+          "language": "english",
+          "text": "JESUS IS   WATCHING YOU",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5354,
+          "identity_hate_probability": 0.4241,
+          "predicted_result": 1,
+          "image_filename": "290.jpg"
+        },
+        {
+          "meme_id": 261,
+          "language": "hindi",
+          "text": "\u0924\u0941\u092e \u092e\u0947\u0930\u0940 \u0927\u0942\u092a \u0932\u0947 \u0938\u0915\u0924\u0947 \u0939\u094b   \u0932\u0947\u0915\u093f\u0928 \u0924\u0941\u092e \u092e\u0947\u0930\u0940 \u0906\u091c\u093c\u093e\u0926\u0940 \u0915\u092d\u0940 \u0928\u0939\u0940\u0902 \u091b\u0940\u0928 \u092a\u093e\u0913\u0917\u0947",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5197,
+          "identity_hate_probability": 0.4567,
+          "predicted_result": 1,
+          "image_filename": "261.jpg"
+        },
+        {
+          "meme_id": 181,
+          "language": "english",
+          "text": "DON'T TEXT AND DRIVE   HAS LAPTOP INSTALLED IN CAR",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5079,
+          "identity_hate_probability": 0.383,
+          "predicted_result": 1,
+          "image_filename": "181.jpg"
+        },
+        {
+          "meme_id": 42,
+          "language": "english",
+          "text": "stop!   my beard tickles!",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.4611,
+          "identity_hate_probability": 0.404,
+          "predicted_result": 1,
+          "image_filename": "42.jpg"
+        }
+      ],
+      "top_20_false_negatives": [
+        {
+          "meme_id": 113,
+          "language": "english",
+          "text": "You are good at the olympics   but terrible at money management.",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2955,
+          "identity_hate_probability": 0.3135,
+          "predicted_result": 0,
+          "image_filename": "113.jpg"
+        },
+        {
+          "meme_id": 205,
+          "language": "english",
+          "text": "Cops...   Only laugh at their own jokes",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2962,
+          "identity_hate_probability": 0.3128,
+          "predicted_result": 0,
+          "image_filename": "205.jpg"
+        },
+        {
+          "meme_id": 166,
+          "language": "english",
+          "text": "Avoids meat as a sacrifice during Holy week   Eats seafood that taste better than meat",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2968,
+          "identity_hate_probability": 0.3149,
+          "predicted_result": 0,
+          "image_filename": "166.jpg"
+        },
+        {
+          "meme_id": 50,
+          "language": "english",
+          "text": "Equality for women!!!   laughs at other feminists who think that men deserve the same",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2968,
+          "identity_hate_probability": 0.318,
+          "predicted_result": 0,
+          "image_filename": "50.jpg"
+        },
+        {
+          "meme_id": 109,
+          "language": "hindi",
+          "text": "\u092f\u0926\u093f \u0906\u092a \u0915\u093f\u0938\u0940 \u0906\u0926\u092e\u0940 \u0938\u0947 \u092c\u0939\u0938 \u0928\u0939\u0940\u0902 \u0915\u0930 \u0938\u0915\u0924\u0947   \u0924\u094b \u092c\u0938 \"\u0935\u093f\u0936\u0947\u0937\u093e\u0927\u093f\u0915\u093e\u0930\" \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u091a\u093f\u0932\u094d\u0932\u093e\u090f\u0902\u0964",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2969,
+          "identity_hate_probability": 0.3117,
+          "predicted_result": 0,
+          "image_filename": "109.jpg"
+        },
+        {
+          "meme_id": 3,
+          "language": "english",
+          "text": "So you're telling me   that Macbeth actually trusted three random witches.",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.297,
+          "identity_hate_probability": 0.3126,
+          "predicted_result": 0,
+          "image_filename": "3.jpg"
+        },
+        {
+          "meme_id": 230,
+          "language": "english",
+          "text": "whats for dinner? goat?   wait, where's my wife???",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2972,
+          "identity_hate_probability": 0.3118,
+          "predicted_result": 0,
+          "image_filename": "230.jpg"
+        },
+        {
+          "meme_id": 275,
+          "language": "english",
+          "text": "Show your hate for healthy sex   Become a priest today!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2972,
+          "identity_hate_probability": 0.3141,
+          "predicted_result": 0,
+          "image_filename": "275.jpg"
+        },
+        {
+          "meme_id": 277,
+          "language": "english",
+          "text": "Obama lied to me   Said I could vote, but now I go to jail",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2973,
+          "identity_hate_probability": 0.3115,
+          "predicted_result": 0,
+          "image_filename": "277.jpg"
+        },
+        {
+          "meme_id": 186,
+          "language": "english",
+          "text": "I had a friend that got almost raped   your argument is invalid",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2973,
+          "identity_hate_probability": 0.3114,
+          "predicted_result": 0,
+          "image_filename": "186.jpg"
+        },
+        {
+          "meme_id": 258,
+          "language": "english",
+          "text": "When the police finds out   You're Black",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2974,
+          "identity_hate_probability": 0.3132,
+          "predicted_result": 0,
+          "image_filename": "258.jpg"
+        },
+        {
+          "meme_id": 242,
+          "language": "english",
+          "text": "it's not inappropriate when I touch you there",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2974,
+          "identity_hate_probability": 0.3105,
+          "predicted_result": 0,
+          "image_filename": "242.jpg"
+        },
+        {
+          "meme_id": 219,
+          "language": "english",
+          "text": "Be angry on the internet!   It will change things in real life!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2975,
+          "identity_hate_probability": 0.3113,
+          "predicted_result": 0,
+          "image_filename": "219.jpg"
+        },
+        {
+          "meme_id": 84,
+          "language": "english",
+          "text": "but my dreamcatcher tattoo   honors native culture!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2975,
+          "identity_hate_probability": 0.3131,
+          "predicted_result": 0,
+          "image_filename": "84.jpg"
+        },
+        {
+          "meme_id": 240,
+          "language": "english",
+          "text": "Let's become one...   One israel",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2975,
+          "identity_hate_probability": 0.3145,
+          "predicted_result": 0,
+          "image_filename": "240.jpg"
+        },
+        {
+          "meme_id": 140,
+          "language": "english",
+          "text": "fewer people coming to church.   blames atheists.",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2977,
+          "identity_hate_probability": 0.3146,
+          "predicted_result": 0,
+          "image_filename": "140.jpg"
+        },
+        {
+          "meme_id": 222,
+          "language": "hindi",
+          "text": "\u0906\u092a \u0915\u0930\u094b\u0902 \u0915\u093e \u092d\u0941\u0917\u0924\u093e\u0928 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902   \u0939\u092e\u093e\u0930\u0947 \u0915\u093e\u0930\u0923",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2977,
+          "identity_hate_probability": 0.3122,
+          "predicted_result": 0,
+          "image_filename": "222.jpg"
+        },
+        {
+          "meme_id": 193,
+          "language": "english",
+          "text": "A man had some sort of emotion?   time to belittle it and declare it misogynist",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2978,
+          "identity_hate_probability": 0.3155,
+          "predicted_result": 0,
+          "image_filename": "193.jpg"
+        },
+        {
+          "meme_id": 237,
+          "language": "english",
+          "text": "Join the police force!   Kill unarmed kids and get paid vacations!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2978,
+          "identity_hate_probability": 0.3108,
+          "predicted_result": 0,
+          "image_filename": "237.jpg"
+        },
+        {
+          "meme_id": 159,
+          "language": "english",
+          "text": "America hates communism so much   that it has borrowed 2 trillion from china",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2978,
+          "identity_hate_probability": 0.3172,
+          "predicted_result": 0,
+          "image_filename": "159.jpg"
+        }
+      ]
+    },
+    "B_identity_hate_only": {
+      "top_20_false_positives": [],
+      "top_20_false_negatives": [
+        {
+          "meme_id": 79,
+          "language": "english",
+          "text": "COMMUNISM   UNABLE TO ACHIEVE DREAMS - BEING BORN IN THE WRONG FAMILY",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3511,
+          "identity_hate_probability": 0.2964,
+          "predicted_result": 0,
+          "image_filename": "79.jpg"
+        },
+        {
+          "meme_id": 15,
+          "language": "english",
+          "text": "IVY   30 YEARS LATER",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3285,
+          "identity_hate_probability": 0.2978,
+          "predicted_result": 0,
+          "image_filename": "15.jpg"
+        },
+        {
+          "meme_id": 214,
+          "language": "english",
+          "text": "who's SHOCKED   by the RACISM ??",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3258,
+          "identity_hate_probability": 0.299,
+          "predicted_result": 0,
+          "image_filename": "214.jpg"
+        },
+        {
+          "meme_id": 134,
+          "language": "english",
+          "text": "ON THE SEVENTH DAY   GOD CREATED THE RIFLE",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3497,
+          "identity_hate_probability": 0.3006,
+          "predicted_result": 0,
+          "image_filename": "134.jpg"
+        },
+        {
+          "meme_id": 28,
+          "language": "english",
+          "text": "OLD PIC OF JAY-Z   <emp>",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3103,
+          "identity_hate_probability": 0.3014,
+          "predicted_result": 0,
+          "image_filename": "28.jpg"
+        },
+        {
+          "meme_id": 217,
+          "language": "english",
+          "text": "THE UNIVERSE   DOES NOT EXIST",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3414,
+          "identity_hate_probability": 0.3017,
+          "predicted_result": 0,
+          "image_filename": "217.jpg"
+        },
+        {
+          "meme_id": 37,
+          "language": "english",
+          "text": "SEE THIS HAT   THRIFT STORE",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.361,
+          "identity_hate_probability": 0.302,
+          "predicted_result": 0,
+          "image_filename": "37.jpg"
+        },
+        {
+          "meme_id": 119,
+          "language": "english",
+          "text": "THINKS JUDAISM   IS A RACE",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3749,
+          "identity_hate_probability": 0.3022,
+          "predicted_result": 0,
+          "image_filename": "119.jpg"
+        },
+        {
+          "meme_id": 16,
+          "language": "english",
+          "text": "<emp>   SON, WHY DIDN'T YOU STEAL THAT?",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3415,
+          "identity_hate_probability": 0.3023,
+          "predicted_result": 0,
+          "image_filename": "16.jpg"
+        },
+        {
+          "meme_id": 13,
+          "language": "english",
+          "text": "SEES COMMENTS ON YOUTUBE VIDEO OF NON-SPEAKING ENGLISH COUNTRY   ENGLISH PLEASE",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3966,
+          "identity_hate_probability": 0.3061,
+          "predicted_result": 0,
+          "image_filename": "13.jpg"
+        },
+        {
+          "meme_id": 147,
+          "language": "english",
+          "text": "Special thanks to mr futch   for funding the dragqueen eutopia",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3072,
+          "identity_hate_probability": 0.3078,
+          "predicted_result": 0,
+          "image_filename": "147.jpg"
+        },
+        {
+          "meme_id": 236,
+          "language": "english",
+          "text": "85 in a 70?   Oh, I didn't see that you're a beautiful blonde. Carry on ma'am",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3103,
+          "identity_hate_probability": 0.3082,
+          "predicted_result": 0,
+          "image_filename": "236.jpg"
+        },
+        {
+          "meme_id": 218,
+          "language": "english",
+          "text": "i'm so happy we have kids   to blow up",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3001,
+          "identity_hate_probability": 0.3085,
+          "predicted_result": 0,
+          "image_filename": "218.jpg"
+        },
+        {
+          "meme_id": 251,
+          "language": "hindi",
+          "text": "\u092e\u0948\u0902 \u0905\u092d\u0940-\u0905\u092d\u0940 \u0915\u093f\u0924\u0928\u093e \u0930\u094b\u092e\u093e\u0902\u091a\u093f\u0924 \u0939\u0941\u0906 \u0939\u0942\u0901   \u0939\u092e\u093e\u0930\u0940 12 \u0938\u093e\u0932 \u0915\u0940 \u092c\u0947\u091f\u0940 \u0915\u093e \u0939\u094b\u0928\u0947 \u0935\u093e\u0932\u093e \u092a\u0924\u093f",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3133,
+          "identity_hate_probability": 0.3086,
+          "predicted_result": 0,
+          "image_filename": "251.jpg"
+        },
+        {
+          "meme_id": 60,
+          "language": "hindi",
+          "text": "\u0913\u0939 \u0936\u093f\u091f, \u092a\u0938\u0932\u093f\u092f\u093e\u0901 \u0935\u093f\u0936\u0947\u0937 \u092a\u0930   \u092a\u0930\u0939\u0947\u091c\u093c \u0915\u0932 \u0938\u0947 \u0936\u0941\u0930\u0942 \u0939\u094b\u0924\u093e \u0939\u0948 \u0926\u094b\u0938\u094d\u0924\u094b\u0902",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3131,
+          "identity_hate_probability": 0.3087,
+          "predicted_result": 0,
+          "image_filename": "60.jpg"
+        },
+        {
+          "meme_id": 105,
+          "language": "english",
+          "text": "no im not going in the kitchen   can you help open this jar for me?",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.299,
+          "identity_hate_probability": 0.3088,
+          "predicted_result": 0,
+          "image_filename": "105.jpg"
+        },
+        {
+          "meme_id": 247,
+          "language": "english",
+          "text": "A Priest !   Hide the children !",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3031,
+          "identity_hate_probability": 0.3088,
+          "predicted_result": 0,
+          "image_filename": "247.jpg"
+        },
+        {
+          "meme_id": 40,
+          "language": "english",
+          "text": "I do have your customer on the other line...   Thank you for patiently holding, mr. derp",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3002,
+          "identity_hate_probability": 0.3091,
+          "predicted_result": 0,
+          "image_filename": "40.jpg"
+        },
+        {
+          "meme_id": 142,
+          "language": "english",
+          "text": "They Took   our jobs!!!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3025,
+          "identity_hate_probability": 0.3092,
+          "predicted_result": 0,
+          "image_filename": "142.jpg"
+        },
+        {
+          "meme_id": 16,
+          "language": "hindi",
+          "text": "<emp>   \u092c\u0947\u091f\u093e, \u0924\u0941\u092e\u0928\u0947 \u0935\u0939 \u0915\u094d\u092f\u094b\u0902 \u0928\u0939\u0940\u0902 \u091a\u0941\u0930\u093e\u092f\u093e?",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3008,
+          "identity_hate_probability": 0.3094,
+          "predicted_result": 0,
+          "image_filename": "16.jpg"
+        }
+      ]
+    },
+    "C_toxic_or_identity_hate": {
+      "top_20_false_positives": [
+        {
+          "meme_id": 191,
+          "language": "hindi",
+          "text": "\u0924\u0941\u092e \u0915\u094d\u092f\u094b\u0902   \u092e\u0947\u0930\u093e \u0917\u094d\u0935\u093e\u0915\u093e\u092e\u094b\u0932\u0947 \u0916\u093e\u0913\u0917\u0947?",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6731,
+          "identity_hate_probability": 0.5638,
+          "predicted_result": 1,
+          "image_filename": "191.jpg"
+        },
+        {
+          "meme_id": 42,
+          "language": "hindi",
+          "text": "\u0930\u0941\u0915\u094b!   \u092e\u0947\u0930\u0940 \u0926\u093e\u0922\u093c\u0940 \u0917\u0941\u0926\u0917\u0941\u0926\u0940 \u0915\u0930\u0924\u0940 \u0939\u0948!",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6723,
+          "identity_hate_probability": 0.5719,
+          "predicted_result": 1,
+          "image_filename": "42.jpg"
+        },
+        {
+          "meme_id": 202,
+          "language": "hindi",
+          "text": "\u092f\u0947 \u0915\u092e\u092c\u0916\u094d\u0924 \u091a\u0942\u0924\u0947\u0902   \u092c\u0939\u0941\u0924 \u0909\u0928\u094d\u092e\u093e\u0926\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0902",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6672,
+          "identity_hate_probability": 0.5576,
+          "predicted_result": 1,
+          "image_filename": "202.jpg"
+        },
+        {
+          "meme_id": 202,
+          "language": "english",
+          "text": "these fucking cunts   are so hysterical",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6627,
+          "identity_hate_probability": 0.5604,
+          "predicted_result": 1,
+          "image_filename": "202.jpg"
+        },
+        {
+          "meme_id": 226,
+          "language": "hindi",
+          "text": "\u0915\u0930\u0940 \u0915\u0940 \u092c\u0926\u092c\u0942 \u0906 \u0930\u0939\u0940 \u0939\u0948",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6583,
+          "identity_hate_probability": 0.5444,
+          "predicted_result": 1,
+          "image_filename": "226.jpg"
+        },
+        {
+          "meme_id": 100,
+          "language": "hindi",
+          "text": "\u092e\u0947\u0930\u0947 \u092a\u093e\u0938 \u0915\u094d\u092f\u094b\u0902 \u0939\u0948 ..   \u092c\u0947\u092c\u0940 \u0921\u093f\u0915",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6475,
+          "identity_hate_probability": 0.5234,
+          "predicted_result": 1,
+          "image_filename": "100.jpg"
+        },
+        {
+          "meme_id": 17,
+          "language": "english",
+          "text": "YOU AIN'T GETTIN' NO FRIED CHICKEN   TILL' YOU FINISH ALL  YOUR COOL-AID",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.6451,
+          "identity_hate_probability": 0.5157,
+          "predicted_result": 1,
+          "image_filename": "17.jpg"
+        },
+        {
+          "meme_id": 165,
+          "language": "hindi",
+          "text": "\u092e\u0948\u0902 \u092c\u0947\u0915\u0928 \u0916\u093e\u0924\u093e \u0939\u0942\u0901   \u091c\u092c \u0915\u094b\u0908 \u0928\u0939\u0940\u0902 \u0926\u0947\u0916 \u0930\u0939\u093e \u0939\u094b\u0924\u093e",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5926,
+          "identity_hate_probability": 0.4598,
+          "predicted_result": 1,
+          "image_filename": "165.jpg"
+        },
+        {
+          "meme_id": 14,
+          "language": "english",
+          "text": "WHEN PEOPLE LEAVE THE DOOR OPEN   OH NO YOU DIDNT !",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5754,
+          "identity_hate_probability": 0.4562,
+          "predicted_result": 1,
+          "image_filename": "14.jpg"
+        },
+        {
+          "meme_id": 111,
+          "language": "hindi",
+          "text": "\u0905\u092a\u0928\u093e \u0915\u0941\u0924\u094d\u0924\u093e \u0932\u093e\u0913   \u0939\u092e\u093e\u0930\u0947 \u092a\u093e\u0938 \u092e\u0941\u0930\u094d\u0917\u093e \u0939\u0948?",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5748,
+          "identity_hate_probability": 0.4378,
+          "predicted_result": 1,
+          "image_filename": "111.jpg"
+        },
+        {
+          "meme_id": 27,
+          "language": "english",
+          "text": "THIS IS ME   WHEN I HEARD YOUR BROTHER IS SINGLE",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5657,
+          "identity_hate_probability": 0.47,
+          "predicted_result": 1,
+          "image_filename": "27.jpg"
+        },
+        {
+          "meme_id": 25,
+          "language": "english",
+          "text": "IT DONT MATTER   IF YOUR BLACK OR WHITE!",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5615,
+          "identity_hate_probability": 0.4533,
+          "predicted_result": 1,
+          "image_filename": "25.jpg"
+        },
+        {
+          "meme_id": 290,
+          "language": "english",
+          "text": "JESUS IS   WATCHING YOU",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5354,
+          "identity_hate_probability": 0.4241,
+          "predicted_result": 1,
+          "image_filename": "290.jpg"
+        },
+        {
+          "meme_id": 261,
+          "language": "hindi",
+          "text": "\u0924\u0941\u092e \u092e\u0947\u0930\u0940 \u0927\u0942\u092a \u0932\u0947 \u0938\u0915\u0924\u0947 \u0939\u094b   \u0932\u0947\u0915\u093f\u0928 \u0924\u0941\u092e \u092e\u0947\u0930\u0940 \u0906\u091c\u093c\u093e\u0926\u0940 \u0915\u092d\u0940 \u0928\u0939\u0940\u0902 \u091b\u0940\u0928 \u092a\u093e\u0913\u0917\u0947",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5197,
+          "identity_hate_probability": 0.4567,
+          "predicted_result": 1,
+          "image_filename": "261.jpg"
+        },
+        {
+          "meme_id": 181,
+          "language": "english",
+          "text": "DON'T TEXT AND DRIVE   HAS LAPTOP INSTALLED IN CAR",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.5079,
+          "identity_hate_probability": 0.383,
+          "predicted_result": 1,
+          "image_filename": "181.jpg"
+        },
+        {
+          "meme_id": 42,
+          "language": "english",
+          "text": "stop!   my beard tickles!",
+          "ground_truth_IN": 0,
+          "toxic_probability": 0.4611,
+          "identity_hate_probability": 0.404,
+          "predicted_result": 1,
+          "image_filename": "42.jpg"
+        }
+      ],
+      "top_20_false_negatives": [
+        {
+          "meme_id": 147,
+          "language": "english",
+          "text": "Special thanks to mr futch   for funding the dragqueen eutopia",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3072,
+          "identity_hate_probability": 0.3078,
+          "predicted_result": 0,
+          "image_filename": "147.jpg"
+        },
+        {
+          "meme_id": 218,
+          "language": "english",
+          "text": "i'm so happy we have kids   to blow up",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3001,
+          "identity_hate_probability": 0.3085,
+          "predicted_result": 0,
+          "image_filename": "218.jpg"
+        },
+        {
+          "meme_id": 105,
+          "language": "english",
+          "text": "no im not going in the kitchen   can you help open this jar for me?",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.299,
+          "identity_hate_probability": 0.3088,
+          "predicted_result": 0,
+          "image_filename": "105.jpg"
+        },
+        {
+          "meme_id": 247,
+          "language": "english",
+          "text": "A Priest !   Hide the children !",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3031,
+          "identity_hate_probability": 0.3088,
+          "predicted_result": 0,
+          "image_filename": "247.jpg"
+        },
+        {
+          "meme_id": 40,
+          "language": "english",
+          "text": "I do have your customer on the other line...   Thank you for patiently holding, mr. derp",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3002,
+          "identity_hate_probability": 0.3091,
+          "predicted_result": 0,
+          "image_filename": "40.jpg"
+        },
+        {
+          "meme_id": 142,
+          "language": "english",
+          "text": "They Took   our jobs!!!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3025,
+          "identity_hate_probability": 0.3092,
+          "predicted_result": 0,
+          "image_filename": "142.jpg"
+        },
+        {
+          "meme_id": 16,
+          "language": "hindi",
+          "text": "<emp>   \u092c\u0947\u091f\u093e, \u0924\u0941\u092e\u0928\u0947 \u0935\u0939 \u0915\u094d\u092f\u094b\u0902 \u0928\u0939\u0940\u0902 \u091a\u0941\u0930\u093e\u092f\u093e?",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3008,
+          "identity_hate_probability": 0.3094,
+          "predicted_result": 0,
+          "image_filename": "16.jpg"
+        },
+        {
+          "meme_id": 220,
+          "language": "hindi",
+          "text": "\u091c\u092c \u0915\u094d\u0930\u0949\u0938\u094d\u092c\u0940 \u0915\u094b \u0917\u094b\u0932\u0940 \u092e\u093e\u0930 \u0926\u0940 \u091c\u093e\u0924\u0940 \u0939\u0948 \u0914\u0930 \u0906\u092a\u0915\u094b \u0906\u092e\u0902\u0924\u094d\u0930\u093f\u0924 \u092d\u0940 \u0928\u0939\u0940\u0902 \u0915\u093f\u092f\u093e \u091c\u093e\u0924\u093e",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3069,
+          "identity_hate_probability": 0.3095,
+          "predicted_result": 0,
+          "image_filename": "220.jpg"
+        },
+        {
+          "meme_id": 35,
+          "language": "hindi",
+          "text": "\u091c\u0932\u094d\u0926\u0940 \u0938\u0947 \u092e\u0941\u091d\u0947 \u0915\u0941\u091b   \u0915\u0930\u0940 \u0926\u094b!!!",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2997,
+          "identity_hate_probability": 0.3095,
+          "predicted_result": 0,
+          "image_filename": "35.jpg"
+        },
+        {
+          "meme_id": 77,
+          "language": "english",
+          "text": "I'll give you a hint   The matzah is in my pants",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.299,
+          "identity_hate_probability": 0.3096,
+          "predicted_result": 0,
+          "image_filename": "77.jpg"
+        },
+        {
+          "meme_id": 163,
+          "language": "english",
+          "text": "zero tolerance on   douche bags",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3004,
+          "identity_hate_probability": 0.3098,
+          "predicted_result": 0,
+          "image_filename": "163.jpg"
+        },
+        {
+          "meme_id": 263,
+          "language": "english",
+          "text": "The Linder-Green family should move to   North Korea/DPRK",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3022,
+          "identity_hate_probability": 0.31,
+          "predicted_result": 0,
+          "image_filename": "263.jpg"
+        },
+        {
+          "meme_id": 129,
+          "language": "english",
+          "text": "If you just work hard, you'll succeed!   works 70 hour weeks, lives in a trailer",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.2992,
+          "identity_hate_probability": 0.3102,
+          "predicted_result": 0,
+          "image_filename": "129.jpg"
+        },
+        {
+          "meme_id": 105,
+          "language": "hindi",
+          "text": "\u0928\u0939\u0940\u0902, \u092e\u0948\u0902 \u0930\u0938\u094b\u0908 \u092e\u0947\u0902 \u0928\u0939\u0940\u0902 \u091c\u093e \u0930\u0939\u0940 \u0939\u0942\u0901   \u0915\u094d\u092f\u093e \u0906\u092a \u092e\u0947\u0930\u0947 \u0932\u093f\u090f \u092f\u0939 \u091c\u093e\u0930 \u0916\u094b\u0932\u0928\u0947 \u092e\u0947\u0902 \u092e\u0926\u0926 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902?",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.298,
+          "identity_hate_probability": 0.3102,
+          "predicted_result": 0,
+          "image_filename": "105.jpg"
+        },
+        {
+          "meme_id": 86,
+          "language": "english",
+          "text": "HAS to put up with unfunny memes   ridiculing her gender identity",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3026,
+          "identity_hate_probability": 0.3103,
+          "predicted_result": 0,
+          "image_filename": "86.jpg"
+        },
+        {
+          "meme_id": 236,
+          "language": "english",
+          "text": "85 in a 70?   Oh, I didn't see that you're a beautiful blonde. Carry on ma'am",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3103,
+          "identity_hate_probability": 0.3082,
+          "predicted_result": 0,
+          "image_filename": "236.jpg"
+        },
+        {
+          "meme_id": 256,
+          "language": "english",
+          "text": "Aryan   Never celebrated Nowruz",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3026,
+          "identity_hate_probability": 0.3103,
+          "predicted_result": 0,
+          "image_filename": "256.jpg"
+        },
+        {
+          "meme_id": 28,
+          "language": "english",
+          "text": "OLD PIC OF JAY-Z   <emp>",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3103,
+          "identity_hate_probability": 0.3014,
+          "predicted_result": 0,
+          "image_filename": "28.jpg"
+        },
+        {
+          "meme_id": 18,
+          "language": "english",
+          "text": "I come to   tend your garden",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3028,
+          "identity_hate_probability": 0.3104,
+          "predicted_result": 0,
+          "image_filename": "18.jpg"
+        },
+        {
+          "meme_id": 223,
+          "language": "english",
+          "text": "Complain about the system   Doesn't cooperate in order to receive benefits",
+          "ground_truth_IN": 1,
+          "toxic_probability": 0.3012,
+          "identity_hate_probability": 0.3105,
+          "predicted_result": 0,
+          "image_filename": "223.jpg"
+        }
+      ]
+    }
+  }
+}

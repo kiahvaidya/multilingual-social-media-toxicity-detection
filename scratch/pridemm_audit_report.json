@@ -1,0 +1,85 @@
+{
+  "total_images_found": 5063,
+  "unique_image_hashes": 5063,
+  "duplicate_image_hashes": 0,
+  "metadata_rows": 5063,
+  "unique_image_ids": 5063,
+  "valid_matched_images": 5063,
+  "missing_images": 0,
+  "valid_text_rows": 5063,
+  "duplicate_text_rows": 73,
+  "hate_1_count": 2482,
+  "hate_0_count": 2581,
+  "split_distribution": {
+    "train": 4328,
+    "test": 507,
+    "val": 228
+  },
+  "target_distribution": {
+    "2.0": 1164,
+    "0.0": 771,
+    "3.0": 298,
+    "1.0": 249
+  },
+  "target_hateful_distribution": {
+    "2.0": 1164,
+    "0.0": 771,
+    "3.0": 298,
+    "1.0": 249
+  },
+  "stance_distribution": {
+    "1": 1909,
+    "2": 1696,
+    "0": 1458
+  },
+  "humor_distribution": {
+    "1": 3421,
+    "0": 1642
+  },
+  "avg_text_words": 33.38633221410231,
+  "sample_dimensions": [
+    [
+      640,
+      762
+    ],
+    [
+      1080,
+      1544
+    ],
+    [
+      750,
+      986
+    ],
+    [
+      1284,
+      1926
+    ],
+    [
+      640,
+      639
+    ]
+  ],
+  "leakage": {
+    "exact_image_overlap_count": 0,
+    "exact_image_overlap_samples": [],
+    "exact_text_overlap_count": 0,
+    "exact_text_overlap_samples": [],
+    "near_text_overlap_count": 0,
+    "near_text_overlap_samples": [],
+    "template_overlap_count": 2,
+    "template_overlap_samples": [
+      {
+        "pridemm_id": "img_229.png",
+        "matched_templates": [
+          "jesus christ"
+        ]
+      },
+      {
+        "pridemm_id": "img_2702.png",
+        "matched_templates": [
+          "jesus christ"
+        ]
+      }
+    ]
+  }
+}

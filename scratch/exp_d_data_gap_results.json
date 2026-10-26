@@ -1,0 +1,28 @@
+{
+  "jigsaw_total_rows": 159571,
+  "jigsaw_label_positives": {
+    "toxic": 15294,
+    "severe_toxic": 1595,
+    "obscene": 8449,
+    "threat": 478,
+    "insult": 7877,
+    "identity_hate": 1405
+  },
+  "jigsaw_rare_positives_selected": 2987,
+  "jigsaw_benign_profanity_matches": 46,
+  "jigsaw_benign_profanity_toxic_ratio": {
+    "1": 29,
+    "0": 17
+  },
+  "jigsaw_praise_metaphor_matches": 4,
+  "trac_total_rows": 11999,
+  "trac_multi_label_available": false,
+  "trac_praise_matches": 58,
+  "phase4b_train_assembly": {
+    "jigsaw_positives": 2987,
+    "jigsaw_negatives": 2000,
+    "trac_samples": 2000,
+    "total": 6987,
+    "indic_masked_heads_count": 5
+  }
+}

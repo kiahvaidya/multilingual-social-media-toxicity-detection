@@ -1,0 +1,15 @@
+{
+  "provider_class": "GeminiJEVDecisionProvider",
+  "provider_type": "REAL_JEV",
+  "gemini_model": "gemini-3.6-flash",
+  "config_timeout_seconds": 10.0,
+  "config_gemini_api_key_set": true,
+  "temperature_setting": 0.0,
+  "seed_setting": null,
+  "response_mime_type": "application/json",
+  "structured_schema_enforcement": "Pydantic/JSON Schema NOT passed to API; relies on prompt string schema + JSON decode",
+  "retry_logic": "Max 3 attempts, retries on 503/504/UNAVAILABLE/DEADLINE_EXCEEDED with backoff",
+  "fallback_logic": "On ANY unhandled exception or failed retry, catches Exception and returns base_risk (HIGH_RISK or REVIEW)",
+  "cached_responses": "None (No caching layer in Python or FastAPI)",
+  "session_state": "None (Stateless REST)"
+}

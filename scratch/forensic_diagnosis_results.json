@@ -1,0 +1,5545 @@
+{
+  "c_weights": {
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.11112876261177e-06,
+      "std": 0.01863732933998108,
+      "norm": 14.313480377197266,
+      "min": -0.1614990234375,
+      "max": 0.1539306640625
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0003410539065953344,
+      "std": 0.005517025012522936,
+      "norm": 0.15318414568901062,
+      "min": -0.0304412841796875,
+      "max": 0.03399658203125
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -2.0333260181359947e-05,
+      "std": 0.012383036315441132,
+      "norm": 9.510200500488281,
+      "min": -0.1571044921875,
+      "max": 0.2213134765625
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00018762215040624142,
+      "std": 0.04256947711110115,
+      "norm": 1.1797313690185547,
+      "min": -0.34423828125,
+      "max": 0.313232421875
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.6473346224520355e-05,
+      "std": 0.01838059350848198,
+      "norm": 14.116314888000488,
+      "min": -0.1552734375,
+      "max": 0.154296875
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.02576328068971634,
+      "std": 0.8964882493019104,
+      "norm": 24.854467391967773,
+      "min": -2.400390625,
+      "max": 2.302734375
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.8335687690960185e-07,
+      "std": 0.012621650472283363,
+      "norm": 9.693445205688477,
+      "min": -0.2724609375,
+      "max": 0.16064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00013663200661540031,
+      "std": 0.0434432253241539,
+      "norm": 1.2039399147033691,
+      "min": -0.3154296875,
+      "max": 0.235595703125
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.0002493447973392904,
+      "std": 0.01468654628843069,
+      "norm": 22.561742782592773,
+      "min": -0.24609375,
+      "max": 0.304443359375
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.7060282826423645,
+      "std": 0.4411935806274414,
+      "norm": 46.14421081542969,
+      "min": -1.474609375,
+      "max": 0.286865234375
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 5.502843123394996e-05,
+      "std": 0.009784276597201824,
+      "norm": 15.028860092163086,
+      "min": -0.28515625,
+      "max": 0.2213134765625
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.004450990352779627,
+      "std": 0.10076852887868881,
+      "norm": 2.795302391052246,
+      "min": -0.96533203125,
+      "max": 0.41015625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.1380911324465615e-08,
+      "std": 0.019768772646784782,
+      "norm": 15.182443618774414,
+      "min": -0.1796875,
+      "max": 0.18994140625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00011103902943432331,
+      "std": 0.0033174145501106977,
+      "norm": 0.09198636561632156,
+      "min": -0.0179290771484375,
+      "max": 0.01546478271484375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.0842128176591359e-05,
+      "std": 0.012546001933515072,
+      "norm": 9.635357856750488,
+      "min": -0.12249755859375,
+      "max": 0.1827392578125
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0007623448618687689,
+      "std": 0.022396793588995934,
+      "norm": 0.6210376024246216,
+      "min": -0.1463623046875,
+      "max": 0.13818359375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.857800998550374e-05,
+      "std": 0.019456421956419945,
+      "norm": 14.942564010620117,
+      "min": -0.190185546875,
+      "max": 0.1851806640625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.026475192978978157,
+      "std": 0.7928305864334106,
+      "norm": 21.98381233215332,
+      "min": -2.248046875,
+      "max": 2.341796875
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 4.446640744504293e-08,
+      "std": 0.012123401276767254,
+      "norm": 9.31079387664795,
+      "min": -0.16455078125,
+      "max": 0.2318115234375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0017456033965572715,
+      "std": 0.08542440086603165,
+      "norm": 2.367844581604004,
+      "min": -1.1904296875,
+      "max": 0.41552734375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.00012383917055558413,
+      "std": 0.014413903467357159,
+      "norm": 22.140592575073242,
+      "min": -0.2403564453125,
+      "max": 0.230224609375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.41233888268470764,
+      "std": 0.27568161487579346,
+      "norm": 27.491540908813477,
+      "min": -1.556640625,
+      "max": 0.20947265625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 3.4909386158687994e-05,
+      "std": 0.010384623892605305,
+      "norm": 15.950881958007812,
+      "min": -0.292236328125,
+      "max": 0.323486328125
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.005878744181245565,
+      "std": 0.09004514664411545,
+      "norm": 2.5007166862487793,
+      "min": -0.814453125,
+      "max": 0.43798828125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -8.481951226713136e-06,
+      "std": 0.01844911277294159,
+      "norm": 14.168946266174316,
+      "min": -0.15625,
+      "max": 0.1356201171875
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00016870349645614624,
+      "std": 0.0036132121458649635,
+      "norm": 0.10024135559797287,
+      "min": -0.0198974609375,
+      "max": 0.0202789306640625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -2.2750718926545233e-05,
+      "std": 0.013258296065032482,
+      "norm": 10.182411193847656,
+      "min": -0.12042236328125,
+      "max": 0.127197265625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.002049986505880952,
+      "std": 0.03970615193247795,
+      "norm": 1.101834774017334,
+      "min": -0.156005859375,
+      "max": 0.22998046875
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 8.425003215961624e-06,
+      "std": 0.017975034192204475,
+      "norm": 13.804856300354004,
+      "min": -0.16259765625,
+      "max": 0.1314697265625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0005051891203038394,
+      "std": 0.7250749468803406,
+      "norm": 20.093870162963867,
+      "min": -2.646484375,
+      "max": 2.705078125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.7323395645216806e-06,
+      "std": 0.012207585386931896,
+      "norm": 9.375446319580078,
+      "min": -0.126708984375,
+      "max": 0.11578369140625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0047357468865811825,
+      "std": 0.08014931529760361,
+      "norm": 2.225036859512329,
+      "min": -0.8017578125,
+      "max": 0.5830078125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -9.575401054462418e-05,
+      "std": 0.014179535210132599,
+      "norm": 21.78034019470215,
+      "min": -0.2017822265625,
+      "max": 0.278076171875
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.30487045645713806,
+      "std": 0.18847516179084778,
+      "norm": 19.8659610748291,
+      "min": -1.2998046875,
+      "max": 0.132080078125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 6.267526714509586e-06,
+      "std": 0.010965295135974884,
+      "norm": 16.842708587646484,
+      "min": -0.287841796875,
+      "max": 0.317626953125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00041317162686027586,
+      "std": 0.07854948937892914,
+      "norm": 2.1768574714660645,
+      "min": -0.68212890625,
+      "max": 0.46044921875
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.1186790288775228e-05,
+      "std": 0.01821119338274002,
+      "norm": 13.986227989196777,
+      "min": -0.124755859375,
+      "max": 0.12939453125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -5.0485290557844564e-05,
+      "std": 0.004374600015580654,
+      "norm": 0.12124054878950119,
+      "min": -0.02947998046875,
+      "max": 0.02374267578125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -6.745097380189691e-06,
+      "std": 0.012651617638766766,
+      "norm": 9.716470718383789,
+      "min": -0.083740234375,
+      "max": 0.0714111328125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0004207175225019455,
+      "std": 0.03892780840396881,
+      "norm": 1.0788620710372925,
+      "min": -0.2457275390625,
+      "max": 0.178955078125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 4.844245268031955e-06,
+      "std": 0.01772809587419033,
+      "norm": 13.615205764770508,
+      "min": -0.115478515625,
+      "max": 0.102783203125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0016811838140711188,
+      "std": 0.6216415762901306,
+      "norm": 17.22749900817871,
+      "min": -2.564453125,
+      "max": 2.728515625
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 8.670596685078635e-08,
+      "std": 0.012070694006979465,
+      "norm": 9.270316123962402,
+      "min": -0.1383056640625,
+      "max": 0.1165771484375
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0026772290002554655,
+      "std": 0.055868081748485565,
+      "norm": 1.5500383377075195,
+      "min": -0.5078125,
+      "max": 0.39794921875
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.0001893801527330652,
+      "std": 0.013882512226700783,
+      "norm": 21.325597763061523,
+      "min": -0.1719970703125,
+      "max": 0.22119140625
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.30217453837394714,
+      "std": 0.18393287062644958,
+      "norm": 19.606945037841797,
+      "min": -1.142578125,
+      "max": 0.1307373046875
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 1.7508921246189857e-06,
+      "std": 0.010984841734170914,
+      "norm": 16.872743606567383,
+      "min": -0.29345703125,
+      "max": 0.389892578125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0009732386097311974,
+      "std": 0.05290092155337334,
+      "norm": 1.4662814140319824,
+      "min": -0.264404296875,
+      "max": 0.395263671875
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.2408808288455475e-05,
+      "std": 0.017871348187327385,
+      "norm": 13.725225448608398,
+      "min": -0.10748291015625,
+      "max": 0.150390625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -7.279240526258945e-05,
+      "std": 0.005191780626773834,
+      "norm": 0.14389298856258392,
+      "min": -0.020111083984375,
+      "max": 0.0299835205078125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.5445339158759452e-05,
+      "std": 0.012830918654799461,
+      "norm": 9.854179382324219,
+      "min": -0.1109619140625,
+      "max": 0.093017578125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0012256718473508954,
+      "std": 0.03546546772122383,
+      "norm": 0.9834346771240234,
+      "min": -0.25341796875,
+      "max": 0.1978759765625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -2.4313314497703686e-05,
+      "std": 0.017791330814361572,
+      "norm": 13.663783073425293,
+      "min": -0.1064453125,
+      "max": 0.11334228515625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.031289782375097275,
+      "std": 0.6342065334320068,
+      "norm": 17.59702491760254,
+      "min": -2.5078125,
+      "max": 2.8359375
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.8001535408984637e-06,
+      "std": 0.012159807607531548,
+      "norm": 9.338756561279297,
+      "min": -0.082763671875,
+      "max": 0.0870361328125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0005728018586523831,
+      "std": 0.04823369160294533,
+      "norm": 1.3367855548858643,
+      "min": -0.5634765625,
+      "max": 0.404541015625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.00029001047369092703,
+      "std": 0.013822105713188648,
+      "norm": 21.23549461364746,
+      "min": -0.15625,
+      "max": 0.1502685546875
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3010719120502472,
+      "std": 0.17411835491657257,
+      "norm": 19.27676773071289,
+      "min": -1.087890625,
+      "max": 0.15673828125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 2.959109679068206e-06,
+      "std": 0.01096782274544239,
+      "norm": 16.846595764160156,
+      "min": -0.197021484375,
+      "max": 0.1925048828125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0006671111914329231,
+      "std": 0.050408706068992615,
+      "norm": 1.3970893621444702,
+      "min": -0.2364501953125,
+      "max": 0.27685546875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -8.534997505194042e-06,
+      "std": 0.01717156544327736,
+      "norm": 13.18779468536377,
+      "min": -0.1259765625,
+      "max": 0.1275634765625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00018188606190960854,
+      "std": 0.0029793980065733194,
+      "norm": 0.08272121101617813,
+      "min": -0.01145172119140625,
+      "max": 0.011474609375
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.7554890291648917e-05,
+      "std": 0.012800577096641064,
+      "norm": 9.830878257751465,
+      "min": -0.09112548828125,
+      "max": 0.10162353515625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 9.220574429491535e-05,
+      "std": 0.03940870985388756,
+      "norm": 1.0921292304992676,
+      "min": -0.2008056640625,
+      "max": 0.222900390625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -4.704843377112411e-06,
+      "std": 0.017737198621034622,
+      "norm": 13.622200965881348,
+      "min": -0.114501953125,
+      "max": 0.11248779296875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.016598505899310112,
+      "std": 0.5158774256706238,
+      "norm": 14.303812980651855,
+      "min": -2.818359375,
+      "max": 2.7109375
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.041707714146469e-06,
+      "std": 0.012231283821165562,
+      "norm": 9.393651008605957,
+      "min": -0.09832763671875,
+      "max": 0.0799560546875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0008491110056638718,
+      "std": 0.06364642828702927,
+      "norm": 1.763978362083435,
+      "min": -0.7138671875,
+      "max": 0.7685546875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.00017859494255390018,
+      "std": 0.014339492656290531,
+      "norm": 22.027263641357422,
+      "min": -0.1790771484375,
+      "max": 0.1685791015625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3221314251422882,
+      "std": 0.17114940285682678,
+      "norm": 20.217878341674805,
+      "min": -1.1826171875,
+      "max": 0.28564453125
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 3.595582256821217e-06,
+      "std": 0.011615228839218616,
+      "norm": 17.841035842895508,
+      "min": -0.26123046875,
+      "max": 0.201171875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0002904703433159739,
+      "std": 0.05529818683862686,
+      "norm": 1.53248929977417,
+      "min": -0.293701171875,
+      "max": 0.73876953125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.0324909453629516e-05,
+      "std": 0.017542218789458275,
+      "norm": 13.472455024719238,
+      "min": -0.1661376953125,
+      "max": 0.2003173828125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 5.4469332098960876e-05,
+      "std": 0.002970024012029171,
+      "norm": 0.08232156187295914,
+      "min": -0.016632080078125,
+      "max": 0.01163482666015625
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -8.098384569166228e-06,
+      "std": 0.012733900919556618,
+      "norm": 9.779666900634766,
+      "min": -0.08502197265625,
+      "max": 0.11767578125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0002531238424126059,
+      "std": 0.03988445922732353,
+      "norm": 1.1053327322006226,
+      "min": -0.216552734375,
+      "max": 0.1392822265625
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -5.432694933915627e-07,
+      "std": 0.017824241891503334,
+      "norm": 13.689044952392578,
+      "min": -0.1175537109375,
+      "max": 0.1390380859375
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.01265313196927309,
+      "std": 0.49056416749954224,
+      "norm": 13.599434852600098,
+      "min": -2.4140625,
+      "max": 2.916015625
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 3.395836074560066e-07,
+      "std": 0.01224631629884243,
+      "norm": 9.405194282531738,
+      "min": -0.085205078125,
+      "max": 0.0745849609375
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0001766144559951499,
+      "std": 0.09785251319408417,
+      "norm": 2.711772918701172,
+      "min": -0.703125,
+      "max": 1.888671875
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 5.120932110003196e-05,
+      "std": 0.01467744167894125,
+      "norm": 22.544776916503906,
+      "min": -0.1544189453125,
+      "max": 0.1767578125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3514827787876129,
+      "std": 0.17894510924816132,
+      "norm": 21.860578536987305,
+      "min": -1.005859375,
+      "max": 0.1719970703125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -4.2366195884824265e-06,
+      "std": 0.012493113987147808,
+      "norm": 19.189476013183594,
+      "min": -0.175048828125,
+      "max": 0.15771484375
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0005341204232536256,
+      "std": 0.06668504327535629,
+      "norm": 1.8480894565582275,
+      "min": -1.1982421875,
+      "max": 0.34765625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.1191349585715216e-05,
+      "std": 0.01796261966228485,
+      "norm": 13.795323371887207,
+      "min": -0.1414794921875,
+      "max": 0.16064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 6.734315684298053e-05,
+      "std": 0.0032650765497237444,
+      "norm": 0.09050370007753372,
+      "min": -0.01204681396484375,
+      "max": 0.01221466064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -5.39465554538765e-06,
+      "std": 0.01271074265241623,
+      "norm": 9.761880874633789,
+      "min": -0.07415771484375,
+      "max": 0.06640625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00023878761567175388,
+      "std": 0.04328399896621704,
+      "norm": 1.1995395421981812,
+      "min": -0.156494140625,
+      "max": 0.277587890625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.7535099686938338e-05,
+      "std": 0.018116258084774017,
+      "norm": 13.913323402404785,
+      "min": -0.1285400390625,
+      "max": 0.1484375
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.010261353105306625,
+      "std": 0.5237461924552917,
+      "norm": 14.517266273498535,
+      "min": -3.244140625,
+      "max": 2.978515625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.4964138017603545e-07,
+      "std": 0.012254681438207626,
+      "norm": 9.411619186401367,
+      "min": -0.10223388671875,
+      "max": 0.10760498046875
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00013319682329893112,
+      "std": 0.14642119407653809,
+      "norm": 4.05774450302124,
+      "min": -0.865234375,
+      "max": 3.1640625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.00018280401127412915,
+      "std": 0.014570694416761398,
+      "norm": 22.382442474365234,
+      "min": -0.10430908203125,
+      "max": 0.135498046875
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.36358439922332764,
+      "std": 0.17439335584640503,
+      "norm": 22.350112915039062,
+      "min": -0.94482421875,
+      "max": 0.28759765625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -4.036352038383484e-06,
+      "std": 0.01327663566917181,
+      "norm": 20.392976760864258,
+      "min": -0.18701171875,
+      "max": 0.241943359375
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0009872798109427094,
+      "std": 0.11385072767734528,
+      "norm": 3.155242443084717,
+      "min": -2.64453125,
+      "max": 0.59814453125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.00402916764142e-06,
+      "std": 0.0174001082777977,
+      "norm": 13.363321304321289,
+      "min": -0.1356201171875,
+      "max": 0.12078857421875
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0001141248139902018,
+      "std": 0.0030977302230894566,
+      "norm": 0.0859050527215004,
+      "min": -0.01239013671875,
+      "max": 0.0223846435546875
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 4.578551852318924e-06,
+      "std": 0.012849885039031506,
+      "norm": 9.868741035461426,
+      "min": -0.0721435546875,
+      "max": 0.06280517578125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00031757898977957666,
+      "std": 0.044060178101062775,
+      "norm": 1.221063256263733,
+      "min": -0.353271484375,
+      "max": 0.41064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.149759529856965e-05,
+      "std": 0.017778988927602768,
+      "norm": 13.654304504394531,
+      "min": -0.1278076171875,
+      "max": 0.10882568359375
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.008157719857990742,
+      "std": 0.5050286054611206,
+      "norm": 13.997590065002441,
+      "min": -3.443359375,
+      "max": 3.240234375
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.0869771358557045e-06,
+      "std": 0.01257207803428173,
+      "norm": 9.65538215637207,
+      "min": -0.10491943359375,
+      "max": 0.1260986328125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0005957675166428089,
+      "std": 0.08068085461854935,
+      "norm": 2.2359542846679688,
+      "min": -0.6181640625,
+      "max": 1.5947265625
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.0004311030497774482,
+      "std": 0.01405539084225893,
+      "norm": 21.599327087402344,
+      "min": -0.0875244140625,
+      "max": 0.10009765625
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3892461359500885,
+      "std": 0.21061700582504272,
+      "norm": 24.52996063232422,
+      "min": -0.9990234375,
+      "max": 0.83203125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 4.21068443756667e-06,
+      "std": 0.0146934250369668,
+      "norm": 22.56917953491211,
+      "min": -0.20361328125,
+      "max": 0.2333984375
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0009692094172351062,
+      "std": 0.1488468199968338,
+      "norm": 4.125051498413086,
+      "min": -3.751953125,
+      "max": 0.63134765625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -9.742658590994324e-08,
+      "std": 0.017294954508543015,
+      "norm": 13.282554626464844,
+      "min": -0.1253662109375,
+      "max": 0.119873046875
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 6.673749157926068e-05,
+      "std": 0.0031523178331553936,
+      "norm": 0.08737916499376297,
+      "min": -0.02008056640625,
+      "max": 0.01715087890625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.34558317263145e-05,
+      "std": 0.013572532683610916,
+      "norm": 10.4237642288208,
+      "min": -0.0667724609375,
+      "max": 0.06292724609375
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.002949437825009227,
+      "std": 0.0750286802649498,
+      "norm": 2.080862045288086,
+      "min": -0.3046875,
+      "max": 0.285400390625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.5004930396098644e-05,
+      "std": 0.017387576401233673,
+      "norm": 13.353719711303711,
+      "min": -0.099365234375,
+      "max": 0.11138916015625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0126531682908535,
+      "std": 0.4919585585594177,
+      "norm": 13.63806438446045,
+      "min": -3.013671875,
+      "max": 3.51171875
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.631992342434387e-07,
+      "std": 0.013434426859021187,
+      "norm": 10.317669868469238,
+      "min": -0.10833740234375,
+      "max": 0.1510009765625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.001196118420921266,
+      "std": 0.06671079993247986,
+      "norm": 1.8490409851074219,
+      "min": -0.68017578125,
+      "max": 0.65234375
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 7.48182283132337e-05,
+      "std": 0.0153003865852952,
+      "norm": 23.50174331665039,
+      "min": -0.12310791015625,
+      "max": 0.10406494140625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.39475393295288086,
+      "std": 0.2087419331073761,
+      "norm": 24.750123977661133,
+      "min": -1.142578125,
+      "max": 0.7705078125
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 8.156381227308884e-06,
+      "std": 0.01565304584801197,
+      "norm": 24.043123245239258,
+      "min": -0.2396240234375,
+      "max": 0.1170654296875
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00013323407620191574,
+      "std": 0.09363559633493423,
+      "norm": 2.5949082374572754,
+      "min": -1.001953125,
+      "max": 0.60888671875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 3.44652944477275e-05,
+      "std": 0.01737489365041256,
+      "norm": 13.343973159790039,
+      "min": -0.131591796875,
+      "max": 0.11431884765625
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -9.91494525806047e-05,
+      "std": 0.0029208259657025337,
+      "norm": 0.08099093288183212,
+      "min": -0.025543212890625,
+      "max": 0.0170440673828125
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.2279651602730155e-05,
+      "std": 0.014263808727264404,
+      "norm": 10.95465087890625,
+      "min": -0.06732177734375,
+      "max": 0.0711669921875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.002200240967795253,
+      "std": 0.09487639367580414,
+      "norm": 2.6299986839294434,
+      "min": -0.282958984375,
+      "max": 0.26904296875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -5.92151718592504e-06,
+      "std": 0.017597027122974396,
+      "norm": 13.514545440673828,
+      "min": -0.09454345703125,
+      "max": 0.1046142578125
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.013835613615810871,
+      "std": 0.47439733147621155,
+      "norm": 13.152474403381348,
+      "min": -3.515625,
+      "max": 3.4140625
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -6.097383931091827e-08,
+      "std": 0.014257832430303097,
+      "norm": 10.950045585632324,
+      "min": -0.08856201171875,
+      "max": 0.153076171875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0013359328731894493,
+      "std": 0.09860890358686447,
+      "norm": 2.732980728149414,
+      "min": -0.422607421875,
+      "max": 1.193359375
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.00020997552201151848,
+      "std": 0.015134880319237709,
+      "norm": 23.249483108520508,
+      "min": -0.1151123046875,
+      "max": 0.14208984375
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.40973207354545593,
+      "std": 0.15992528200149536,
+      "norm": 24.37822914123535,
+      "min": -1.6796875,
+      "max": 1.2314453125
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -8.406191227550153e-06,
+      "std": 0.01757398247718811,
+      "norm": 26.993635177612305,
+      "min": -0.3388671875,
+      "max": 0.2381591796875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0004589144664350897,
+      "std": 0.10492602735757828,
+      "norm": 2.907823085784912,
+      "min": -1.3388671875,
+      "max": 0.456298828125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.7326259694527835e-05,
+      "std": 0.014908482320606709,
+      "norm": 11.44975471496582,
+      "min": -0.1522216796875,
+      "max": 0.1036376953125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00013051375572104007,
+      "std": 0.004295518156141043,
+      "norm": 0.1190958246588707,
+      "min": -0.04229736328125,
+      "max": 0.03240966796875
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.193472598970402e-05,
+      "std": 0.016557704657316208,
+      "norm": 12.716354370117188,
+      "min": -0.09210205078125,
+      "max": 0.08843994140625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0101000452414155,
+      "std": 0.0973789170384407,
+      "norm": 2.713120460510254,
+      "min": -0.322998046875,
+      "max": 0.380615234375
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.9667089620488696e-06,
+      "std": 0.01541993860155344,
+      "norm": 11.842543601989746,
+      "min": -0.08795166015625,
+      "max": 0.0714111328125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0027520519215613604,
+      "std": 0.29286181926727295,
+      "norm": 8.116382598876953,
+      "min": -2.333984375,
+      "max": 2.2265625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.729648142325459e-06,
+      "std": 0.016127826645970345,
+      "norm": 12.386204719543457,
+      "min": -0.1622314453125,
+      "max": 0.1650390625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.003864792874082923,
+      "std": 0.26259759068489075,
+      "norm": 7.278106212615967,
+      "min": -0.32763671875,
+      "max": 6.65625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 4.91861101181712e-06,
+      "std": 0.014337565749883652,
+      "norm": 22.022600173950195,
+      "min": -0.1195068359375,
+      "max": 0.1090087890625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3980010449886322,
+      "std": 0.19804280996322632,
+      "norm": 24.639528274536133,
+      "min": -1.158203125,
+      "max": 0.85546875
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -3.9926235331222415e-06,
+      "std": 0.014301181770861149,
+      "norm": 21.966720581054688,
+      "min": -0.1357421875,
+      "max": 0.11212158203125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0012918434804305434,
+      "std": 0.16237416863441467,
+      "norm": 4.4999871253967285,
+      "min": -0.4365234375,
+      "max": 2.94140625
+    },
+    "vision_encoder.visual_projection.weight": {
+      "shape": [
+        512,
+        768
+      ],
+      "mean": -3.63806466339156e-05,
+      "std": 0.012827957980334759,
+      "norm": 8.044068336486816,
+      "min": -0.1253662109375,
+      "max": 0.0931396484375
+    },
+    "text_proj.0.weight": {
+      "shape": [
+        512,
+        768
+      ],
+      "mean": -6.638250397372758e-06,
+      "std": 0.020803850144147873,
+      "norm": 13.045453071594238,
+      "min": -0.036084190011024475,
+      "max": 0.036084145307540894
+    },
+    "text_proj.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -4.396215081214905e-05,
+      "std": 0.020501626655459404,
+      "norm": 0.4638999104499817,
+      "min": -0.03595373034477234,
+      "max": 0.0360785573720932
+    },
+    "text_proj.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0,
+      "std": 0.0,
+      "norm": 22.627416610717773,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "text_proj.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "vision_proj.0.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 4.621924745151773e-07,
+      "std": 0.0255309846252203,
+      "norm": 13.071863174438477,
+      "min": -0.04419402405619621,
+      "max": 0.04419386759400368
+    },
+    "vision_proj.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0011463729897513986,
+      "std": 0.025650784373283386,
+      "norm": 0.5809903144836426,
+      "min": -0.044093262404203415,
+      "max": 0.04411635920405388
+    },
+    "vision_proj.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0,
+      "std": 0.0,
+      "norm": 22.627416610717773,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "vision_proj.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "fusion_mlp.0.weight": {
+      "shape": [
+        512,
+        1024
+      ],
+      "mean": 1.9269349650130607e-05,
+      "std": 0.018045645207166672,
+      "norm": 13.066446304321289,
+      "min": -0.031249988824129105,
+      "max": 0.03124997392296791
+    },
+    "fusion_mlp.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0004187444574199617,
+      "std": 0.017536751925945282,
+      "norm": 0.3969244956970215,
+      "min": -0.03123670443892479,
+      "max": 0.03100745379924774
+    },
+    "fusion_mlp.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0,
+      "std": 0.0,
+      "norm": 22.627416610717773,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "fusion_mlp.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "classifier.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": -0.0008963653235696256,
+      "std": 0.0626186653971672,
+      "norm": 3.471034526824951,
+      "min": -0.10757671296596527,
+      "max": 0.10757165402173996
+    },
+    "classifier.bias": {
+      "shape": [
+        6
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "text_only_classifier.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": 0.0005089942133054137,
+      "std": 0.0618588849902153,
+      "norm": 3.4286835193634033,
+      "min": -0.10756301134824753,
+      "max": 0.10761436074972153
+    },
+    "text_only_classifier.bias": {
+      "shape": [
+        6
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "vision_only_classifier.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": 4.285604882170446e-05,
+      "std": 0.062346749007701874,
+      "norm": 3.4556081295013428,
+      "min": -0.10754776000976562,
+      "max": 0.10750921815633774
+    },
+    "vision_only_classifier.bias": {
+      "shape": [
+        6
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  "c2_weights": {
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.11112876261177e-06,
+      "std": 0.01863732933998108,
+      "norm": 14.313480377197266,
+      "min": -0.1614990234375,
+      "max": 0.1539306640625
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0003410539065953344,
+      "std": 0.005517025012522936,
+      "norm": 0.15318414568901062,
+      "min": -0.0304412841796875,
+      "max": 0.03399658203125
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -2.0333260181359947e-05,
+      "std": 0.012383036315441132,
+      "norm": 9.510200500488281,
+      "min": -0.1571044921875,
+      "max": 0.2213134765625
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00018762215040624142,
+      "std": 0.04256947711110115,
+      "norm": 1.1797313690185547,
+      "min": -0.34423828125,
+      "max": 0.313232421875
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.6473346224520355e-05,
+      "std": 0.01838059350848198,
+      "norm": 14.116314888000488,
+      "min": -0.1552734375,
+      "max": 0.154296875
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.02576328068971634,
+      "std": 0.8964882493019104,
+      "norm": 24.854467391967773,
+      "min": -2.400390625,
+      "max": 2.302734375
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.8335687690960185e-07,
+      "std": 0.012621650472283363,
+      "norm": 9.693445205688477,
+      "min": -0.2724609375,
+      "max": 0.16064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.0.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00013663200661540031,
+      "std": 0.0434432253241539,
+      "norm": 1.2039399147033691,
+      "min": -0.3154296875,
+      "max": 0.235595703125
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.0002493447973392904,
+      "std": 0.01468654628843069,
+      "norm": 22.561742782592773,
+      "min": -0.24609375,
+      "max": 0.304443359375
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.7060282826423645,
+      "std": 0.4411935806274414,
+      "norm": 46.14421081542969,
+      "min": -1.474609375,
+      "max": 0.286865234375
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 5.502843123394996e-05,
+      "std": 0.009784276597201824,
+      "norm": 15.028860092163086,
+      "min": -0.28515625,
+      "max": 0.2213134765625
+    },
+    "vision_encoder.vision_model.encoder.layers.0.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.004450990352779627,
+      "std": 0.10076852887868881,
+      "norm": 2.795302391052246,
+      "min": -0.96533203125,
+      "max": 0.41015625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.1380911324465615e-08,
+      "std": 0.019768772646784782,
+      "norm": 15.182443618774414,
+      "min": -0.1796875,
+      "max": 0.18994140625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00011103902943432331,
+      "std": 0.0033174145501106977,
+      "norm": 0.09198636561632156,
+      "min": -0.0179290771484375,
+      "max": 0.01546478271484375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.0842128176591359e-05,
+      "std": 0.012546001933515072,
+      "norm": 9.635357856750488,
+      "min": -0.12249755859375,
+      "max": 0.1827392578125
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0007623448618687689,
+      "std": 0.022396793588995934,
+      "norm": 0.6210376024246216,
+      "min": -0.1463623046875,
+      "max": 0.13818359375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.857800998550374e-05,
+      "std": 0.019456421956419945,
+      "norm": 14.942564010620117,
+      "min": -0.190185546875,
+      "max": 0.1851806640625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.026475192978978157,
+      "std": 0.7928305864334106,
+      "norm": 21.98381233215332,
+      "min": -2.248046875,
+      "max": 2.341796875
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 4.446640744504293e-08,
+      "std": 0.012123401276767254,
+      "norm": 9.31079387664795,
+      "min": -0.16455078125,
+      "max": 0.2318115234375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0017456033965572715,
+      "std": 0.08542440086603165,
+      "norm": 2.367844581604004,
+      "min": -1.1904296875,
+      "max": 0.41552734375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.00012383917055558413,
+      "std": 0.014413903467357159,
+      "norm": 22.140592575073242,
+      "min": -0.2403564453125,
+      "max": 0.230224609375
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.41233888268470764,
+      "std": 0.27568161487579346,
+      "norm": 27.491540908813477,
+      "min": -1.556640625,
+      "max": 0.20947265625
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 3.4909386158687994e-05,
+      "std": 0.010384623892605305,
+      "norm": 15.950881958007812,
+      "min": -0.292236328125,
+      "max": 0.323486328125
+    },
+    "vision_encoder.vision_model.encoder.layers.1.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.005878744181245565,
+      "std": 0.09004514664411545,
+      "norm": 2.5007166862487793,
+      "min": -0.814453125,
+      "max": 0.43798828125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -8.481951226713136e-06,
+      "std": 0.01844911277294159,
+      "norm": 14.168946266174316,
+      "min": -0.15625,
+      "max": 0.1356201171875
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00016870349645614624,
+      "std": 0.0036132121458649635,
+      "norm": 0.10024135559797287,
+      "min": -0.0198974609375,
+      "max": 0.0202789306640625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -2.2750718926545233e-05,
+      "std": 0.013258296065032482,
+      "norm": 10.182411193847656,
+      "min": -0.12042236328125,
+      "max": 0.127197265625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.002049986505880952,
+      "std": 0.03970615193247795,
+      "norm": 1.101834774017334,
+      "min": -0.156005859375,
+      "max": 0.22998046875
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 8.425003215961624e-06,
+      "std": 0.017975034192204475,
+      "norm": 13.804856300354004,
+      "min": -0.16259765625,
+      "max": 0.1314697265625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0005051891203038394,
+      "std": 0.7250749468803406,
+      "norm": 20.093870162963867,
+      "min": -2.646484375,
+      "max": 2.705078125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.7323395645216806e-06,
+      "std": 0.012207585386931896,
+      "norm": 9.375446319580078,
+      "min": -0.126708984375,
+      "max": 0.11578369140625
+    },
+    "vision_encoder.vision_model.encoder.layers.2.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0047357468865811825,
+      "std": 0.08014931529760361,
+      "norm": 2.225036859512329,
+      "min": -0.8017578125,
+      "max": 0.5830078125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -9.575401054462418e-05,
+      "std": 0.014179535210132599,
+      "norm": 21.78034019470215,
+      "min": -0.2017822265625,
+      "max": 0.278076171875
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.30487045645713806,
+      "std": 0.18847516179084778,
+      "norm": 19.8659610748291,
+      "min": -1.2998046875,
+      "max": 0.132080078125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 6.267526714509586e-06,
+      "std": 0.010965295135974884,
+      "norm": 16.842708587646484,
+      "min": -0.287841796875,
+      "max": 0.317626953125
+    },
+    "vision_encoder.vision_model.encoder.layers.2.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00041317162686027586,
+      "std": 0.07854948937892914,
+      "norm": 2.1768574714660645,
+      "min": -0.68212890625,
+      "max": 0.46044921875
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.1186790288775228e-05,
+      "std": 0.01821119338274002,
+      "norm": 13.986227989196777,
+      "min": -0.124755859375,
+      "max": 0.12939453125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -5.0485290557844564e-05,
+      "std": 0.004374600015580654,
+      "norm": 0.12124054878950119,
+      "min": -0.02947998046875,
+      "max": 0.02374267578125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -6.745097380189691e-06,
+      "std": 0.012651617638766766,
+      "norm": 9.716470718383789,
+      "min": -0.083740234375,
+      "max": 0.0714111328125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0004207175225019455,
+      "std": 0.03892780840396881,
+      "norm": 1.0788620710372925,
+      "min": -0.2457275390625,
+      "max": 0.178955078125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 4.844245268031955e-06,
+      "std": 0.01772809587419033,
+      "norm": 13.615205764770508,
+      "min": -0.115478515625,
+      "max": 0.102783203125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0016811838140711188,
+      "std": 0.6216415762901306,
+      "norm": 17.22749900817871,
+      "min": -2.564453125,
+      "max": 2.728515625
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 8.670596685078635e-08,
+      "std": 0.012070694006979465,
+      "norm": 9.270316123962402,
+      "min": -0.1383056640625,
+      "max": 0.1165771484375
+    },
+    "vision_encoder.vision_model.encoder.layers.3.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0026772290002554655,
+      "std": 0.055868081748485565,
+      "norm": 1.5500383377075195,
+      "min": -0.5078125,
+      "max": 0.39794921875
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.0001893801527330652,
+      "std": 0.013882512226700783,
+      "norm": 21.325597763061523,
+      "min": -0.1719970703125,
+      "max": 0.22119140625
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.30217453837394714,
+      "std": 0.18393287062644958,
+      "norm": 19.606945037841797,
+      "min": -1.142578125,
+      "max": 0.1307373046875
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 1.7508921246189857e-06,
+      "std": 0.010984841734170914,
+      "norm": 16.872743606567383,
+      "min": -0.29345703125,
+      "max": 0.389892578125
+    },
+    "vision_encoder.vision_model.encoder.layers.3.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0009732386097311974,
+      "std": 0.05290092155337334,
+      "norm": 1.4662814140319824,
+      "min": -0.264404296875,
+      "max": 0.395263671875
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.2408808288455475e-05,
+      "std": 0.017871348187327385,
+      "norm": 13.725225448608398,
+      "min": -0.10748291015625,
+      "max": 0.150390625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -7.279240526258945e-05,
+      "std": 0.005191780626773834,
+      "norm": 0.14389298856258392,
+      "min": -0.020111083984375,
+      "max": 0.0299835205078125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.5445339158759452e-05,
+      "std": 0.012830918654799461,
+      "norm": 9.854179382324219,
+      "min": -0.1109619140625,
+      "max": 0.093017578125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0012256718473508954,
+      "std": 0.03546546772122383,
+      "norm": 0.9834346771240234,
+      "min": -0.25341796875,
+      "max": 0.1978759765625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -2.4313314497703686e-05,
+      "std": 0.017791330814361572,
+      "norm": 13.663783073425293,
+      "min": -0.1064453125,
+      "max": 0.11334228515625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.031289782375097275,
+      "std": 0.6342065334320068,
+      "norm": 17.59702491760254,
+      "min": -2.5078125,
+      "max": 2.8359375
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.8001535408984637e-06,
+      "std": 0.012159807607531548,
+      "norm": 9.338756561279297,
+      "min": -0.082763671875,
+      "max": 0.0870361328125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0005728018586523831,
+      "std": 0.04823369160294533,
+      "norm": 1.3367855548858643,
+      "min": -0.5634765625,
+      "max": 0.404541015625
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.00029001047369092703,
+      "std": 0.013822105713188648,
+      "norm": 21.23549461364746,
+      "min": -0.15625,
+      "max": 0.1502685546875
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3010719120502472,
+      "std": 0.17411835491657257,
+      "norm": 19.27676773071289,
+      "min": -1.087890625,
+      "max": 0.15673828125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 2.959109679068206e-06,
+      "std": 0.01096782274544239,
+      "norm": 16.846595764160156,
+      "min": -0.197021484375,
+      "max": 0.1925048828125
+    },
+    "vision_encoder.vision_model.encoder.layers.4.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0006671111914329231,
+      "std": 0.050408706068992615,
+      "norm": 1.3970893621444702,
+      "min": -0.2364501953125,
+      "max": 0.27685546875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -8.534997505194042e-06,
+      "std": 0.01717156544327736,
+      "norm": 13.18779468536377,
+      "min": -0.1259765625,
+      "max": 0.1275634765625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00018188606190960854,
+      "std": 0.0029793980065733194,
+      "norm": 0.08272121101617813,
+      "min": -0.01145172119140625,
+      "max": 0.011474609375
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.7554890291648917e-05,
+      "std": 0.012800577096641064,
+      "norm": 9.830878257751465,
+      "min": -0.09112548828125,
+      "max": 0.10162353515625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 9.220574429491535e-05,
+      "std": 0.03940870985388756,
+      "norm": 1.0921292304992676,
+      "min": -0.2008056640625,
+      "max": 0.222900390625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -4.704843377112411e-06,
+      "std": 0.017737198621034622,
+      "norm": 13.622200965881348,
+      "min": -0.114501953125,
+      "max": 0.11248779296875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.016598505899310112,
+      "std": 0.5158774256706238,
+      "norm": 14.303812980651855,
+      "min": -2.818359375,
+      "max": 2.7109375
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.041707714146469e-06,
+      "std": 0.012231283821165562,
+      "norm": 9.393651008605957,
+      "min": -0.09832763671875,
+      "max": 0.0799560546875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0008491110056638718,
+      "std": 0.06364642828702927,
+      "norm": 1.763978362083435,
+      "min": -0.7138671875,
+      "max": 0.7685546875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.00017859494255390018,
+      "std": 0.014339492656290531,
+      "norm": 22.027263641357422,
+      "min": -0.1790771484375,
+      "max": 0.1685791015625
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3221314251422882,
+      "std": 0.17114940285682678,
+      "norm": 20.217878341674805,
+      "min": -1.1826171875,
+      "max": 0.28564453125
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 3.595582256821217e-06,
+      "std": 0.011615228839218616,
+      "norm": 17.841035842895508,
+      "min": -0.26123046875,
+      "max": 0.201171875
+    },
+    "vision_encoder.vision_model.encoder.layers.5.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0002904703433159739,
+      "std": 0.05529818683862686,
+      "norm": 1.53248929977417,
+      "min": -0.293701171875,
+      "max": 0.73876953125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.0324909453629516e-05,
+      "std": 0.017542218789458275,
+      "norm": 13.472455024719238,
+      "min": -0.1661376953125,
+      "max": 0.2003173828125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 5.4469332098960876e-05,
+      "std": 0.002970024012029171,
+      "norm": 0.08232156187295914,
+      "min": -0.016632080078125,
+      "max": 0.01163482666015625
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -8.098384569166228e-06,
+      "std": 0.012733900919556618,
+      "norm": 9.779666900634766,
+      "min": -0.08502197265625,
+      "max": 0.11767578125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0002531238424126059,
+      "std": 0.03988445922732353,
+      "norm": 1.1053327322006226,
+      "min": -0.216552734375,
+      "max": 0.1392822265625
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -5.432694933915627e-07,
+      "std": 0.017824241891503334,
+      "norm": 13.689044952392578,
+      "min": -0.1175537109375,
+      "max": 0.1390380859375
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.01265313196927309,
+      "std": 0.49056416749954224,
+      "norm": 13.599434852600098,
+      "min": -2.4140625,
+      "max": 2.916015625
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 3.395836074560066e-07,
+      "std": 0.01224631629884243,
+      "norm": 9.405194282531738,
+      "min": -0.085205078125,
+      "max": 0.0745849609375
+    },
+    "vision_encoder.vision_model.encoder.layers.6.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0001766144559951499,
+      "std": 0.09785251319408417,
+      "norm": 2.711772918701172,
+      "min": -0.703125,
+      "max": 1.888671875
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 5.120932110003196e-05,
+      "std": 0.01467744167894125,
+      "norm": 22.544776916503906,
+      "min": -0.1544189453125,
+      "max": 0.1767578125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3514827787876129,
+      "std": 0.17894510924816132,
+      "norm": 21.860578536987305,
+      "min": -1.005859375,
+      "max": 0.1719970703125
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -4.2366195884824265e-06,
+      "std": 0.012493113987147808,
+      "norm": 19.189476013183594,
+      "min": -0.175048828125,
+      "max": 0.15771484375
+    },
+    "vision_encoder.vision_model.encoder.layers.6.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0005341204232536256,
+      "std": 0.06668504327535629,
+      "norm": 1.8480894565582275,
+      "min": -1.1982421875,
+      "max": 0.34765625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.1191349585715216e-05,
+      "std": 0.01796261966228485,
+      "norm": 13.795323371887207,
+      "min": -0.1414794921875,
+      "max": 0.16064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 6.734315684298053e-05,
+      "std": 0.0032650765497237444,
+      "norm": 0.09050370007753372,
+      "min": -0.01204681396484375,
+      "max": 0.01221466064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -5.39465554538765e-06,
+      "std": 0.01271074265241623,
+      "norm": 9.761880874633789,
+      "min": -0.07415771484375,
+      "max": 0.06640625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00023878761567175388,
+      "std": 0.04328399896621704,
+      "norm": 1.1995395421981812,
+      "min": -0.156494140625,
+      "max": 0.277587890625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 1.7535099686938338e-05,
+      "std": 0.018116258084774017,
+      "norm": 13.913323402404785,
+      "min": -0.1285400390625,
+      "max": 0.1484375
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.010261353105306625,
+      "std": 0.5237461924552917,
+      "norm": 14.517266273498535,
+      "min": -3.244140625,
+      "max": 2.978515625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.4964138017603545e-07,
+      "std": 0.012254681438207626,
+      "norm": 9.411619186401367,
+      "min": -0.10223388671875,
+      "max": 0.10760498046875
+    },
+    "vision_encoder.vision_model.encoder.layers.7.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00013319682329893112,
+      "std": 0.14642119407653809,
+      "norm": 4.05774450302124,
+      "min": -0.865234375,
+      "max": 3.1640625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.00018280401127412915,
+      "std": 0.014570694416761398,
+      "norm": 22.382442474365234,
+      "min": -0.10430908203125,
+      "max": 0.135498046875
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.36358439922332764,
+      "std": 0.17439335584640503,
+      "norm": 22.350112915039062,
+      "min": -0.94482421875,
+      "max": 0.28759765625
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -4.036352038383484e-06,
+      "std": 0.01327663566917181,
+      "norm": 20.392976760864258,
+      "min": -0.18701171875,
+      "max": 0.241943359375
+    },
+    "vision_encoder.vision_model.encoder.layers.7.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0009872798109427094,
+      "std": 0.11385072767734528,
+      "norm": 3.155242443084717,
+      "min": -2.64453125,
+      "max": 0.59814453125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.00402916764142e-06,
+      "std": 0.0174001082777977,
+      "norm": 13.363321304321289,
+      "min": -0.1356201171875,
+      "max": 0.12078857421875
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0001141248139902018,
+      "std": 0.0030977302230894566,
+      "norm": 0.0859050527215004,
+      "min": -0.01239013671875,
+      "max": 0.0223846435546875
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 4.578551852318924e-06,
+      "std": 0.012849885039031506,
+      "norm": 9.868741035461426,
+      "min": -0.0721435546875,
+      "max": 0.06280517578125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00031757898977957666,
+      "std": 0.044060178101062775,
+      "norm": 1.221063256263733,
+      "min": -0.353271484375,
+      "max": 0.41064453125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.149759529856965e-05,
+      "std": 0.017778988927602768,
+      "norm": 13.654304504394531,
+      "min": -0.1278076171875,
+      "max": 0.10882568359375
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.008157719857990742,
+      "std": 0.5050286054611206,
+      "norm": 13.997590065002441,
+      "min": -3.443359375,
+      "max": 3.240234375
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.0869771358557045e-06,
+      "std": 0.01257207803428173,
+      "norm": 9.65538215637207,
+      "min": -0.10491943359375,
+      "max": 0.1260986328125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0005957675166428089,
+      "std": 0.08068085461854935,
+      "norm": 2.2359542846679688,
+      "min": -0.6181640625,
+      "max": 1.5947265625
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 0.0004311030497774482,
+      "std": 0.01405539084225893,
+      "norm": 21.599327087402344,
+      "min": -0.0875244140625,
+      "max": 0.10009765625
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3892461359500885,
+      "std": 0.21061700582504272,
+      "norm": 24.52996063232422,
+      "min": -0.9990234375,
+      "max": 0.83203125
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 4.21068443756667e-06,
+      "std": 0.0146934250369668,
+      "norm": 22.56917953491211,
+      "min": -0.20361328125,
+      "max": 0.2333984375
+    },
+    "vision_encoder.vision_model.encoder.layers.8.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0009692094172351062,
+      "std": 0.1488468199968338,
+      "norm": 4.125051498413086,
+      "min": -3.751953125,
+      "max": 0.63134765625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -9.742658590994324e-08,
+      "std": 0.017294954508543015,
+      "norm": 13.282554626464844,
+      "min": -0.1253662109375,
+      "max": 0.119873046875
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 6.673749157926068e-05,
+      "std": 0.0031523178331553936,
+      "norm": 0.08737916499376297,
+      "min": -0.02008056640625,
+      "max": 0.01715087890625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.34558317263145e-05,
+      "std": 0.013572532683610916,
+      "norm": 10.4237642288208,
+      "min": -0.0667724609375,
+      "max": 0.06292724609375
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.002949437825009227,
+      "std": 0.0750286802649498,
+      "norm": 2.080862045288086,
+      "min": -0.3046875,
+      "max": 0.285400390625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.5004930396098644e-05,
+      "std": 0.017387576401233673,
+      "norm": 13.353719711303711,
+      "min": -0.099365234375,
+      "max": 0.11138916015625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.0126531682908535,
+      "std": 0.4919585585594177,
+      "norm": 13.63806438446045,
+      "min": -3.013671875,
+      "max": 3.51171875
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.631992342434387e-07,
+      "std": 0.013434426859021187,
+      "norm": 10.317669868469238,
+      "min": -0.10833740234375,
+      "max": 0.1510009765625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.001196118420921266,
+      "std": 0.06671079993247986,
+      "norm": 1.8490409851074219,
+      "min": -0.68017578125,
+      "max": 0.65234375
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 7.48182283132337e-05,
+      "std": 0.0153003865852952,
+      "norm": 23.50174331665039,
+      "min": -0.12310791015625,
+      "max": 0.10406494140625
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.39475393295288086,
+      "std": 0.2087419331073761,
+      "norm": 24.750123977661133,
+      "min": -1.142578125,
+      "max": 0.7705078125
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": 8.156381227308884e-06,
+      "std": 0.01565304584801197,
+      "norm": 24.043123245239258,
+      "min": -0.2396240234375,
+      "max": 0.1170654296875
+    },
+    "vision_encoder.vision_model.encoder.layers.9.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.00013323407620191574,
+      "std": 0.09363559633493423,
+      "norm": 2.5949082374572754,
+      "min": -1.001953125,
+      "max": 0.60888671875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 3.44652944477275e-05,
+      "std": 0.01737489365041256,
+      "norm": 13.343973159790039,
+      "min": -0.131591796875,
+      "max": 0.11431884765625
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -9.91494525806047e-05,
+      "std": 0.0029208259657025337,
+      "norm": 0.08099093288183212,
+      "min": -0.025543212890625,
+      "max": 0.0170440673828125
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.2279651602730155e-05,
+      "std": 0.014263808727264404,
+      "norm": 10.95465087890625,
+      "min": -0.06732177734375,
+      "max": 0.0711669921875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.002200240967795253,
+      "std": 0.09487639367580414,
+      "norm": 2.6299986839294434,
+      "min": -0.282958984375,
+      "max": 0.26904296875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -5.92151718592504e-06,
+      "std": 0.017597027122974396,
+      "norm": 13.514545440673828,
+      "min": -0.09454345703125,
+      "max": 0.1046142578125
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": 0.013835613615810871,
+      "std": 0.47439733147621155,
+      "norm": 13.152474403381348,
+      "min": -3.515625,
+      "max": 3.4140625
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -6.097383931091827e-08,
+      "std": 0.014257832430303097,
+      "norm": 10.950045585632324,
+      "min": -0.08856201171875,
+      "max": 0.153076171875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0013359328731894493,
+      "std": 0.09860890358686447,
+      "norm": 2.732980728149414,
+      "min": -0.422607421875,
+      "max": 1.193359375
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": -0.00020997552201151848,
+      "std": 0.015134880319237709,
+      "norm": 23.249483108520508,
+      "min": -0.1151123046875,
+      "max": 0.14208984375
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.40973207354545593,
+      "std": 0.15992528200149536,
+      "norm": 24.37822914123535,
+      "min": -1.6796875,
+      "max": 1.2314453125
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -8.406191227550153e-06,
+      "std": 0.01757398247718811,
+      "norm": 26.993635177612305,
+      "min": -0.3388671875,
+      "max": 0.2381591796875
+    },
+    "vision_encoder.vision_model.encoder.layers.10.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0004589144664350897,
+      "std": 0.10492602735757828,
+      "norm": 2.907823085784912,
+      "min": -1.3388671875,
+      "max": 0.456298828125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.k_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.7326259694527835e-05,
+      "std": 0.014908482320606709,
+      "norm": 11.44975471496582,
+      "min": -0.1522216796875,
+      "max": 0.1036376953125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.k_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.00013051375572104007,
+      "std": 0.004295518156141043,
+      "norm": 0.1190958246588707,
+      "min": -0.04229736328125,
+      "max": 0.03240966796875
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.v_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -1.193472598970402e-05,
+      "std": 0.016557704657316208,
+      "norm": 12.716354370117188,
+      "min": -0.09210205078125,
+      "max": 0.08843994140625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.v_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0101000452414155,
+      "std": 0.0973789170384407,
+      "norm": 2.713120460510254,
+      "min": -0.322998046875,
+      "max": 0.380615234375
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.q_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": 2.9667089620488696e-06,
+      "std": 0.01541993860155344,
+      "norm": 11.842543601989746,
+      "min": -0.08795166015625,
+      "max": 0.0714111328125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.q_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0027520519215613604,
+      "std": 0.29286181926727295,
+      "norm": 8.116382598876953,
+      "min": -2.333984375,
+      "max": 2.2265625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.out_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "mean": -3.729648142325459e-06,
+      "std": 0.016127826645970345,
+      "norm": 12.386204719543457,
+      "min": -0.1622314453125,
+      "max": 0.1650390625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.self_attn.out_proj.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.003864792874082923,
+      "std": 0.26259759068489075,
+      "norm": 7.278106212615967,
+      "min": -0.32763671875,
+      "max": 6.65625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc1.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "mean": 4.91861101181712e-06,
+      "std": 0.014337565749883652,
+      "norm": 22.022600173950195,
+      "min": -0.1195068359375,
+      "max": 0.1090087890625
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc1.bias": {
+      "shape": [
+        3072
+      ],
+      "mean": -0.3980010449886322,
+      "std": 0.19804280996322632,
+      "norm": 24.639528274536133,
+      "min": -1.158203125,
+      "max": 0.85546875
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc2.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "mean": -3.9926235331222415e-06,
+      "std": 0.014301181770861149,
+      "norm": 21.966720581054688,
+      "min": -0.1357421875,
+      "max": 0.11212158203125
+    },
+    "vision_encoder.vision_model.encoder.layers.11.mlp.fc2.bias": {
+      "shape": [
+        768
+      ],
+      "mean": -0.0012918434804305434,
+      "std": 0.16237416863441467,
+      "norm": 4.4999871253967285,
+      "min": -0.4365234375,
+      "max": 2.94140625
+    },
+    "vision_encoder.visual_projection.weight": {
+      "shape": [
+        512,
+        768
+      ],
+      "mean": -3.63806466339156e-05,
+      "std": 0.012827957980334759,
+      "norm": 8.044068336486816,
+      "min": -0.1253662109375,
+      "max": 0.0931396484375
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -3.802627179538831e-05,
+      "std": 0.022218838334083557,
+      "norm": 11.376079559326172,
+      "min": -0.20703125,
+      "max": 0.24609375
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0024186973460018635,
+      "std": 0.02057575061917305,
+      "norm": 0.4687817692756653,
+      "min": -0.102294921875,
+      "max": 0.1092529296875
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 4.181940312264487e-05,
+      "std": 0.011374064721167088,
+      "norm": 5.823570728302002,
+      "min": -0.0975341796875,
+      "max": 0.087890625
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.004257337190210819,
+      "std": 0.07502047717571259,
+      "norm": 1.7002508640289307,
+      "min": -0.294677734375,
+      "max": 0.9970703125
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 8.338792395079508e-05,
+      "std": 0.02291875146329403,
+      "norm": 11.734498977661133,
+      "min": -0.1536865234375,
+      "max": 0.196044921875
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.03586192429065704,
+      "std": 0.4299716651439667,
+      "norm": 9.762929916381836,
+      "min": -2.8984375,
+      "max": 3.251953125
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.022893568209838e-06,
+      "std": 0.011105841025710106,
+      "norm": 5.686200141906738,
+      "min": -0.11944580078125,
+      "max": 0.142333984375
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0011031815083697438,
+      "std": 0.06161215156316757,
+      "norm": 1.3943473100662231,
+      "min": -0.666015625,
+      "max": 0.439208984375
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": 8.013738261070102e-05,
+      "std": 0.019341476261615753,
+      "norm": 19.805891036987305,
+      "min": -0.76513671875,
+      "max": 1.4150390625
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4435495138168335,
+      "std": 0.3261343538761139,
+      "norm": 24.91482162475586,
+      "min": -7.01171875,
+      "max": 0.77197265625
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -2.4334976842510514e-06,
+      "std": 0.009888317435979843,
+      "norm": 10.125672340393066,
+      "min": -0.326416015625,
+      "max": 0.104736328125
+    },
+    "clip_text_encoder.text_model.encoder.layers.0.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0010581219103187323,
+      "std": 0.08008653670549393,
+      "norm": 1.812309741973877,
+      "min": -1.3203125,
+      "max": 0.7470703125
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.7827969461213797e-05,
+      "std": 0.022352399304509163,
+      "norm": 11.444456100463867,
+      "min": -0.14599609375,
+      "max": 0.18017578125
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0001533282920718193,
+      "std": 0.004658176563680172,
+      "norm": 0.10545958578586578,
+      "min": -0.01441192626953125,
+      "max": 0.0221099853515625
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.1092964086856227e-05,
+      "std": 0.011641436256468296,
+      "norm": 5.960428714752197,
+      "min": -0.063232421875,
+      "max": 0.0726318359375
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0008592277299612761,
+      "std": 0.034254174679517746,
+      "norm": 0.7753273248672485,
+      "min": -0.2286376953125,
+      "max": 0.369873046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -2.09960708161816e-05,
+      "std": 0.02211170457303524,
+      "norm": 11.321218490600586,
+      "min": -0.129150390625,
+      "max": 0.12939453125
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0003509391099214554,
+      "std": 0.5061115026473999,
+      "norm": 11.451998710632324,
+      "min": -2.1015625,
+      "max": 1.9345703125
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -9.43961367738666e-07,
+      "std": 0.011276058852672577,
+      "norm": 5.77335262298584,
+      "min": -0.07196044921875,
+      "max": 0.0982666015625
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -5.075021181255579e-05,
+      "std": 0.033697765320539474,
+      "norm": 0.7624942064285278,
+      "min": -0.32275390625,
+      "max": 0.1590576171875
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00018614604778122157,
+      "std": 0.016122976318001747,
+      "norm": 16.511075973510742,
+      "min": -0.21923828125,
+      "max": 0.115966796875
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4354011118412018,
+      "std": 0.17037203907966614,
+      "norm": 21.15878677368164,
+      "min": -1.04296875,
+      "max": 1.1328125
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -2.6335383154219016e-06,
+      "std": 0.010441183112561703,
+      "norm": 10.691814422607422,
+      "min": -0.234619140625,
+      "max": 0.0809326171875
+    },
+    "clip_text_encoder.text_model.encoder.layers.1.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0009228214621543884,
+      "std": 0.06262579560279846,
+      "norm": 1.417213797569275,
+      "min": -0.984375,
+      "max": 0.64404296875
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.22168855543714e-05,
+      "std": 0.021313229575753212,
+      "norm": 10.912398338317871,
+      "min": -0.176513671875,
+      "max": 0.1689453125
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.00022455770522356033,
+      "std": 0.004692277405411005,
+      "norm": 0.1062956303358078,
+      "min": -0.017730712890625,
+      "max": 0.033050537109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.0016206942964345e-05,
+      "std": 0.012213537469506264,
+      "norm": 6.253343105316162,
+      "min": -0.052093505859375,
+      "max": 0.058502197265625
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0009467656491324306,
+      "std": 0.02850383333861828,
+      "norm": 0.6453237533569336,
+      "min": -0.121826171875,
+      "max": 0.1812744140625
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -4.027696377306711e-06,
+      "std": 0.021807869896292686,
+      "norm": 11.165647506713867,
+      "min": -0.1480712890625,
+      "max": 0.1453857421875
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.027312472462654114,
+      "std": 0.47055065631866455,
+      "norm": 10.665266036987305,
+      "min": -2.044921875,
+      "max": 2.24609375
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 7.323974386963528e-07,
+      "std": 0.011812940239906311,
+      "norm": 6.04823637008667,
+      "min": -0.080322265625,
+      "max": 0.07000732421875
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0003644856624305248,
+      "std": 0.029156317934393883,
+      "norm": 0.6597837209701538,
+      "min": -0.2744140625,
+      "max": 0.1070556640625
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00013477797619998455,
+      "std": 0.015995878726243973,
+      "norm": 16.380399703979492,
+      "min": -0.212158203125,
+      "max": 0.11602783203125
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.42895013093948364,
+      "std": 0.1875322163105011,
+      "norm": 21.1861515045166,
+      "min": -0.84228515625,
+      "max": 0.771484375
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -2.9871930564695504e-06,
+      "std": 0.010554525069892406,
+      "norm": 10.807875633239746,
+      "min": -0.1343994140625,
+      "max": 0.08953857421875
+    },
+    "clip_text_encoder.text_model.encoder.layers.2.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -1.5115365386009216e-06,
+      "std": 0.0608704574406147,
+      "norm": 1.3773411512374878,
+      "min": -0.67333984375,
+      "max": 0.359619140625
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.1179647117387503e-05,
+      "std": 0.020271513611078262,
+      "norm": 10.379035949707031,
+      "min": -0.170166015625,
+      "max": 0.1669921875
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -3.4444849006831646e-05,
+      "std": 0.003779579419642687,
+      "norm": 0.08552566915750504,
+      "min": -0.0180816650390625,
+      "max": 0.0168304443359375
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -2.0101997506571934e-05,
+      "std": 0.012855034321546555,
+      "norm": 6.581796169281006,
+      "min": -0.06341552734375,
+      "max": 0.059906005859375
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00031684432178735733,
+      "std": 0.029643574729561806,
+      "norm": 0.6707957983016968,
+      "min": -0.1427001953125,
+      "max": 0.164794921875
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -8.51887307362631e-06,
+      "std": 0.021168570965528488,
+      "norm": 10.838325500488281,
+      "min": -0.1241455078125,
+      "max": 0.1236572265625
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0018569789826869965,
+      "std": 0.44406718015670776,
+      "norm": 10.04818058013916,
+      "min": -2.15234375,
+      "max": 2.0625
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -4.3883255784749053e-07,
+      "std": 0.012552686966955662,
+      "norm": 6.426985740661621,
+      "min": -0.12109375,
+      "max": 0.0960693359375
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -9.132362902164459e-05,
+      "std": 0.027692662551999092,
+      "norm": 0.6266168355941772,
+      "min": -0.22265625,
+      "max": 0.121337890625
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00044975473429076374,
+      "std": 0.01575813814997673,
+      "norm": 16.142942428588867,
+      "min": -0.11785888671875,
+      "max": 0.13037109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.43435585498809814,
+      "std": 0.17765989899635315,
+      "norm": 21.237396240234375,
+      "min": -1.2939453125,
+      "max": 1.08203125
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -1.023294771584915e-06,
+      "std": 0.010904168710112572,
+      "norm": 11.165904998779297,
+      "min": -0.09222412109375,
+      "max": 0.10076904296875
+    },
+    "clip_text_encoder.text_model.encoder.layers.3.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.00036492221988737583,
+      "std": 0.06691909581422806,
+      "norm": 1.5142287015914917,
+      "min": -0.3466796875,
+      "max": 0.34130859375
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.5114783056778833e-05,
+      "std": 0.020055346190929413,
+      "norm": 10.268359184265137,
+      "min": -0.1866455078125,
+      "max": 0.12139892578125
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.000163553049787879,
+      "std": 0.0031977607868611813,
+      "norm": 0.072451651096344,
+      "min": -0.01464080810546875,
+      "max": 0.021575927734375
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.6323127056239173e-05,
+      "std": 0.012693522498011589,
+      "norm": 6.4990997314453125,
+      "min": -0.062347412109375,
+      "max": 0.059844970703125
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00082935462705791,
+      "std": 0.028407877311110497,
+      "norm": 0.6430707573890686,
+      "min": -0.1612548828125,
+      "max": 0.137939453125
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.341212166356854e-05,
+      "std": 0.02076631970703602,
+      "norm": 10.6323823928833,
+      "min": -0.1441650390625,
+      "max": 0.10845947265625
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0009161569178104401,
+      "std": 0.4674694836139679,
+      "norm": 10.57764720916748,
+      "min": -1.9814453125,
+      "max": 1.90234375
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 3.6303781598689966e-06,
+      "std": 0.012432055547833443,
+      "norm": 6.365222454071045,
+      "min": -0.071044921875,
+      "max": 0.070556640625
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00021987361833453178,
+      "std": 0.026673197746276855,
+      "norm": 0.6035661101341248,
+      "min": -0.1553955078125,
+      "max": 0.127197265625
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00023635664547327906,
+      "std": 0.01562710665166378,
+      "norm": 16.004026412963867,
+      "min": -0.08843994140625,
+      "max": 0.0999755859375
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4251837134361267,
+      "std": 0.18711450695991516,
+      "norm": 21.0224666595459,
+      "min": -0.8173828125,
+      "max": 0.69091796875
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -3.65162804882857e-07,
+      "std": 0.011267258785665035,
+      "norm": 11.537712097167969,
+      "min": -0.08441162109375,
+      "max": 0.116455078125
+    },
+    "clip_text_encoder.text_model.encoder.layers.4.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0003927734214812517,
+      "std": 0.05962091684341431,
+      "norm": 1.3490965366363525,
+      "min": -0.363525390625,
+      "max": 0.2763671875
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -5.527557004825212e-05,
+      "std": 0.019254405051469803,
+      "norm": 9.858312606811523,
+      "min": -0.14013671875,
+      "max": 0.11187744140625
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -2.5131506845355034e-05,
+      "std": 0.0033737823832780123,
+      "norm": 0.07634209841489792,
+      "min": -0.0211181640625,
+      "max": 0.0261993408203125
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -1.6764290194259956e-05,
+      "std": 0.013418828137218952,
+      "norm": 6.870456218719482,
+      "min": -0.0673828125,
+      "max": 0.05938720703125
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0014282719930633903,
+      "std": 0.03029714524745941,
+      "norm": 0.6863075494766235,
+      "min": -0.10577392578125,
+      "max": 0.2130126953125
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.4968085451982915e-05,
+      "std": 0.019812438637018204,
+      "norm": 10.143987655639648,
+      "min": -0.165771484375,
+      "max": 0.165771484375
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.01129059586673975,
+      "std": 0.4533347189426422,
+      "norm": 10.260974884033203,
+      "min": -2.244140625,
+      "max": 2.357421875
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -1.594125023984816e-06,
+      "std": 0.01324793603271246,
+      "norm": 6.782954216003418,
+      "min": -0.06182861328125,
+      "max": 0.0784912109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -2.8631766326725483e-05,
+      "std": 0.03821844980120659,
+      "norm": 0.8647851347923279,
+      "min": -0.12286376953125,
+      "max": 0.12646484375
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00019192964828107506,
+      "std": 0.015538100153207779,
+      "norm": 15.912267684936523,
+      "min": -0.1712646484375,
+      "max": 0.133544921875
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.42547881603240967,
+      "std": 0.17631211876869202,
+      "norm": 20.842695236206055,
+      "min": -0.7939453125,
+      "max": 0.88330078125
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": 5.769765039076447e-07,
+      "std": 0.01201698463410139,
+      "norm": 12.305427551269531,
+      "min": -0.135986328125,
+      "max": 0.08880615234375
+    },
+    "clip_text_encoder.text_model.encoder.layers.5.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.00042576936539262533,
+      "std": 0.05971851572394371,
+      "norm": 1.3513100147247314,
+      "min": -0.28369140625,
+      "max": 0.167236328125
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -9.906099876388907e-06,
+      "std": 0.01928032748401165,
+      "norm": 9.871542930603027,
+      "min": -0.1258544921875,
+      "max": 0.1341552734375
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0002451420295983553,
+      "std": 0.004584756214171648,
+      "norm": 0.10388938337564468,
+      "min": -0.0219879150390625,
+      "max": 0.03759765625
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.9270921004354022e-05,
+      "std": 0.012963414192199707,
+      "norm": 6.637294292449951,
+      "min": -0.058807373046875,
+      "max": 0.060577392578125
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0006554059218615294,
+      "std": 0.02497517503798008,
+      "norm": 0.56531822681427,
+      "min": -0.0655517578125,
+      "max": 0.104248046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 9.81653329290566e-07,
+      "std": 0.019778288900852203,
+      "norm": 10.126503944396973,
+      "min": -0.1650390625,
+      "max": 0.1463623046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.011471807956695557,
+      "std": 0.47040143609046936,
+      "norm": 10.647133827209473,
+      "min": -2.068359375,
+      "max": 2.724609375
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 8.178294592653401e-07,
+      "std": 0.01274325605481863,
+      "norm": 6.524557113647461,
+      "min": -0.09356689453125,
+      "max": 0.08062744140625
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -8.836062625050545e-05,
+      "std": 0.03364456444978714,
+      "norm": 0.7612922191619873,
+      "min": -0.18408203125,
+      "max": 0.08831787109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.0002256610750919208,
+      "std": 0.015396228060126305,
+      "norm": 15.767473220825195,
+      "min": -0.1539306640625,
+      "max": 0.1156005859375
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4245801568031311,
+      "std": 0.1835319548845291,
+      "norm": 20.9326114654541,
+      "min": -1.119140625,
+      "max": 0.62841796875
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -3.2570183066127356e-06,
+      "std": 0.01241349522024393,
+      "norm": 12.711451530456543,
+      "min": -0.1669921875,
+      "max": 0.13525390625
+    },
+    "clip_text_encoder.text_model.encoder.layers.6.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0005081444978713989,
+      "std": 0.06428273767232895,
+      "norm": 1.4545977115631104,
+      "min": -0.465087890625,
+      "max": 0.27587890625
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -4.185118814348243e-05,
+      "std": 0.01895175315439701,
+      "norm": 9.703335762023926,
+      "min": -0.154296875,
+      "max": 0.11376953125
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00021631107665598392,
+      "std": 0.006892192643135786,
+      "norm": 0.15602931380271912,
+      "min": -0.047760009765625,
+      "max": 0.04974365234375
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.0113741154782474e-05,
+      "std": 0.013246424496173859,
+      "norm": 6.782183647155762,
+      "min": -0.07000732421875,
+      "max": 0.062225341796875
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00017433310858905315,
+      "std": 0.03521361202001572,
+      "norm": 0.7968028783798218,
+      "min": -0.1435546875,
+      "max": 0.10821533203125
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 3.7006033380748704e-05,
+      "std": 0.019365346059203148,
+      "norm": 9.915091514587402,
+      "min": -0.2041015625,
+      "max": 0.1514892578125
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.010383154265582561,
+      "std": 0.43270695209503174,
+      "norm": 9.793859481811523,
+      "min": -2.203125,
+      "max": 1.9248046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 4.012923909613164e-06,
+      "std": 0.012999814003705978,
+      "norm": 6.655917167663574,
+      "min": -0.07318115234375,
+      "max": 0.08966064453125
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0005940378177911043,
+      "std": 0.03644143417477608,
+      "norm": 0.8246850967407227,
+      "min": -0.2998046875,
+      "max": 0.1314697265625
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.0001647212338866666,
+      "std": 0.015262922272086143,
+      "norm": 15.630182266235352,
+      "min": -0.2130126953125,
+      "max": 0.1123046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4380560517311096,
+      "std": 0.18139711022377014,
+      "norm": 21.456613540649414,
+      "min": -0.84912109375,
+      "max": 1.0166015625
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -4.380740392662119e-06,
+      "std": 0.013142606243491173,
+      "norm": 13.458065032958984,
+      "min": -0.162841796875,
+      "max": 0.21240234375
+    },
+    "clip_text_encoder.text_model.encoder.layers.7.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.00024776626378297806,
+      "std": 0.07511506974697113,
+      "norm": 1.6996692419052124,
+      "min": -0.96533203125,
+      "max": 0.341796875
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.662850783963222e-05,
+      "std": 0.018597312271595,
+      "norm": 9.5218505859375,
+      "min": -0.12322998046875,
+      "max": 0.09716796875
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0002918805694207549,
+      "std": 0.006351476069539785,
+      "norm": 0.14386917650699615,
+      "min": -0.0743408203125,
+      "max": 0.0192718505859375
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -3.8542628317372873e-05,
+      "std": 0.013777759857475758,
+      "norm": 7.0542521476745605,
+      "min": -0.07379150390625,
+      "max": 0.068359375
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.004079985432326794,
+      "std": 0.03973054513335228,
+      "norm": 0.9037274122238159,
+      "min": -0.139404296875,
+      "max": 0.1571044921875
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -1.312768472416792e-05,
+      "std": 0.01908235251903534,
+      "norm": 9.770186424255371,
+      "min": -0.1480712890625,
+      "max": 0.1611328125
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0016045556403696537,
+      "std": 0.44452667236328125,
+      "norm": 10.05855655670166,
+      "min": -2.359375,
+      "max": 2.673828125
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -5.522401806956623e-07,
+      "std": 0.013562166132032871,
+      "norm": 6.943838596343994,
+      "min": -0.08233642578125,
+      "max": 0.084228515625
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0012795390794053674,
+      "std": 0.04517652466893196,
+      "norm": 1.022637963294983,
+      "min": -0.2110595703125,
+      "max": 0.265380859375
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.000167121717822738,
+      "std": 0.015016991645097733,
+      "norm": 15.378396987915039,
+      "min": -0.111572265625,
+      "max": 0.09588623046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.43448904156684875,
+      "std": 0.1483416110277176,
+      "norm": 20.777141571044922,
+      "min": -0.84375,
+      "max": 0.416015625
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -1.3054179362370633e-05,
+      "std": 0.013974136672914028,
+      "norm": 14.30955696105957,
+      "min": -0.248779296875,
+      "max": 0.1473388671875
+    },
+    "clip_text_encoder.text_model.encoder.layers.8.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00020753219723701477,
+      "std": 0.06978936493396759,
+      "norm": 1.5791599750518799,
+      "min": -0.9423828125,
+      "max": 0.3076171875
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -2.7126510758535005e-05,
+      "std": 0.017913876101374626,
+      "norm": 9.171928405761719,
+      "min": -0.1943359375,
+      "max": 0.11065673828125
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.000350937363691628,
+      "std": 0.01270355749875307,
+      "norm": 0.287558376789093,
+      "min": -0.052642822265625,
+      "max": 0.07183837890625
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.566695457062451e-06,
+      "std": 0.014788109809160233,
+      "norm": 7.571523666381836,
+      "min": -0.07000732421875,
+      "max": 0.06817626953125
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0013965095859020948,
+      "std": 0.044443149119615555,
+      "norm": 1.0061299800872803,
+      "min": -0.238525390625,
+      "max": 0.1552734375
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 3.399532943149097e-05,
+      "std": 0.018183965235948563,
+      "norm": 9.310221672058105,
+      "min": -0.1949462890625,
+      "max": 0.1878662109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.03160276636481285,
+      "std": 0.4562194347381592,
+      "norm": 10.34780502319336,
+      "min": -2.447265625,
+      "max": 2.212890625
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 4.815578449779423e-06,
+      "std": 0.014395232312381268,
+      "norm": 7.370370864868164,
+      "min": -0.1396484375,
+      "max": 0.15185546875
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0009969586972147226,
+      "std": 0.06533265113830566,
+      "norm": 1.4784811735153198,
+      "min": -0.84814453125,
+      "max": 0.191162109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.0002704941725824028,
+      "std": 0.014861543662846088,
+      "norm": 15.22077751159668,
+      "min": -0.10107421875,
+      "max": 0.16064453125
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4240567088127136,
+      "std": 0.13140873610973358,
+      "norm": 20.090919494628906,
+      "min": -0.92724609375,
+      "max": 0.2276611328125
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -1.1720862858055625e-05,
+      "std": 0.014541549608111382,
+      "norm": 14.890578269958496,
+      "min": -0.2181396484375,
+      "max": 0.312744140625
+    },
+    "clip_text_encoder.text_model.encoder.layers.9.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0004928281996399164,
+      "std": 0.1008891761302948,
+      "norm": 2.282888650894165,
+      "min": -1.947265625,
+      "max": 0.20166015625
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 2.940967897302471e-05,
+      "std": 0.016630886122584343,
+      "norm": 8.515040397644043,
+      "min": -0.133056640625,
+      "max": 0.1326904296875
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -5.584745667874813e-05,
+      "std": 0.009981881827116013,
+      "norm": 0.22586773335933685,
+      "min": -0.03961181640625,
+      "max": 0.06732177734375
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 1.9735580281121656e-06,
+      "std": 0.016460973769426346,
+      "norm": 8.42802906036377,
+      "min": -0.08697509765625,
+      "max": 0.08843994140625
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.001988634467124939,
+      "std": 0.04021717235445976,
+      "norm": 0.9111225605010986,
+      "min": -0.129150390625,
+      "max": 0.1304931640625
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -3.754370482056402e-05,
+      "std": 0.016923846676945686,
+      "norm": 8.665043830871582,
+      "min": -0.1331787109375,
+      "max": 0.1263427734375
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.015805311501026154,
+      "std": 0.4540085196495056,
+      "norm": 10.279263496398926,
+      "min": -2.677734375,
+      "max": 2.884765625
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 7.216307494672947e-06,
+      "std": 0.015760913491249084,
+      "norm": 8.069601058959961,
+      "min": -0.1046142578125,
+      "max": 0.116943359375
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0048546697944402695,
+      "std": 0.11418252438306808,
+      "norm": 2.5859897136688232,
+      "min": -0.9619140625,
+      "max": 0.34765625
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00014023100084159523,
+      "std": 0.0147883091121912,
+      "norm": 15.14394760131836,
+      "min": -0.146484375,
+      "max": 0.12139892578125
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.4033316671848297,
+      "std": 0.1257748007774353,
+      "norm": 19.11960220336914,
+      "min": -1.173828125,
+      "max": 0.2152099609375
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -1.8547192667028867e-05,
+      "std": 0.01526620239019394,
+      "norm": 15.632641792297363,
+      "min": -0.36328125,
+      "max": 0.342041015625
+    },
+    "clip_text_encoder.text_model.encoder.layers.10.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0006550545804202557,
+      "std": 0.08269932121038437,
+      "norm": 1.871330738067627,
+      "min": -1.1708984375,
+      "max": 0.283203125
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.k_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -3.1432866762770573e-06,
+      "std": 0.014750516042113304,
+      "norm": 7.552275657653809,
+      "min": -0.16748046875,
+      "max": 0.1573486328125
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.k_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 7.255165837705135e-05,
+      "std": 0.003671298734843731,
+      "norm": 0.0830882266163826,
+      "min": -0.0220184326171875,
+      "max": 0.0292816162109375
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -1.9878507373505272e-05,
+      "std": 0.020576102659106255,
+      "norm": 10.534988403320312,
+      "min": -0.1173095703125,
+      "max": 0.1263427734375
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.v_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0032577598467469215,
+      "std": 0.064053013920784,
+      "norm": 1.4512276649475098,
+      "min": -0.234619140625,
+      "max": 0.208984375
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.q_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -1.4342335816763807e-05,
+      "std": 0.015002436004579067,
+      "norm": 7.681262493133545,
+      "min": -0.10772705078125,
+      "max": 0.09173583984375
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.q_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.01087039802223444,
+      "std": 0.36566048860549927,
+      "norm": 8.277606964111328,
+      "min": -2.326171875,
+      "max": 2.501953125
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.out_proj.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 5.69699659536127e-06,
+      "std": 0.0177890807390213,
+      "norm": 9.108022689819336,
+      "min": -0.1044921875,
+      "max": 0.173828125
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.self_attn.out_proj.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0037040896713733673,
+      "std": 0.2093142569065094,
+      "norm": 4.736982345581055,
+      "min": -0.658203125,
+      "max": 1.9345703125
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.mlp.fc1.weight": {
+      "shape": [
+        2048,
+        512
+      ],
+      "mean": -0.00013280214625410736,
+      "std": 0.015176314860582352,
+      "norm": 15.541181564331055,
+      "min": -0.093017578125,
+      "max": 0.1099853515625
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.mlp.fc1.bias": {
+      "shape": [
+        2048
+      ],
+      "mean": -0.34597909450531006,
+      "std": 0.18592558801174164,
+      "norm": 17.774829864501953,
+      "min": -1.1181640625,
+      "max": 1.1748046875
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.mlp.fc2.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "mean": -1.7354352166876197e-05,
+      "std": 0.015373704954981804,
+      "norm": 15.74272346496582,
+      "min": -0.10882568359375,
+      "max": 0.1767578125
+    },
+    "clip_text_encoder.text_model.encoder.layers.11.mlp.fc2.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.005164407193660736,
+      "std": 0.18222129344940186,
+      "norm": 4.124853134155273,
+      "min": -0.69775390625,
+      "max": 1.3310546875
+    },
+    "clip_text_encoder.text_projection.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 3.6450896004680544e-05,
+      "std": 0.012961599044501781,
+      "norm": 6.636375427246094,
+      "min": -0.115478515625,
+      "max": 0.109619140625
+    },
+    "text_proj.0.weight": {
+      "shape": [
+        512,
+        768
+      ],
+      "mean": 3.6395376810105518e-06,
+      "std": 0.02100716345012188,
+      "norm": 13.172945022583008,
+      "min": -0.044197920709848404,
+      "max": 0.04551325738430023
+    },
+    "text_proj.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0014969231560826302,
+      "std": 0.019871555268764496,
+      "norm": 0.4509159326553345,
+      "min": -0.03763178363442421,
+      "max": 0.037133101373910904
+    },
+    "text_proj.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0001423358917236,
+      "std": 0.0017331111012026668,
+      "norm": 22.630672454833984,
+      "min": 0.9958774447441101,
+      "max": 1.006961703300476
+    },
+    "text_proj.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 1.5120749594643712e-06,
+      "std": 0.0015996380243450403,
+      "norm": 0.03619569540023804,
+      "min": -0.00539636705070734,
+      "max": 0.004523284733295441
+    },
+    "vision_proj.0.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": -3.62896389560774e-05,
+      "std": 0.02548534981906414,
+      "norm": 13.04850959777832,
+      "min": -0.04419412463903427,
+      "max": 0.044194165617227554
+    },
+    "vision_proj.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.00017342687351629138,
+      "std": 0.025139419361948967,
+      "norm": 0.5688536763191223,
+      "min": -0.04415946081280708,
+      "max": 0.044111061841249466
+    },
+    "vision_proj.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0,
+      "std": 0.0,
+      "norm": 22.627416610717773,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "vision_proj.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0,
+      "std": 0.0,
+      "norm": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "concat_mlp.0.weight": {
+      "shape": [
+        512,
+        1024
+      ],
+      "mean": -4.624799657904077e-06,
+      "std": 0.018105898052453995,
+      "norm": 13.110065460205078,
+      "min": -0.03916609659790993,
+      "max": 0.040191393345594406
+    },
+    "concat_mlp.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0003712037578225136,
+      "std": 0.017862902954220772,
+      "norm": 0.40427863597869873,
+      "min": -0.03177259862422943,
+      "max": 0.0325002558529377
+    },
+    "concat_mlp.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0000360012054443,
+      "std": 0.0015473720850422978,
+      "norm": 22.628257751464844,
+      "min": 0.9954676628112793,
+      "max": 1.005416989326477
+    },
+    "concat_mlp.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.00013629367458634079,
+      "std": 0.001025752048008144,
+      "norm": 0.023414112627506256,
+      "min": -0.002700908575206995,
+      "max": 0.0028606571722775698
+    },
+    "concat_mlp.4.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": -8.519378025084734e-05,
+      "std": 0.025458183139562607,
+      "norm": 1.411043643951416,
+      "min": -0.04884292557835579,
+      "max": 0.04743235185742378
+    },
+    "concat_mlp.4.bias": {
+      "shape": [
+        6
+      ],
+      "mean": -0.006353441625833511,
+      "std": 0.016174860298633575,
+      "norm": 0.04256705194711685,
+      "min": -0.0335828922688961,
+      "max": 0.016275323927402496
+    },
+    "gate_network.0.weight": {
+      "shape": [
+        512,
+        1024
+      ],
+      "mean": -2.3110937036108226e-05,
+      "std": 0.01809554174542427,
+      "norm": 13.102578163146973,
+      "min": -0.04100555554032326,
+      "max": 0.03897064924240112
+    },
+    "gate_network.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": -0.0010397621663287282,
+      "std": 0.01795862801373005,
+      "norm": 0.4070378839969635,
+      "min": -0.032412782311439514,
+      "max": 0.03183545917272568
+    },
+    "gate_network.1.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 1.0004761219024658,
+      "std": 0.001786031061783433,
+      "norm": 22.638225555419922,
+      "min": 0.9953978657722473,
+      "max": 1.0077142715454102
+    },
+    "gate_network.1.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.00015160118346102536,
+      "std": 0.0016006560763344169,
+      "norm": 0.03638079762458801,
+      "min": -0.0038571979384869337,
+      "max": 0.00433632917702198
+    },
+    "gate_network.3.weight": {
+      "shape": [
+        512,
+        512
+      ],
+      "mean": 5.863762453373056e-06,
+      "std": 0.02560598775744438,
+      "norm": 13.110262870788574,
+      "min": -0.05225997418165207,
+      "max": 0.053282205015420914
+    },
+    "gate_network.3.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 0.0006155607989057899,
+      "std": 0.024917272850871086,
+      "norm": 0.5639855861663818,
+      "min": -0.04886098951101303,
+      "max": 0.04609384760260582
+    },
+    "gated_classifier.0.weight": {
+      "shape": [
+        512
+      ],
+      "mean": 0.9997072219848633,
+      "std": 0.001821825746446848,
+      "norm": 22.620830535888672,
+      "min": 0.9939595460891724,
+      "max": 1.0046058893203735
+    },
+    "gated_classifier.0.bias": {
+      "shape": [
+        512
+      ],
+      "mean": 8.895903010852635e-05,
+      "std": 0.0014952837955206633,
+      "norm": 0.03389423340559006,
+      "min": -0.0037886654026806355,
+      "max": 0.0033548600040376186
+    },
+    "gated_classifier.2.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": -0.00018040726718027145,
+      "std": 0.025604872032999992,
+      "norm": 1.4192012548446655,
+      "min": -0.048072997480630875,
+      "max": 0.046897076070308685
+    },
+    "gated_classifier.2.bias": {
+      "shape": [
+        6
+      ],
+      "mean": -0.007341906428337097,
+      "std": 0.026652200147509575,
+      "norm": 0.06771602481603622,
+      "min": -0.03857947885990143,
+      "max": 0.02782202698290348
+    },
+    "text_classifier.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": -0.00028072198620066047,
+      "std": 0.02595730870962143,
+      "norm": 1.4387842416763306,
+      "min": -0.04413679614663124,
+      "max": 0.04418868198990822
+    },
+    "text_classifier.bias": {
+      "shape": [
+        6
+      ],
+      "mean": 0.008526462130248547,
+      "std": 0.023536449298262596,
+      "norm": 0.06131875887513161,
+      "min": -0.010589133948087692,
+      "max": 0.04259674623608589
+    },
+    "vision_classifier.weight": {
+      "shape": [
+        6,
+        512
+      ],
+      "mean": 0.0002088156179524958,
+      "std": 0.025758907198905945,
+      "norm": 1.4277504682540894,
+      "min": -0.04414442554116249,
+      "max": 0.04417194053530693
+    },
+    "vision_classifier.bias": {
+      "shape": [
+        6
+      ],
+      "mean": 0.0006115402211435139,
+      "std": 0.022145438939332962,
+      "norm": 0.05426570400595665,
+      "min": -0.023006103932857513,
+      "max": 0.030612070113420486
+    }
+  },
+  "embedding_analysis": {
+    "model_c": {
+      "text_embedding_mean_norm": 14.5985,
+      "vision_embedding_mean_norm": 14.6129,
+      "norm_ratio_vision_to_text": 1.001,
+      "mean_cosine_similarity": 0.1777
+    },
+    "model_c2": {
+      "text_embedding_mean_norm": 14.0224,
+      "vision_embedding_mean_norm": 14.5939,
+      "norm_ratio_vision_to_text": 1.0408,
+      "mean_cosine_similarity": 0.1643
+    }
+  },
+  "ablations": {
+    "A_text_only_model_b": {
+      "precision": 0.7808,
+      "recall": 0.1583,
+      "f1": 0.2633,
+      "fpr": 0.0667,
+      "fnr": 0.8417,
+      "tp": 57,
+      "fp": 16,
+      "tn": 224,
+      "fn": 303,
+      "pred_pos": 73,
+      "pred_neg": 527,
+      "score_stats": {
+        "mean": 0.345,
+        "std": 0.1008,
+        "min": 0.2955,
+        "max": 0.6787,
+        "p25": 0.2996,
+        "median": 0.3024,
+        "p75": 0.3153
+      }
+    },
+    "B_image_only_c2": {
+      "precision": 0.6682,
+      "recall": 0.3917,
+      "f1": 0.4939,
+      "fpr": 0.2917,
+      "fnr": 0.6083,
+      "tp": 141,
+      "fp": 70,
+      "tn": 170,
+      "fn": 219,
+      "pred_pos": 211,
+      "pred_neg": 389,
+      "score_stats": {
+        "mean": 0.4318,
+        "std": 0.0515,
+        "min": 0.2912,
+        "max": 0.6106,
+        "p25": 0.3969,
+        "median": 0.4304,
+        "p75": 0.4656
+      }
+    },
+    "B_image_only_c": {
+      "precision": 0.6923,
+      "recall": 0.05,
+      "f1": 0.0933,
+      "fpr": 0.0333,
+      "fnr": 0.95,
+      "tp": 18,
+      "fp": 8,
+      "tn": 232,
+      "fn": 342,
+      "pred_pos": 26,
+      "pred_neg": 574,
+      "score_stats": {
+        "mean": 0.2215,
+        "std": 0.1123,
+        "min": 0.0593,
+        "max": 0.6436,
+        "p25": 0.1338,
+        "median": 0.1982,
+        "p75": 0.2872
+      }
+    },
+    "C_text_zeroed_c2_frozen": {
+      "precision": 0.75,
+      "recall": 0.0083,
+      "f1": 0.0165,
+      "fpr": 0.0042,
+      "fnr": 0.9917,
+      "tp": 3,
+      "fp": 1,
+      "tn": 239,
+      "fn": 357,
+      "pred_pos": 4,
+      "pred_neg": 596,
+      "score_stats": {
+        "mean": 0.0974,
+        "std": 0.0828,
+        "min": 0.0066,
+        "max": 0.6479,
+        "p25": 0.0428,
+        "median": 0.0734,
+        "p75": 0.1201
+      }
+    },
+    "C_text_zeroed_c2_val": {
+      "precision": 0.7391,
+      "recall": 0.0472,
+      "f1": 0.0888,
+      "fpr": 0.025,
+      "fnr": 0.9528,
+      "tp": 17,
+      "fp": 6,
+      "tn": 234,
+      "fn": 343,
+      "pred_pos": 23,
+      "pred_neg": 577,
+      "score_stats": {
+        "mean": 0.0974,
+        "std": 0.0828,
+        "min": 0.0066,
+        "max": 0.6479,
+        "p25": 0.0428,
+        "median": 0.0734,
+        "p75": 0.1201
+      }
+    },
+    "C_text_zeroed_c_frozen": {
+      "precision": 0.601,
+      "recall": 0.975,
+      "f1": 0.7436,
+      "fpr": 0.9708,
+      "fnr": 0.025,
+      "tp": 351,
+      "fp": 233,
+      "tn": 7,
+      "fn": 9,
+      "pred_pos": 584,
+      "pred_neg": 16,
+      "score_stats": {
+        "mean": 0.6708,
+        "std": 0.1034,
+        "min": 0.2335,
+        "max": 0.8904,
+        "p25": 0.6033,
+        "median": 0.6847,
+        "p75": 0.747
+      }
+    },
+    "D_image_zeroed_c2_frozen": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 240,
+      "fn": 360,
+      "pred_pos": 0,
+      "pred_neg": 600,
+      "score_stats": {
+        "mean": 0.0688,
+        "std": 0.0452,
+        "min": 0.0305,
+        "max": 0.3067,
+        "p25": 0.0462,
+        "median": 0.0555,
+        "p75": 0.0688
+      }
+    },
+    "D_image_zeroed_c2_val": {
+      "precision": 0.6667,
+      "recall": 0.0056,
+      "f1": 0.011,
+      "fpr": 0.0042,
+      "fnr": 0.9944,
+      "tp": 2,
+      "fp": 1,
+      "tn": 239,
+      "fn": 358,
+      "pred_pos": 3,
+      "pred_neg": 597,
+      "score_stats": {
+        "mean": 0.0688,
+        "std": 0.0452,
+        "min": 0.0305,
+        "max": 0.3067,
+        "p25": 0.0462,
+        "median": 0.0555,
+        "p75": 0.0688
+      }
+    },
+    "D_image_zeroed_c_frozen": {
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "tp": 360,
+      "fp": 240,
+      "tn": 0,
+      "fn": 0,
+      "pred_pos": 600,
+      "pred_neg": 0,
+      "score_stats": {
+        "mean": 0.6255,
+        "std": 0.0109,
+        "min": 0.5881,
+        "max": 0.6504,
+        "p25": 0.6183,
+        "median": 0.6257,
+        "p75": 0.6334
+      }
+    },
+    "E_shuffled_images_c2_val": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 240,
+      "fn": 360,
+      "pred_pos": 0,
+      "pred_neg": 600,
+      "score_stats": {
+        "mean": 0.0417,
+        "std": 0.0326,
+        "min": 0.005,
+        "max": 0.2301,
+        "p25": 0.0213,
+        "median": 0.032,
+        "p75": 0.0505
+      }
+    },
+    "E_shuffled_images_c_frozen": {
+      "precision": 0.602,
+      "recall": 1.0,
+      "f1": 0.7516,
+      "fpr": 0.9917,
+      "fnr": 0.0,
+      "tp": 360,
+      "fp": 238,
+      "tn": 2,
+      "fn": 0,
+      "pred_pos": 598,
+      "pred_neg": 2,
+      "score_stats": {
+        "mean": 0.7138,
+        "std": 0.0686,
+        "min": 0.4361,
+        "max": 0.876,
+        "p25": 0.6709,
+        "median": 0.7186,
+        "p75": 0.7632
+      }
+    },
+    "F_shuffled_text_c2_val": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 240,
+      "fn": 360,
+      "pred_pos": 0,
+      "pred_neg": 600,
+      "score_stats": {
+        "mean": 0.042,
+        "std": 0.0341,
+        "min": 0.0037,
+        "max": 0.2623,
+        "p25": 0.0213,
+        "median": 0.0323,
+        "p75": 0.0487
+      }
+    },
+    "F_shuffled_text_c_frozen": {
+      "precision": 0.5993,
+      "recall": 0.9972,
+      "f1": 0.7487,
+      "fpr": 1.0,
+      "fnr": 0.0028,
+      "tp": 359,
+      "fp": 240,
+      "tn": 0,
+      "fn": 1,
+      "pred_pos": 599,
+      "pred_neg": 1,
+      "score_stats": {
+        "mean": 0.7138,
+        "std": 0.0688,
+        "min": 0.4304,
+        "max": 0.8794,
+        "p25": 0.671,
+        "median": 0.7194,
+        "p75": 0.765
+      }
+    },
+    "G_same_text_diff_images": {
+      "model_c2_calibrated_score_std_across_images": 0.02798,
+      "model_c_score_std_across_images": 0.0617,
+      "interpretation": "Variation in prediction when text is fixed but image is altered."
+    },
+    "H_same_image_diff_texts": {
+      "model_c2_calibrated_score_std_across_texts": 0.01588,
+      "model_c_score_std_across_texts": 0.00583,
+      "interpretation": "Variation in prediction when image is fixed but text is altered."
+    }
+  },
+  "partition_stats": {
+    "benign_memes_count": 240,
+    "hateful_memes_count": 360,
+    "model_c_scores": {
+      "benign": {
+        "mean": 0.7221,
+        "std": 0.0665,
+        "min": 0.502,
+        "max": 0.8804
+      },
+      "hateful": {
+        "mean": 0.7078,
+        "std": 0.0705,
+        "min": 0.4298,
+        "max": 0.866
+      }
+    },
+    "model_c2_raw_scores": {
+      "benign": {
+        "mean": 0.3068,
+        "std": 0.0662,
+        "min": 0.155,
+        "max": 0.5936
+      },
+      "hateful": {
+        "mean": 0.3179,
+        "std": 0.0713,
+        "min": 0.1604,
+        "max": 0.5851
+      }
+    },
+    "model_c2_calibrated_scores": {
+      "benign": {
+        "mean": 0.039,
+        "std": 0.0343,
+        "min": 0.0045,
+        "max": 0.3327
+      },
+      "hateful": {
+        "mean": 0.045,
+        "std": 0.0428,
+        "min": 0.0049,
+        "max": 0.3153
+      }
+    },
+    "model_c2_gates": {
+      "benign": {
+        "mean": 0.5172,
+        "std": 0.0015
+      },
+      "hateful": {
+        "mean": 0.5173,
+        "std": 0.0016
+      }
+    }
+  },
+  "cross_modal_cases": [
+    {
+      "case_id": "mid_115",
+      "category": "Contextual Inversion",
+      "description": "damn happy about football (smiling meme)",
+      "ground_truth": 0,
+      "text_only_b_score": 0.2989,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.3354,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.6873,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0623,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5184
+    },
+    {
+      "case_id": "mid_282",
+      "category": "Contextual Inversion",
+      "description": "under arrest for accessibility (office satire)",
+      "ground_truth": 0,
+      "text_only_b_score": 0.2988,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.1008,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.6139,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0264,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5162
+    },
+    {
+      "case_id": "mid_37",
+      "category": "Emergent Toxicity",
+      "description": "see this hat thrift store (advicejew trope)",
+      "ground_truth": 1,
+      "text_only_b_score": 0.361,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.3196,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.6845,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.05,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.516
+    },
+    {
+      "case_id": "mid_141",
+      "category": "Emergent Toxicity",
+      "description": "wants white tradition eats mcdonalds (white power)",
+      "ground_truth": 1,
+      "text_only_b_score": 0.3008,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.1783,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.733,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0933,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5164
+    },
+    {
+      "case_id": "mid_89",
+      "category": "Explicit Harm",
+      "description": "hate black people got gun (strict policeman)",
+      "ground_truth": 1,
+      "text_only_b_score": 0.3013,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.2475,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.7152,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0136,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5184
+    },
+    {
+      "case_id": "mid_96",
+      "category": "Explicit Harm",
+      "description": "hate men need cock (feminist caricature)",
+      "ground_truth": 1,
+      "text_only_b_score": 0.5749,
+      "text_only_b_pred": 1,
+      "image_only_c_score": 0.2613,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.732,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0744,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5167
+    },
+    {
+      "case_id": "mid_174",
+      "category": "Benign Meme",
+      "description": "blog non-german friends (harmless cartoon)",
+      "ground_truth": 0,
+      "text_only_b_score": 0.2996,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.1391,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.7104,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0879,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5155
+    },
+    {
+      "case_id": "mid_265",
+      "category": "Benign Meme",
+      "description": "quality men believe equality (couple meme)",
+      "ground_truth": 0,
+      "text_only_b_score": 0.2985,
+      "text_only_b_pred": 0,
+      "image_only_c_score": 0.1529,
+      "image_only_c_pred": 0,
+      "model_c_score": 0.8689,
+      "model_c_pred": 1,
+      "model_c2_cal_score": 0.0365,
+      "model_c2_pred_val": 0,
+      "gate_value": 0.5174
+    }
+  ],
+  "platt_params": {
+    "a": 2.2691,
+    "b": -1.5555,
+    "val_thresh": 0.29
+  }
+}
