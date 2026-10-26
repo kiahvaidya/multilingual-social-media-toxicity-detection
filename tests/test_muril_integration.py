@@ -217,3 +217,20 @@ class TestLogisticRegressionFallback:
         texts = ["Safe text", "You are stupid"]
         results = predict_batch_logistic(texts, model, vectorizer, labels)
         assert len(results) == 2
+
+    def test_api_health_and_text_analysis_fallback(self):
+        from fastapi.testclient import TestClient
+        from api import app
+
+        client = TestClient(app)
+        h_resp = client.get("/api/health")
+        assert h_resp.status_code == 200
+        h_data = h_resp.json()
+        assert h_data["status"] == "ONLINE"
+        assert "active_engine" in h_data
+
+        t_resp = client.post("/api/analyze/text", json={"text": "Shut up you idiot"})
+        assert t_resp.status_code == 200
+        t_data = t_resp.json()
+        assert t_data["is_toxic"] is True
+        assert t_data["risk_level"] in ("Review", "High Risk")
