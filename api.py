@@ -34,8 +34,13 @@ from src.model import (
     DEFAULT_LABELS,
     MuRILForMultiLabelToxicity,
     get_device,
+    load_model as load_logistic_model,
     load_muril_model,
+    load_muril_thresholds,
+    load_thresholds as load_logistic_thresholds,
+    predict_batch as predict_batch_logistic,
     predict_batch_muril,
+    predict_comment as predict_comment_logistic,
     predict_comment_muril,
 )
 from src.moderation import (
@@ -129,8 +134,21 @@ class ModelServer:
         self.device = get_device()
         logger.info("Initializing ModelServer on %s...", self.device)
 
-        # 1. MuRIL Text Model
-        self.muril_model, self.muril_tokenizer, self.labels, self.thresholds, _ = load_muril_model(device=self.device)
+        # 1. MuRIL Text Model (with fallback to Logistic Regression if muril_toxicity_model.pt is missing)
+        self.muril_model = None
+        self.muril_tokenizer = None
+        self.logistic_model = None
+        self.logistic_vectorizer = None
+        self.labels = list(DEFAULT_LABELS)
+        self.thresholds = load_muril_thresholds(self.labels)
+
+        try:
+            self.muril_model, self.muril_tokenizer, self.labels, self.thresholds, _ = load_muril_model(device=self.device)
+        except FileNotFoundError as e:
+            logger.warning("%s — Falling back to Logistic Regression engine.", e)
+            self.logistic_model, self.logistic_vectorizer, self.labels = load_logistic_model()
+            self.thresholds = load_logistic_thresholds(self.labels)
+
         self.jev_provider = get_jev_provider()
 
         # 2. Multimodal Meme Classifier
@@ -141,6 +159,55 @@ class ModelServer:
         self.load_multimodal_engine()
 
         logger.info("ModelServer successfully initialized.")
+
+    def predict_single(self, text: str):
+        if self.muril_model is not None:
+            return predict_comment_muril(
+                text=text,
+                model=self.muril_model,
+                tokenizer=self.muril_tokenizer,
+                labels=self.labels,
+                device=self.device,
+                thresholds=self.thresholds,
+            )
+        predictions, toxic_score, intensity = predict_comment_logistic(
+            text=text,
+            model=self.logistic_model,
+            vectorizer=self.logistic_vectorizer,
+            labels=self.labels,
+            thresholds=self.thresholds,
+        )
+        is_toxic_flags = {
+            lbl: bool(predictions.get(lbl, 0.0) >= float(self.thresholds.get(lbl, 0.5)))
+            for lbl in self.labels
+        }
+        return predictions, toxic_score, intensity, is_toxic_flags
+
+    def predict_batch(self, texts: List[str], batch_size: int = 32):
+        if self.muril_model is not None:
+            return predict_batch_muril(
+                texts=texts,
+                model=self.muril_model,
+                tokenizer=self.muril_tokenizer,
+                labels=self.labels,
+                device=self.device,
+                batch_size=batch_size,
+                thresholds=self.thresholds,
+            )
+        raw_batch = predict_batch_logistic(
+            texts=texts,
+            model=self.logistic_model,
+            vectorizer=self.logistic_vectorizer,
+            labels=self.labels,
+        )
+        results = []
+        for predictions, toxic_score, intensity in raw_batch:
+            is_toxic_flags = {
+                lbl: bool(predictions.get(lbl, 0.0) >= float(self.thresholds.get(lbl, 0.5)))
+                for lbl in self.labels
+            }
+            results.append((predictions, toxic_score, intensity, is_toxic_flags))
+        return results
 
     def load_multimodal_engine(self):
         ckpt_path = _PROJECT_ROOT / "scratch" / "meme_experiments" / "final_multimodal" / "best_model.pt"
@@ -275,17 +342,10 @@ def analyze_text(req: TextAnalysisRequest):
     detected_lang = req.language or detect_language_simple(req.text)
     trace.append({"stage": "Input Preprocessing", "status": "COMPLETED", "duration_ms": round((time.time() - t_start) * 1000, 2)})
 
-    # Stage 2: MuRIL Transformer Forward
+    # Stage 2: MuRIL / Fallback Forward
     t_muril_start = time.time()
-    predictions, max_toxic_score, intensity, is_toxic_flags = predict_comment_muril(
-        text=req.text,
-        model=server.muril_model,
-        tokenizer=server.muril_tokenizer,
-        labels=server.labels,
-        device=server.device,
-        thresholds=server.thresholds,
-    )
-    trace.append({"stage": "MuRIL Multi-Label Inference", "status": "COMPLETED", "duration_ms": round((time.time() - t_muril_start) * 1000, 2)})
+    predictions, max_toxic_score, intensity, is_toxic_flags = server.predict_single(req.text)
+    trace.append({"stage": "MuRIL Multi-Label Inference" if server.muril_model is not None else "Fallback Multi-Label Inference", "status": "COMPLETED", "duration_ms": round((time.time() - t_muril_start) * 1000, 2)})
 
     # Stage 3: Moderation & Ambiguity Gating
     t_mod_start = time.time()
@@ -452,14 +512,9 @@ def analyze_batch(req: BatchAnalysisRequest):
     texts = [item.text for item in req.items]
     t0 = time.time()
 
-    batch_preds = predict_batch_muril(
+    batch_preds = server.predict_batch(
         texts=texts,
-        model=server.muril_model,
-        tokenizer=server.muril_tokenizer,
-        labels=server.labels,
-        device=server.device,
         batch_size=32,
-        thresholds=server.thresholds,
     )
 
     results = []
@@ -595,15 +650,10 @@ def analyze_social_media_url(req: SocialAnalysisRequest):
     server = ModelServer.get_instance()
     t0 = time.time()
 
-    # Batch prediction with MuRIL
-    batch_preds = predict_batch_muril(
+    # Batch prediction
+    batch_preds = server.predict_batch(
         texts=target_comments,
-        model=server.muril_model,
-        tokenizer=server.muril_tokenizer,
-        labels=server.labels,
-        device=server.device,
         batch_size=32,
-        thresholds=server.thresholds,
     )
 
     results = []
