@@ -108,6 +108,17 @@ class TestHinglishMap:
         assert "chutiya" in result
         assert "idiot" not in result
 
+    def test_devanagari_slur_mapped(self):
+        result = preprocess_text("तुझे शर्म नहीं आती क्या? देशद्रोही साले निकल यहाँ से")
+        assert "traitor" in result
+        assert "bastard" in result
+        assert "idiot" in result
+
+    def test_severe_hate_phrase_mapped(self):
+        result = preprocess_text("I despise your kind and hope your community is eradicated from existence.")
+        assert "hate" in result
+        assert "threat" in result
+
 
 # ── Character deduplication (social_media=True only) ─────
 
