@@ -296,6 +296,7 @@ def get_health():
         "status": "ONLINE",
         "device": str(server.device),
         "muril_loaded": server.muril_model is not None,
+        "active_engine": "MuRIL" if server.muril_model is not None else "LogisticRegressionFallback",
         "multimodal_loaded": server.multimodal_model is not None,
         "multimodal_threshold": server.multimodal_threshold,
         "labels": server.labels,
