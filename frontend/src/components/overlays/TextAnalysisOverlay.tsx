@@ -133,7 +133,13 @@ export const TextAnalysisOverlay: React.FC<TextAnalysisOverlayProps> = ({
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Enter multilingual text or select forensic preset..."
+            onKeyDown={(e) => {
+              if ((e.metaKey || e.ctrlKey) && e.key === 'Enter' && inputText.trim() && !isAnalyzing) {
+                e.preventDefault();
+                handleRunAnalysis();
+              }
+            }}
+            placeholder="Enter multilingual text or select forensic preset... (⌘/Ctrl + Enter to run)"
             rows={4}
             className="w-full bg-[#050608] border border-white/10 rounded-xl p-3.5 text-sm font-sans text-white placeholder-white/30 focus:outline-none focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8] transition-all resize-none"
           />
@@ -159,20 +165,33 @@ export const TextAnalysisOverlay: React.FC<TextAnalysisOverlayProps> = ({
             <span className="font-mono text-[11px] text-white/40">
               ENGINES: MuRIL (768-D) + JEV
             </span>
-            <button
-              onClick={() => handleRunAnalysis()}
-              disabled={isAnalyzing || !inputText.trim()}
-              className="px-5 py-2.5 rounded-xl bg-[#38bdf8] hover:bg-[#0284c7] disabled:opacity-40 text-black font-mono font-semibold text-xs tracking-wider transition-all flex items-center gap-2"
-            >
-              {isAnalyzing ? (
-                <>
-                  <span className="w-3 h-3 rounded-full border-2 border-black border-t-transparent animate-spin" />
-                  <span>EXTRACTING...</span>
-                </>
-              ) : (
-                <span>RUN PIPELINE →</span>
+            <div className="flex items-center gap-2">
+              {inputText && (
+                <button
+                  onClick={() => {
+                    setInputText('');
+                    setError(null);
+                  }}
+                  className="px-3 py-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white font-mono text-xs transition-all"
+                >
+                  CLEAR
+                </button>
               )}
-            </button>
+              <button
+                onClick={() => handleRunAnalysis()}
+                disabled={isAnalyzing || !inputText.trim()}
+                className="px-5 py-2.5 rounded-xl bg-[#38bdf8] hover:bg-[#0284c7] disabled:opacity-40 text-black font-mono font-semibold text-xs tracking-wider transition-all flex items-center gap-2"
+              >
+                {isAnalyzing ? (
+                  <>
+                    <span className="w-3 h-3 rounded-full border-2 border-black border-t-transparent animate-spin" />
+                    <span>EXTRACTING...</span>
+                  </>
+                ) : (
+                  <span>RUN PIPELINE →</span>
+                )}
+              </button>
+            </div>
           </div>
 
           {error && (
