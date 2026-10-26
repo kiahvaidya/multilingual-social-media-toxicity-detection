@@ -79,19 +79,23 @@ def fetch_youtube_comments(url: str) -> List[str]:
         )
 
     try:
-        from googleapiclient.discovery import build
-        from googleapiclient.errors import HttpError
-
-        youtube = build("youtube", "v3", developerKey=api_key)
-        request = youtube.commentThreads().list(
-            part="snippet",
-            videoId=video_id,
-            maxResults=config.MAX_COMMENTS,
-            textFormat="plainText",
+        import requests
+        resp = requests.get(
+            "https://www.googleapis.com/youtube/v3/commentThreads",
+            params={
+                "part": "snippet",
+                "videoId": video_id,
+                "maxResults": config.MAX_COMMENTS,
+                "textFormat": "plainText",
+                "key": api_key,
+            },
+            timeout=12,
         )
-        response = request.execute()
-    except HttpError as e:
-        raise RuntimeError(f"YouTube API error: {e}") from e
+        if resp.status_code != 200:
+            err_data = resp.json().get("error", {})
+            err_msg = err_data.get("message", resp.text[:200])
+            raise RuntimeError(f"YouTube API error (status {resp.status_code}): {err_msg}")
+        response = resp.json()
     except Exception as e:
         raise RuntimeError(f"Failed to fetch YouTube comments: {e}") from e
 

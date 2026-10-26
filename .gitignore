@@ -42,3 +42,12 @@ scratch/**/__pycache__/
 
 # ===== Evaluation Outputs =====
 evaluation_results/
+
+# ===== Databases & Node =====
+data/*.db
+data/*.sqlite
+*.db
+*.sqlite
+*.sqlite3
+node_modules/
+

@@ -41,9 +41,24 @@ from src.model import (
 from src.moderation import (
     RiskLevel,
     calculate_aggregate_statistics,
+    classify_risk,
     moderate_comment_with_context,
 )
 from src.jev import get_jev_provider
+from src.connectors.youtube import fetch_youtube_comments
+from src.connectors.reddit import fetch_reddit_comments
+from src.connectors.twitter import fetch_twitter_comments
+from src.profile_watch import (
+    MonitoringState,
+    ObservationRecord,
+    PatternEventRecord,
+    ProfileComparisonResponse,
+    ProfileRecord,
+    ProfileSummaryResponse,
+    ProfileWatchService,
+    ScanRequest,
+    ScanSummaryResponse,
+)
 
 logger = logging.getLogger("toxiscope.api")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
@@ -197,6 +212,13 @@ class BatchItem(BaseModel):
 
 class BatchAnalysisRequest(BaseModel):
     items: List[BatchItem]
+
+class SocialAnalysisRequest(BaseModel):
+    url: str
+    platform: Optional[str] = "auto"
+    max_comments: Optional[int] = 50
+    demo_fallback: Optional[bool] = True
+    enable_jev: Optional[bool] = False
 
 
 # ── Endpoints ─────────────────────────────────────────────────
@@ -443,19 +465,13 @@ def analyze_batch(req: BatchAnalysisRequest):
     results = []
     for idx, item in enumerate(req.items):
         scores, toxic_score, intensity, is_toxic_flags = batch_preds[idx]
-        mod_res = moderate_comment_with_context(
-            text=item.text,
-            predictions=scores,
-            is_toxic_flags=is_toxic_flags,
-            thresholds=server.thresholds,
-            jev_provider=None, # bypass JEV during bulk batch for speed
-        )
+        base_risk, base_icon, base_expl = classify_risk(scores, is_toxic_flags, server.thresholds)
         results.append({
             "id": item.id,
             "text": item.text,
             "language": detect_language_simple(item.text),
-            "risk_level": mod_res.final_risk_level.value,
-            "badge_icon": mod_res.final_badge_icon,
+            "risk_level": base_risk.value,
+            "badge_icon": base_icon,
             "scores": {k: round(float(v), 4) for k, v in scores.items()},
             "is_toxic": any(is_toxic_flags.values()),
             "confidence": round(float(max(scores.values())), 4)
@@ -475,6 +491,265 @@ def analyze_batch(req: BatchAnalysisRequest):
         "latency_ms": round((time.time() - t0) * 1000, 2),
         "results": results
     }
+
+
+# ── Curated Multilingual Social Media Demo Fallbacks ─────────
+DEMO_SOCIAL_COMMENTS = {
+    "YouTube": [
+        "Great tutorial bhai, everything was explained clearly! ❤️",
+        "Bhai kya bawaal content banaya hai tune, maza aa gaya dekh kar!",
+        "This guy is completely useless and should delete his channel immediately.",
+        "तुम बहुत अच्छा सिखाते हो, धन्यवाद भाई!",
+        "Shut up you idiot, stop spreading fake news you clown 🤡",
+        "I will track down where you live and destroy you.",
+        "Awesome breakdown! Looking forward to the next part.",
+        "bc kya bakwas video hai, time waste kar diya mera",
+        "Clean explanation, helped me solve my college project.",
+        "These immigrants are filthy pests who don't belong here."
+    ],
+    "Reddit": [
+        "Solid discussion. Really appreciate the nuanced perspective from OP.",
+        "You are a pathetic failure who doesn't understand basic statistics.",
+        "bhai sach me dil jeet liya, amazing post",
+        "Fuck yeah! We finally passed all unit tests after three days of debugging!",
+        "Get lost you filthy racist scum.",
+        "Interesting observation, but the benchmark might have some caveats.",
+        "This whole subreddit is full of clowns and degenerates."
+    ],
+    "Twitter": [
+        "Congrats on the launch! Super excited to try this out 🚀",
+        "Watch your back, I know where your office is.",
+        "Bhai mast tweet hai, totally agree with you!",
+        "Lmao you have zero credibility, go cry somewhere else loser.",
+        "Very thoughtful thread, thanks for breaking it down."
+    ]
+}
+
+
+@app.post("/api/analyze/social")
+def analyze_social_media_url(req: SocialAnalysisRequest):
+    if not req.url or not req.url.strip():
+        raise HTTPException(status_code=400, detail="Social media URL is required.")
+
+    url_lower = req.url.lower().strip()
+    platform = req.platform
+
+    # Platform Auto-Detection & Normalization
+    p_clean = (platform or "auto").lower()
+    if p_clean == "auto":
+        if "youtube.com" in url_lower or "youtu.be" in url_lower:
+            platform = "YouTube"
+        elif "reddit.com" in url_lower or "redd.it" in url_lower:
+            platform = "Reddit"
+        elif "twitter.com" in url_lower or "x.com" in url_lower:
+            platform = "Twitter"
+        else:
+            raise HTTPException(
+                status_code=400,
+                detail="Could not automatically identify social platform from URL. Supported platforms: YouTube, Reddit, Twitter / X."
+            )
+    elif "youtube" in p_clean or "yt" in p_clean:
+        platform = "YouTube"
+    elif "reddit" in p_clean:
+        platform = "Reddit"
+    elif "twitter" in p_clean or p_clean == "x":
+        platform = "Twitter"
+    else:
+        raise HTTPException(status_code=400, detail=f"Unsupported platform: {platform}")
+
+    raw_comments = []
+    is_demo = False
+    message = None
+
+    # Fetch comments using platform connector
+    try:
+        if platform == "YouTube":
+            raw_comments = fetch_youtube_comments(req.url)
+        elif platform == "Reddit":
+            raw_comments = fetch_reddit_comments(req.url)
+        elif platform == "Twitter":
+            raw_comments = fetch_twitter_comments(req.url)
+    except (RuntimeError, ValueError, Exception) as e:
+        logger.warning("Error fetching comments from %s (%s): %s", platform, req.url, e)
+        if req.demo_fallback:
+            raw_comments = DEMO_SOCIAL_COMMENTS.get(platform, DEMO_SOCIAL_COMMENTS["YouTube"])
+            is_demo = True
+            message = (
+                f"Live {platform} API credentials not configured in .env ({str(e)}). "
+                f"Loaded {len(raw_comments)} representative multilingual comments for preview."
+            )
+        else:
+            raise HTTPException(status_code=400, detail=str(e))
+
+    if not raw_comments:
+        if req.demo_fallback:
+            raw_comments = DEMO_SOCIAL_COMMENTS.get(platform, DEMO_SOCIAL_COMMENTS["YouTube"])
+            is_demo = True
+            message = f"No comments found at {req.url}. Loaded {len(raw_comments)} sample comments."
+        else:
+            raise HTTPException(status_code=404, detail=f"No comments found for {platform} URL.")
+
+    # Slice to max requested comments
+    target_comments = raw_comments[:req.max_comments]
+
+    server = ModelServer.get_instance()
+    t0 = time.time()
+
+    # Batch prediction with MuRIL
+    batch_preds = predict_batch_muril(
+        texts=target_comments,
+        model=server.muril_model,
+        tokenizer=server.muril_tokenizer,
+        labels=server.labels,
+        device=server.device,
+        batch_size=32,
+        thresholds=server.thresholds,
+    )
+
+    results = []
+    for idx, comment_text in enumerate(target_comments):
+        scores, toxic_score, intensity, is_toxic_flags = batch_preds[idx]
+        if req.enable_jev and server.jev_provider:
+            mod_res = moderate_comment_with_context(
+                text=comment_text,
+                predictions=scores,
+                is_toxic_flags=is_toxic_flags,
+                thresholds=server.thresholds,
+                jev_provider=server.jev_provider,
+            )
+            r_level = mod_res.final_risk_level.value
+            r_icon = mod_res.final_badge_icon
+            r_expl = mod_res.final_explanation
+            r_amb = mod_res.is_ambiguous
+            r_reason = mod_res.gate_reason
+            is_tox = (mod_res.final_risk_level == RiskLevel.HIGH_RISK) or any(is_toxic_flags.values())
+        else:
+            base_risk, base_icon, base_expl = classify_risk(scores, is_toxic_flags, server.thresholds)
+            r_level = base_risk.value
+            r_icon = base_icon
+            r_expl = base_expl
+            r_amb = False
+            r_reason = "Deterministic policy triage"
+            is_tox = (base_risk == RiskLevel.HIGH_RISK) or any(is_toxic_flags.values())
+
+        results.append({
+            "id": f"soc_{platform.lower()}_{idx + 1}",
+            "text": comment_text,
+            "language": detect_language_simple(comment_text),
+            "risk_level": r_level,
+            "badge_icon": r_icon,
+            "is_toxic": is_tox,
+            "confidence": round(float(max(scores.values())), 4),
+            "scores": {k: round(float(v), 4) for k, v in scores.items()},
+            "is_toxic_flags": is_toxic_flags,
+            "explanation": r_expl,
+            "is_ambiguous": r_amb,
+            "gate_reason": r_reason,
+        })
+
+    high_risk_cnt = sum(1 for r in results if r["risk_level"] == "High Risk")
+    review_cnt = sum(1 for r in results if r["risk_level"] == "Review")
+    safe_cnt = sum(1 for r in results if r["risk_level"] == "Safe")
+
+    return {
+        "platform": platform,
+        "url": req.url,
+        "is_demo": is_demo,
+        "message": message,
+        "total_comments": len(results),
+        "high_risk_count": high_risk_cnt,
+        "review_count": review_cnt,
+        "safe_count": safe_cnt,
+        "high_risk_percentage": round((high_risk_cnt / len(results)) * 100, 2) if results else 0.0,
+        "latency_ms": round((time.time() - t0) * 1000, 2),
+        "comments": results
+    }
+
+
+# ── Profile Watch Endpoints ────────────────────────────────────
+profile_watch_service = ProfileWatchService()
+
+
+@app.post("/api/profile-watch/scan", response_model=ScanSummaryResponse)
+def scan_profile_endpoint(req: ScanRequest):
+    if not req.url or not req.url.strip():
+        raise HTTPException(status_code=400, detail="Profile URL or handle cannot be empty.")
+    try:
+        summary = profile_watch_service.scan_profile(
+            url_or_id=req.url.strip(),
+            limit=req.limit or 25,
+            demo_fallback=True if req.demo_fallback is None else req.demo_fallback,
+            enable_jev=bool(req.enable_jev),
+        )
+        return summary
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.exception("Error executing Profile Watch scan: %s", e)
+        raise HTTPException(status_code=500, detail=f"Profile Watch scan failed: {str(e)}")
+
+
+@app.get("/api/profile-watch", response_model=List[ProfileRecord])
+def list_profiles_endpoint():
+    return profile_watch_service.list_profiles()
+
+
+@app.get("/api/profile-watch/compare", response_model=ProfileComparisonResponse)
+def compare_profiles_endpoint(profile_a: str, profile_b: str):
+    res = profile_watch_service.compare_profiles(profile_a, profile_b)
+    if not res:
+        raise HTTPException(status_code=404, detail="One or both profiles could not be found for comparison.")
+    return res
+
+
+@app.get("/api/profile-watch/{profile_id}", response_model=ProfileSummaryResponse)
+def get_profile_summary_endpoint(profile_id: str):
+    res = profile_watch_service.get_profile_summary(profile_id)
+    if not res:
+        raise HTTPException(status_code=404, detail=f"Profile '{profile_id}' not found.")
+    return res
+
+
+@app.get("/api/profile-watch/{profile_id}/activity", response_model=List[ObservationRecord])
+def get_profile_activity_endpoint(
+    profile_id: str,
+    limit: int = 50,
+    offset: int = 0,
+    risk_filter: Optional[str] = None,
+):
+    profile = profile_watch_service.storage.get_profile(profile_id)
+    if not profile:
+        raise HTTPException(status_code=404, detail=f"Profile '{profile_id}' not found.")
+    return profile_watch_service.get_profile_activity(
+        profile_id=profile_id,
+        limit=limit,
+        offset=offset,
+        risk_filter=risk_filter,
+    )
+
+
+@app.get("/api/profile-watch/{profile_id}/events", response_model=List[PatternEventRecord])
+def get_profile_events_endpoint(profile_id: str):
+    profile = profile_watch_service.storage.get_profile(profile_id)
+    if not profile:
+        raise HTTPException(status_code=404, detail=f"Profile '{profile_id}' not found.")
+    return profile_watch_service.get_profile_events(profile_id)
+
+
+@app.post("/api/profile-watch/{profile_id}/monitor", response_model=ProfileRecord)
+def activate_profile_monitoring_endpoint(profile_id: str):
+    profile = profile_watch_service.set_monitoring_state(profile_id, MonitoringState.MONITORING)
+    if not profile:
+        raise HTTPException(status_code=404, detail=f"Profile '{profile_id}' not found.")
+    return profile
+
+
+@app.post("/api/profile-watch/{profile_id}/pause", response_model=ProfileRecord)
+def pause_profile_monitoring_endpoint(profile_id: str):
+    profile = profile_watch_service.set_monitoring_state(profile_id, MonitoringState.PAUSED)
+    if not profile:
+        raise HTTPException(status_code=404, detail=f"Profile '{profile_id}' not found.")
+    return profile
 
 
 @app.get("/api/research/metrics")
