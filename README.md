@@ -300,7 +300,22 @@ JEV_TIMEOUT_SECONDS=3.0
 
 ## 14. Running the Application
 
-Launch the Streamlit interactive dashboard:
+### Option A: 3D Forensic Lab (FastAPI Backend + React/Vite Frontend)
+
+1. **Start the FastAPI Backend (`http://127.0.0.1:8001`):**
+   ```bash
+   python3 api.py
+   ```
+2. **Start the React/Vite 3D Forensic Dashboard (`http://127.0.0.1:3001`):**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+### Option B: Streamlit Moderation Dashboard
+
+Launch the Streamlit interactive dashboard (`http://localhost:8501`):
 
 ```bash
 streamlit run app.py
