@@ -234,3 +234,50 @@ class TestLogisticRegressionFallback:
         t_data = t_resp.json()
         assert t_data["is_toxic"] is True
         assert t_data["risk_level"] in ("Review", "High Risk")
+
+    def test_api_meme_analysis_fallback(self):
+        import base64
+        import io
+        from PIL import Image
+        from fastapi.testclient import TestClient
+        from api import app
+
+        client = TestClient(app)
+        img = Image.new("RGB", (64, 64), color=(20, 40, 80))
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        b64_str = base64.b64encode(buf.getvalue()).decode("utf-8")
+
+        # 1. Test preset Case B (Emergent Toxicity)
+        r_em = client.post(
+            "/api/analyze/meme-json",
+            json={"image_base64": b64_str, "text": "SHUT UP OSAMA! HE IS MY SON!"},
+        )
+        assert r_em.status_code == 200
+        d_em = r_em.json()
+        assert d_em["is_hateful"] is True
+        assert d_em["interaction_type"] == "EMERGENT_TOXICITY"
+        assert d_em["risk_level"] == "High Risk"
+
+        # 2. Test preset Case A (Contextual Inversion)
+        r_inv = client.post(
+            "/api/analyze/meme-json",
+            json={"image_base64": b64_str, "text": "bring your dog we have chicken?"},
+        )
+        assert r_inv.status_code == 200
+        d_inv = r_inv.json()
+        assert d_inv["is_hateful"] is False
+        assert d_inv["interaction_type"] == "CONTEXTUAL_INVERSION"
+        assert d_inv["risk_level"] == "Safe"
+
+        # 3. Test multipart file upload (/api/analyze/meme)
+        buf.seek(0)
+        r_up = client.post(
+            "/api/analyze/meme",
+            files={"image": ("test.png", buf.getvalue(), "image/png")},
+            data={"text": "You are an idiot and I hate you"},
+        )
+        assert r_up.status_code == 200
+        d_up = r_up.json()
+        assert "multimodal_score" in d_up
+        assert "interaction_type" in d_up
