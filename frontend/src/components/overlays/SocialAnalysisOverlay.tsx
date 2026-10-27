@@ -17,23 +17,29 @@ const PRESETS = [
   {
     platform: 'reddit',
     label: '🤖 Reddit Discussion',
-    url: 'https://www.reddit.com/r/technology/comments/multilingual_ai_debate',
+    url: 'https://www.reddit.com/r/Python/comments/1g0v3z2/what_are_you_working_on/',
   },
   {
     platform: 'twitter',
     label: '🐦 Twitter / X Status',
-    url: 'https://twitter.com/social_media/status/1234567890',
+    url: 'https://twitter.com/TwitterDev/status/1460323737035677698',
   },
 ];
 
 export const SocialAnalysisOverlay: React.FC<SocialAnalysisOverlayProps> = ({ onAddToDossier, onGoToText }) => {
-  const [url, setUrl] = useState('');
-  const [platform, setPlatform] = useState<string>('auto');
+  const [url, setUrl] = useState(PRESETS[0].url);
+  const [platform, setPlatform] = useState<string>('youtube');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState<SocialAnalysisResponse | null>(null);
   const [filter, setFilter] = useState<'ALL' | 'HIGH_RISK' | 'REVIEW' | 'SAFE'>('ALL');
   const [error, setError] = useState<string | null>(null);
   const [addedIds, setAddedIds] = useState<Record<string, boolean>>({});
+
+  React.useEffect(() => {
+    if (!result && !isAnalyzing) {
+      handleRunAnalysis(PRESETS[0].url, PRESETS[0].platform);
+    }
+  }, []);
 
   const handleRunAnalysis = async (urlToRun?: string, platformToRun?: string) => {
     const targetUrl = urlToRun || url;

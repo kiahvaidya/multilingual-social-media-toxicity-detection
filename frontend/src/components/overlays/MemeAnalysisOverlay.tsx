@@ -45,10 +45,16 @@ export const MemeAnalysisOverlay: React.FC<MemeAnalysisOverlayProps> = ({
   setIsAnalyzing,
 }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [customText, setCustomText] = useState('');
+  const [customText, setCustomText] = useState(MEME_PRESETS[0].text);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    if (!result && !isAnalyzing) {
+      handleRunMemeAnalysis(undefined, MEME_PRESETS[0].text);
+    }
+  }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
