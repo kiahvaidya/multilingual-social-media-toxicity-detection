@@ -4,6 +4,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+push_repo.bat
 
 # ===== Python =====
 __pycache__/
@@ -24,6 +25,10 @@ env/
 
 # ===== Data & Models =====
 dataset/
+data/raw/*
+!data/raw/ACQUISITION_MANIFEST.json
+data/processed/*
+!data/processed/DATASET_AUDIT_AND_NORMALIZATION_REPORT.json
 nltk_data/
 *.pkl
 *.pt

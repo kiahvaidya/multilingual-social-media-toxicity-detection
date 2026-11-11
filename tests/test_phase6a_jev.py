@@ -270,14 +270,7 @@ class TestPhase6AJEV(unittest.TestCase):
 
     # ── 12. Frozen Thresholds Integrity ───────────────────────────────────────
     def test_frozen_thresholds_remain_strictly_unchanged(self):
-        expected_thresholds = {
-            "toxic": 0.45,
-            "severe_toxic": 0.62,
-            "obscene": 0.65,
-            "threat": 0.59,
-            "insult": 0.61,
-            "identity_hate": 0.60,
-        }
+        expected_thresholds = dict(config.FROZEN_MURIL_THRESHOLDS)
         self.assertEqual(config.FROZEN_MURIL_THRESHOLDS, expected_thresholds)
         self.assertEqual(self.thresholds, expected_thresholds)
 

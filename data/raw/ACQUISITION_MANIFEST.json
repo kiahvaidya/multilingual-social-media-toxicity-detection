@@ -1,0 +1,140 @@
+{
+  "pipeline": "Benchmark Dataset Acquisition",
+  "executed_at": "2026-10-27",
+  "datasets": {
+    "jigsaw_toxic_comment": {
+      "dataset_name": "Jigsaw Toxic Comment Classification",
+      "official_source": "Kaggle / Conversation AI / Jigsaw (Alphabet)",
+      "source_url": "https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge",
+      "license": "CC0: Public Domain Dedication (Wikipedia Comments)",
+      "role": "PRIMARY_SIX_LABEL_SUPERVISION",
+      "retrieval_date": "2026-10-27",
+      "labels": [
+        "toxic",
+        "severe_toxic",
+        "obscene",
+        "threat",
+        "insult",
+        "identity_hate"
+      ],
+      "files": {
+        "train.csv": {
+          "size_bytes": 69364464,
+          "sha256": "243b9f85513a0078716231a44ee02302d3386e5f551ab8c45bd57e42c3dbe504"
+        },
+        "test.csv": {
+          "size_bytes": 60907482,
+          "sha256": "312ce347bf6f895ba161780e2c4e78ac6daecbe50567c9556d2657f08df40745"
+        },
+        "test_labels.csv": {
+          "size_bytes": 5130095,
+          "sha256": "69ee2ad13dfdbd99bbd7676aacb7e92196cfc34e5f72d22acbaec782bdf39155"
+        },
+        "sample_submission.csv": {
+          "size_bytes": 6432947,
+          "sha256": "67a230c7574ec0cedcfe6ba2dfe1b4823c996172771f4c610df0756be25820c0"
+        }
+      },
+      "why_selected": "Authoritative gold multi-label benchmark that defines the six standard toxicity dimensions."
+    },
+    "hasoc_2021": {
+      "dataset_name": "HASOC 2021 (FIRE 2021 Shared Task)",
+      "official_source": "Forum for Information Retrieval Evaluation (FIRE 2021) / HASOC Organizers",
+      "source_url": "https://hasocfire.github.io/hasoc/2021/dataset.html",
+      "mirrored_repositories": [
+        "https://github.com/Kalit31/HASOC-2021",
+        "https://github.com/AditiBagora/Hasoc2021CodeMix"
+      ],
+      "license": "Research and Non-Commercial Academic Use (FIRE Workshop Agreement)",
+      "role": "AUXILIARY_OFFENSIVE_LANGUAGE_SUPERVISION (Hindi & Hinglish Code-Mixed)",
+      "retrieval_date": "2026-10-27",
+      "subtasks": {
+        "subtask_1_hindi": {
+          "file": "hindi_2021.csv",
+          "task_1_labels": [
+            "HOF",
+            "NOT"
+          ],
+          "task_2_labels": [
+            "HATE",
+            "OFFN",
+            "PRFN",
+            "NONE"
+          ]
+        },
+        "subtask_1_english": {
+          "file": "english_2021.csv",
+          "task_1_labels": [
+            "HOF",
+            "NOT"
+          ],
+          "task_2_labels": [
+            "HATE",
+            "OFFN",
+            "PRFN",
+            "NONE"
+          ]
+        },
+        "subtask_2_codemix": {
+          "format": "Hierarchical conversation threads (JSON tweets + labels)",
+          "labels": [
+            "HATE",
+            "OFFN",
+            "PRFN",
+            "NONE",
+            "HOF",
+            "NOT"
+          ]
+        }
+      },
+      "why_selected": "Authoritative Indian NLP benchmark capturing authentic Devanagari Hindi and Romanized English-Hindi code-mixed Twitter discussions."
+    },
+    "trac_1": {
+      "dataset_name": "TRAC-1 (First Workshop on Trolling, Aggression and Cyberbullying, COLING 2018)",
+      "authors": "Ritesh Kumar, Atul Kr. Ojha, Shervin Malmasi, Marcos Zampieri",
+      "official_source": "KMI Linguistics / COLING 2018 TRAC Workshop",
+      "source_url": "https://github.com/kmi-linguistics/trac-1",
+      "license": "Apache License 2.0 (Permissive open-source)",
+      "role": "AUXILIARY_AGGRESSION_SUPERVISION",
+      "retrieval_date": "2026-10-27",
+      "labels": [
+        "NAG (Non-aggressive)",
+        "CAG (Covertly Aggressive)",
+        "OAG (Overtly Aggressive)"
+      ],
+      "languages": [
+        "Hindi (Devanagari & Code-Mixed Romanized)",
+        "English"
+      ],
+      "splits": {
+        "hindi_train": "12,000 comments",
+        "hindi_dev": "3,001 comments",
+        "english_train": "12,000 comments",
+        "english_dev": "3,001 comments"
+      },
+      "why_selected": "Distinguishes covert vs overt social-media aggression in Indian social platforms under Apache 2.0."
+    },
+    "civil_comments": {
+      "dataset_name": "Civil Comments (Jigsaw Unintended Bias in Toxicity Classification)",
+      "official_source": "Conversation AI / Jigsaw (Alphabet) / Civil Comments Platform",
+      "source_url": "https://huggingface.co/datasets/google/civil_comments",
+      "license": "CC0: Public Domain Dedication",
+      "role": "SUPPLEMENTARY_LARGE_SCALE_TOXICITY_SUPERVISION",
+      "retrieval_date": "2026-10-27",
+      "attributes": [
+        "toxicity",
+        "severe_toxicity",
+        "obscene",
+        "threat",
+        "insult",
+        "identity_attack",
+        "sexual_explicit"
+      ],
+      "splits_retrieved": {
+        "validation_full": "97,320 rows (complete official validation split)",
+        "train_threat_enriched_sample": "50,000 rows (stratified to over-represent rare threat and identity harms)"
+      },
+      "why_selected": "Compatible fine-grained 6-dimension labels; high volume of nuanced threats and identity attacks under CC0."
+    }
+  }
+}

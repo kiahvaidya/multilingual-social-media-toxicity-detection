@@ -1,0 +1,531 @@
+{
+  "comparison_metrics": {
+    "Loss_A_Current_PosWeight_BCE": {
+      "macro_f1": 0.6228,
+      "micro_f1": 0.6461,
+      "clean_fpr": 0.1114,
+      "threat_recall": 0.8533,
+      "threat_precision": 0.3019,
+      "threat_f1": 0.446,
+      "threat_pr_auc": 0.6417,
+      "per_class": {
+        "toxic": {
+          "precision": 0.9152,
+          "recall": 0.6758,
+          "f1": 0.7775,
+          "pr_auc": 0.9216,
+          "fpr": 0.1034
+        },
+        "severe_toxic": {
+          "precision": 0.387,
+          "recall": 0.9619,
+          "f1": 0.5519,
+          "pr_auc": 0.6911,
+          "fpr": 0.1788
+        },
+        "obscene": {
+          "precision": 0.6577,
+          "recall": 0.8376,
+          "f1": 0.7368,
+          "pr_auc": 0.8611,
+          "fpr": 0.1332
+        },
+        "threat": {
+          "precision": 0.3019,
+          "recall": 0.8533,
+          "f1": 0.446,
+          "pr_auc": 0.6417,
+          "fpr": 0.3482
+        },
+        "insult": {
+          "precision": 0.614,
+          "recall": 0.6604,
+          "f1": 0.6364,
+          "pr_auc": 0.6863,
+          "fpr": 0.2448
+        },
+        "identity_hate": {
+          "precision": 0.4369,
+          "recall": 0.901,
+          "f1": 0.5884,
+          "pr_auc": 0.7327,
+          "fpr": 0.276
+        }
+      }
+    },
+    "Loss_B_Smoothed_ClassWeighted_BCE": {
+      "macro_f1": 0.6467,
+      "micro_f1": 0.7315,
+      "clean_fpr": 0.2,
+      "threat_recall": 0.2933,
+      "threat_precision": 0.6377,
+      "threat_f1": 0.4018,
+      "threat_pr_auc": 0.5033,
+      "per_class": {
+        "toxic": {
+          "precision": 0.8582,
+          "recall": 0.9037,
+          "f1": 0.8804,
+          "pr_auc": 0.9222,
+          "fpr": 0.2467
+        },
+        "severe_toxic": {
+          "precision": 0.5,
+          "recall": 0.8571,
+          "f1": 0.6316,
+          "pr_auc": 0.6706,
+          "fpr": 0.1006
+        },
+        "obscene": {
+          "precision": 0.795,
+          "recall": 0.812,
+          "f1": 0.8034,
+          "pr_auc": 0.8663,
+          "fpr": 0.064
+        },
+        "threat": {
+          "precision": 0.6377,
+          "recall": 0.2933,
+          "f1": 0.4018,
+          "pr_auc": 0.5033,
+          "fpr": 0.0294
+        },
+        "insult": {
+          "precision": 0.7035,
+          "recall": 0.6011,
+          "f1": 0.6483,
+          "pr_auc": 0.7337,
+          "fpr": 0.1494
+        },
+        "identity_hate": {
+          "precision": 0.687,
+          "recall": 0.4115,
+          "f1": 0.5147,
+          "pr_auc": 0.6712,
+          "fpr": 0.0446
+        }
+      }
+    },
+    "Loss_C_MultiLabel_FocalLoss": {
+      "macro_f1": 0.2814,
+      "micro_f1": 0.4834,
+      "clean_fpr": 0.0429,
+      "threat_recall": 0.0,
+      "threat_precision": 0.0,
+      "threat_f1": 0.0,
+      "threat_pr_auc": 0.1747,
+      "per_class": {
+        "toxic": {
+          "precision": 0.9482,
+          "recall": 0.5586,
+          "f1": 0.703,
+          "pr_auc": 0.9343,
+          "fpr": 0.0504
+        },
+        "severe_toxic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "pr_auc": 0.6331,
+          "fpr": 0.0
+        },
+        "obscene": {
+          "precision": 0.9888,
+          "recall": 0.3761,
+          "f1": 0.5449,
+          "pr_auc": 0.854,
+          "fpr": 0.0013
+        },
+        "threat": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "pr_auc": 0.1747,
+          "fpr": 0.0
+        },
+        "insult": {
+          "precision": 0.879,
+          "recall": 0.2938,
+          "f1": 0.4404,
+          "pr_auc": 0.7551,
+          "fpr": 0.0238
+        },
+        "identity_hate": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "pr_auc": 0.2442,
+          "fpr": 0.0
+        }
+      }
+    }
+  },
+  "canonical_failure_predictions": {
+    "Loss_A_Current_PosWeight_BCE": [
+      {
+        "id": "canonical_01",
+        "text": "Bhai kya bawaal cheez banayi hai tune, maza hi aa gaya dekh kar!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5705999732017517,
+          "severe_toxic": 0.5795000195503235,
+          "obscene": 0.608299970626831,
+          "threat": 0.580299973487854,
+          "insult": 0.5720000267028809,
+          "identity_hate": 0.45719999074935913
+        }
+      },
+      {
+        "id": "canonical_02",
+        "text": "\u092d\u093e\u0908 \u0915\u094d\u092f\u093e \u0927\u093e\u0902\u0938\u0942 \u0915\u093e\u092e \u0915\u093f\u092f\u093e \u0939\u0948 \u0906\u092a\u0928\u0947, \u0938\u091a \u092e\u0947\u0902 \u0926\u093f\u0932 \u091c\u0940\u0924 \u0932\u093f\u092f\u093e!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5584999918937683,
+          "severe_toxic": 0.5130000114440918,
+          "obscene": 0.5443000197410583,
+          "threat": 0.5687000155448914,
+          "insult": 0.5457000136375427,
+          "identity_hate": 0.4867999851703644
+        }
+      },
+      {
+        "id": "canonical_03",
+        "text": "Bro, this guitar solo is totally sick! You killed it!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.574999988079071,
+          "severe_toxic": 0.40959998965263367,
+          "obscene": 0.48350000381469727,
+          "threat": 0.6643000245094299,
+          "insult": 0.5325999855995178,
+          "identity_hate": 0.3986000120639801
+        }
+      },
+      {
+        "id": "canonical_04",
+        "text": "Fuck yeah! We finally passed all unit tests after three days of debugging!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.6126999855041504,
+          "severe_toxic": 0.4961000084877014,
+          "obscene": 0.5931000113487244,
+          "threat": 0.5958999991416931,
+          "insult": 0.5892000198364258,
+          "identity_hate": 0.42410001158714294
+        }
+      },
+      {
+        "id": "canonical_05",
+        "text": "I know where your office is and I am going to murder you tonight.",
+        "expected": {
+          "toxic": 1,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 1,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5889000296592712,
+          "severe_toxic": 0.486299991607666,
+          "obscene": 0.4950999915599823,
+          "threat": 0.7236999869346619,
+          "insult": 0.5325000286102295,
+          "identity_hate": 0.4715000092983246
+        }
+      },
+      {
+        "id": "canonical_06",
+        "text": "You are a pathetic failure who should be fired immediately.",
+        "expected": {
+          "toxic": 1,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 1,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.48399999737739563,
+          "severe_toxic": 0.2856999933719635,
+          "obscene": 0.3271999955177307,
+          "threat": 0.5824000239372253,
+          "insult": 0.4359999895095825,
+          "identity_hate": 0.40799999237060547
+        }
+      }
+    ],
+    "Loss_B_Smoothed_ClassWeighted_BCE": [
+      {
+        "id": "canonical_01",
+        "text": "Bhai kya bawaal cheez banayi hai tune, maza hi aa gaya dekh kar!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.6431000232696533,
+          "severe_toxic": 0.3874000012874603,
+          "obscene": 0.4880000054836273,
+          "threat": 0.41499999165534973,
+          "insult": 0.5072000026702881,
+          "identity_hate": 0.3386000096797943
+        }
+      },
+      {
+        "id": "canonical_02",
+        "text": "\u092d\u093e\u0908 \u0915\u094d\u092f\u093e \u0927\u093e\u0902\u0938\u0942 \u0915\u093e\u092e \u0915\u093f\u092f\u093e \u0939\u0948 \u0906\u092a\u0928\u0947, \u0938\u091a \u092e\u0947\u0902 \u0926\u093f\u0932 \u091c\u0940\u0924 \u0932\u093f\u092f\u093e!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.6636000275611877,
+          "severe_toxic": 0.37279999256134033,
+          "obscene": 0.46720001101493835,
+          "threat": 0.43479999899864197,
+          "insult": 0.5148000121116638,
+          "identity_hate": 0.36899998784065247
+        }
+      },
+      {
+        "id": "canonical_03",
+        "text": "Bro, this guitar solo is totally sick! You killed it!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.6800000071525574,
+          "severe_toxic": 0.2734000086784363,
+          "obscene": 0.3831999897956848,
+          "threat": 0.44760000705718994,
+          "insult": 0.489300012588501,
+          "identity_hate": 0.31470000743865967
+        }
+      },
+      {
+        "id": "canonical_04",
+        "text": "Fuck yeah! We finally passed all unit tests after three days of debugging!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.6970000267028809,
+          "severe_toxic": 0.3215000033378601,
+          "obscene": 0.47040000557899475,
+          "threat": 0.3869999945163727,
+          "insult": 0.5278000235557556,
+          "identity_hate": 0.31459999084472656
+        }
+      },
+      {
+        "id": "canonical_05",
+        "text": "I know where your office is and I am going to murder you tonight.",
+        "expected": {
+          "toxic": 1,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 1,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.6640999913215637,
+          "severe_toxic": 0.3107999861240387,
+          "obscene": 0.36039999127388,
+          "threat": 0.5752999782562256,
+          "insult": 0.4657999873161316,
+          "identity_hate": 0.3833000063896179
+        }
+      },
+      {
+        "id": "canonical_06",
+        "text": "You are a pathetic failure who should be fired immediately.",
+        "expected": {
+          "toxic": 1,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 1,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5857999920845032,
+          "severe_toxic": 0.22360000014305115,
+          "obscene": 0.27480000257492065,
+          "threat": 0.4350999891757965,
+          "insult": 0.4018000066280365,
+          "identity_hate": 0.3434000015258789
+        }
+      }
+    ],
+    "Loss_C_MultiLabel_FocalLoss": [
+      {
+        "id": "canonical_01",
+        "text": "Bhai kya bawaal cheez banayi hai tune, maza hi aa gaya dekh kar!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5112000107765198,
+          "severe_toxic": 0.288100004196167,
+          "obscene": 0.3594000041484833,
+          "threat": 0.2912999987602234,
+          "insult": 0.39079999923706055,
+          "identity_hate": 0.29499998688697815
+        }
+      },
+      {
+        "id": "canonical_02",
+        "text": "\u092d\u093e\u0908 \u0915\u094d\u092f\u093e \u0927\u093e\u0902\u0938\u0942 \u0915\u093e\u092e \u0915\u093f\u092f\u093e \u0939\u0948 \u0906\u092a\u0928\u0947, \u0938\u091a \u092e\u0947\u0902 \u0926\u093f\u0932 \u091c\u0940\u0924 \u0932\u093f\u092f\u093e!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5286999940872192,
+          "severe_toxic": 0.2969000041484833,
+          "obscene": 0.36410000920295715,
+          "threat": 0.30469998717308044,
+          "insult": 0.4004000127315521,
+          "identity_hate": 0.3118000030517578
+        }
+      },
+      {
+        "id": "canonical_03",
+        "text": "Bro, this guitar solo is totally sick! You killed it!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5424000024795532,
+          "severe_toxic": 0.2727000117301941,
+          "obscene": 0.34709998965263367,
+          "threat": 0.3000999987125397,
+          "insult": 0.40700000524520874,
+          "identity_hate": 0.3021000027656555
+        }
+      },
+      {
+        "id": "canonical_04",
+        "text": "Fuck yeah! We finally passed all unit tests after three days of debugging!",
+        "expected": {
+          "toxic": 0,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5397999882698059,
+          "severe_toxic": 0.2745000123977661,
+          "obscene": 0.3522000014781952,
+          "threat": 0.29249998927116394,
+          "insult": 0.40560001134872437,
+          "identity_hate": 0.3012000024318695
+        }
+      },
+      {
+        "id": "canonical_05",
+        "text": "I know where your office is and I am going to murder you tonight.",
+        "expected": {
+          "toxic": 1,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 1,
+          "insult": 0,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.5011000037193298,
+          "severe_toxic": 0.258899986743927,
+          "obscene": 0.3043000102043152,
+          "threat": 0.32089999318122864,
+          "insult": 0.37130001187324524,
+          "identity_hate": 0.3133000135421753
+        }
+      },
+      {
+        "id": "canonical_06",
+        "text": "You are a pathetic failure who should be fired immediately.",
+        "expected": {
+          "toxic": 1,
+          "severe_toxic": 0,
+          "obscene": 0,
+          "threat": 0,
+          "insult": 1,
+          "identity_hate": 0
+        },
+        "probs": {
+          "toxic": 0.45739999413490295,
+          "severe_toxic": 0.25839999318122864,
+          "obscene": 0.29330000281333923,
+          "threat": 0.31679999828338623,
+          "insult": 0.3562000095844269,
+          "identity_hate": 0.3174000084400177
+        }
+      }
+    ]
+  }
+}

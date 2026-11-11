@@ -222,6 +222,7 @@ class ProfileWatchService:
                         predictions=scores,
                         is_toxic_flags=is_toxic_flags,
                         thresholds=server.thresholds,
+                        text=item.text,
                     )
                     final_risk = base_risk.value
                     explanation = base_expl

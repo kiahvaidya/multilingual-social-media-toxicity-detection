@@ -96,10 +96,10 @@ class TestRiskClassification:
         assert "borderline" in explanation.lower()
 
     def test_review_elevated_sub_threshold(self, standard_thresholds):
-        # No category flagged, but peak score is 0.41 (>= 0.40)
+        # No category flagged, but peak score is 0.41 (>= 0.40) and not borderline (< threshold - 0.08)
         preds = {k: 0.05 for k in standard_thresholds}
         flags = {k: False for k in standard_thresholds}
-        preds["obscene"] = 0.41  # obscene threshold is 0.65, so not within 0.08, but >= 0.40
+        preds["identity_hate"] = 0.41  # identity_hate threshold is 0.55; 0.55 - 0.41 = 0.14 > 0.08
 
         level, icon, explanation = classify_risk(preds, flags, standard_thresholds)
         assert level == RiskLevel.REVIEW

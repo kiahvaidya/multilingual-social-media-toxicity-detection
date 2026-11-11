@@ -40,7 +40,11 @@ class MuRILForMultiLabelToxicity(nn.Module):
 
     def __init__(self, model_name: str = config.MURIL_MODEL_NAME, num_labels: int = 6):
         super().__init__()
-        self.encoder = AutoModel.from_pretrained(model_name)
+        # Try local cache first for robust offline / sandboxed operation
+        try:
+            self.encoder = AutoModel.from_pretrained(model_name, local_files_only=True)
+        except Exception:
+            self.encoder = AutoModel.from_pretrained(model_name)
         # Bottom 11 layers frozen during training for efficient inference
         for param in self.encoder.encoder.layer[:11].parameters():
             param.requires_grad = False
@@ -68,12 +72,18 @@ def load_muril_thresholds(
     labels: Optional[List[str]] = None,
     path: Optional[Path] = None,
 ) -> Dict[str, float]:
-    """Load Phase 4C validation-optimized per-label thresholds.
+    """Load adapted & calibrated per-label thresholds.
 
     Falls back to frozen constants if file is missing.
     """
     lbls = labels or DEFAULT_LABELS
     target_path = path or config.MURIL_THRESHOLDS_PATH
+
+    # If target_path doesn't exist, check adapted thresholds location
+    if not target_path.exists():
+        adapted_path = config.PROJECT_ROOT / "evaluation_results" / "muril_adapted_thresholds.json"
+        if adapted_path.exists():
+            target_path = adapted_path
 
     if target_path.exists():
         try:
@@ -97,7 +107,7 @@ def load_muril_model(
     Parameters
     ----------
     checkpoint_path : Path, optional
-        Path to muril_toxicity_model.pt
+        Path to muril_toxicity_model.pt or muril_toxicity_model_adapted.pt
     model_name : str, optional
         Base huggingface model name (default: google/muril-base-cased)
     device : torch.device, optional
@@ -117,14 +127,25 @@ def load_muril_model(
     m_name = model_name or config.MURIL_MODEL_NAME
     dev = device or get_device()
 
+    # Automatic fallback only if default configured checkpoint does not exist and no explicit path was provided
+    if checkpoint_path is None and not ckpt_path.exists():
+        for fallback in [config.MURIL_ADAPTED_CHECKPOINT_PATH, config.MURIL_BASE_CHECKPOINT_PATH]:
+            if fallback.exists():
+                logger.info("Selected fallback checkpoint: %s", fallback)
+                ckpt_path = fallback
+                break
+
     if not ckpt_path.exists():
         raise FileNotFoundError(
             f"MuRIL model checkpoint '{ckpt_path.name}' not found at {ckpt_path}. "
-            "Please ensure muril_toxicity_model.pt exists in the project root."
+            "Please ensure muril_toxicity_model.pt or muril_toxicity_model_adapted.pt exists in the project root."
         )
 
     logger.info("Loading MuRIL tokenizer from %s...", m_name)
-    tokenizer = AutoTokenizer.from_pretrained(m_name)
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(m_name, local_files_only=True)
+    except Exception:
+        tokenizer = AutoTokenizer.from_pretrained(m_name)
 
     logger.info("Initializing MuRIL architecture and loading weights from %s...", ckpt_path)
     model = MuRILForMultiLabelToxicity(model_name=m_name, num_labels=len(DEFAULT_LABELS))
@@ -186,7 +207,8 @@ def predict_comment_muril(
     """
     model.eval()
     thresh_dict = thresholds or config.FROZEN_MURIL_THRESHOLDS
-    raw_text = str(text).strip() if text is not None else ""
+    from src.preprocessing import clean_text_for_transformer
+    raw_text = clean_text_for_transformer(str(text)) if text is not None else ""
 
     encoding = tokenizer(
         raw_text,
@@ -199,9 +221,12 @@ def predict_comment_muril(
     input_ids = encoding["input_ids"].to(device, non_blocking=True)
     attention_mask = encoding["attention_mask"].to(device, non_blocking=True)
 
+    calib_temp = float(getattr(config, "MURIL_CALIBRATION_TEMPERATURE", 0.5))
+
     with torch.inference_mode():
         logits = model(input_ids, attention_mask)
-        probs = torch.sigmoid(logits).squeeze(0).cpu().numpy()
+        scaled_logits = logits / calib_temp if calib_temp > 0 else logits
+        probs = torch.sigmoid(scaled_logits).squeeze(0).cpu().numpy()
 
     predictions: Dict[str, float] = {}
     is_toxic_flags: Dict[str, bool] = {}
@@ -266,7 +291,8 @@ def predict_batch_muril(
 
     for start_idx in range(0, total_samples, batch_size):
         end_idx = min(start_idx + batch_size, total_samples)
-        batch_texts = [str(t).strip() for t in texts[start_idx:end_idx]]
+        from src.preprocessing import clean_text_for_transformer
+        batch_texts = [clean_text_for_transformer(str(t)) for t in texts[start_idx:end_idx]]
 
         # Phase 5C: Dynamic padding (padding=True) avoids redundant padding compute for shorter batches
         encoding = tokenizer(
@@ -280,9 +306,12 @@ def predict_batch_muril(
         input_ids = encoding["input_ids"].to(device, non_blocking=True)
         attention_mask = encoding["attention_mask"].to(device, non_blocking=True)
 
+        calib_temp = float(getattr(config, "MURIL_CALIBRATION_TEMPERATURE", 0.5))
+
         with torch.inference_mode():
             logits = model(input_ids, attention_mask)
-            batch_probs = torch.sigmoid(logits).cpu().numpy()
+            scaled_logits = logits / calib_temp if calib_temp > 0 else logits
+            batch_probs = torch.sigmoid(scaled_logits).cpu().numpy()
 
         for probs in batch_probs:
             predictions: Dict[str, float] = {}

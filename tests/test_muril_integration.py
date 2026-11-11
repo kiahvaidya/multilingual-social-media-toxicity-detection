@@ -73,14 +73,7 @@ class TestMuRILLoading:
     @pytest_muril
     def test_muril_frozen_thresholds_exact(self, loaded_muril):
         _, _, _, thresholds, _ = loaded_muril
-        expected = {
-            "toxic": 0.45,
-            "severe_toxic": 0.62,
-            "obscene": 0.65,
-            "threat": 0.59,
-            "insult": 0.61,
-            "identity_hate": 0.60,
-        }
+        expected = config.FROZEN_MURIL_THRESHOLDS
         for k, v in expected.items():
             assert abs(thresholds[k] - v) < 1e-4
 

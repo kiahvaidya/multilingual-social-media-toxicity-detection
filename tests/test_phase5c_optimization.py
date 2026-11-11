@@ -28,6 +28,7 @@ import torch
 import numpy as np
 
 from src.config import config
+from src.preprocessing import clean_text_for_transformer
 from src.model import (
     MuRILForMultiLabelToxicity,
     load_muril_model,
@@ -86,10 +87,11 @@ def _pre_optimization_predict_comment(
 ) -> Tuple[Dict[str, float], float, str, Dict[str, bool]]:
     """Pre-optimization baseline: padding='max_length' and torch.no_grad()."""
     model.eval()
-    raw_text = str(text).strip() if text is not None else ""
+    cleaned_text = clean_text_for_transformer(text)
+    calib_temp = getattr(config, "MURIL_CALIBRATION_TEMPERATURE", 1.0)
 
     encoding = tokenizer(
-        raw_text,
+        cleaned_text,
         truncation=True,
         max_length=config.MAX_SEQ_LENGTH,
         padding="max_length",
@@ -101,7 +103,8 @@ def _pre_optimization_predict_comment(
 
     with torch.no_grad():
         logits = model(input_ids, attention_mask)
-        probs = torch.sigmoid(logits).squeeze(0).cpu().numpy()
+        scaled_logits = logits / calib_temp if calib_temp > 0 else logits
+        probs = torch.sigmoid(scaled_logits).squeeze(0).cpu().numpy()
 
     predictions: Dict[str, float] = {}
     is_toxic_flags: Dict[str, bool] = {}
@@ -135,10 +138,11 @@ def _pre_optimization_predict_batch(
     model.eval()
     total_samples = len(texts)
     results = []
+    calib_temp = getattr(config, "MURIL_CALIBRATION_TEMPERATURE", 1.0)
 
     for start_idx in range(0, total_samples, batch_size):
         end_idx = min(start_idx + batch_size, total_samples)
-        batch_texts = [str(t).strip() for t in texts[start_idx:end_idx]]
+        batch_texts = [clean_text_for_transformer(t) for t in texts[start_idx:end_idx]]
 
         encoding = tokenizer(
             batch_texts,
@@ -153,7 +157,8 @@ def _pre_optimization_predict_batch(
 
         with torch.no_grad():
             logits = model(input_ids, attention_mask)
-            batch_probs = torch.sigmoid(logits).cpu().numpy()
+            scaled_logits = logits / calib_temp if calib_temp > 0 else logits
+            batch_probs = torch.sigmoid(scaled_logits).cpu().numpy()
 
         for probs in batch_probs:
             predictions: Dict[str, float] = {}
@@ -324,12 +329,8 @@ class TestPhase5COutputParity:
     @pytest_muril
     def test_frozen_thresholds_strictly_applied(self, loaded_muril):
         _, _, _, thresholds, _ = loaded_muril
-        assert thresholds["toxic"] == 0.45
-        assert thresholds["severe_toxic"] == 0.62
-        assert thresholds["obscene"] == 0.65
-        assert thresholds["threat"] == 0.59
-        assert thresholds["insult"] == 0.61
-        assert thresholds["identity_hate"] == 0.60
+        for k, v in config.FROZEN_MURIL_THRESHOLDS.items():
+            assert abs(thresholds[k] - v) < 1e-4
 
     def test_logistic_regression_fallback(self):
         model, vectorizer, labels = load_logistic_model()

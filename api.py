@@ -247,8 +247,13 @@ class ModelServer:
         try:
             from transformers import CLIPModel, CLIPProcessor
             logger.info("Loading CLIP ViT-B/32 image processor and model...")
-            self.clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-            self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(self.device).eval()
+            try:
+                self.clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)
+                self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(self.device).eval()
+            except Exception as clip_err:
+                # If offline and not in cache, avoid blocking on remote network attempts
+                logger.warning("CLIP model not cached locally (%s). Skipping multimodal engine initialization.", clip_err)
+                return
 
             logger.info("Loading FinalMultimodalClassifier from %s...", ckpt_path)
             self.multimodal_model = FinalMultimodalClassifier().to(self.device)
@@ -403,11 +408,12 @@ def analyze_text(req: TextAnalysisRequest):
     if mod_res.jev_invoked:
         trace.append({"stage": "JEV Contextual Adjudication", "status": "COMPLETED", "duration_ms": 12.0})
 
-    if mod_res.jev_invoked:
-        # Contextual adjudication overrides raw lexical flags
-        is_overall_toxic = (mod_res.final_risk_level == RiskLevel.HIGH_RISK)
+    if mod_res.final_risk_level == RiskLevel.SAFE:
+        is_overall_toxic = False
+    elif mod_res.final_risk_level == RiskLevel.HIGH_RISK:
+        is_overall_toxic = True
     else:
-        is_overall_toxic = (mod_res.final_risk_level == RiskLevel.HIGH_RISK) or any(is_toxic_flags.values())
+        is_overall_toxic = any(is_toxic_flags.values()) and not mod_res.is_ambiguous
 
     return TextAnalysisResponse(
         text=req.text,
@@ -799,15 +805,15 @@ def analyze_social_media_url(req: SocialAnalysisRequest):
             r_expl = mod_res.final_explanation
             r_amb = mod_res.is_ambiguous
             r_reason = mod_res.gate_reason
-            is_tox = (mod_res.final_risk_level == RiskLevel.HIGH_RISK) or any(is_toxic_flags.values())
+            is_tox = (mod_res.final_risk_level == RiskLevel.HIGH_RISK) or (mod_res.final_risk_level != RiskLevel.SAFE and any(is_toxic_flags.values()))
         else:
-            base_risk, base_icon, base_expl = classify_risk(scores, is_toxic_flags, server.thresholds)
+            base_risk, base_icon, base_expl = classify_risk(scores, is_toxic_flags, server.thresholds, text=comment_text)
             r_level = base_risk.value
             r_icon = base_icon
             r_expl = base_expl
             r_amb = False
             r_reason = "Deterministic policy triage"
-            is_tox = (base_risk == RiskLevel.HIGH_RISK) or any(is_toxic_flags.values())
+            is_tox = (base_risk == RiskLevel.HIGH_RISK) or (base_risk != RiskLevel.SAFE and any(is_toxic_flags.values()))
 
         results.append({
             "id": f"soc_{platform.lower()}_{idx + 1}",

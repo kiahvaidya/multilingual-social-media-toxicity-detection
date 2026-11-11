@@ -31,20 +31,31 @@ class _Config:
 
     # ── MuRIL Multilingual Model Paths & Settings ───────────
     MURIL_MODEL_NAME: str = "google/muril-base-cased"
-    MURIL_CHECKPOINT_PATH: Path = _PROJECT_ROOT / "muril_toxicity_model.pt"
-    MURIL_THRESHOLDS_PATH: Path = _PROJECT_ROOT / "evaluation_results" / "muril_optimized_thresholds.json"
+    MURIL_ADAPTED_CHECKPOINT_PATH: Path = _PROJECT_ROOT / "muril_toxicity_model_adapted.pt"
+    MURIL_BASE_CHECKPOINT_PATH: Path = _PROJECT_ROOT / "muril_toxicity_model.pt"
+    MURIL_CHECKPOINT_PATH: Path = (
+        (_PROJECT_ROOT / "muril_toxicity_model_adapted.pt")
+        if (_PROJECT_ROOT / "muril_toxicity_model_adapted.pt").exists()
+        else (_PROJECT_ROOT / "muril_toxicity_model.pt")
+    )
+    MURIL_THRESHOLDS_PATH: Path = (
+        (_PROJECT_ROOT / "evaluation_results" / "muril_adapted_thresholds.json")
+        if (_PROJECT_ROOT / "evaluation_results" / "muril_adapted_thresholds.json").exists()
+        else (_PROJECT_ROOT / "evaluation_results" / "muril_optimized_thresholds.json")
+    )
     
-    # Frozen Phase 4C validation-optimized per-label thresholds
+    # Adapted & calibrated per-label thresholds (validated in Phase 8-10)
     FROZEN_MURIL_THRESHOLDS: dict = {
-        "toxic": 0.45,
-        "severe_toxic": 0.62,
-        "obscene": 0.65,
-        "threat": 0.59,
-        "insult": 0.61,
-        "identity_hate": 0.60,
+        "toxic": 0.43,
+        "severe_toxic": 0.50,
+        "obscene": 0.45,
+        "threat": 0.40,
+        "insult": 0.50,
+        "identity_hate": 0.55,
     }
     DEFAULT_MODEL_TYPE: str = "muril"
-    MAX_SEQ_LENGTH: int = 64
+    MURIL_CALIBRATION_TEMPERATURE: float = 0.5
+    MAX_SEQ_LENGTH: int = 128
     BATCH_SIZE: int = 32
 
     # ── API Keys (loaded from .env) ────────────────────────

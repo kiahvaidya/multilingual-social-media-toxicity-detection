@@ -368,8 +368,15 @@ class TestScanExecutionAndDeduplication(unittest.TestCase):
 class TestProfileWatchAPIContracts(unittest.TestCase):
     """Test FastAPI endpoints for Profile Watch."""
 
-    def setUp(self):
-        self.client = TestClient(app)
+    @classmethod
+    def setUpClass(cls):
+        cls._patcher = patch("api.ModelServer.get_instance")
+        cls._mock_ms = cls._patcher.start()
+        cls.client = TestClient(app)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._patcher.stop()
 
     @patch("api.profile_watch_service.scan_profile")
     def test_post_scan_endpoint(self, mock_scan):

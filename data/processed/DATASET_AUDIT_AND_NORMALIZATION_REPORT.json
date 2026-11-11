@@ -1,0 +1,128 @@
+{
+  "audit_timestamp": "2026-10-27",
+  "raw_datasets": {
+    "jigsaw_toxic_comment": {
+      "total_train_rows": 159571,
+      "columns": [
+        "id",
+        "comment_text",
+        "toxic",
+        "severe_toxic",
+        "obscene",
+        "threat",
+        "insult",
+        "identity_hate"
+      ],
+      "total_scored_test_rows": 63978,
+      "class_frequencies_train": {
+        "toxic": 15294,
+        "severe_toxic": 1595,
+        "obscene": 8449,
+        "threat": 478,
+        "insult": 7877,
+        "identity_hate": 1405
+      },
+      "class_percentages_train": {
+        "toxic": 9.584,
+        "severe_toxic": 1.0,
+        "obscene": 5.295,
+        "threat": 0.3,
+        "insult": 4.936,
+        "identity_hate": 0.88
+      }
+    },
+    "hasoc_2021": {
+      "hindi_rows": 4594,
+      "hindi_columns": [
+        "Unnamed: 0",
+        "_id",
+        "tweet_id",
+        "text",
+        "task_1",
+        "task_2"
+      ],
+      "hindi_task1_distribution": {
+        "NOT": 3161,
+        "HOF": 1433
+      },
+      "hindi_task2_distribution": {
+        "NONE": 3161,
+        "OFFN": 654,
+        "HATE": 566,
+        "PRFN": 213
+      },
+      "english_rows": 3843,
+      "english_task1_distribution": {
+        "HOF": 2501,
+        "NOT": 1342
+      }
+    },
+    "trac_1": {
+      "hindi_train_rows": 12000,
+      "hindi_label_distribution": {
+        "CAG": 4869,
+        "OAG": 4856,
+        "NAG": 2275
+      },
+      "english_train_rows": 12000,
+      "english_label_distribution": {
+        "NAG": 5052,
+        "CAG": 4240,
+        "OAG": 2708
+      }
+    },
+    "civil_comments": {
+      "train_sample_rows": 50000,
+      "columns": [
+        "text",
+        "toxicity",
+        "severe_toxicity",
+        "obscene",
+        "threat",
+        "insult",
+        "identity_attack",
+        "sexual_explicit"
+      ],
+      "train_sample_threat_count": 664,
+      "train_sample_toxic_count": 17809,
+      "validation_rows": 97320
+    }
+  },
+  "cross_dataset_leakage": {
+    "jigsaw_train": {
+      "jigsaw_test": 70,
+      "civil_comments_train": 3
+    },
+    "jigsaw_test": {
+      "jigsaw_train": 70,
+      "hasoc_english": 1,
+      "trac_english_train": 4,
+      "civil_comments_train": 18
+    },
+    "hasoc_hindi": {},
+    "hasoc_english": {
+      "jigsaw_test": 1,
+      "civil_comments_train": 1
+    },
+    "trac_hindi_train": {
+      "trac_english_train": 5
+    },
+    "trac_english_train": {
+      "jigsaw_test": 4,
+      "trac_hindi_train": 5,
+      "civil_comments_train": 24
+    },
+    "civil_comments_train": {
+      "jigsaw_train": 3,
+      "jigsaw_test": 18,
+      "hasoc_english": 1,
+      "trac_english_train": 24
+    }
+  },
+  "processed_artifacts": [
+    "data/processed/jigsaw_six_label_train.jsonl",
+    "data/processed/hasoc_2021_unified.jsonl",
+    "data/processed/trac_1_unified.jsonl",
+    "data/processed/civil_comments_six_label_sample.jsonl"
+  ]
+}

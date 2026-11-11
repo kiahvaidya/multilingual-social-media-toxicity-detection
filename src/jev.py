@@ -61,6 +61,8 @@ class JEVIntent(str, Enum):
     THREAT = "threat"
     HATE = "hate"
     NON_TOXIC_PRAISE_OR_EXCITEMENT = "non_toxic_praise_or_excitement"
+    SARCASTIC_MOCKERY = "sarcastic_mockery"
+    COUNTER_SPEECH_OR_REPORTING = "counter_speech_or_reporting"
     AMBIGUOUS = "ambiguous"
 
     @classmethod
@@ -75,7 +77,13 @@ class JEVIntent(str, Enum):
             "non_toxic_praise_or_excitement": cls.NON_TOXIC_PRAISE_OR_EXCITEMENT,
             "praise_or_excitement": cls.NON_TOXIC_PRAISE_OR_EXCITEMENT,
             "harmless_profanity": cls.NON_TOXIC_PRAISE_OR_EXCITEMENT,
-            "sarcasm_or_joke": cls.NON_TOXIC_PRAISE_OR_EXCITEMENT,
+            "sarcasm_or_joke": cls.SARCASTIC_MOCKERY,
+            "sarcastic_mockery": cls.SARCASTIC_MOCKERY,
+            "sarcasm": cls.SARCASTIC_MOCKERY,
+            "counter_speech_or_reporting": cls.COUNTER_SPEECH_OR_REPORTING,
+            "counter_speech": cls.COUNTER_SPEECH_OR_REPORTING,
+            "reporting_abuse": cls.COUNTER_SPEECH_OR_REPORTING,
+            "quoted_abuse": cls.COUNTER_SPEECH_OR_REPORTING,
             "ambiguous": cls.AMBIGUOUS,
         }
         return mapping.get(val, cls.AMBIGUOUS)
@@ -380,7 +388,7 @@ class HTTPJEVDecisionProvider(JEVDecisionProvider):
 
 class GeminiJEVResponseSchema(BaseModel):
     """Strict structured JSON response schema for Gemini JEV contextual adjudication."""
-    intent: str = Field(description="genuine_abuse, threat, hate, non_toxic_praise_or_excitement, or ambiguous")
+    intent: str = Field(description="genuine_abuse, threat, hate, non_toxic_praise_or_excitement, sarcastic_mockery, counter_speech_or_reporting, or ambiguous")
     contextual_toxicity: bool = Field(description="Whether the comment is contextually toxic")
     moderation: str = Field(description="SAFE, REVIEW, or HIGH_RISK")
     human_review_required: bool = Field(description="Whether human review is required")
@@ -465,7 +473,9 @@ Specifically distinguish genuine abuse from:
 2. Colloquial praise metaphors & slang (e.g., "you killed it", "this is sick", "bhai bawaal banaya hai", "aag laga di", "katai zeher")
 3. Friendly peer banter & informal teasing (e.g., "abe saale kitne din baad mila", "job lag gayi bc treat de")
 4. Harmless obfuscation or leetspeak (e.g., "c00l sh!rt", "gr8 work")
-5. Genuine abuse, hostility, targeted insults, threats, or hate speech (e.g., "you're a fucking idiot and I hope you get hurt", "tu ek number ka kutta hai")
+5. Sarcastic mockery or pragmatic irony (e.g., "Great job breaking the production server, absolute genius", "wah pura kaam kharab kar diya")
+6. Counter-speech or victim reporting (e.g., "He called me an idiot and it hurt", "Stop calling people chutiya, show respect", quoting toxic words to condemn them)
+7. Genuine abuse, hostility, targeted insults, threats, or hate speech (e.g., "you're a fucking idiot and I hope you get hurt", "tu ek number ka kutta hai")
 
 [DECISION RULES]
 - If the comment is benign praise, excitement, friendly banter, or non-aggressive slang:
@@ -473,6 +483,18 @@ Specifically distinguish genuine abuse from:
   contextual_toxicity: false
   moderation: "SAFE"
   human_review_required: false
+
+- If the comment is counter-speech condemning toxicity, or a victim reporting harassment without abusive hostility:
+  intent: "counter_speech_or_reporting"
+  contextual_toxicity: false
+  moderation: "SAFE"
+  human_review_required: false
+
+- If the comment uses sarcastic mockery or pragmatic irony to mock, ridicule, or belittle someone:
+  intent: "sarcastic_mockery"
+  contextual_toxicity: true
+  moderation: "REVIEW"
+  human_review_required: true
 
 - If the comment contains explicit threats, targeted abuse, harassment, or hate speech:
   intent: "genuine_abuse" (or "threat" or "hate" as applicable)
@@ -489,7 +511,7 @@ Specifically distinguish genuine abuse from:
 [OUTPUT REQUIREMENTS]
 Respond strictly with a valid JSON object matching this schema:
 {{
-  "intent": "genuine_abuse" | "threat" | "hate" | "non_toxic_praise_or_excitement" | "ambiguous",
+  "intent": "genuine_abuse" | "threat" | "hate" | "non_toxic_praise_or_excitement" | "sarcastic_mockery" | "counter_speech_or_reporting" | "ambiguous",
   "contextual_toxicity": true | false,
   "moderation": "SAFE" | "REVIEW" | "HIGH_RISK",
   "human_review_required": true | false,
@@ -651,7 +673,50 @@ class MockJEVDecisionProvider(JEVDecisionProvider):
         t_clean = text.strip()
         t_lower = t_clean.lower()
 
-        # ── 1. Explicit Praise & Enthusiastic Slang ──────────────────────────
+        # ── 1. Counter-Speech & Pragmatic Sarcasm Attribution ────────────────
+        from src.moderation import (
+            analyze_syntactic_intent,
+            detect_counter_speech_context,
+            detect_sarcasm_indicators,
+        )
+        is_counter_speech, counter_reason = detect_counter_speech_context(t_clean)
+        if is_counter_speech and not any(tm in t_lower for tm in ["murder you", "goli maar", "beat you until"]):
+            return JEVDecision(
+                intent=JEVIntent.COUNTER_SPEECH_OR_REPORTING,
+                contextual_toxicity=False,
+                moderation=RiskLevel.SAFE,
+                human_review_required=False,
+                confidence=0.92,
+                reason="Counter-speech condemning toxic language or victim reporting abusive quote without abusive intent.",
+                provider_type=JEVProviderType.MOCK_JEV,
+            )
+
+        is_sarcasm, sarcasm_reason = detect_sarcasm_indicators(t_clean)
+        if is_sarcasm:
+            return JEVDecision(
+                intent=JEVIntent.SARCASTIC_MOCKERY,
+                contextual_toxicity=True,
+                moderation=RiskLevel.REVIEW,
+                human_review_required=True,
+                confidence=0.89,
+                reason="Sarcastic mockery / pragmatic irony identified where praise contradicts derision of failure.",
+                provider_type=JEVProviderType.MOCK_JEV,
+            )
+
+        # ── 2. Syntactic Role & Word Class Analysis ──────────────────────────
+        syntax = analyze_syntactic_intent(t_clean)
+        if syntax.is_intensified_praise and not is_sarcasm:
+            return JEVDecision(
+                intent=JEVIntent.NON_TOXIC_PRAISE_OR_EXCITEMENT,
+                contextual_toxicity=False,
+                moderation=RiskLevel.SAFE,
+                human_review_required=False,
+                confidence=0.96,
+                reason=f"Syntactic analysis confirmed intensified praise: {syntax.syntactic_role_summary}. Non-toxic intent.",
+                provider_type=JEVProviderType.MOCK_JEV,
+            )
+
+        # ── 1b. Explicit Praise & Enthusiastic Slang ──────────────────────────
         praise_metaphors = [
             "killed it", "totally sick", "drop-dead gorgeous", "bawaal", "धांसू",
             "gadar", "aag laga di", "band baja diya", "todu", "wicked smart",
@@ -659,6 +724,9 @@ class MockJEVDecisionProvider(JEVDecisionProvider):
             "went so hard", "murder on the dancefloor", "murder on the speakers",
             "destroyed me", "deadly performance", "katai zeher", "gr8 work",
             "f-a-n-t-a-s-t-i-c", "b.r.a.v.o", "bravo", "dil jeet liya", "w0w",
+            "the goat", "the fucking goat", "fucking goat", "fucking legend",
+            "fucking awesome", "fucking amazing", "fucking brilliant", "absolute legend",
+            "u are the goat", "you are the goat",
         ]
         if any(m in t_lower for m in praise_metaphors) and not any(
             ab in t_lower for ab in ["kutte", "chutiya", "madarchod", "bhosdike", "gandu", "scumbag", "parasitic filth"]
@@ -708,7 +776,7 @@ class MockJEVDecisionProvider(JEVDecisionProvider):
             )
 
         # ── 3. Benign Leetspeak / Obfuscated Innocent Text ───────────────────
-        if ("sh!rt" in t_lower or "c00l" in t_lower or "luv th!s" in t_lower or "gooood joooob" in t_lower) and not any(
+        if ("sh!rt" in t_lower or "c00l" in t_lower or "cool shirt" in t_lower or "luv th!s" in t_lower or "gooood joooob" in t_lower) and not any(
             bad in t_lower for bad in ["f**k", "b!tch", "1diot", "l0ser", "k!ll", "@sshole", "madarch0d", "b.h.o.s.d.i.k.e"]
         ):
             return JEVDecision(
@@ -720,6 +788,7 @@ class MockJEVDecisionProvider(JEVDecisionProvider):
                 reason="Innocuous stylized leetspeak or character elongation without offensive semantics.",
                 provider_type=JEVProviderType.MOCK_JEV,
             )
+
 
         # ── 4. Genuine Severe Threats & Violence ────────────────────────────
         threat_markers = [

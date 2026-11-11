@@ -1,0 +1,174 @@
+{
+  "temperature_scalar": 0.5,
+  "calibration_metrics": {
+    "uncalibrated": {
+      "brier_score": 0.1215,
+      "ece": 0.3092
+    },
+    "calibrated": {
+      "brier_score": 0.0579,
+      "ece": 0.1833
+    }
+  },
+  "optimized_thresholds": {
+    "toxic": 0.431,
+    "severe_toxic": 0.493,
+    "obscene": 0.348,
+    "threat": 0.409,
+    "insult": 0.519,
+    "identity_hate": 0.55
+  },
+  "threat_evaluation_suite": {
+    "threat_recall_0.50": 0.5882,
+    "threat_precision_0.50": 1.0,
+    "threat_f1_0.50": 0.7407,
+    "figurative_false_positives": 0,
+    "total_figurative_samples": 12
+  },
+  "canonical_cases": [
+    {
+      "id": "canonical_01",
+      "text": "Bhai kya bawaal cheez banayi hai tune, maza hi aa gaya dekh kar!",
+      "category": "POSITIVE_HINGLISH_PRAISE",
+      "expected": "SAFE",
+      "predicted": "SAFE",
+      "is_correct": true,
+      "probs": {
+        "toxic": 0.20839999616146088,
+        "severe_toxic": 0.181099995970726,
+        "obscene": 0.16680000722408295,
+        "threat": 0.22540000081062317,
+        "insult": 0.2257000058889389,
+        "identity_hate": 0.18729999661445618
+      },
+      "thresholds": {
+        "toxic": 0.431,
+        "severe_toxic": 0.493,
+        "obscene": 0.348,
+        "threat": 0.409,
+        "insult": 0.519,
+        "identity_hate": 0.55
+      }
+    },
+    {
+      "id": "canonical_02",
+      "text": "\u092d\u093e\u0908 \u0915\u094d\u092f\u093e \u0927\u093e\u0902\u0938\u0942 \u0915\u093e\u092e \u0915\u093f\u092f\u093e \u0939\u0948 \u0906\u092a\u0928\u0947, \u0938\u091a \u092e\u0947\u0902 \u0926\u093f\u0932 \u091c\u0940\u0924 \u0932\u093f\u092f\u093e!",
+      "category": "POSITIVE_HINDI_PRAISE",
+      "expected": "SAFE",
+      "predicted": "SAFE",
+      "is_correct": true,
+      "probs": {
+        "toxic": 0.2160000056028366,
+        "severe_toxic": 0.17550000548362732,
+        "obscene": 0.16300000250339508,
+        "threat": 0.20360000431537628,
+        "insult": 0.24779999256134033,
+        "identity_hate": 0.19259999692440033
+      },
+      "thresholds": {
+        "toxic": 0.431,
+        "severe_toxic": 0.493,
+        "obscene": 0.348,
+        "threat": 0.409,
+        "insult": 0.519,
+        "identity_hate": 0.55
+      }
+    },
+    {
+      "id": "canonical_03",
+      "text": "Bro, this guitar solo is totally sick! You killed it!",
+      "category": "POSITIVE_LEXICAL_AMBIGUITY",
+      "expected": "SAFE",
+      "predicted": "SAFE",
+      "is_correct": true,
+      "probs": {
+        "toxic": 0.21389999985694885,
+        "severe_toxic": 0.1737000048160553,
+        "obscene": 0.16599999368190765,
+        "threat": 0.19859999418258667,
+        "insult": 0.24580000340938568,
+        "identity_hate": 0.19529999792575836
+      },
+      "thresholds": {
+        "toxic": 0.431,
+        "severe_toxic": 0.493,
+        "obscene": 0.348,
+        "threat": 0.409,
+        "insult": 0.519,
+        "identity_hate": 0.55
+      }
+    },
+    {
+      "id": "canonical_04",
+      "text": "Fuck yeah! We finally passed all unit tests after three days of debugging!",
+      "category": "BENIGN_PROFANITY_EXCITEMENT",
+      "expected": "SAFE",
+      "predicted": "SAFE",
+      "is_correct": true,
+      "probs": {
+        "toxic": 0.21089999377727509,
+        "severe_toxic": 0.1770000010728836,
+        "obscene": 0.1665000021457672,
+        "threat": 0.20329999923706055,
+        "insult": 0.23549999296665192,
+        "identity_hate": 0.1972000002861023
+      },
+      "thresholds": {
+        "toxic": 0.431,
+        "severe_toxic": 0.493,
+        "obscene": 0.348,
+        "threat": 0.409,
+        "insult": 0.519,
+        "identity_hate": 0.55
+      }
+    },
+    {
+      "id": "canonical_05",
+      "text": "I know where your office is and I am going to murder you tonight.",
+      "category": "DIRECT_THREAT",
+      "expected": "toxic,threat",
+      "predicted": "toxic,threat",
+      "is_correct": true,
+      "probs": {
+        "toxic": 0.6402000188827515,
+        "severe_toxic": 0.2612000107765198,
+        "obscene": 0.23389999568462372,
+        "threat": 0.8755999803543091,
+        "insult": 0.37709999084472656,
+        "identity_hate": 0.2599000036716461
+      },
+      "thresholds": {
+        "toxic": 0.431,
+        "severe_toxic": 0.493,
+        "obscene": 0.348,
+        "threat": 0.409,
+        "insult": 0.519,
+        "identity_hate": 0.55
+      }
+    },
+    {
+      "id": "canonical_06",
+      "text": "You are a pathetic failure who should be fired immediately.",
+      "category": "GENUINE_INSULT",
+      "expected": "toxic,insult",
+      "predicted": "toxic,obscene,insult",
+      "is_correct": false,
+      "probs": {
+        "toxic": 0.670799970626831,
+        "severe_toxic": 0.18850000202655792,
+        "obscene": 0.35089999437332153,
+        "threat": 0.2922999858856201,
+        "insult": 0.791100025177002,
+        "identity_hate": 0.32580000162124634
+      },
+      "thresholds": {
+        "toxic": 0.431,
+        "severe_toxic": 0.493,
+        "obscene": 0.348,
+        "threat": 0.409,
+        "insult": 0.519,
+        "identity_hate": 0.55
+      }
+    }
+  ]
+}
